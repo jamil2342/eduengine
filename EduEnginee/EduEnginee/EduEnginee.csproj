@@ -125,14 +125,40 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuizDefinitionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\QuestionDefinition.cs">
+      <DependentUpon>QuizDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuizAnswer.cs">
+      <DependentUpon>QuizDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuizDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuizDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QuizDbModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuizDbModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuizDefinition.cs">
+      <DependentUpon>QuizDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Quizze.cs">
+      <DependentUpon>QuizDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>QuizDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -228,6 +254,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\QuizDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\QuizDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuizDb.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\QuizDefinition\Index.cshtml" />
+    <Content Include="Views\QuizDefinition\Details.cshtml" />
+    <Content Include="Views\QuizDefinition\Create.cshtml" />
+    <Content Include="Views\QuizDefinition\Edit.cshtml" />
+    <Content Include="Views\QuizDefinition\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
