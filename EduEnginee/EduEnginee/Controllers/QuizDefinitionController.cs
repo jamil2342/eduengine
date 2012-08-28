@@ -9,6 +9,7 @@ using EduEnginee.Models;
 
 namespace EduEnginee.Controllers
 {
+    [Authorize]
     public class QuizDefinitionController : Controller
     {
         private QuizDbEntities db = new QuizDbEntities();
@@ -55,6 +56,7 @@ namespace EduEnginee.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+           
 
             return View(quizdefinition);
         }
