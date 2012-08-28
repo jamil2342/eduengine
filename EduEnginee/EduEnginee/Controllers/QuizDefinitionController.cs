@@ -52,7 +52,14 @@ namespace EduEnginee.Controllers
         {
             if (ModelState.IsValid)
             {
+                quizdefinition.CreatedBy = User.Identity.Name;
+                quizdefinition.CreatedDate = System.DateTime.Now;
+                quizdefinition.UpdatedBy = User.Identity.Name;
+                quizdefinition.UpdatedDate = System.DateTime.Now;
+                
+                
                 db.QuizDefinitions.Add(quizdefinition);
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -82,6 +89,10 @@ namespace EduEnginee.Controllers
         {
             if (ModelState.IsValid)
             {
+                quizdefinition.UpdatedBy = User.Identity.Name;
+                quizdefinition.UpdatedDate = System.DateTime.Now;
+
+
                 db.Entry(quizdefinition).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
