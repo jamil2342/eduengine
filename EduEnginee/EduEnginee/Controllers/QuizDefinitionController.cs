@@ -32,7 +32,7 @@ namespace EduEnginee.Controllers
             {
                 return HttpNotFound();
             }
-            return View(quizdefinition);
+            return PartialView(quizdefinition);
             
         }
 

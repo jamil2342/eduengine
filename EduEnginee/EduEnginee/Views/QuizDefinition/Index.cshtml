@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+@*<table>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.QuizName)
@@ -46,4 +46,25 @@
     </tr>
 }
 
-</table>
+</table>*@
+
+<div id="accordion">
+@foreach (var item in Model)
+{
+    
+    <h3><a href="#">@item.QuizName</a></h3>
+	<div>
+        <p>Duration:@item.TimeLimitInMinutes minute</p>
+		<p>  
+        @Html.Action("Details",  new {id=item.Id} )   
+        @item.Description
+		</p>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |            
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        
+        </p>
+	</div>
+    
+}	
+</div>
