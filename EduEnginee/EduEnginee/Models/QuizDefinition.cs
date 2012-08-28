@@ -22,7 +22,6 @@ namespace EduEnginee.Models
     
         public int Id { get; set; }
         public string QuizName { get; set; }
-        public System.Guid Owner { get; set; }
         public string Description { get; set; }
         public int TimeLimitInMinutes { get; set; }
         public string CreatedBy { get; set; }
