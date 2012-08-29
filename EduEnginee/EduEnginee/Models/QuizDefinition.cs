@@ -9,6 +9,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace EduEnginee.Models
 {
@@ -21,8 +24,10 @@ namespace EduEnginee.Models
         }
     
         public int Id { get; set; }
+
         public string QuizName { get; set; }
         public string Description { get; set; }
+        [DisplayName("Duration")]
         public int TimeLimitInMinutes { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
