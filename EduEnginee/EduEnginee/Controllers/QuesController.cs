@@ -51,6 +51,19 @@ namespace EduEnginee.Controllers
             return PartialView("GridData", new QuestionDefinition[] { questiondefinition });
         }
 
+        public ActionResult Details(int id = 0)
+        {
+            QuestionDefinition quesDefinition = db.QuestionDefinitions.Find(id);
+            if (quesDefinition == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView("_Details", quesDefinition);
+
+        }
+
+
+
         //
         // GET: /Ques/Create
 

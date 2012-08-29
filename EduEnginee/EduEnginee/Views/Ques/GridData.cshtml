@@ -3,17 +3,7 @@
 @foreach (var item in Model) {
     <tr data-pkey="@item.Id">
         <td>
-            @item.SortOrder
-            
-        </td>
-        <td>
-            <b>Ques:@item.QuestionText</b>
-            <br />
-            <br />
-            1.@item.Option1<br />
-            2.@item.Option2<br />
-            3.@item.Option3<br />
-            4.@item.Option4<br />  
+            @Html.Partial("_Details",item)
             
             
             <a href="#makeRowEditable" class="makeRowEditable">Edit</a> |

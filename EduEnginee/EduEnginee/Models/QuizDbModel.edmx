@@ -220,7 +220,6 @@
           <Property Name="Explanation" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="QuizDefinition" Relationship="QuizDbModel.FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1" FromRole="QuestionDefinitions" ToRole="QuizDefinitions" />
           <NavigationProperty Name="QuizAnswers" Relationship="QuizDbModel.FK_QuizAnswers_QuestionDefinitions" FromRole="QuestionDefinitions" ToRole="QuizAnswers" />
-          <Property Type="String" Name="CorrectAnsText" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="QuizAnswer">
           <Key>
@@ -402,18 +401,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="QuizDbModel">
-        <EntityTypeShape EntityType="QuizDbModel.QuestionDefinition" Width="1.5" PointX="3" PointY="1.25" Height="4.2879036458333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel.QuestionDefinition" Width="1.5" PointX="3" PointY="1.25" Height="4.0956022135416656" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel.QuizAnswer" Width="1.5" PointX="5.25" PointY="3.875" Height="2.5571907552083322" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel.QuizDefinition" Width="1.5" PointX="0.75" PointY="3.5" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel.Quizze" Width="1.5" PointX="3" PointY="6" Height="2.9417936197916648" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
         <AssociationConnector Association="QuizDbModel.FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="4.5189518229166667" />
-          <ConnectorPoint PointX="3" PointY="4.5189518229166667" />
+          <ConnectorPoint PointX="2.25" PointY="4.4228011067708328" />
+          <ConnectorPoint PointX="3" PointY="4.4228011067708328" />
         </AssociationConnector>
         <AssociationConnector Association="QuizDbModel.FK_QuizAnswers_QuestionDefinitions" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.7064518229166667" />
-          <ConnectorPoint PointX="5.25" PointY="4.7064518229166667" />
+          <ConnectorPoint PointX="4.5" PointY="4.6103011067708328" />
+          <ConnectorPoint PointX="5.25" PointY="4.6103011067708328" />
         </AssociationConnector>
         <AssociationConnector Association="QuizDbModel.FK_QuizAnswers_Quizzes" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="6.2160953776041659" />
