@@ -4,55 +4,85 @@
     @:data-pkey="@Model.Id"
 }>
 <td>
-    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
+
         @Html.EditorFor(model => model.QuestionData)
         @Html.ValidationMessageFor(model => model.QuestionData)
     
     
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.EditorFor(model => model.QuestionTypeName)
         @Html.ValidationMessageFor(model => model.QuestionTypeName)
     
     
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.EditorFor(model => model.SortOrder)
         @Html.ValidationMessageFor(model => model.SortOrder)
     
-    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.DropDownList("QuizDefinitionKey", String.Empty)
         @Html.ValidationMessageFor(model => model.QuizDefinitionKey)
     
-    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.EditorFor(model => model.QuestionText)
         @Html.ValidationMessageFor(model => model.QuestionText)
     
-    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.EditorFor(model => model.Option1)
         @Html.ValidationMessageFor(model => model.Option1)
     
-    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.EditorFor(model => model.Option2)
         @Html.ValidationMessageFor(model => model.Option2)
     
-    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.EditorFor(model => model.Option3)
         @Html.ValidationMessageFor(model => model.Option3)
     
-    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.EditorFor(model => model.Option4)
         @Html.ValidationMessageFor(model => model.Option4)
     
-    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.EditorFor(model => model.Option5)
         @Html.ValidationMessageFor(model => model.Option5)
-    
-    
+            
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>    
         @Html.EditorFor(model => model.Option6)
         @Html.ValidationMessageFor(model => model.Option6)
     
-    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.EditorFor(model => model.CorrectAns)
         @Html.ValidationMessageFor(model => model.CorrectAns)
     
-    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuizName)
+        </div>
         @Html.EditorFor(model => model.Explanation)
         @Html.ValidationMessageFor(model => model.Explanation)
         @if (ViewContext.RouteData.Values["Action"].ToString() == "Edit") {
