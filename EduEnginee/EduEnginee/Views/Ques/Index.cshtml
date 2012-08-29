@@ -66,72 +66,17 @@
     <table id="AjaxGrid">
         <thead>
             <tr>
+                <th  data-column-name="SortOrder">
+                    <span class="reorder">@Html.DisplayNameFor(model => model.SortOrder)</span>
+                    <a href="@Url.RouteUrl(new { orderBy = "SortOrder", desc = true })" class="uparrow">&uarr;</a>
+                    <a href="@Url.RouteUrl(new { orderBy = "SortOrder" })" class="downarrow">&darr;</a>
+                </th>
                 <th data-column-name="QuestionData">
                     <span class="reorder">@Html.DisplayNameFor(model => model.QuestionData)</span>
                     <a href="@Url.RouteUrl(new { orderBy = "QuestionData", desc = true })" class="uparrow">&uarr;</a>
                     <a href="@Url.RouteUrl(new { orderBy = "QuestionData" })" class="downarrow">&darr;</a>
                 </th>
-                <th data-column-name="QuestionTypeName">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.QuestionTypeName)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "QuestionTypeName", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "QuestionTypeName" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="SortOrder">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.SortOrder)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "SortOrder", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "SortOrder" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="QuizDefinition.QuizName">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.QuizDefinition.QuizName)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "QuizDefinition.QuizName", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "QuizDefinition.QuizName" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="QuestionText">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.QuestionText)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "QuestionText", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "QuestionText" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="Option1">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.Option1)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option1", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option1" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="Option2">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.Option2)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option2", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option2" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="Option3">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.Option3)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option3", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option3" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="Option4">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.Option4)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option4", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option4" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="Option5">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.Option5)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option5", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option5" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="Option6">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.Option6)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option6", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option6" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="CorrectAns">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.CorrectAns)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "CorrectAns", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "CorrectAns" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="Explanation">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.Explanation)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "Explanation", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "Explanation" })" class="downarrow">&darr;</a>
-                </th>
-                <th class="hidden"></th>
+
             </tr>
         </thead>
         <tbody>

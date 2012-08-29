@@ -3,47 +3,25 @@
 @foreach (var item in Model) {
     <tr data-pkey="@item.Id">
         <td>
-            @Html.DisplayFor(modelItem => item.QuestionData)
+            @item.SortOrder
+            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QuestionTypeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SortOrder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuizDefinition.QuizName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuestionText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Option1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Option2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Option3)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Option4)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Option5)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Option6)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CorrectAns)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Explanation)
-        </td>
-        <td class="rowControl hidden">
+            <b>Ques:@item.QuestionText</b>
+            <br />
+            <br />
+            1.@item.Option1<br />
+            2.@item.Option2<br />
+            3.@item.Option3<br />
+            4.@item.Option4<br />  
+            
+            
             <a href="#makeRowEditable" class="makeRowEditable">Edit</a> |
-            <a href="#deleteRow" class="deleteRow">Delete</a>
+            <a href="#deleteRow" class="deleteRow">Delete</a>                 
+            
         </td>
+
+
+
     </tr>
 }
