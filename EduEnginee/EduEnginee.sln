@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduEnginee", "EduEnginee\Ed
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduEnginee.Tests", "EduEnginee.Tests\EduEnginee.Tests.csproj", "{34410711-4ECF-43BD-823D-924B5DC70EDC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{34AA1526-42CB-410D-AF4C-5ADA39517909}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeMvcDemo", "..\AwesomeMvcDemo\AwesomeMvcDemo\AwesomeMvcDemo\AwesomeMvcDemo.csproj", "{7E5DDCEE-3A86-424D-A78C-024DA5B853AE}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -23,8 +27,15 @@ Global
 		{34410711-4ECF-43BD-823D-924B5DC70EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34410711-4ECF-43BD-823D-924B5DC70EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34410711-4ECF-43BD-823D-924B5DC70EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E5DDCEE-3A86-424D-A78C-024DA5B853AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E5DDCEE-3A86-424D-A78C-024DA5B853AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E5DDCEE-3A86-424D-A78C-024DA5B853AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E5DDCEE-3A86-424D-A78C-024DA5B853AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7E5DDCEE-3A86-424D-A78C-024DA5B853AE} = {34AA1526-42CB-410D-AF4C-5ADA39517909}
 	EndGlobalSection
 EndGlobal

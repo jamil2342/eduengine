@@ -126,6 +126,7 @@
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuesController.cs" />
     <Compile Include="Controllers\QuizDefinitionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -273,6 +274,9 @@
     <Content Include="Views\QuizDefinition\Edit.cshtml" />
     <Content Include="Views\QuizDefinition\Delete.cshtml" />
     <Content Include="Views\QuizDefinition\_Details.cshtml" />
+    <Content Include="Views\Ques\Index.cshtml" />
+    <Content Include="Views\Ques\GridData.cshtml" />
+    <Content Include="Views\Ques\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
