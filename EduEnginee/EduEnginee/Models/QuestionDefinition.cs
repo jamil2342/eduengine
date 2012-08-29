@@ -9,6 +9,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.ComponentModel;
 
 namespace EduEnginee.Models
 {
@@ -22,6 +25,7 @@ namespace EduEnginee.Models
         public int Id { get; set; }
         public string QuestionData { get; set; }
         public string QuestionTypeName { get; set; }
+        [DisplayName("Sl.")]
         public int SortOrder { get; set; }
         public int QuizDefinitionKey { get; set; }
         public string QuestionText { get; set; }
@@ -32,6 +36,39 @@ namespace EduEnginee.Models
         public string Option5 { get; set; }
         public string Option6 { get; set; }
         public int CorrectAns { get; set; }
+        public string CorrectAnsText
+        {
+            get
+            {
+                if (CorrectAns==1)
+                {
+                    return Option1;
+                }
+                else if (CorrectAns == 2)
+                {
+                    return Option2;
+                }
+                else if (CorrectAns == 3)
+                {
+                    return Option3;
+                }
+                else if (CorrectAns == 4)
+                {
+                    return Option4;
+                }
+                else if (CorrectAns == 5)
+                {
+                    return Option5;
+                }
+                else if (CorrectAns == 6)
+                {
+                    return Option6;
+                }
+
+    
+            }
+            
+        }
         public string Explanation { get; set; }
     
         public virtual QuizDefinition QuizDefinition { get; set; }
