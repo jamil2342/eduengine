@@ -46,8 +46,10 @@
         <a href="@Url.RouteUrl(currentRouteValues)" class="refresh">[Refresh Grid]</a>
         <span class="itemsPerPage hidden">Items Per Page:
             <select>
-                @foreach (var option in ViewBag.ItemsPerPageOptions) {
-                    <option value="@option" @if (option == ViewBag.ItemsPerPage) {
+                @foreach (var option in ViewBag.ItemsPerPageOptions)
+                {
+                    <option value="@option" @if (option == ViewBag.ItemsPerPage)
+                                            {
                             @: selected="selected"
                     }>@option</option>
                 }
@@ -67,11 +69,11 @@
         <thead>
             <tr>
 
-                <th data-column-name="QuestionData">
+@*                <th data-column-name="QuestionData">
                     <span class="reorder">@Html.DisplayNameFor(model => model.QuestionData)</span>
                     <a href="@Url.RouteUrl(new { orderBy = "QuestionData", desc = true })" class="uparrow">&uarr;</a>
                     <a href="@Url.RouteUrl(new { orderBy = "QuestionData" })" class="downarrow">&darr;</a>
-                </th>
+                </th>*@
 
             </tr>
         </thead>
