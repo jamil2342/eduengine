@@ -305,6 +305,9 @@
     <Content Include="Views\Question\Create.cshtml" />
     <Content Include="Views\Question\Edit.cshtml" />
     <Content Include="Views\Question\Delete.cshtml" />
+    <Content Include="Views\Question\_Details.cshtml" />
+    <Content Include="Views\Question\_Create.cshtml" />
+    <Content Include="Views\Question\_Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

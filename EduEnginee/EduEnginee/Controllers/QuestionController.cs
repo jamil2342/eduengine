@@ -48,17 +48,17 @@ namespace EduEnginee.Controllers
         // POST: /Question/Create
 
         [HttpPost]
-        public ActionResult Create(QuestionDefinition questiondefinition)
+        public void Create(QuestionDefinition questiondefinition)
         {
             if (ModelState.IsValid)
             {
                 db.QuestionDefinitions.Add(questiondefinition);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return;// RedirectToAction("Index");
             }
 
-            ViewBag.QuizDefinitionKey = new SelectList(db.QuizDefinitions, "Id", "QuizName", questiondefinition.QuizDefinitionKey);
-            return View(questiondefinition);
+            //ViewBag.QuizDefinitionKey = new SelectList(db.QuizDefinitions, "Id", "QuizName", questiondefinition.QuizDefinitionKey);
+            //return View(questiondefinition);
         }
 
         //
