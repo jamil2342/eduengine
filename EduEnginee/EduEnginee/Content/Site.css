@@ -261,6 +261,8 @@ ol.round {
         }
 
 /* content */
+
+
 article {
     float: left;
     width: 70%;
@@ -634,4 +636,14 @@ ul#social li {
             text-indent: 0;
             width: auto;
         }
+}
+.editor-label
+{
+    float:left;
+    width: 30%;
+}
+.editor-field
+{
+    float:right;
+    width: 50%;
 }

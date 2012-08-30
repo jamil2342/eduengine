@@ -33,7 +33,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionData" Type="nvarchar(max)" Nullable="false" />
           <Property Name="QuestionTypeName" Type="nvarchar" Nullable="false" MaxLength="1024" />
           <Property Name="SortOrder" Type="int" Nullable="false" />
           <Property Name="QuizDefinitionKey" Type="int" Nullable="false" />
@@ -205,7 +204,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionData" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="QuestionTypeName" Type="String" Nullable="false" MaxLength="1024" Unicode="true" FixedLength="false" />
           <Property Name="SortOrder" Type="Int32" Nullable="false" />
           <Property Name="QuizDefinitionKey" Type="Int32" Nullable="false" />
@@ -330,7 +328,6 @@
         <EntityContainerMapping StorageEntityContainer="QuizDbModelStoreContainer" CdmEntityContainer="QuizDbEntities">
           <EntitySetMapping Name="QuestionDefinitions"><EntityTypeMapping TypeName="QuizDbModel.QuestionDefinition"><MappingFragment StoreEntitySet="QuestionDefinitions">
             <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="QuestionData" ColumnName="QuestionData" />
             <ScalarProperty Name="QuestionTypeName" ColumnName="QuestionTypeName" />
             <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
             <ScalarProperty Name="QuizDefinitionKey" ColumnName="QuizDefinitionKey" />
@@ -401,18 +398,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="QuizDbModel">
-        <EntityTypeShape EntityType="QuizDbModel.QuestionDefinition" Width="1.5" PointX="3" PointY="1.25" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel.QuestionDefinition" Width="1.5" PointX="3" PointY="1.25" Height="3.9033007812499987" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel.QuizAnswer" Width="1.5" PointX="5.25" PointY="3.875" Height="2.5571907552083322" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel.QuizDefinition" Width="1.5" PointX="0.75" PointY="3.5" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel.Quizze" Width="1.5" PointX="3" PointY="6" Height="2.9417936197916648" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
         <AssociationConnector Association="QuizDbModel.FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="4.4228011067708328" />
-          <ConnectorPoint PointX="3" PointY="4.4228011067708328" />
+          <ConnectorPoint PointX="2.25" PointY="4.326650390625" />
+          <ConnectorPoint PointX="3" PointY="4.326650390625" />
         </AssociationConnector>
         <AssociationConnector Association="QuizDbModel.FK_QuizAnswers_QuestionDefinitions" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.6103011067708328" />
-          <ConnectorPoint PointX="5.25" PointY="4.6103011067708328" />
+          <ConnectorPoint PointX="4.5" PointY="4.5141503906249989" />
+          <ConnectorPoint PointX="5.25" PointY="4.5141503906249989" />
         </AssociationConnector>
         <AssociationConnector Association="QuizDbModel.FK_QuizAnswers_Quizzes" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="6.2160953776041659" />
