@@ -23,7 +23,7 @@ namespace EduEnginee.Models
         }
     
         public int Id { get; set; }
-        public string QuestionData { get; set; }
+        
         public string QuestionTypeName { get; set; }
         [DisplayName("Sl.")]
         public int SortOrder { get; set; }
