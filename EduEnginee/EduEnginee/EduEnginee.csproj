@@ -82,6 +82,18 @@
       <Private>True</Private>
       <HintPath>..\packages\System.Web.Http.Common.4.0.20126.16343\lib\net40\System.Web.Http.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Http.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebApi.Data.4.0.20126.16343\lib\net40\System.Web.Http.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Data.EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebApi.Data.4.0.20126.16343\lib\net40\System.Web.Http.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Data.Helpers, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebApi.Data.4.0.20126.16343\lib\net40\System.Web.Http.Data.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\AspNetWebApi.4.0.20126.16343\lib\net40\System.Web.Http.WebHost.dll</HintPath>
@@ -127,6 +139,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuesController.cs" />
+    <Compile Include="Controllers\QuesSPAController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\QuizDbController.cs" />
+    <Compile Include="Controllers\QuizDbController.QuestionDefinition.cs" />
     <Compile Include="Controllers\QuizDefinitionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,6 +230,7 @@
     <Content Include="Scripts\knockout-2.0.0.debug.js" />
     <Content Include="Scripts\knockout-2.0.0.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Scripts\QuestionDefinitionsViewModel.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -278,6 +295,16 @@
     <Content Include="Views\Ques\GridData.cshtml" />
     <Content Include="Views\Ques\Edit.cshtml" />
     <Content Include="Views\Ques\_Details.cshtml" />
+    <Content Include="Views\Shared\_SpaLayout.cshtml" />
+    <Content Include="Views\QuesSPA\Index.cshtml" />
+    <Content Include="Views\QuesSPA\_Editor.cshtml" />
+    <Content Include="Views\QuesSPA\_Grid.cshtml" />
+    <Content Include="Views\QuesSPA\_Paging.cshtml" />
+    <Content Include="Views\Question\Index.cshtml" />
+    <Content Include="Views\Question\Details.cshtml" />
+    <Content Include="Views\Question\Create.cshtml" />
+    <Content Include="Views\Question\Edit.cshtml" />
+    <Content Include="Views\Question\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

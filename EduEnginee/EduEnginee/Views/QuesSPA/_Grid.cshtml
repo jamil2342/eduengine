@@ -1,0 +1,45 @@
+﻿<h2>QuestionDefinitions (<span data-bind="text: paging.totalItems"></span>)</h2>
+
+<div data-bind="visible: paging.totalItems() > 0">
+    @Html.Partial("_Paging")
+
+    <table>
+        <thead>
+            <tr>
+                <th>QuestionTypeName</th>
+                <th>SortOrder</th>
+                <th>QuestionText</th>
+                <th>Option1</th>
+                <th>Option2</th>
+                <th>Option3</th>
+                <th>Option4</th>
+                <th>Option5</th>
+                <th>Option6</th>
+                <th>CorrectAns</th>
+                <th>CorrectAnsText</th>
+                <th>Explanation</th>
+                <th>QuizDefinition</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: questionDefinitions">
+            <tr data-bind="click: $parent.editQuestionDefinition" style="cursor: pointer">
+                <td data-bind="text: QuestionTypeName"></td>
+                <td data-bind="text: SortOrder"></td>
+                <td data-bind="text: QuestionText"></td>
+                <td data-bind="text: Option1"></td>
+                <td data-bind="text: Option2"></td>
+                <td data-bind="text: Option3"></td>
+                <td data-bind="text: Option4"></td>
+                <td data-bind="text: Option5"></td>
+                <td data-bind="text: Option6"></td>
+                <td data-bind="text: CorrectAns"></td>
+                <td data-bind="text: CorrectAnsText"></td>
+                <td data-bind="text: Explanation"></td>
+                <td data-bind="text: QuizDefinition() ? QuizDefinition().QuizName : '(None)'"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p><button data-bind="click: createQuestionDefinition">Create QuestionDefinition</button></p>
+

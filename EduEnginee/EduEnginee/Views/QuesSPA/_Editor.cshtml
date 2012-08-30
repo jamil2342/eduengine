@@ -1,0 +1,82 @@
+﻿<h2>Edit QuestionDefinition</h2>
+
+<form data-bind="with: editingQuestionDefinition, validate: validationConfig">
+    <p data-bind="visible: Id">
+        Id:
+        <b data-bind="text: Id"></b>
+    </p>
+    <p>
+        QuestionTypeName:
+        <input name="QuestionTypeName" data-bind="value: QuestionTypeName, autovalidate: true" />
+        <span class="error" data-bind="text: QuestionTypeName.ValidationError"></span>
+    </p>
+    <p>
+        SortOrder:
+        <input name="SortOrder" data-bind="value: SortOrder, autovalidate: true" />
+        <span class="error" data-bind="text: SortOrder.ValidationError"></span>
+    </p>
+    <p>
+        QuestionText:
+        <input name="QuestionText" data-bind="value: QuestionText, autovalidate: true" />
+        <span class="error" data-bind="text: QuestionText.ValidationError"></span>
+    </p>
+    <p>
+        Option1:
+        <input name="Option1" data-bind="value: Option1, autovalidate: true" />
+        <span class="error" data-bind="text: Option1.ValidationError"></span>
+    </p>
+    <p>
+        Option2:
+        <input name="Option2" data-bind="value: Option2, autovalidate: true" />
+        <span class="error" data-bind="text: Option2.ValidationError"></span>
+    </p>
+    <p>
+        Option3:
+        <input name="Option3" data-bind="value: Option3, autovalidate: true" />
+        <span class="error" data-bind="text: Option3.ValidationError"></span>
+    </p>
+    <p>
+        Option4:
+        <input name="Option4" data-bind="value: Option4, autovalidate: true" />
+        <span class="error" data-bind="text: Option4.ValidationError"></span>
+    </p>
+    <p>
+        Option5:
+        <input name="Option5" data-bind="value: Option5, autovalidate: true" />
+        <span class="error" data-bind="text: Option5.ValidationError"></span>
+    </p>
+    <p>
+        Option6:
+        <input name="Option6" data-bind="value: Option6, autovalidate: true" />
+        <span class="error" data-bind="text: Option6.ValidationError"></span>
+    </p>
+    <p>
+        CorrectAns:
+        <input name="CorrectAns" data-bind="value: CorrectAns, autovalidate: true" />
+        <span class="error" data-bind="text: CorrectAns.ValidationError"></span>
+    </p>
+    <p data-bind="visible: CorrectAnsText">
+        CorrectAnsText:
+        <b data-bind="text: CorrectAnsText"></b>
+    </p>
+    <p>
+        Explanation:
+        <input name="Explanation" data-bind="value: Explanation, autovalidate: true" />
+        <span class="error" data-bind="text: Explanation.ValidationError"></span>
+    </p>
+    <p>
+        QuizDefinition:
+        <span data-bind="if: $parent.quizDefinitions.loaded"> 
+            <select data-bind="value: QuizDefinition, options: $parent.quizDefinitions, optionsText: 'QuizName'"></select>
+        </span>
+		<span class="error" data-bind="text: $parent.quizDefinitions.error"></span>
+        <span class="error" data-bind="text: QuizDefinition.ValidationError"></span>
+    </p>    
+    <p>
+        <button type="submit" data-bind="enable: CanSave">Save</button>
+        <a href="#" data-bind="visible: Id, click: $parent.deleteQuestionDefinition">Delete</a>
+        <a href="#" data-bind="click: $parent.showGrid">Back to grid</a>
+        <a href="#" data-bind="visible: IsUpdated, click: $parent.revertEdit">Undo changes</a>
+    </p>
+</form>
+

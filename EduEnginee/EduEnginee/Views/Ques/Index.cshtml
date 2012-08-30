@@ -336,6 +336,7 @@
                 $.get('@Html.Raw(Url.Action("RowData", new { id = "__ID__" }))'.replace(/__ID__/, row.data('pkey')), function(newRow) {
                     row.replaceWith(newRow);
                     clearUnloadWarning();
+                    
                 }); 
             });
 
