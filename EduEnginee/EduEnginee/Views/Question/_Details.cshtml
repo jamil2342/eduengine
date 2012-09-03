@@ -13,5 +13,6 @@
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Ajax.ActionLink("Delete", "Delete", new { id=Model.Id }, new AjaxOptions{UpdateTargetId="list"})
+    
 </p>

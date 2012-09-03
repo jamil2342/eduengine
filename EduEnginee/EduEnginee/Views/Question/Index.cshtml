@@ -7,8 +7,10 @@
 <h2>Index</h2>
 
 
+<div>
+@Html.Action("_Create")
+</div>
 
-            @Html.Action("Create")
 
 
 
@@ -16,5 +18,5 @@
 
 
 <div id="list">
-    @Html.Partial("_Index",Model)
+    @Html.Partial("_Index")
 </div>

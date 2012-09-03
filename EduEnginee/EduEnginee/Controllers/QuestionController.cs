@@ -41,25 +41,32 @@ namespace EduEnginee.Controllers
         public ActionResult Create()
         {
             ViewBag.QuizDefinitionKey = new SelectList(db.QuizDefinitions, "Id", "QuizName");
-            return View();
+            return PartialView("_Create");
         }
+        public ActionResult _Create()
+        {
+            ViewBag.QuizDefinitionKey = new SelectList(db.QuizDefinitions, "Id", "QuizName");
+            return PartialView("_Create");
+        }
+
+
 
 
         //
         // POST: /Question/Create
 
         [HttpPost]
-        public void Create(QuestionDefinition questiondefinition)
+        public ActionResult Create(QuestionDefinition questiondefinition)
         {
             if (ModelState.IsValid)
             {
                 db.QuestionDefinitions.Add(questiondefinition);
                 db.SaveChanges();
-                return;// RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
-            //ViewBag.QuizDefinitionKey = new SelectList(db.QuizDefinitions, "Id", "QuizName", questiondefinition.QuizDefinitionKey);
-            //return View(questiondefinition);
+            ViewBag.QuizDefinitionKey = new SelectList(db.QuizDefinitions, "Id", "QuizName", questiondefinition.QuizDefinitionKey);
+            return View(questiondefinition);
         }
 
         //
@@ -94,27 +101,22 @@ namespace EduEnginee.Controllers
 
         //
         // GET: /Question/Delete/5
-
-        public ActionResult Delete(int id = 0)
+        [HttpPost]
+        public void Delete(int id = 0)
         {
             QuestionDefinition questiondefinition = db.QuestionDefinitions.Find(id);
-            if (questiondefinition == null)
-            {
-                return HttpNotFound();
-            }
-            return View(questiondefinition);
+            db.QuestionDefinitions.Remove(questiondefinition);
+            db.SaveChanges();
         }
 
         //
         // POST: /Question/Delete/5
 
         [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
+        public void DeleteConfirmed(int id)
         {
-            QuestionDefinition questiondefinition = db.QuestionDefinitions.Find(id);
-            db.QuestionDefinitions.Remove(questiondefinition);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+
+            //return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
