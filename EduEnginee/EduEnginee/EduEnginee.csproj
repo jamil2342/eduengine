@@ -139,10 +139,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuesController.cs" />
-    <Compile Include="Controllers\QuesSPAController.cs" />
-    <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\QuizDbController.cs" />
-    <Compile Include="Controllers\QuizDbController.QuestionDefinition.cs" />
     <Compile Include="Controllers\QuizDefinitionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -181,6 +178,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\AdmissionDb.mdf" />
+    <Content Include="App_Data\AdmissionDb_log.ldf">
+      <DependentUpon>AdmissionDb.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\QuizDb.mdf" />
     <Content Include="App_Data\QuizDb_log.ldf">
       <DependentUpon>QuizDb.mdf</DependentUpon>
@@ -296,18 +297,6 @@
     <Content Include="Views\Ques\Edit.cshtml" />
     <Content Include="Views\Ques\_Details.cshtml" />
     <Content Include="Views\Shared\_SpaLayout.cshtml" />
-    <Content Include="Views\QuesSPA\Index.cshtml" />
-    <Content Include="Views\QuesSPA\_Editor.cshtml" />
-    <Content Include="Views\QuesSPA\_Grid.cshtml" />
-    <Content Include="Views\QuesSPA\_Paging.cshtml" />
-    <Content Include="Views\Question\Index.cshtml" />
-    <Content Include="Views\Question\Details.cshtml" />
-    <Content Include="Views\Question\Create.cshtml" />
-    <Content Include="Views\Question\Edit.cshtml" />
-    <Content Include="Views\Question\Delete.cshtml" />
-    <Content Include="Views\Question\_Details.cshtml" />
-    <Content Include="Views\Question\_Index.cshtml" />
-    <Content Include="Views\Question\_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
