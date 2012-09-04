@@ -67,11 +67,7 @@
     <table id="AjaxGrid">
         <thead>
             <tr>
-                <th data-column-name="QuestionTypeName">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.QuestionTypeName)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "QuestionTypeName", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "QuestionTypeName" })" class="downarrow">&darr;</a>
-                </th>
+
                 <th data-column-name="SortOrder">
                     <span class="reorder">@Html.DisplayNameFor(model => model.SortOrder)</span>
                     <a href="@Url.RouteUrl(new { orderBy = "SortOrder", desc = true })" class="uparrow">&uarr;</a>
@@ -107,16 +103,7 @@
                     <a href="@Url.RouteUrl(new { orderBy = "Option4", desc = true })" class="uparrow">&uarr;</a>
                     <a href="@Url.RouteUrl(new { orderBy = "Option4" })" class="downarrow">&darr;</a>
                 </th>
-                <th data-column-name="Option5">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.Option5)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option5", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option5" })" class="downarrow">&darr;</a>
-                </th>
-                <th data-column-name="Option6">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.Option6)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option6", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "Option6" })" class="downarrow">&darr;</a>
-                </th>
+                
                 <th data-column-name="CorrectAns">
                     <span class="reorder">@Html.DisplayNameFor(model => model.CorrectAns)</span>
                     <a href="@Url.RouteUrl(new { orderBy = "CorrectAns", desc = true })" class="uparrow">&uarr;</a>
