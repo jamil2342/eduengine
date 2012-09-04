@@ -193,7 +193,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QuestionTypeName" Type="String" Nullable="false" MaxLength="1024" Unicode="true" FixedLength="false" />
           <Property Name="SortOrder" Type="Int32" Nullable="false" />
           <Property Name="QuizDefinitionKey" Type="Int32" Nullable="false" />
           <Property Name="QuestionText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -201,8 +200,6 @@
           <Property Name="Option2" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Option3" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Option4" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Option5" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Option6" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CorrectAns" Type="Int32" Nullable="false" />
           <Property Name="Explanation" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="QuizDefinition" Relationship="QuizDbModel1.FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1" FromRole="QuestionDefinitions" ToRole="QuizDefinitions" />
@@ -307,7 +304,6 @@
         <EntityContainerMapping StorageEntityContainer="QuizDbModel1StoreContainer" CdmEntityContainer="QuizDbEntities1">
           <EntitySetMapping Name="QuestionDefinitions"><EntityTypeMapping TypeName="QuizDbModel1.QuestionDefinition"><MappingFragment StoreEntitySet="QuestionDefinitions">
             <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="QuestionTypeName" ColumnName="QuestionTypeName" />
             <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
             <ScalarProperty Name="QuizDefinitionKey" ColumnName="QuizDefinitionKey" />
             <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
@@ -315,8 +311,6 @@
             <ScalarProperty Name="Option2" ColumnName="Option2" />
             <ScalarProperty Name="Option3" ColumnName="Option3" />
             <ScalarProperty Name="Option4" ColumnName="Option4" />
-            <ScalarProperty Name="Option5" ColumnName="Option5" />
-            <ScalarProperty Name="Option6" ColumnName="Option6" />
             <ScalarProperty Name="CorrectAns" ColumnName="CorrectAns" />
             <ScalarProperty Name="Explanation" ColumnName="Explanation" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
@@ -370,17 +364,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="QuizDb" ZoomLevel="77">
-        <EntityTypeShape EntityType="QuizDbModel1.QuestionDefinition" Width="1.5" PointX="3" PointY="1.125" Height="3.4755662274360652" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.QuestionDefinition" Width="1.5" PointX="3" PointY="1.125" Height="2.9699510228633876" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel1.QuizAnswer" Width="1.5" PointX="5.25" PointY="3.5" Height="2.2957974167664847" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel1.QuizDefinition" Width="1.5" PointX="0.75" PointY="3.25" Height="2.6328742198149353" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel1.Quizze" Width="1.5" PointX="3" PointY="5.375" Height="2.6328742198149362" IsExpanded="true" />
         <AssociationConnector Association="QuizDbModel1.FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="3.9252831137180326" />
-          <ConnectorPoint PointX="3" PointY="3.9252831137180326" />
+          <ConnectorPoint PointX="2.25" PointY="3.6724755114316938" />
+          <ConnectorPoint PointX="3" PointY="3.6724755114316938" />
         </AssociationConnector>
         <AssociationConnector Association="QuizDbModel1.FK_QuizAnswers_QuestionDefinitions" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.0502831137180326" />
-          <ConnectorPoint PointX="5.25" PointY="4.0502831137180326" />
+          <ConnectorPoint PointX="4.5" PointY="3.7974755114316938" />
+          <ConnectorPoint PointX="5.25" PointY="3.7974755114316938" />
         </AssociationConnector>
         <AssociationConnector Association="QuizDbModel1.FK_QuizAnswers_Quizzes" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="5.5853987083832424" />
