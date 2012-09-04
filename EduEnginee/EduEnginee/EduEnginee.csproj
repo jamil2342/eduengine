@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
+    <Compile Include="Areas\Quiz\Controllers\QuestionController.cs" />
     <Compile Include="Areas\Quiz\Controllers\QuizDefnController.cs" />
     <Compile Include="Areas\Quiz\Models\QuestionDefinition.cs">
       <DependentUpon>QuizDb.tt</DependentUpon>
@@ -288,6 +289,9 @@
     <Content Include="Areas\Quiz\Views\QuizDefn\Edit.cshtml" />
     <Content Include="Areas\Quiz\Views\QuizDefn\Delete.cshtml" />
     <Content Include="Areas\Quiz\Views\QuizDefn\_Details.cshtml" />
+    <Content Include="Areas\Quiz\Views\Question\Index.cshtml" />
+    <Content Include="Areas\Quiz\Views\Question\GridData.cshtml" />
+    <Content Include="Areas\Quiz\Views\Question\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

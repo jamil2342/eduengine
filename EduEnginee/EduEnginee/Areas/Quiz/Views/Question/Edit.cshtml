@@ -1,0 +1,61 @@
+﻿@model EduEnginee.Areas.Quiz.Models.QuestionDefinition
+
+<tr @if (Model != null) {
+    @:data-pkey="@Model.Id"
+}>
+    <td>
+        @Html.EditorFor(model => model.QuestionTypeName)
+        @Html.ValidationMessageFor(model => model.QuestionTypeName)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.SortOrder)
+        @Html.ValidationMessageFor(model => model.SortOrder)
+    </td>
+    <td>
+        @Html.DropDownList("QuizDefinitionKey", String.Empty)
+        @Html.ValidationMessageFor(model => model.QuizDefinitionKey)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.QuestionText)
+        @Html.ValidationMessageFor(model => model.QuestionText)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Option1)
+        @Html.ValidationMessageFor(model => model.Option1)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Option2)
+        @Html.ValidationMessageFor(model => model.Option2)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Option3)
+        @Html.ValidationMessageFor(model => model.Option3)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Option4)
+        @Html.ValidationMessageFor(model => model.Option4)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Option5)
+        @Html.ValidationMessageFor(model => model.Option5)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Option6)
+        @Html.ValidationMessageFor(model => model.Option6)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.CorrectAns)
+        @Html.ValidationMessageFor(model => model.CorrectAns)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Explanation)
+        @Html.ValidationMessageFor(model => model.Explanation)
+    </td>
+    <td>
+@if (ViewContext.RouteData.Values["Action"].ToString() == "Edit") {
+        <button class="editRow">Save</button><button class="cancelEditRow">Cancel</button>
+} else {
+        <button class="createRow">Create</button><button class="cancelCreateRow">Cancel</button>
+}
+    </td>
+</tr>
