@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
+    <Compile Include="Areas\Quiz\Controllers\QuizDefnController.cs" />
     <Compile Include="Areas\Quiz\Models\QuestionDefinition.cs">
       <DependentUpon>QuizDb.tt</DependentUpon>
     </Compile>
@@ -166,42 +167,10 @@
     <Compile Include="Areas\Quiz\QuizAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\QuizDbController.cs" />
-    <Compile Include="Controllers\QuizDefinitionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\QuestionDefinition.cs">
-      <DependentUpon>QuizDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuizAnswer.cs">
-      <DependentUpon>QuizDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuizDb.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizDb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuizDb.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuizDbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizDbModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuizDefinition.cs">
-      <DependentUpon>QuizDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Quizze.cs">
-      <DependentUpon>QuizDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>QuizDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -295,12 +264,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\QuizDbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuizDbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -318,21 +281,13 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.cs</LastGenOutput>
     </None>
-    <None Include="Models\QuizDb.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Models\QuizDb.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>QuizDb.cs</LastGenOutput>
-    </None>
-    <Content Include="Views\QuizDefinition\Index.cshtml" />
-    <Content Include="Views\QuizDefinition\Details.cshtml" />
-    <Content Include="Views\QuizDefinition\Create.cshtml" />
-    <Content Include="Views\QuizDefinition\Edit.cshtml" />
-    <Content Include="Views\QuizDefinition\Delete.cshtml" />
-    <Content Include="Views\QuizDefinition\_Details.cshtml" />
     <Content Include="Views\Shared\_SpaLayout.cshtml" />
+    <Content Include="Areas\Quiz\Views\QuizDefn\Index.cshtml" />
+    <Content Include="Areas\Quiz\Views\QuizDefn\Details.cshtml" />
+    <Content Include="Areas\Quiz\Views\QuizDefn\Create.cshtml" />
+    <Content Include="Areas\Quiz\Views\QuizDefn\Edit.cshtml" />
+    <Content Include="Areas\Quiz\Views\QuizDefn\Delete.cshtml" />
+    <Content Include="Areas\Quiz\Views\QuizDefn\_Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -341,7 +296,6 @@
     <Folder Include="Areas\Admission\Controllers\" />
     <Folder Include="Areas\Admission\Models\" />
     <Folder Include="Areas\Admission\Views\Shared\" />
-    <Folder Include="Areas\Quiz\Controllers\" />
     <Folder Include="Areas\Quiz\Views\Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
