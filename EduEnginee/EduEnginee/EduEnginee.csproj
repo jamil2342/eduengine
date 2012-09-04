@@ -136,6 +136,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
+    <Compile Include="Areas\Quiz\Models\QuestionDefinition.cs">
+      <DependentUpon>QuizDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Quiz\Models\QuizAnswer.cs">
+      <DependentUpon>QuizDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Quiz\Models\QuizDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Quiz\Models\QuizDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Quiz\Models\QuizDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Quiz\Models\QuizDefinition.cs">
+      <DependentUpon>QuizDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Quiz\Models\Quizze.cs">
+      <DependentUpon>QuizDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Quiz\QuizAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -279,6 +306,18 @@
   <ItemGroup>
     <Content Include="Areas\Admission\Views\Web.config" />
     <Content Include="Areas\Quiz\Views\Web.config" />
+    <EntityDeploy Include="Areas\Quiz\Models\QuizDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuizDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Quiz\Models\QuizDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuizDb.cs</LastGenOutput>
+    </None>
     <None Include="Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
@@ -303,7 +342,6 @@
     <Folder Include="Areas\Admission\Models\" />
     <Folder Include="Areas\Admission\Views\Shared\" />
     <Folder Include="Areas\Quiz\Controllers\" />
-    <Folder Include="Areas\Quiz\Models\" />
     <Folder Include="Areas\Quiz\Views\Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

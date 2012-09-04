@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuizDbModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="QuizDbModel1StoreContainer">
+          <EntitySet Name="QuestionDefinitions" EntityType="QuizDbModel1.Store.QuestionDefinitions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="QuizAnswers" EntityType="QuizDbModel1.Store.QuizAnswers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="QuizDefinitions" EntityType="QuizDbModel1.Store.QuizDefinitions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Quizzes" EntityType="QuizDbModel1.Store.Quizzes" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1" Association="QuizDbModel1.Store.FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1">
+            <End Role="QuizDefinitions" EntitySet="QuizDefinitions" />
+            <End Role="QuestionDefinitions" EntitySet="QuestionDefinitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuizAnswers_QuestionDefinitions" Association="QuizDbModel1.Store.FK_QuizAnswers_QuestionDefinitions">
+            <End Role="QuestionDefinitions" EntitySet="QuestionDefinitions" />
+            <End Role="QuizAnswers" EntitySet="QuizAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuizAnswers_Quizzes" Association="QuizDbModel1.Store.FK_QuizAnswers_Quizzes">
+            <End Role="Quizzes" EntitySet="Quizzes" />
+            <End Role="QuizAnswers" EntitySet="QuizAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quizzes_QuizDefinition_GiveAQuizModel_QuizDefinitions" Association="QuizDbModel1.Store.FK_Quizzes_QuizDefinition_GiveAQuizModel_QuizDefinitions">
+            <End Role="QuizDefinitions" EntitySet="QuizDefinitions" />
+            <End Role="Quizzes" EntitySet="Quizzes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="QuestionDefinitions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionTypeName" Type="nvarchar" Nullable="false" MaxLength="1024" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="QuizDefinitionKey" Type="int" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar(max)" />
+          <Property Name="Option1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Option2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Option3" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Option4" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Option5" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Option6" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CorrectAns" Type="int" Nullable="false" />
+          <Property Name="Explanation" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuizAnswers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QuizzKey" Type="int" />
+          <Property Name="QuestionDefinitionKey" Type="int" Nullable="false" />
+          <Property Name="Result" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="AnswerText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CorrectAnswerText" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuizDefinitions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QuizName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="1024" />
+          <Property Name="TimeLimitInMinutes" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nchar" MaxLength="10" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Quizzes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="IsNameOptional" Type="bit" Nullable="false" />
+          <Property Name="HasEnded" Type="bit" Nullable="false" />
+          <Property Name="QuizDefinitionID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1">
+          <End Role="QuizDefinitions" Type="QuizDbModel1.Store.QuizDefinitions" Multiplicity="1" />
+          <End Role="QuestionDefinitions" Type="QuizDbModel1.Store.QuestionDefinitions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuizDefinitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionDefinitions">
+              <PropertyRef Name="QuizDefinitionKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuizAnswers_QuestionDefinitions">
+          <End Role="QuestionDefinitions" Type="QuizDbModel1.Store.QuestionDefinitions" Multiplicity="1" />
+          <End Role="QuizAnswers" Type="QuizDbModel1.Store.QuizAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionDefinitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuizAnswers">
+              <PropertyRef Name="QuestionDefinitionKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuizAnswers_Quizzes">
+          <End Role="Quizzes" Type="QuizDbModel1.Store.Quizzes" Multiplicity="0..1" />
+          <End Role="QuizAnswers" Type="QuizDbModel1.Store.QuizAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quizzes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuizAnswers">
+              <PropertyRef Name="QuizzKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quizzes_QuizDefinition_GiveAQuizModel_QuizDefinitions">
+          <End Role="QuizDefinitions" Type="QuizDbModel1.Store.QuizDefinitions" Multiplicity="1" />
+          <End Role="Quizzes" Type="QuizDbModel1.Store.Quizzes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuizDefinitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Quizzes">
+              <PropertyRef Name="QuizDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuizDbModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="QuizDbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="QuestionDefinitions" EntityType="QuizDbModel1.QuestionDefinition" />
+          <EntitySet Name="QuizAnswers" EntityType="QuizDbModel1.QuizAnswer" />
+          <EntitySet Name="QuizDefinitions" EntityType="QuizDbModel1.QuizDefinition" />
+          <EntitySet Name="Quizzes" EntityType="QuizDbModel1.Quizze" />
+          <AssociationSet Name="FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1" Association="QuizDbModel1.FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1">
+            <End Role="QuizDefinitions" EntitySet="QuizDefinitions" />
+            <End Role="QuestionDefinitions" EntitySet="QuestionDefinitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuizAnswers_QuestionDefinitions" Association="QuizDbModel1.FK_QuizAnswers_QuestionDefinitions">
+            <End Role="QuestionDefinitions" EntitySet="QuestionDefinitions" />
+            <End Role="QuizAnswers" EntitySet="QuizAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuizAnswers_Quizzes" Association="QuizDbModel1.FK_QuizAnswers_Quizzes">
+            <End Role="Quizzes" EntitySet="Quizzes" />
+            <End Role="QuizAnswers" EntitySet="QuizAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quizzes_QuizDefinition_GiveAQuizModel_QuizDefinitions" Association="QuizDbModel1.FK_Quizzes_QuizDefinition_GiveAQuizModel_QuizDefinitions">
+            <End Role="QuizDefinitions" EntitySet="QuizDefinitions" />
+            <End Role="Quizzes" EntitySet="Quizzes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="QuestionDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionTypeName" Type="String" Nullable="false" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="QuizDefinitionKey" Type="Int32" Nullable="false" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Option1" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Option2" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Option3" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Option4" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Option5" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Option6" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CorrectAns" Type="Int32" Nullable="false" />
+          <Property Name="Explanation" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="QuizDefinition" Relationship="QuizDbModel1.FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1" FromRole="QuestionDefinitions" ToRole="QuizDefinitions" />
+          <NavigationProperty Name="QuizAnswers" Relationship="QuizDbModel1.FK_QuizAnswers_QuestionDefinitions" FromRole="QuestionDefinitions" ToRole="QuizAnswers" />
+        </EntityType>
+        <EntityType Name="QuizAnswer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuizzKey" Type="Int32" />
+          <Property Name="QuestionDefinitionKey" Type="Int32" Nullable="false" />
+          <Property Name="Result" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="AnswerText" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CorrectAnswerText" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="QuestionDefinition" Relationship="QuizDbModel1.FK_QuizAnswers_QuestionDefinitions" FromRole="QuizAnswers" ToRole="QuestionDefinitions" />
+          <NavigationProperty Name="Quizze" Relationship="QuizDbModel1.FK_QuizAnswers_Quizzes" FromRole="QuizAnswers" ToRole="Quizzes" />
+        </EntityType>
+        <EntityType Name="QuizDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuizName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="TimeLimitInMinutes" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UpdatedDate" Type="DateTime" />
+          <NavigationProperty Name="QuestionDefinitions" Relationship="QuizDbModel1.FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1" FromRole="QuizDefinitions" ToRole="QuestionDefinitions" />
+          <NavigationProperty Name="Quizzes" Relationship="QuizDbModel1.FK_Quizzes_QuizDefinition_GiveAQuizModel_QuizDefinitions" FromRole="QuizDefinitions" ToRole="Quizzes" />
+        </EntityType>
+        <EntityType Name="Quizze">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" />
+          <Property Name="IsNameOptional" Type="Boolean" Nullable="false" />
+          <Property Name="HasEnded" Type="Boolean" Nullable="false" />
+          <Property Name="QuizDefinitionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="QuizAnswers" Relationship="QuizDbModel1.FK_QuizAnswers_Quizzes" FromRole="Quizzes" ToRole="QuizAnswers" />
+          <NavigationProperty Name="QuizDefinition" Relationship="QuizDbModel1.FK_Quizzes_QuizDefinition_GiveAQuizModel_QuizDefinitions" FromRole="Quizzes" ToRole="QuizDefinitions" />
+        </EntityType>
+        <Association Name="FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1">
+          <End Role="QuizDefinitions" Type="QuizDbModel1.QuizDefinition" Multiplicity="1" />
+          <End Role="QuestionDefinitions" Type="QuizDbModel1.QuestionDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuizDefinitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionDefinitions">
+              <PropertyRef Name="QuizDefinitionKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuizAnswers_QuestionDefinitions">
+          <End Role="QuestionDefinitions" Type="QuizDbModel1.QuestionDefinition" Multiplicity="1" />
+          <End Role="QuizAnswers" Type="QuizDbModel1.QuizAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionDefinitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuizAnswers">
+              <PropertyRef Name="QuestionDefinitionKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuizAnswers_Quizzes">
+          <End Role="Quizzes" Type="QuizDbModel1.Quizze" Multiplicity="0..1" />
+          <End Role="QuizAnswers" Type="QuizDbModel1.QuizAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quizzes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuizAnswers">
+              <PropertyRef Name="QuizzKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quizzes_QuizDefinition_GiveAQuizModel_QuizDefinitions">
+          <End Role="QuizDefinitions" Type="QuizDbModel1.QuizDefinition" Multiplicity="1" />
+          <End Role="Quizzes" Type="QuizDbModel1.Quizze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuizDefinitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Quizzes">
+              <PropertyRef Name="QuizDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuizDbModel1StoreContainer" CdmEntityContainer="QuizDbEntities1">
+          <EntitySetMapping Name="QuestionDefinitions"><EntityTypeMapping TypeName="QuizDbModel1.QuestionDefinition"><MappingFragment StoreEntitySet="QuestionDefinitions">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="QuestionTypeName" ColumnName="QuestionTypeName" />
+            <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+            <ScalarProperty Name="QuizDefinitionKey" ColumnName="QuizDefinitionKey" />
+            <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+            <ScalarProperty Name="Option1" ColumnName="Option1" />
+            <ScalarProperty Name="Option2" ColumnName="Option2" />
+            <ScalarProperty Name="Option3" ColumnName="Option3" />
+            <ScalarProperty Name="Option4" ColumnName="Option4" />
+            <ScalarProperty Name="Option5" ColumnName="Option5" />
+            <ScalarProperty Name="Option6" ColumnName="Option6" />
+            <ScalarProperty Name="CorrectAns" ColumnName="CorrectAns" />
+            <ScalarProperty Name="Explanation" ColumnName="Explanation" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="QuizAnswers"><EntityTypeMapping TypeName="QuizDbModel1.QuizAnswer"><MappingFragment StoreEntitySet="QuizAnswers">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="QuizzKey" ColumnName="QuizzKey" />
+            <ScalarProperty Name="QuestionDefinitionKey" ColumnName="QuestionDefinitionKey" />
+            <ScalarProperty Name="Result" ColumnName="Result" />
+            <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+            <ScalarProperty Name="CorrectAnswerText" ColumnName="CorrectAnswerText" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="QuizDefinitions"><EntityTypeMapping TypeName="QuizDbModel1.QuizDefinition"><MappingFragment StoreEntitySet="QuizDefinitions">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="QuizName" ColumnName="QuizName" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="TimeLimitInMinutes" ColumnName="TimeLimitInMinutes" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+            <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Quizzes"><EntityTypeMapping TypeName="QuizDbModel1.Quizze"><MappingFragment StoreEntitySet="Quizzes">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+            <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+            <ScalarProperty Name="IsNameOptional" ColumnName="IsNameOptional" />
+            <ScalarProperty Name="HasEnded" ColumnName="HasEnded" />
+            <ScalarProperty Name="QuizDefinitionID" ColumnName="QuizDefinitionID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="QuizDb" ZoomLevel="77">
+        <EntityTypeShape EntityType="QuizDbModel1.QuestionDefinition" Width="1.5" PointX="3" PointY="1.125" Height="3.4755662274360652" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.QuizAnswer" Width="1.5" PointX="5.25" PointY="3.5" Height="2.2957974167664847" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.QuizDefinition" Width="1.5" PointX="0.75" PointY="3.25" Height="2.6328742198149353" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.Quizze" Width="1.5" PointX="3" PointY="5.375" Height="2.6328742198149362" IsExpanded="true" />
+        <AssociationConnector Association="QuizDbModel1.FK_QuestionDefinitions_Quiz_GiveAQuizModel_QuizDefinitions1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.9252831137180326" />
+          <ConnectorPoint PointX="3" PointY="3.9252831137180326" />
+        </AssociationConnector>
+        <AssociationConnector Association="QuizDbModel1.FK_QuizAnswers_QuestionDefinitions" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.0502831137180326" />
+          <ConnectorPoint PointX="5.25" PointY="4.0502831137180326" />
+        </AssociationConnector>
+        <AssociationConnector Association="QuizDbModel1.FK_QuizAnswers_Quizzes" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.5853987083832424" />
+          <ConnectorPoint PointX="5.25" PointY="5.5853987083832424" />
+        </AssociationConnector>
+        <AssociationConnector Association="QuizDbModel1.FK_Quizzes_QuizDefinition_GiveAQuizModel_QuizDefinitions" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.6289371099074677" />
+          <ConnectorPoint PointX="3" PointY="5.6289371099074677" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
