@@ -20,7 +20,6 @@ namespace EduEnginee.Areas.Quiz.Models
         }
     
         public int Id { get; set; }
-        public string QuestionTypeName { get; set; }
         public int SortOrder { get; set; }
         public int QuizDefinitionKey { get; set; }
         public string QuestionText { get; set; }
@@ -28,8 +27,6 @@ namespace EduEnginee.Areas.Quiz.Models
         public string Option2 { get; set; }
         public string Option3 { get; set; }
         public string Option4 { get; set; }
-        public string Option5 { get; set; }
-        public string Option6 { get; set; }
         public int CorrectAns { get; set; }
         public string Explanation { get; set; }
     
