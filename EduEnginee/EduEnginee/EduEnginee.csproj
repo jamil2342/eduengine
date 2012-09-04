@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
+    <Compile Include="Areas\Quiz\QuizAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuizDbController.cs" />
@@ -277,6 +278,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admission\Views\Web.config" />
+    <Content Include="Areas\Quiz\Views\Web.config" />
     <None Include="Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
@@ -300,6 +302,9 @@
     <Folder Include="Areas\Admission\Controllers\" />
     <Folder Include="Areas\Admission\Models\" />
     <Folder Include="Areas\Admission\Views\Shared\" />
+    <Folder Include="Areas\Quiz\Controllers\" />
+    <Folder Include="Areas\Quiz\Models\" />
+    <Folder Include="Areas\Quiz\Views\Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
