@@ -7,44 +7,46 @@
 
         @Html.HiddenFor(model=>model.QuizDefinitionKey)
 
-
+        @Html.LabelFor(model => model.SortOrder)
         @Html.EditorFor(model => model.SortOrder)
         @Html.ValidationMessageFor(model => model.SortOrder)
 
     
         
 
-    
+        @Html.LabelFor(model => model.QuestionText)
         @Html.EditorFor(model => model.QuestionText)
         @Html.ValidationMessageFor(model => model.QuestionText)
 
-    
+    @Html.LabelFor(model => model.Option1)
         @Html.EditorFor(model => model.Option1)
         @Html.ValidationMessageFor(model => model.Option1)
 
     
+        @Html.LabelFor(model => model.Option2)
         @Html.EditorFor(model => model.Option2)
         @Html.ValidationMessageFor(model => model.Option2)
 
     
+    @Html.LabelFor(model => model.Option3)
         @Html.EditorFor(model => model.Option3)
         @Html.ValidationMessageFor(model => model.Option3)
 
-    
+    @Html.LabelFor(model => model.Option4)
         @Html.EditorFor(model => model.Option4)
         @Html.ValidationMessageFor(model => model.Option4)
 
     
-    
+    @Html.LabelFor(model => model.CorrectAns)
         @Html.EditorFor(model => model.CorrectAns)
         @Html.ValidationMessageFor(model => model.CorrectAns)
 
-    
+    @Html.LabelFor(model => model.Explanation)
         @Html.EditorFor(model => model.Explanation)
         @Html.ValidationMessageFor(model => model.Explanation)
 
 
-        @if (ViewContext.RouteData.Values["Action"].ToString() == "Edit") {
+                @if (ViewContext.RouteData.Values["Action"].ToString() == "Edit") {
         <button class="editRow">Save</button><button class="cancelEditRow">Cancel</button>
         } else 
         {

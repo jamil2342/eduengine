@@ -64,8 +64,12 @@ namespace EduEnginee.Areas.Quiz.Controllers
         // POST: /Quiz/Question/Create
 
         [HttpPost]
-        public ActionResult Create(QuestionDefinition questiondefinition)
+        public ActionResult _Create(QuestionDefinition questiondefinition)
         {
+            questiondefinition.QuizDefinitionKey = 3;
+            int id = (from s in db.QuestionDefinitions
+                      select s.Id).Max();
+            questiondefinition.Id = (int)(id + 1);
             if (ModelState.IsValid)
             {
                 db.QuestionDefinitions.Add(questiondefinition);

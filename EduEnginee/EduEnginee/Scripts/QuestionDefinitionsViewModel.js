@@ -11,7 +11,7 @@
 
         // Underlying data
         self.Id = ko.observable(data.Id);
-        self.QuestionTypeName = ko.observable(data.QuestionTypeName);
+        
         self.SortOrder = ko.observable(data.SortOrder);
         self.QuizDefinitionKey = ko.observable(data.QuizDefinitionKey);
         self.QuestionText = ko.observable(data.QuestionText);
