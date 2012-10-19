@@ -34,6 +34,35 @@
             <End Role="Country" EntitySet="Countries" />
             <End Role="Institute" EntitySet="Institutes" />
           </AssociationSet>
+          <EntitySet Name="Comments" EntityType="Admission.Comment" />
+          <AssociationSet Name="InstituteComment" Association="Admission.InstituteComment">
+            <End Role="Institute" EntitySet="Institutes" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <EntitySet Name="Circulars" EntityType="Admission.Circular" />
+          <AssociationSet Name="InstituteCircular" Association="Admission.InstituteCircular">
+            <End Role="Institute" EntitySet="Institutes" />
+            <End Role="Circular" EntitySet="Circulars" />
+          </AssociationSet>
+          <EntitySet Name="Subjects" EntityType="Admission.Subject" />
+          <AssociationSet Name="CircularSubject" Association="Admission.CircularSubject">
+            <End Role="Circular" EntitySet="Circulars" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="CircularComment" Association="Admission.CircularComment">
+            <End Role="Circular" EntitySet="Circulars" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <EntitySet Name="Notices" EntityType="Admission.Notice" />
+          <AssociationSet Name="InstituteNotice" Association="Admission.InstituteNotice">
+            <End Role="Institute" EntitySet="Institutes" />
+            <End Role="Notice" EntitySet="Notices" />
+          </AssociationSet>
+          <EntitySet Name="News" EntityType="Admission.News" />
+          <AssociationSet Name="InstituteNews" Association="Admission.InstituteNews">
+            <End Role="Institute" EntitySet="Institutes" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="InstituteType">
           <Key>
@@ -41,6 +70,7 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="InstituteCatagories" Relationship="Admission.InstituteTypeInstituteCatagory" FromRole="InstituteType" ToRole="InstituteCatagory" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
         </EntityType>
         <EntityType Name="InstituteCatagory">
           <Key>
@@ -50,6 +80,7 @@
           <NavigationProperty Name="InstituteType" Relationship="Admission.InstituteTypeInstituteCatagory" FromRole="InstituteCatagory" ToRole="InstituteType" />
           <Property Type="Int32" Name="InstituteTypeId" Nullable="false" />
           <NavigationProperty Name="InstituteSubcatagories" Relationship="Admission.InstituteCatagoryInstituteSubcatagory" FromRole="InstituteCatagory" ToRole="InstituteSubcatagory" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
         </EntityType>
         <Association Name="InstituteTypeInstituteCatagory">
           <End Type="Admission.InstituteType" Role="InstituteType" Multiplicity="1" />
@@ -71,6 +102,7 @@
           <NavigationProperty Name="InstituteCatagory" Relationship="Admission.InstituteCatagoryInstituteSubcatagory" FromRole="InstituteSubcatagory" ToRole="InstituteCatagory" />
           <Property Type="Int32" Name="InstituteCatagoryId" Nullable="false" />
           <NavigationProperty Name="Institutes" Relationship="Admission.InstituteSubcatagoryInstitute" FromRole="InstituteSubcatagory" ToRole="Institute" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
         </EntityType>
         <Association Name="InstituteCatagoryInstituteSubcatagory">
           <End Type="Admission.InstituteCatagory" Role="InstituteCatagory" Multiplicity="1" />
@@ -93,6 +125,11 @@
           <Property Type="Int32" Name="InstituteSubcatagoryId" Nullable="false" />
           <NavigationProperty Name="Country" Relationship="Admission.CountryInstitute" FromRole="Institute" ToRole="Country" />
           <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="Admission.InstituteComment" FromRole="Institute" ToRole="Comment" />
+          <NavigationProperty Name="Circulars" Relationship="Admission.InstituteCircular" FromRole="Institute" ToRole="Circular" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
+          <NavigationProperty Name="Notices" Relationship="Admission.InstituteNotice" FromRole="Institute" ToRole="Notice" />
+          <NavigationProperty Name="News" Relationship="Admission.InstituteNews" FromRole="Institute" ToRole="News" />
         </EntityType>
         <Association Name="InstituteSubcatagoryInstitute">
           <End Type="Admission.InstituteSubcatagory" Role="InstituteSubcatagory" Multiplicity="1" />
@@ -113,6 +150,7 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
           <NavigationProperty Name="Institutes" Relationship="Admission.CountryInstitute" FromRole="Country" ToRole="Institute" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
         </EntityType>
         <Association Name="CountryInstitute">
           <End Type="Admission.Country" Role="Country" Multiplicity="1" />
@@ -123,6 +161,130 @@
             </Principal>
             <Dependent Role="Institute">
               <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Institute" Relationship="Admission.InstituteComment" FromRole="Comment" ToRole="Institute" />
+          <Property Type="Int32" Name="InstituteId" Nullable="false" />
+          <Property Type="String" Name="CommentText" Nullable="false" />
+          <NavigationProperty Name="Circular" Relationship="Admission.CircularComment" FromRole="Comment" ToRole="Circular" />
+          <Property Type="Int32" Name="CircularId" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
+        </EntityType>
+        <Association Name="InstituteComment">
+          <End Type="Admission.Institute" Role="Institute" Multiplicity="1" />
+          <End Type="Admission.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="InstituteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Circular">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Institute" Relationship="Admission.InstituteCircular" FromRole="Circular" ToRole="Institute" />
+          <Property Type="Int32" Name="InstituteId" Nullable="false" />
+          <NavigationProperty Name="Subjects" Relationship="Admission.CircularSubject" FromRole="Circular" ToRole="Subject" />
+          <NavigationProperty Name="Comments" Relationship="Admission.CircularComment" FromRole="Circular" ToRole="Comment" />
+          <Property Type="Binary" Name="SeatPlan" Nullable="false" />
+          <Property Type="Binary" Name="Result" Nullable="false" />
+          <Property Type="String" Name="ResultLink" Nullable="false" />
+          <Property Type="String" Name="SeatPlanLink" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
+        </EntityType>
+        <Association Name="InstituteCircular">
+          <End Type="Admission.Institute" Role="Institute" Multiplicity="1" />
+          <End Type="Admission.Circular" Role="Circular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Circular">
+              <PropertyRef Name="InstituteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Circular" Relationship="Admission.CircularSubject" FromRole="Subject" ToRole="Circular" />
+          <Property Type="Int32" Name="CircularId" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
+        </EntityType>
+        <Association Name="CircularSubject">
+          <End Type="Admission.Circular" Role="Circular" Multiplicity="1" />
+          <End Type="Admission.Subject" Role="Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Circular">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="CircularId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CircularComment">
+          <End Type="Admission.Circular" Role="Circular" Multiplicity="1" />
+          <End Type="Admission.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Circular">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="CircularId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Institute" Relationship="Admission.InstituteNotice" FromRole="Notice" ToRole="Institute" />
+          <Property Type="Int32" Name="InstituteId" Nullable="false" />
+        </EntityType>
+        <Association Name="InstituteNotice">
+          <End Type="Admission.Institute" Role="Institute" Multiplicity="1" />
+          <End Type="Admission.Notice" Role="Notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notice">
+              <PropertyRef Name="InstituteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Institute" Relationship="Admission.InstituteNews" FromRole="News" ToRole="Institute" />
+          <Property Type="Int32" Name="InstituteId" Nullable="false" />
+        </EntityType>
+        <Association Name="InstituteNews">
+          <End Type="Admission.Institute" Role="Institute" Multiplicity="1" />
+          <End Type="Admission.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="InstituteId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -154,27 +316,64 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="Admission" >
-        <EntityTypeShape EntityType="Admission.InstituteType" Width="1.5" PointX="0.75" PointY="1.25" Height="1.4033821614583335" />
-        <EntityTypeShape EntityType="Admission.InstituteCatagory" Width="1.5" PointX="3" PointY="1" Height="1.7879850260416665" />
+        <EntityTypeShape EntityType="Admission.InstituteType" Width="1.5" PointX="0.75" PointY="6" Height="1.5956835933029652" />
+        <EntityTypeShape EntityType="Admission.InstituteCatagory" Width="1.5" PointX="3" PointY="5.75" Height="1.9802864585071802" />
         <AssociationConnector Association="Admission.InstituteTypeInstituteCatagory">
-          <ConnectorPoint PointX="2.25" PointY="1.9516910807291668" />
-          <ConnectorPoint PointX="3" PointY="1.9516910807291668" />
+          <ConnectorPoint PointX="2.25" PointY="6.7978417966514826" />
+          <ConnectorPoint PointX="3" PointY="6.7978417966514826" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.InstituteSubcatagory" Width="1.5" PointX="5.25" PointY="1" Height="1.7879850260416663" />
+        <EntityTypeShape EntityType="Admission.InstituteSubcatagory" Width="1.5" PointX="5.25" PointY="5.75" Height="1.9802864585071802" />
         <AssociationConnector Association="Admission.InstituteCatagoryInstituteSubcatagory">
-          <ConnectorPoint PointX="4.5" PointY="1.8939925130208333" />
-          <ConnectorPoint PointX="5.25" PointY="1.8939925130208333" />
+          <ConnectorPoint PointX="4.5" PointY="6.74014322925359" />
+          <ConnectorPoint PointX="5.25" PointY="6.74014322925359" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.Institute" Width="1.5" PointX="7.5" PointY="0.875" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="Admission.Institute" Width="1.5" PointX="7.5" PointY="5.25" Height="2.9417936197916683" />
         <AssociationConnector Association="Admission.InstituteSubcatagoryInstitute">
-          <ConnectorPoint PointX="6.75" PointY="1.8939925130208333" />
-          <ConnectorPoint PointX="7.5" PointY="1.8939925130208333" />
+          <ConnectorPoint PointX="6.75" PointY="6.74014322925359" />
+          <ConnectorPoint PointX="7.5" PointY="6.74014322925359" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.Country" Width="1.5" PointX="5.25" PointY="4.125" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="Admission.Country" Width="1.5" PointX="5.25" PointY="2.875" Height="1.7879850260416674" />
         <AssociationConnector Association="Admission.CountryInstitute">
-          <ConnectorPoint PointX="6.75" PointY="4.922841796875" />
-          <ConnectorPoint PointX="8.25" PointY="4.922841796875" />
-          <ConnectorPoint PointX="8.25" PointY="2.8552864583333335" />
+          <ConnectorPoint PointX="6.75" PointY="3.7689925130208337" />
+          <ConnectorPoint PointX="8.25" PointY="3.7689925130208337" />
+          <ConnectorPoint PointX="8.25" PointY="5.25" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Admission.Comment" Width="1.5" PointX="12" PointY="3" Height="2.3648893229166656" />
+        <AssociationConnector Association="Admission.InstituteComment">
+          <ConnectorPoint PointX="8.6562525" PointY="5.25" />
+          <ConnectorPoint PointX="8.6562525" PointY="4.478243756510417" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="4.4782437565104161" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="4.478243756510417" />
+          <ConnectorPoint PointX="12" PointY="4.478243756510417" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Admission.Circular" Width="1.5" PointX="9.75" PointY="6" Height="2.9417936197916674" />
+        <AssociationConnector Association="Admission.InstituteCircular">
+          <ConnectorPoint PointX="9" PointY="7.0958968098958337" />
+          <ConnectorPoint PointX="9.75" PointY="7.0958968098958337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Admission.Subject" Width="1.5" PointX="12" PointY="6.625" Height="1.7879850260416674" />
+        <AssociationConnector Association="Admission.CircularSubject">
+          <ConnectorPoint PointX="11.25" PointY="7.5189925130208337" />
+          <ConnectorPoint PointX="12" PointY="7.5189925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Admission.CircularComment">
+          <ConnectorPoint PointX="10.5" PointY="6" />
+          <ConnectorPoint PointX="10.5" PointY="3.7078693780565262" />
+          <ConnectorPoint PointX="12" PointY="3.7078693780565262" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Admission.Notice" Width="1.5" PointX="9.75" PointY="9.75" Height="1.5956835937499996" />
+        <AssociationConnector Association="Admission.InstituteNotice">
+          <ConnectorPoint PointX="8.25" PointY="8.1917936197916674" />
+          <ConnectorPoint PointX="8.25" PointY="10.547841796875" />
+          <ConnectorPoint PointX="8.5729191666666669" PointY="10.547841796875" />
+          <ConnectorPoint PointX="8.7395858333333347" PointY="10.547841796875" />
+          <ConnectorPoint PointX="9.75" PointY="10.547841796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Admission.News" Width="1.5" PointX="9.75" PointY="12.125" Height="1.5956835937499996" />
+        <AssociationConnector Association="Admission.InstituteNews">
+          <ConnectorPoint PointX="8.6562525" PointY="8.1917936197916674" />
+          <ConnectorPoint PointX="8.6562525" PointY="12.922841796875" />
+          <ConnectorPoint PointX="9.75" PointY="12.922841796875" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

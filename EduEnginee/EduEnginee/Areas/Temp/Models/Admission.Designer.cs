@@ -22,6 +22,12 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Admission", "InstituteCatagoryInstituteSubcatagory", "InstituteCatagory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.InstituteCatagory), "InstituteSubcatagory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.InstituteSubcatagory), true)]
 [assembly: EdmRelationshipAttribute("Admission", "InstituteSubcatagoryInstitute", "InstituteSubcatagory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.InstituteSubcatagory), "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Institute), true)]
 [assembly: EdmRelationshipAttribute("Admission", "CountryInstitute", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Country), "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Institute), true)]
+[assembly: EdmRelationshipAttribute("Admission", "InstituteComment", "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Institute), "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Comment), true)]
+[assembly: EdmRelationshipAttribute("Admission", "InstituteCircular", "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Institute), "Circular", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Circular), true)]
+[assembly: EdmRelationshipAttribute("Admission", "CircularSubject", "Circular", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Circular), "Subject", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Subject), true)]
+[assembly: EdmRelationshipAttribute("Admission", "CircularComment", "Circular", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Circular), "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Comment), true)]
+[assembly: EdmRelationshipAttribute("Admission", "InstituteNotice", "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Institute), "Notice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Notice), true)]
+[assembly: EdmRelationshipAttribute("Admission", "InstituteNews", "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Institute), "News", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.News), true)]
 
 #endregion
 
@@ -152,6 +158,86 @@ namespace EduEnginee.Areas.Temp.Models
             }
         }
         private ObjectSet<Country> _Countries;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Comment> Comments
+        {
+            get
+            {
+                if ((_Comments == null))
+                {
+                    _Comments = base.CreateObjectSet<Comment>("Comments");
+                }
+                return _Comments;
+            }
+        }
+        private ObjectSet<Comment> _Comments;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Circular> Circulars
+        {
+            get
+            {
+                if ((_Circulars == null))
+                {
+                    _Circulars = base.CreateObjectSet<Circular>("Circulars");
+                }
+                return _Circulars;
+            }
+        }
+        private ObjectSet<Circular> _Circulars;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Subject> Subjects
+        {
+            get
+            {
+                if ((_Subjects == null))
+                {
+                    _Subjects = base.CreateObjectSet<Subject>("Subjects");
+                }
+                return _Subjects;
+            }
+        }
+        private ObjectSet<Subject> _Subjects;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Notice> Notices
+        {
+            get
+            {
+                if ((_Notices == null))
+                {
+                    _Notices = base.CreateObjectSet<Notice>("Notices");
+                }
+                return _Notices;
+            }
+        }
+        private ObjectSet<Notice> _Notices;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<News> News
+        {
+            get
+            {
+                if ((_News == null))
+                {
+                    _News = base.CreateObjectSet<News>("News");
+                }
+                return _News;
+            }
+        }
+        private ObjectSet<News> _News;
 
         #endregion
         #region AddTo Methods
@@ -195,6 +281,46 @@ namespace EduEnginee.Areas.Temp.Models
         {
             base.AddObject("Countries", country);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Comments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToComments(Comment comment)
+        {
+            base.AddObject("Comments", comment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Circulars EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCirculars(Circular circular)
+        {
+            base.AddObject("Circulars", circular);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Subjects EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSubjects(Subject subject)
+        {
+            base.AddObject("Subjects", subject);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Notices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToNotices(Notice notice)
+        {
+            base.AddObject("Notices", notice);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the News EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToNews(News news)
+        {
+            base.AddObject("News", news);
+        }
 
         #endregion
     }
@@ -203,6 +329,540 @@ namespace EduEnginee.Areas.Temp.Models
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Admission", Name="Circular")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Circular : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Circular object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="instituteId">Initial value of the InstituteId property.</param>
+        /// <param name="seatPlan">Initial value of the SeatPlan property.</param>
+        /// <param name="result">Initial value of the Result property.</param>
+        /// <param name="resultLink">Initial value of the ResultLink property.</param>
+        /// <param name="seatPlanLink">Initial value of the SeatPlanLink property.</param>
+        /// <param name="isEnable">Initial value of the IsEnable property.</param>
+        public static Circular CreateCircular(global::System.Int32 id, global::System.Int32 instituteId, global::System.Byte[] seatPlan, global::System.Byte[] result, global::System.String resultLink, global::System.String seatPlanLink, global::System.Boolean isEnable)
+        {
+            Circular circular = new Circular();
+            circular.Id = id;
+            circular.InstituteId = instituteId;
+            circular.SeatPlan = seatPlan;
+            circular.Result = result;
+            circular.ResultLink = resultLink;
+            circular.SeatPlanLink = seatPlanLink;
+            circular.IsEnable = isEnable;
+            return circular;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 InstituteId
+        {
+            get
+            {
+                return _InstituteId;
+            }
+            set
+            {
+                OnInstituteIdChanging(value);
+                ReportPropertyChanging("InstituteId");
+                _InstituteId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InstituteId");
+                OnInstituteIdChanged();
+            }
+        }
+        private global::System.Int32 _InstituteId;
+        partial void OnInstituteIdChanging(global::System.Int32 value);
+        partial void OnInstituteIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] SeatPlan
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_SeatPlan);
+            }
+            set
+            {
+                OnSeatPlanChanging(value);
+                ReportPropertyChanging("SeatPlan");
+                _SeatPlan = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SeatPlan");
+                OnSeatPlanChanged();
+            }
+        }
+        private global::System.Byte[] _SeatPlan;
+        partial void OnSeatPlanChanging(global::System.Byte[] value);
+        partial void OnSeatPlanChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] Result
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_Result);
+            }
+            set
+            {
+                OnResultChanging(value);
+                ReportPropertyChanging("Result");
+                _Result = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Result");
+                OnResultChanged();
+            }
+        }
+        private global::System.Byte[] _Result;
+        partial void OnResultChanging(global::System.Byte[] value);
+        partial void OnResultChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ResultLink
+        {
+            get
+            {
+                return _ResultLink;
+            }
+            set
+            {
+                OnResultLinkChanging(value);
+                ReportPropertyChanging("ResultLink");
+                _ResultLink = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ResultLink");
+                OnResultLinkChanged();
+            }
+        }
+        private global::System.String _ResultLink;
+        partial void OnResultLinkChanging(global::System.String value);
+        partial void OnResultLinkChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SeatPlanLink
+        {
+            get
+            {
+                return _SeatPlanLink;
+            }
+            set
+            {
+                OnSeatPlanLinkChanging(value);
+                ReportPropertyChanging("SeatPlanLink");
+                _SeatPlanLink = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SeatPlanLink");
+                OnSeatPlanLinkChanged();
+            }
+        }
+        private global::System.String _SeatPlanLink;
+        partial void OnSeatPlanLinkChanging(global::System.String value);
+        partial void OnSeatPlanLinkChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsEnable
+        {
+            get
+            {
+                return _IsEnable;
+            }
+            set
+            {
+                OnIsEnableChanging(value);
+                ReportPropertyChanging("IsEnable");
+                _IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsEnable");
+                OnIsEnableChanged();
+            }
+        }
+        private global::System.Boolean _IsEnable;
+        partial void OnIsEnableChanging(global::System.Boolean value);
+        partial void OnIsEnableChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteCircular", "Institute")]
+        public Institute Institute
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteCircular", "Institute").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteCircular", "Institute").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Institute> InstituteReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteCircular", "Institute");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Institute>("Admission.InstituteCircular", "Institute", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "CircularSubject", "Subject")]
+        public EntityCollection<Subject> Subjects
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Subject>("Admission.CircularSubject", "Subject");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Subject>("Admission.CircularSubject", "Subject", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "CircularComment", "Comment")]
+        public EntityCollection<Comment> Comments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Comment>("Admission.CircularComment", "Comment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("Admission.CircularComment", "Comment", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Admission", Name="Comment")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Comment : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Comment object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="instituteId">Initial value of the InstituteId property.</param>
+        /// <param name="commentText">Initial value of the CommentText property.</param>
+        /// <param name="circularId">Initial value of the CircularId property.</param>
+        /// <param name="isEnable">Initial value of the IsEnable property.</param>
+        public static Comment CreateComment(global::System.Int32 id, global::System.Int32 instituteId, global::System.String commentText, global::System.Int32 circularId, global::System.Boolean isEnable)
+        {
+            Comment comment = new Comment();
+            comment.Id = id;
+            comment.InstituteId = instituteId;
+            comment.CommentText = commentText;
+            comment.CircularId = circularId;
+            comment.IsEnable = isEnable;
+            return comment;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 InstituteId
+        {
+            get
+            {
+                return _InstituteId;
+            }
+            set
+            {
+                OnInstituteIdChanging(value);
+                ReportPropertyChanging("InstituteId");
+                _InstituteId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InstituteId");
+                OnInstituteIdChanged();
+            }
+        }
+        private global::System.Int32 _InstituteId;
+        partial void OnInstituteIdChanging(global::System.Int32 value);
+        partial void OnInstituteIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CommentText
+        {
+            get
+            {
+                return _CommentText;
+            }
+            set
+            {
+                OnCommentTextChanging(value);
+                ReportPropertyChanging("CommentText");
+                _CommentText = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CommentText");
+                OnCommentTextChanged();
+            }
+        }
+        private global::System.String _CommentText;
+        partial void OnCommentTextChanging(global::System.String value);
+        partial void OnCommentTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CircularId
+        {
+            get
+            {
+                return _CircularId;
+            }
+            set
+            {
+                OnCircularIdChanging(value);
+                ReportPropertyChanging("CircularId");
+                _CircularId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CircularId");
+                OnCircularIdChanged();
+            }
+        }
+        private global::System.Int32 _CircularId;
+        partial void OnCircularIdChanging(global::System.Int32 value);
+        partial void OnCircularIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsEnable
+        {
+            get
+            {
+                return _IsEnable;
+            }
+            set
+            {
+                OnIsEnableChanging(value);
+                ReportPropertyChanging("IsEnable");
+                _IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsEnable");
+                OnIsEnableChanged();
+            }
+        }
+        private global::System.Boolean _IsEnable;
+        partial void OnIsEnableChanging(global::System.Boolean value);
+        partial void OnIsEnableChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteComment", "Institute")]
+        public Institute Institute
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteComment", "Institute").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteComment", "Institute").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Institute> InstituteReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteComment", "Institute");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Institute>("Admission.InstituteComment", "Institute", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "CircularComment", "Circular")]
+        public Circular Circular
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Circular>("Admission.CircularComment", "Circular").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Circular>("Admission.CircularComment", "Circular").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Circular> CircularReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Circular>("Admission.CircularComment", "Circular");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Circular>("Admission.CircularComment", "Circular", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -219,11 +879,13 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static Country CreateCountry(global::System.Int32 id, global::System.String name)
+        /// <param name="isEnable">Initial value of the IsEnable property.</param>
+        public static Country CreateCountry(global::System.Int32 id, global::System.String name, global::System.Boolean isEnable)
         {
             Country country = new Country();
             country.Id = id;
             country.Name = name;
+            country.IsEnable = isEnable;
             return country;
         }
 
@@ -280,6 +942,30 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsEnable
+        {
+            get
+            {
+                return _IsEnable;
+            }
+            set
+            {
+                OnIsEnableChanging(value);
+                ReportPropertyChanging("IsEnable");
+                _IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsEnable");
+                OnIsEnableChanged();
+            }
+        }
+        private global::System.Boolean _IsEnable;
+        partial void OnIsEnableChanging(global::System.Boolean value);
+        partial void OnIsEnableChanged();
 
         #endregion
     
@@ -326,12 +1012,14 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="instituteSubcatagoryId">Initial value of the InstituteSubcatagoryId property.</param>
         /// <param name="countryId">Initial value of the CountryId property.</param>
-        public static Institute CreateInstitute(global::System.Int32 id, global::System.Int32 instituteSubcatagoryId, global::System.Int32 countryId)
+        /// <param name="isEnable">Initial value of the IsEnable property.</param>
+        public static Institute CreateInstitute(global::System.Int32 id, global::System.Int32 instituteSubcatagoryId, global::System.Int32 countryId, global::System.Boolean isEnable)
         {
             Institute institute = new Institute();
             institute.Id = id;
             institute.InstituteSubcatagoryId = instituteSubcatagoryId;
             institute.CountryId = countryId;
+            institute.IsEnable = isEnable;
             return institute;
         }
 
@@ -412,6 +1100,30 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.Int32 _CountryId;
         partial void OnCountryIdChanging(global::System.Int32 value);
         partial void OnCountryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsEnable
+        {
+            get
+            {
+                return _IsEnable;
+            }
+            set
+            {
+                OnIsEnableChanging(value);
+                ReportPropertyChanging("IsEnable");
+                _IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsEnable");
+                OnIsEnableChanged();
+            }
+        }
+        private global::System.Boolean _IsEnable;
+        partial void OnIsEnableChanging(global::System.Boolean value);
+        partial void OnIsEnableChanged();
 
         #endregion
     
@@ -492,6 +1204,94 @@ namespace EduEnginee.Areas.Temp.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteComment", "Comment")]
+        public EntityCollection<Comment> Comments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Comment>("Admission.InstituteComment", "Comment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("Admission.InstituteComment", "Comment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteCircular", "Circular")]
+        public EntityCollection<Circular> Circulars
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Circular>("Admission.InstituteCircular", "Circular");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Circular>("Admission.InstituteCircular", "Circular", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteNotice", "Notice")]
+        public EntityCollection<Notice> Notices
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Notice>("Admission.InstituteNotice", "Notice");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Notice>("Admission.InstituteNotice", "Notice", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteNews", "News")]
+        public EntityCollection<News> News
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<News>("Admission.InstituteNews", "News");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<News>("Admission.InstituteNews", "News", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -511,11 +1311,13 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="instituteTypeId">Initial value of the InstituteTypeId property.</param>
-        public static InstituteCatagory CreateInstituteCatagory(global::System.Int32 id, global::System.Int32 instituteTypeId)
+        /// <param name="isEnable">Initial value of the IsEnable property.</param>
+        public static InstituteCatagory CreateInstituteCatagory(global::System.Int32 id, global::System.Int32 instituteTypeId, global::System.Boolean isEnable)
         {
             InstituteCatagory instituteCatagory = new InstituteCatagory();
             instituteCatagory.Id = id;
             instituteCatagory.InstituteTypeId = instituteTypeId;
+            instituteCatagory.IsEnable = isEnable;
             return instituteCatagory;
         }
 
@@ -572,6 +1374,30 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.Int32 _InstituteTypeId;
         partial void OnInstituteTypeIdChanging(global::System.Int32 value);
         partial void OnInstituteTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsEnable
+        {
+            get
+            {
+                return _IsEnable;
+            }
+            set
+            {
+                OnIsEnableChanging(value);
+                ReportPropertyChanging("IsEnable");
+                _IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsEnable");
+                OnIsEnableChanged();
+            }
+        }
+        private global::System.Boolean _IsEnable;
+        partial void OnIsEnableChanging(global::System.Boolean value);
+        partial void OnIsEnableChanged();
 
         #endregion
     
@@ -655,11 +1481,13 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="instituteCatagoryId">Initial value of the InstituteCatagoryId property.</param>
-        public static InstituteSubcatagory CreateInstituteSubcatagory(global::System.Int32 id, global::System.Int32 instituteCatagoryId)
+        /// <param name="isEnable">Initial value of the IsEnable property.</param>
+        public static InstituteSubcatagory CreateInstituteSubcatagory(global::System.Int32 id, global::System.Int32 instituteCatagoryId, global::System.Boolean isEnable)
         {
             InstituteSubcatagory instituteSubcatagory = new InstituteSubcatagory();
             instituteSubcatagory.Id = id;
             instituteSubcatagory.InstituteCatagoryId = instituteCatagoryId;
+            instituteSubcatagory.IsEnable = isEnable;
             return instituteSubcatagory;
         }
 
@@ -716,6 +1544,30 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.Int32 _InstituteCatagoryId;
         partial void OnInstituteCatagoryIdChanging(global::System.Int32 value);
         partial void OnInstituteCatagoryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsEnable
+        {
+            get
+            {
+                return _IsEnable;
+            }
+            set
+            {
+                OnIsEnableChanging(value);
+                ReportPropertyChanging("IsEnable");
+                _IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsEnable");
+                OnIsEnableChanged();
+            }
+        }
+        private global::System.Boolean _IsEnable;
+        partial void OnIsEnableChanging(global::System.Boolean value);
+        partial void OnIsEnableChanged();
 
         #endregion
     
@@ -798,10 +1650,12 @@ namespace EduEnginee.Areas.Temp.Models
         /// Create a new InstituteType object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        public static InstituteType CreateInstituteType(global::System.Int32 id)
+        /// <param name="isEnable">Initial value of the IsEnable property.</param>
+        public static InstituteType CreateInstituteType(global::System.Int32 id, global::System.Boolean isEnable)
         {
             InstituteType instituteType = new InstituteType();
             instituteType.Id = id;
+            instituteType.IsEnable = isEnable;
             return instituteType;
         }
 
@@ -834,6 +1688,30 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsEnable
+        {
+            get
+            {
+                return _IsEnable;
+            }
+            set
+            {
+                OnIsEnableChanging(value);
+                ReportPropertyChanging("IsEnable");
+                _IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsEnable");
+                OnIsEnableChanged();
+            }
+        }
+        private global::System.Boolean _IsEnable;
+        partial void OnIsEnableChanging(global::System.Boolean value);
+        partial void OnIsEnableChanged();
 
         #endregion
     
@@ -857,6 +1735,398 @@ namespace EduEnginee.Areas.Temp.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<InstituteCatagory>("Admission.InstituteTypeInstituteCatagory", "InstituteCatagory", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Admission", Name="News")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class News : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new News object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="instituteId">Initial value of the InstituteId property.</param>
+        public static News CreateNews(global::System.Int32 id, global::System.Int32 instituteId)
+        {
+            News news = new News();
+            news.Id = id;
+            news.InstituteId = instituteId;
+            return news;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 InstituteId
+        {
+            get
+            {
+                return _InstituteId;
+            }
+            set
+            {
+                OnInstituteIdChanging(value);
+                ReportPropertyChanging("InstituteId");
+                _InstituteId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InstituteId");
+                OnInstituteIdChanged();
+            }
+        }
+        private global::System.Int32 _InstituteId;
+        partial void OnInstituteIdChanging(global::System.Int32 value);
+        partial void OnInstituteIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteNews", "Institute")]
+        public Institute Institute
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteNews", "Institute").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteNews", "Institute").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Institute> InstituteReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteNews", "Institute");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Institute>("Admission.InstituteNews", "Institute", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Admission", Name="Notice")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Notice : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Notice object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="instituteId">Initial value of the InstituteId property.</param>
+        public static Notice CreateNotice(global::System.Int32 id, global::System.Int32 instituteId)
+        {
+            Notice notice = new Notice();
+            notice.Id = id;
+            notice.InstituteId = instituteId;
+            return notice;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 InstituteId
+        {
+            get
+            {
+                return _InstituteId;
+            }
+            set
+            {
+                OnInstituteIdChanging(value);
+                ReportPropertyChanging("InstituteId");
+                _InstituteId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InstituteId");
+                OnInstituteIdChanged();
+            }
+        }
+        private global::System.Int32 _InstituteId;
+        partial void OnInstituteIdChanging(global::System.Int32 value);
+        partial void OnInstituteIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteNotice", "Institute")]
+        public Institute Institute
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteNotice", "Institute").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteNotice", "Institute").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Institute> InstituteReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("Admission.InstituteNotice", "Institute");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Institute>("Admission.InstituteNotice", "Institute", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Admission", Name="Subject")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Subject : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Subject object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="circularId">Initial value of the CircularId property.</param>
+        /// <param name="isEnable">Initial value of the IsEnable property.</param>
+        public static Subject CreateSubject(global::System.Int32 id, global::System.Int32 circularId, global::System.Boolean isEnable)
+        {
+            Subject subject = new Subject();
+            subject.Id = id;
+            subject.CircularId = circularId;
+            subject.IsEnable = isEnable;
+            return subject;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CircularId
+        {
+            get
+            {
+                return _CircularId;
+            }
+            set
+            {
+                OnCircularIdChanging(value);
+                ReportPropertyChanging("CircularId");
+                _CircularId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CircularId");
+                OnCircularIdChanged();
+            }
+        }
+        private global::System.Int32 _CircularId;
+        partial void OnCircularIdChanging(global::System.Int32 value);
+        partial void OnCircularIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsEnable
+        {
+            get
+            {
+                return _IsEnable;
+            }
+            set
+            {
+                OnIsEnableChanging(value);
+                ReportPropertyChanging("IsEnable");
+                _IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsEnable");
+                OnIsEnableChanged();
+            }
+        }
+        private global::System.Boolean _IsEnable;
+        partial void OnIsEnableChanging(global::System.Boolean value);
+        partial void OnIsEnableChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "CircularSubject", "Circular")]
+        public Circular Circular
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Circular>("Admission.CircularSubject", "Circular").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Circular>("Admission.CircularSubject", "Circular").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Circular> CircularReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Circular>("Admission.CircularSubject", "Circular");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Circular>("Admission.CircularSubject", "Circular", value);
                 }
             }
         }
