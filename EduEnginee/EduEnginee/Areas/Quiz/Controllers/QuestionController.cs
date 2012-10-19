@@ -57,14 +57,14 @@ namespace EduEnginee.Areas.Quiz.Controllers
         public ActionResult Create()
         {
             ViewBag.QuizDefinitionKey = new SelectList(db.QuizDefinitions, "Id", "QuizName");
-            return PartialView("Edit");
+            return PartialView("_Create");
         }
 
         //
         // POST: /Quiz/Question/Create
 
         [HttpPost]
-        public ActionResult _Create(QuestionDefinition questiondefinition)
+        public ActionResult Create(QuestionDefinition questiondefinition)
         {
             questiondefinition.QuizDefinitionKey = 3;
             int id = (from s in db.QuestionDefinitions

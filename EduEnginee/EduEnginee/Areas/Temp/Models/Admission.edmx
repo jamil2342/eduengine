@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Namespace="Admission.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="AdmissionTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Admission" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="AdmissionContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="InstituteTypes" EntityType="Admission.InstituteType" />
+          <EntitySet Name="InstituteCatagories" EntityType="Admission.InstituteCatagory" />
+          <EntitySet Name="Institutes" EntityType="Admission.Institute" />
+          <AssociationSet Name="InstituteTypeInstituteCatagory" Association="Admission.InstituteTypeInstituteCatagory">
+            <End Role="InstituteType" EntitySet="InstituteTypes" />
+            <End Role="InstituteCatagory" EntitySet="InstituteCatagories" />
+          </AssociationSet>
+          <AssociationSet Name="InstituteCatagoryInstitute" Association="Admission.InstituteCatagoryInstitute">
+            <End Role="InstituteCatagory" EntitySet="InstituteCatagories" />
+            <End Role="Institute" EntitySet="Institutes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="InstituteType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="InstituteCatagories" Relationship="Admission.InstituteTypeInstituteCatagory" FromRole="InstituteType" ToRole="InstituteCatagory" />
+        </EntityType>
+        <EntityType Name="InstituteCatagory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="InstituteType" Relationship="Admission.InstituteTypeInstituteCatagory" FromRole="InstituteCatagory" ToRole="InstituteType" />
+          <Property Type="Int32" Name="InstituteTypeId" Nullable="false" />
+          <NavigationProperty Name="Institutes" Relationship="Admission.InstituteCatagoryInstitute" FromRole="InstituteCatagory" ToRole="Institute" />
+        </EntityType>
+        <EntityType Name="Institute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="InstituteCatagory" Relationship="Admission.InstituteCatagoryInstitute" FromRole="Institute" ToRole="InstituteCatagory" />
+          <Property Type="Int32" Name="InstituteCatagoryId" Nullable="false" />
+        </EntityType>
+        <Association Name="InstituteTypeInstituteCatagory">
+          <End Type="Admission.InstituteType" Role="InstituteType" Multiplicity="1" />
+          <End Type="Admission.InstituteCatagory" Role="InstituteCatagory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstituteType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InstituteCatagory">
+              <PropertyRef Name="InstituteTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstituteCatagoryInstitute">
+          <End Type="Admission.InstituteCatagory" Role="InstituteCatagory" Multiplicity="1" />
+          <End Type="Admission.Institute" Role="Institute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstituteCatagory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Institute">
+              <PropertyRef Name="InstituteCatagoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Admission" />
+        <Alias Key="Target" Value="Admission.Store" />
+        <EntityContainerMapping CdmEntityContainer="AdmissionContainer" StorageEntityContainer="AdmissionTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Admission" >
+        <EntityTypeShape EntityType="Admission.InstituteType" Width="1.5" PointX="0.75" PointY="0.75" Height="1.2110807291666668" />
+        <EntityTypeShape EntityType="Admission.InstituteCatagory" Width="1.5" PointX="0.75" PointY="2.75" Height="1.211080729166667" />
+        <EntityTypeShape EntityType="Admission.Institute" Width="1.5" PointX="3.375" PointY="0.75" Height="1.2110807291666668" />
+        <AssociationConnector Association="Admission.InstituteTypeInstituteCatagory">
+          <ConnectorPoint PointX="1.5" PointY="2.1533821614583335" />
+          <ConnectorPoint PointX="1.5" PointY="2.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="Admission.InstituteCatagoryInstitute">
+          <ConnectorPoint PointX="2.25" PointY="3.6439925130208328" />
+          <ConnectorPoint PointX="4.125" PointY="3.6439925130208328" />
+          <ConnectorPoint PointX="4.125" PointY="2.34568359375" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
