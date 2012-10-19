@@ -15,13 +15,23 @@
         <EntityContainer Name="AdmissionContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="InstituteTypes" EntityType="Admission.InstituteType" />
           <EntitySet Name="InstituteCatagories" EntityType="Admission.InstituteCatagory" />
-          <EntitySet Name="Institutes" EntityType="Admission.Institute" />
           <AssociationSet Name="InstituteTypeInstituteCatagory" Association="Admission.InstituteTypeInstituteCatagory">
             <End Role="InstituteType" EntitySet="InstituteTypes" />
             <End Role="InstituteCatagory" EntitySet="InstituteCatagories" />
           </AssociationSet>
-          <AssociationSet Name="InstituteCatagoryInstitute" Association="Admission.InstituteCatagoryInstitute">
+          <EntitySet Name="InstituteSubcatagories" EntityType="Admission.InstituteSubcatagory" />
+          <AssociationSet Name="InstituteCatagoryInstituteSubcatagory" Association="Admission.InstituteCatagoryInstituteSubcatagory">
             <End Role="InstituteCatagory" EntitySet="InstituteCatagories" />
+            <End Role="InstituteSubcatagory" EntitySet="InstituteSubcatagories" />
+          </AssociationSet>
+          <EntitySet Name="Institutes" EntityType="Admission.Institute" />
+          <AssociationSet Name="InstituteSubcatagoryInstitute" Association="Admission.InstituteSubcatagoryInstitute">
+            <End Role="InstituteSubcatagory" EntitySet="InstituteSubcatagories" />
+            <End Role="Institute" EntitySet="Institutes" />
+          </AssociationSet>
+          <EntitySet Name="Countries" EntityType="Admission.Country" />
+          <AssociationSet Name="CountryInstitute" Association="Admission.CountryInstitute">
+            <End Role="Country" EntitySet="Countries" />
             <End Role="Institute" EntitySet="Institutes" />
           </AssociationSet>
         </EntityContainer>
@@ -39,15 +49,7 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="InstituteType" Relationship="Admission.InstituteTypeInstituteCatagory" FromRole="InstituteCatagory" ToRole="InstituteType" />
           <Property Type="Int32" Name="InstituteTypeId" Nullable="false" />
-          <NavigationProperty Name="Institutes" Relationship="Admission.InstituteCatagoryInstitute" FromRole="InstituteCatagory" ToRole="Institute" />
-        </EntityType>
-        <EntityType Name="Institute">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="InstituteCatagory" Relationship="Admission.InstituteCatagoryInstitute" FromRole="Institute" ToRole="InstituteCatagory" />
-          <Property Type="Int32" Name="InstituteCatagoryId" Nullable="false" />
+          <NavigationProperty Name="InstituteSubcatagories" Relationship="Admission.InstituteCatagoryInstituteSubcatagory" FromRole="InstituteCatagory" ToRole="InstituteSubcatagory" />
         </EntityType>
         <Association Name="InstituteTypeInstituteCatagory">
           <End Type="Admission.InstituteType" Role="InstituteType" Multiplicity="1" />
@@ -61,15 +63,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="InstituteCatagoryInstitute">
+        <EntityType Name="InstituteSubcatagory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="InstituteCatagory" Relationship="Admission.InstituteCatagoryInstituteSubcatagory" FromRole="InstituteSubcatagory" ToRole="InstituteCatagory" />
+          <Property Type="Int32" Name="InstituteCatagoryId" Nullable="false" />
+          <NavigationProperty Name="Institutes" Relationship="Admission.InstituteSubcatagoryInstitute" FromRole="InstituteSubcatagory" ToRole="Institute" />
+        </EntityType>
+        <Association Name="InstituteCatagoryInstituteSubcatagory">
           <End Type="Admission.InstituteCatagory" Role="InstituteCatagory" Multiplicity="1" />
-          <End Type="Admission.Institute" Role="Institute" Multiplicity="*" />
+          <End Type="Admission.InstituteSubcatagory" Role="InstituteSubcatagory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="InstituteCatagory">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Institute">
+            <Dependent Role="InstituteSubcatagory">
               <PropertyRef Name="InstituteCatagoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Institute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="InstituteSubcatagory" Relationship="Admission.InstituteSubcatagoryInstitute" FromRole="Institute" ToRole="InstituteSubcatagory" />
+          <Property Type="Int32" Name="InstituteSubcatagoryId" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Admission.CountryInstitute" FromRole="Institute" ToRole="Country" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+        </EntityType>
+        <Association Name="InstituteSubcatagoryInstitute">
+          <End Type="Admission.InstituteSubcatagory" Role="InstituteSubcatagory" Multiplicity="1" />
+          <End Type="Admission.Institute" Role="Institute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstituteSubcatagory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Institute">
+              <PropertyRef Name="InstituteSubcatagoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Institutes" Relationship="Admission.CountryInstitute" FromRole="Country" ToRole="Institute" />
+        </EntityType>
+        <Association Name="CountryInstitute">
+          <End Type="Admission.Country" Role="Country" Multiplicity="1" />
+          <End Type="Admission.Institute" Role="Institute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Institute">
+              <PropertyRef Name="CountryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -101,17 +154,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="Admission" >
-        <EntityTypeShape EntityType="Admission.InstituteType" Width="1.5" PointX="0.75" PointY="0.75" Height="1.2110807291666668" />
-        <EntityTypeShape EntityType="Admission.InstituteCatagory" Width="1.5" PointX="0.75" PointY="2.75" Height="1.211080729166667" />
-        <EntityTypeShape EntityType="Admission.Institute" Width="1.5" PointX="3.375" PointY="0.75" Height="1.2110807291666668" />
+        <EntityTypeShape EntityType="Admission.InstituteType" Width="1.5" PointX="0.75" PointY="1.25" Height="1.4033821614583335" />
+        <EntityTypeShape EntityType="Admission.InstituteCatagory" Width="1.5" PointX="3" PointY="1" Height="1.7879850260416665" />
         <AssociationConnector Association="Admission.InstituteTypeInstituteCatagory">
-          <ConnectorPoint PointX="1.5" PointY="2.1533821614583335" />
-          <ConnectorPoint PointX="1.5" PointY="2.75" />
+          <ConnectorPoint PointX="2.25" PointY="1.9516910807291668" />
+          <ConnectorPoint PointX="3" PointY="1.9516910807291668" />
         </AssociationConnector>
-        <AssociationConnector Association="Admission.InstituteCatagoryInstitute">
-          <ConnectorPoint PointX="2.25" PointY="3.6439925130208328" />
-          <ConnectorPoint PointX="4.125" PointY="3.6439925130208328" />
-          <ConnectorPoint PointX="4.125" PointY="2.34568359375" />
+        <EntityTypeShape EntityType="Admission.InstituteSubcatagory" Width="1.5" PointX="5.25" PointY="1" Height="1.7879850260416663" />
+        <AssociationConnector Association="Admission.InstituteCatagoryInstituteSubcatagory">
+          <ConnectorPoint PointX="4.5" PointY="1.8939925130208333" />
+          <ConnectorPoint PointX="5.25" PointY="1.8939925130208333" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Admission.Institute" Width="1.5" PointX="7.5" PointY="0.875" Height="1.9802864583333335" />
+        <AssociationConnector Association="Admission.InstituteSubcatagoryInstitute">
+          <ConnectorPoint PointX="6.75" PointY="1.8939925130208333" />
+          <ConnectorPoint PointX="7.5" PointY="1.8939925130208333" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Admission.Country" Width="1.5" PointX="5.25" PointY="4.125" Height="1.5956835937499996" />
+        <AssociationConnector Association="Admission.CountryInstitute">
+          <ConnectorPoint PointX="6.75" PointY="4.922841796875" />
+          <ConnectorPoint PointX="8.25" PointY="4.922841796875" />
+          <ConnectorPoint PointX="8.25" PointY="2.8552864583333335" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

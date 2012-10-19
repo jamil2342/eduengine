@@ -19,7 +19,9 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("Admission", "InstituteTypeInstituteCatagory", "InstituteType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.InstituteType), "InstituteCatagory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.InstituteCatagory), true)]
-[assembly: EdmRelationshipAttribute("Admission", "InstituteCatagoryInstitute", "InstituteCatagory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.InstituteCatagory), "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Institute), true)]
+[assembly: EdmRelationshipAttribute("Admission", "InstituteCatagoryInstituteSubcatagory", "InstituteCatagory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.InstituteCatagory), "InstituteSubcatagory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.InstituteSubcatagory), true)]
+[assembly: EdmRelationshipAttribute("Admission", "InstituteSubcatagoryInstitute", "InstituteSubcatagory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.InstituteSubcatagory), "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Institute), true)]
+[assembly: EdmRelationshipAttribute("Admission", "CountryInstitute", "Country", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Country), "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Institute), true)]
 
 #endregion
 
@@ -106,6 +108,22 @@ namespace EduEnginee.Areas.Temp.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<InstituteSubcatagory> InstituteSubcatagories
+        {
+            get
+            {
+                if ((_InstituteSubcatagories == null))
+                {
+                    _InstituteSubcatagories = base.CreateObjectSet<InstituteSubcatagory>("InstituteSubcatagories");
+                }
+                return _InstituteSubcatagories;
+            }
+        }
+        private ObjectSet<InstituteSubcatagory> _InstituteSubcatagories;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Institute> Institutes
         {
             get
@@ -118,6 +136,22 @@ namespace EduEnginee.Areas.Temp.Models
             }
         }
         private ObjectSet<Institute> _Institutes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Country> Countries
+        {
+            get
+            {
+                if ((_Countries == null))
+                {
+                    _Countries = base.CreateObjectSet<Country>("Countries");
+                }
+                return _Countries;
+            }
+        }
+        private ObjectSet<Country> _Countries;
 
         #endregion
         #region AddTo Methods
@@ -139,11 +173,27 @@ namespace EduEnginee.Areas.Temp.Models
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the InstituteSubcatagories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToInstituteSubcatagories(InstituteSubcatagory instituteSubcatagory)
+        {
+            base.AddObject("InstituteSubcatagories", instituteSubcatagory);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Institutes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToInstitutes(Institute institute)
         {
             base.AddObject("Institutes", institute);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Countries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCountries(Country country)
+        {
+            base.AddObject("Countries", country);
         }
 
         #endregion
@@ -153,6 +203,112 @@ namespace EduEnginee.Areas.Temp.Models
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Admission", Name="Country")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Country : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Country object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Country CreateCountry(global::System.Int32 id, global::System.String name)
+        {
+            Country country = new Country();
+            country.Id = id;
+            country.Name = name;
+            return country;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "CountryInstitute", "Institute")]
+        public EntityCollection<Institute> Institutes
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Institute>("Admission.CountryInstitute", "Institute");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Institute>("Admission.CountryInstitute", "Institute", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -168,12 +324,14 @@ namespace EduEnginee.Areas.Temp.Models
         /// Create a new Institute object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="instituteCatagoryId">Initial value of the InstituteCatagoryId property.</param>
-        public static Institute CreateInstitute(global::System.Int32 id, global::System.Int32 instituteCatagoryId)
+        /// <param name="instituteSubcatagoryId">Initial value of the InstituteSubcatagoryId property.</param>
+        /// <param name="countryId">Initial value of the CountryId property.</param>
+        public static Institute CreateInstitute(global::System.Int32 id, global::System.Int32 instituteSubcatagoryId, global::System.Int32 countryId)
         {
             Institute institute = new Institute();
             institute.Id = id;
-            institute.InstituteCatagoryId = instituteCatagoryId;
+            institute.InstituteSubcatagoryId = instituteSubcatagoryId;
+            institute.CountryId = countryId;
             return institute;
         }
 
@@ -212,24 +370,48 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 InstituteCatagoryId
+        public global::System.Int32 InstituteSubcatagoryId
         {
             get
             {
-                return _InstituteCatagoryId;
+                return _InstituteSubcatagoryId;
             }
             set
             {
-                OnInstituteCatagoryIdChanging(value);
-                ReportPropertyChanging("InstituteCatagoryId");
-                _InstituteCatagoryId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("InstituteCatagoryId");
-                OnInstituteCatagoryIdChanged();
+                OnInstituteSubcatagoryIdChanging(value);
+                ReportPropertyChanging("InstituteSubcatagoryId");
+                _InstituteSubcatagoryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InstituteSubcatagoryId");
+                OnInstituteSubcatagoryIdChanged();
             }
         }
-        private global::System.Int32 _InstituteCatagoryId;
-        partial void OnInstituteCatagoryIdChanging(global::System.Int32 value);
-        partial void OnInstituteCatagoryIdChanged();
+        private global::System.Int32 _InstituteSubcatagoryId;
+        partial void OnInstituteSubcatagoryIdChanging(global::System.Int32 value);
+        partial void OnInstituteSubcatagoryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CountryId
+        {
+            get
+            {
+                return _CountryId;
+            }
+            set
+            {
+                OnCountryIdChanging(value);
+                ReportPropertyChanging("CountryId");
+                _CountryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CountryId");
+                OnCountryIdChanged();
+            }
+        }
+        private global::System.Int32 _CountryId;
+        partial void OnCountryIdChanging(global::System.Int32 value);
+        partial void OnCountryIdChanged();
 
         #endregion
     
@@ -241,16 +423,16 @@ namespace EduEnginee.Areas.Temp.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteCatagoryInstitute", "InstituteCatagory")]
-        public InstituteCatagory InstituteCatagory
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteSubcatagoryInstitute", "InstituteSubcatagory")]
+        public InstituteSubcatagory InstituteSubcatagory
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<InstituteCatagory>("Admission.InstituteCatagoryInstitute", "InstituteCatagory").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<InstituteSubcatagory>("Admission.InstituteSubcatagoryInstitute", "InstituteSubcatagory").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<InstituteCatagory>("Admission.InstituteCatagoryInstitute", "InstituteCatagory").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<InstituteSubcatagory>("Admission.InstituteSubcatagoryInstitute", "InstituteSubcatagory").Value = value;
             }
         }
         /// <summary>
@@ -258,17 +440,55 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<InstituteCatagory> InstituteCatagoryReference
+        public EntityReference<InstituteSubcatagory> InstituteSubcatagoryReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<InstituteCatagory>("Admission.InstituteCatagoryInstitute", "InstituteCatagory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<InstituteSubcatagory>("Admission.InstituteSubcatagoryInstitute", "InstituteSubcatagory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<InstituteCatagory>("Admission.InstituteCatagoryInstitute", "InstituteCatagory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<InstituteSubcatagory>("Admission.InstituteSubcatagoryInstitute", "InstituteSubcatagory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "CountryInstitute", "Country")]
+        public Country Country
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("Admission.CountryInstitute", "Country").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("Admission.CountryInstitute", "Country").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Country> CountryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Country>("Admission.CountryInstitute", "Country");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Country>("Admission.CountryInstitute", "Country", value);
                 }
             }
         }
@@ -401,18 +621,162 @@ namespace EduEnginee.Areas.Temp.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteCatagoryInstitute", "Institute")]
-        public EntityCollection<Institute> Institutes
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteCatagoryInstituteSubcatagory", "InstituteSubcatagory")]
+        public EntityCollection<InstituteSubcatagory> InstituteSubcatagories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Institute>("Admission.InstituteCatagoryInstitute", "Institute");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<InstituteSubcatagory>("Admission.InstituteCatagoryInstituteSubcatagory", "InstituteSubcatagory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Institute>("Admission.InstituteCatagoryInstitute", "Institute", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<InstituteSubcatagory>("Admission.InstituteCatagoryInstituteSubcatagory", "InstituteSubcatagory", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Admission", Name="InstituteSubcatagory")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class InstituteSubcatagory : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new InstituteSubcatagory object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="instituteCatagoryId">Initial value of the InstituteCatagoryId property.</param>
+        public static InstituteSubcatagory CreateInstituteSubcatagory(global::System.Int32 id, global::System.Int32 instituteCatagoryId)
+        {
+            InstituteSubcatagory instituteSubcatagory = new InstituteSubcatagory();
+            instituteSubcatagory.Id = id;
+            instituteSubcatagory.InstituteCatagoryId = instituteCatagoryId;
+            return instituteSubcatagory;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 InstituteCatagoryId
+        {
+            get
+            {
+                return _InstituteCatagoryId;
+            }
+            set
+            {
+                OnInstituteCatagoryIdChanging(value);
+                ReportPropertyChanging("InstituteCatagoryId");
+                _InstituteCatagoryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InstituteCatagoryId");
+                OnInstituteCatagoryIdChanged();
+            }
+        }
+        private global::System.Int32 _InstituteCatagoryId;
+        partial void OnInstituteCatagoryIdChanging(global::System.Int32 value);
+        partial void OnInstituteCatagoryIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteCatagoryInstituteSubcatagory", "InstituteCatagory")]
+        public InstituteCatagory InstituteCatagory
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<InstituteCatagory>("Admission.InstituteCatagoryInstituteSubcatagory", "InstituteCatagory").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<InstituteCatagory>("Admission.InstituteCatagoryInstituteSubcatagory", "InstituteCatagory").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<InstituteCatagory> InstituteCatagoryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<InstituteCatagory>("Admission.InstituteCatagoryInstituteSubcatagory", "InstituteCatagory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<InstituteCatagory>("Admission.InstituteCatagoryInstituteSubcatagory", "InstituteCatagory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "InstituteSubcatagoryInstitute", "Institute")]
+        public EntityCollection<Institute> Institutes
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Institute>("Admission.InstituteSubcatagoryInstitute", "Institute");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Institute>("Admission.InstituteSubcatagoryInstitute", "Institute", value);
                 }
             }
         }
