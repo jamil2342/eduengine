@@ -369,12 +369,12 @@ namespace EduEnginee.Areas.Temp.Models
         /// Create a new AdmissionType object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="name">Initial value of the Name property.</param>
-        public static AdmissionType CreateAdmissionType(global::System.Int32 id, global::System.String name)
+        /// <param name="title">Initial value of the Title property.</param>
+        public static AdmissionType CreateAdmissionType(global::System.Int32 id, global::System.String title)
         {
             AdmissionType admissionType = new AdmissionType();
             admissionType.Id = id;
-            admissionType.Name = name;
+            admissionType.Title = title;
             return admissionType;
         }
 
@@ -413,24 +413,24 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Name
+        public global::System.String Title
         {
             get
             {
-                return _Name;
+                return _Title;
             }
             set
             {
-                OnNameChanging(value);
-                ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Name");
-                OnNameChanged();
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
             }
         }
-        private global::System.String _Name;
-        partial void OnNameChanging(global::System.String value);
-        partial void OnNameChanged();
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
 
         #endregion
     
@@ -490,7 +490,8 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="admissionReq">Initial value of the AdmissionReq property.</param>
         /// <param name="applyProc">Initial value of the ApplyProc property.</param>
         /// <param name="admissionTypeId">Initial value of the AdmissionTypeId property.</param>
-        public static Circular CreateCircular(global::System.Int32 id, global::System.Int32 instituteId, global::System.Byte[] seatPlan, global::System.Byte[] result, global::System.String resultLink, global::System.String seatPlanLink, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String session, global::System.String courseType, global::System.String admissionReq, global::System.String applyProc, global::System.Int32 admissionTypeId)
+        /// <param name="title">Initial value of the Title property.</param>
+        public static Circular CreateCircular(global::System.Int32 id, global::System.Int32 instituteId, global::System.Byte[] seatPlan, global::System.Byte[] result, global::System.String resultLink, global::System.String seatPlanLink, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String session, global::System.String courseType, global::System.String admissionReq, global::System.String applyProc, global::System.Int32 admissionTypeId, global::System.String title)
         {
             Circular circular = new Circular();
             circular.Id = id;
@@ -509,6 +510,7 @@ namespace EduEnginee.Areas.Temp.Models
             circular.AdmissionReq = admissionReq;
             circular.ApplyProc = applyProc;
             circular.AdmissionTypeId = admissionTypeId;
+            circular.Title = title;
             return circular;
         }
 
@@ -1069,6 +1071,30 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.Int32 _AdmissionTypeId;
         partial void OnAdmissionTypeIdChanging(global::System.Int32 value);
         partial void OnAdmissionTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
 
         #endregion
     
@@ -1692,7 +1718,7 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="createdDate">Initial value of the CreatedDate property.</param>
         /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
         /// <param name="updatedDate">Initial value of the UpdatedDate property.</param>
-        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="title">Initial value of the Title property.</param>
         /// <param name="phone">Initial value of the Phone property.</param>
         /// <param name="emailAddress">Initial value of the EmailAddress property.</param>
         /// <param name="webSite">Initial value of the WebSite property.</param>
@@ -1703,7 +1729,7 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="noOfMaleHostelSit">Initial value of the NoOfMaleHostelSit property.</param>
         /// <param name="noOfFemaleHostelSit">Initial value of the NoOfFemaleHostelSit property.</param>
         /// <param name="location">Initial value of the Location property.</param>
-        public static Institute CreateInstitute(global::System.Int32 id, global::System.Int32 instituteSubcatagoryId, global::System.Int32 countryId, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String name, global::System.String phone, global::System.String emailAddress, global::System.String webSite, global::System.DateTime establishDate, global::System.String logoDirectory, global::System.Int32 noOfMaleStd, global::System.Int32 noOfFemaleStd, global::System.Int32 noOfMaleHostelSit, global::System.Int32 noOfFemaleHostelSit, global::System.String location)
+        public static Institute CreateInstitute(global::System.Int32 id, global::System.Int32 instituteSubcatagoryId, global::System.Int32 countryId, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String title, global::System.String phone, global::System.String emailAddress, global::System.String webSite, global::System.DateTime establishDate, global::System.String logoDirectory, global::System.Int32 noOfMaleStd, global::System.Int32 noOfFemaleStd, global::System.Int32 noOfMaleHostelSit, global::System.Int32 noOfFemaleHostelSit, global::System.String location)
         {
             Institute institute = new Institute();
             institute.Id = id;
@@ -1714,7 +1740,7 @@ namespace EduEnginee.Areas.Temp.Models
             institute.CreatedDate = createdDate;
             institute.UpdatedBy = updatedBy;
             institute.UpdatedDate = updatedDate;
-            institute.Name = name;
+            institute.Title = title;
             institute.Phone = phone;
             institute.EmailAddress = emailAddress;
             institute.WebSite = webSite;
@@ -1931,24 +1957,24 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Name
+        public global::System.String Title
         {
             get
             {
-                return _Name;
+                return _Title;
             }
             set
             {
-                OnNameChanging(value);
-                ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Name");
-                OnNameChanged();
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
             }
         }
-        private global::System.String _Name;
-        partial void OnNameChanging(global::System.String value);
-        partial void OnNameChanged();
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2405,8 +2431,8 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="createdDate">Initial value of the CreatedDate property.</param>
         /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
         /// <param name="updatedDate">Initial value of the UpdatedDate property.</param>
-        /// <param name="display">Initial value of the Display property.</param>
-        public static InstituteCatagory CreateInstituteCatagory(global::System.Int32 id, global::System.Int32 instituteTypeId, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String display)
+        /// <param name="title">Initial value of the Title property.</param>
+        public static InstituteCatagory CreateInstituteCatagory(global::System.Int32 id, global::System.Int32 instituteTypeId, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String title)
         {
             InstituteCatagory instituteCatagory = new InstituteCatagory();
             instituteCatagory.Id = id;
@@ -2416,7 +2442,7 @@ namespace EduEnginee.Areas.Temp.Models
             instituteCatagory.CreatedDate = createdDate;
             instituteCatagory.UpdatedBy = updatedBy;
             instituteCatagory.UpdatedDate = updatedDate;
-            instituteCatagory.Display = display;
+            instituteCatagory.Title = title;
             return instituteCatagory;
         }
 
@@ -2599,24 +2625,24 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Display
+        public global::System.String Title
         {
             get
             {
-                return _Display;
+                return _Title;
             }
             set
             {
-                OnDisplayChanging(value);
-                ReportPropertyChanging("Display");
-                _Display = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Display");
-                OnDisplayChanged();
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
             }
         }
-        private global::System.String _Display;
-        partial void OnDisplayChanging(global::System.String value);
-        partial void OnDisplayChanged();
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
 
         #endregion
     
@@ -2705,8 +2731,8 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="createdDate">Initial value of the CreatedDate property.</param>
         /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
         /// <param name="updatedDate">Initial value of the UpdatedDate property.</param>
-        /// <param name="display">Initial value of the Display property.</param>
-        public static InstituteSubcatagory CreateInstituteSubcatagory(global::System.Int32 id, global::System.Int32 instituteCatagoryId, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String display)
+        /// <param name="title">Initial value of the Title property.</param>
+        public static InstituteSubcatagory CreateInstituteSubcatagory(global::System.Int32 id, global::System.Int32 instituteCatagoryId, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String title)
         {
             InstituteSubcatagory instituteSubcatagory = new InstituteSubcatagory();
             instituteSubcatagory.Id = id;
@@ -2716,7 +2742,7 @@ namespace EduEnginee.Areas.Temp.Models
             instituteSubcatagory.CreatedDate = createdDate;
             instituteSubcatagory.UpdatedBy = updatedBy;
             instituteSubcatagory.UpdatedDate = updatedDate;
-            instituteSubcatagory.Display = display;
+            instituteSubcatagory.Title = title;
             return instituteSubcatagory;
         }
 
@@ -2899,24 +2925,24 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Display
+        public global::System.String Title
         {
             get
             {
-                return _Display;
+                return _Title;
             }
             set
             {
-                OnDisplayChanging(value);
-                ReportPropertyChanging("Display");
-                _Display = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Display");
-                OnDisplayChanged();
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
             }
         }
-        private global::System.String _Display;
-        partial void OnDisplayChanging(global::System.String value);
-        partial void OnDisplayChanged();
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
 
         #endregion
     
@@ -3004,8 +3030,8 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="createdDate">Initial value of the CreatedDate property.</param>
         /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
         /// <param name="updatedDate">Initial value of the UpdatedDate property.</param>
-        /// <param name="display">Initial value of the Display property.</param>
-        public static InstituteType CreateInstituteType(global::System.Int32 id, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String display)
+        /// <param name="title">Initial value of the Title property.</param>
+        public static InstituteType CreateInstituteType(global::System.Int32 id, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String title)
         {
             InstituteType instituteType = new InstituteType();
             instituteType.Id = id;
@@ -3014,7 +3040,7 @@ namespace EduEnginee.Areas.Temp.Models
             instituteType.CreatedDate = createdDate;
             instituteType.UpdatedBy = updatedBy;
             instituteType.UpdatedDate = updatedDate;
-            instituteType.Display = display;
+            instituteType.Title = title;
             return instituteType;
         }
 
@@ -3173,24 +3199,24 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Display
+        public global::System.String Title
         {
             get
             {
-                return _Display;
+                return _Title;
             }
             set
             {
-                OnDisplayChanging(value);
-                ReportPropertyChanging("Display");
-                _Display = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Display");
-                OnDisplayChanged();
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
             }
         }
-        private global::System.String _Display;
-        partial void OnDisplayChanging(global::System.String value);
-        partial void OnDisplayChanged();
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
 
         #endregion
     

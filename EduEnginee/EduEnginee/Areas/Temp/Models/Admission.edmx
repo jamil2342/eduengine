@@ -80,7 +80,7 @@
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
           <Property Type="String" Name="UpdatedBy" Nullable="false" />
           <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
-          <Property Type="String" Name="Display" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
         </EntityType>
         <EntityType Name="InstituteCatagory">
           <Key>
@@ -95,7 +95,7 @@
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
           <Property Type="String" Name="UpdatedBy" Nullable="false" />
           <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
-          <Property Type="String" Name="Display" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
         </EntityType>
         <Association Name="InstituteTypeInstituteCatagory">
           <End Type="Admission.InstituteType" Role="InstituteType" Multiplicity="1" />
@@ -122,7 +122,7 @@
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
           <Property Type="String" Name="UpdatedBy" Nullable="false" />
           <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
-          <Property Type="String" Name="Display" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
         </EntityType>
         <Association Name="InstituteCatagoryInstituteSubcatagory">
           <End Type="Admission.InstituteCatagory" Role="InstituteCatagory" Multiplicity="1" />
@@ -154,7 +154,7 @@
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
           <Property Type="String" Name="UpdatedBy" Nullable="false" />
           <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
           <Property Type="String" Name="Phone" Nullable="false" />
           <Property Type="String" Name="EmailAddress" Nullable="false" />
           <Property Type="String" Name="WebSite" Nullable="false" />
@@ -259,6 +259,7 @@
           <Property Type="DateTime" Name="ResDate" Nullable="true" />
           <NavigationProperty Name="AdmissionType" Relationship="Admission.AdmissionTypeCircular" FromRole="Circular" ToRole="AdmissionType" />
           <Property Type="Int32" Name="AdmissionTypeId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
         </EntityType>
         <Association Name="InstituteCircular">
           <End Type="Admission.Institute" Role="Institute" Multiplicity="1" />
@@ -375,7 +376,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
           <NavigationProperty Name="Circulars" Relationship="Admission.AdmissionTypeCircular" FromRole="AdmissionType" ToRole="Circular" />
         </EntityType>
         <Association Name="AdmissionTypeCircular">
@@ -445,15 +446,15 @@
           <ConnectorPoint PointX="9" PointY="9.4420475260416676" />
           <ConnectorPoint PointX="9.75" PointY="9.4420475260416676" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.Circular" Width="1.5" PointX="12.75" PointY="6.25" Height="6.2109179687500031" />
+        <EntityTypeShape EntityType="Admission.Circular" Width="1.5" PointX="12.75" PointY="6.25" Height="6.4032194010416656" />
         <AssociationConnector Association="Admission.InstituteCircular">
           <ConnectorPoint PointX="9" PointY="7.09375" />
           <ConnectorPoint PointX="12.75" PointY="7.09375" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Admission.Subject" Width="1.5" PointX="15" PointY="8.125" Height="3.3263964843749996" />
         <AssociationConnector Association="Admission.CircularSubject">
-          <ConnectorPoint PointX="14.25" PointY="9.7881982421875" />
-          <ConnectorPoint PointX="15" PointY="9.7881982421875" />
+          <ConnectorPoint PointX="14.25" PointY="9.8843489583333337" />
+          <ConnectorPoint PointX="15" PointY="9.8843489583333337" />
         </AssociationConnector>
         <AssociationConnector Association="Admission.CircularComment">
           <ConnectorPoint PointX="12.75" PointY="9.4420475260416676" />
