@@ -63,6 +63,11 @@
             <End Role="Institute" EntitySet="Institutes" />
             <End Role="News" EntitySet="News" />
           </AssociationSet>
+          <EntitySet Name="AdmissionTypes" EntityType="Admission.AdmissionType" />
+          <AssociationSet Name="AdmissionTypeCircular" Association="Admission.AdmissionTypeCircular">
+            <End Role="AdmissionType" EntitySet="AdmissionTypes" />
+            <End Role="Circular" EntitySet="Circulars" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="InstituteType">
           <Key>
@@ -150,7 +155,6 @@
           <Property Type="String" Name="UpdatedBy" Nullable="false" />
           <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" />
-          <Property Name="Location" Type="Admission.Location" Nullable="false" />
           <Property Type="String" Name="Phone" Nullable="false" />
           <Property Type="String" Name="EmailAddress" Nullable="false" />
           <Property Type="String" Name="WebSite" Nullable="false" />
@@ -161,6 +165,7 @@
           <Property Type="Int32" Name="NoOfTeacher" Nullable="true" />
           <Property Type="Int32" Name="NoOfMaleHostelSit" Nullable="false" />
           <Property Type="Int32" Name="NoOfFemaleHostelSit" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" />
         </EntityType>
         <Association Name="InstituteSubcatagoryInstitute">
           <End Type="Admission.InstituteSubcatagory" Role="InstituteSubcatagory" Multiplicity="1" />
@@ -182,11 +187,7 @@
           <Property Type="String" Name="Name" Nullable="false" />
           <NavigationProperty Name="Institutes" Relationship="Admission.CountryInstitute" FromRole="Country" ToRole="Institute" />
           <Property Type="Boolean" Name="IsEnable" Nullable="false" />
-          <Property Type="String" Name="CreatedBy" Nullable="false" />
-          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
-          <Property Type="String" Name="UpdatedBy" Nullable="false" />
-          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
-        </EntityType>
+          </EntityType>
         <Association Name="CountryInstitute">
           <End Type="Admission.Country" Role="Country" Multiplicity="1" />
           <End Type="Admission.Institute" Role="Institute" Multiplicity="*" />
@@ -245,6 +246,19 @@
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
           <Property Type="String" Name="UpdatedBy" Nullable="false" />
           <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <Property Type="String" Name="Session" Nullable="false" />
+          <Property Type="String" Name="CourseType" Nullable="false" />
+          <Property Type="String" Name="AdmissionReq" Nullable="false" />
+          <Property Type="String" Name="ApplyProc" Nullable="false" />
+          <Property Type="DateTime" Name="AppStart" Nullable="true" />
+          <Property Type="DateTime" Name="AppEnd" Nullable="true" />
+          <Property Type="DateTime" Name="SubStart" Nullable="true" />
+          <Property Type="DateTime" Name="SubEnd" Nullable="true" />
+          <Property Type="DateTime" Name="EligibleCanDate" Nullable="true" />
+          <Property Type="DateTime" Name="AddDate" Nullable="true" />
+          <Property Type="DateTime" Name="ResDate" Nullable="true" />
+          <NavigationProperty Name="AdmissionType" Relationship="Admission.AdmissionTypeCircular" FromRole="Circular" ToRole="AdmissionType" />
+          <Property Type="Int32" Name="AdmissionTypeId" Nullable="false" />
         </EntityType>
         <Association Name="InstituteCircular">
           <End Type="Admission.Institute" Role="Institute" Multiplicity="1" />
@@ -270,6 +284,11 @@
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
           <Property Type="String" Name="UpdatedBy" Nullable="false" />
           <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <Property Type="Int32" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="DurationInMnth" Nullable="true" />
+          <Property Type="Int32" Name="NoOfTeacher" Nullable="true" />
+          <Property Type="Int32" Name="NoOfMaleStudent" Nullable="true" />
+          <Property Type="Int32" Name="NoOfFemaleStudent" Nullable="true" />
         </EntityType>
         <Association Name="CircularSubject">
           <End Type="Admission.Circular" Role="Circular" Multiplicity="1" />
@@ -302,6 +321,9 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Institute" Relationship="Admission.InstituteNotice" FromRole="Notice" ToRole="Institute" />
           <Property Type="Int32" Name="InstituteId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
         </EntityType>
         <Association Name="InstituteNotice">
           <End Type="Admission.Institute" Role="Institute" Multiplicity="1" />
@@ -326,6 +348,9 @@
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
           <Property Type="String" Name="UpdatedBy" Nullable="false" />
           <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
         </EntityType>
         <Association Name="InstituteNews">
           <End Type="Admission.Institute" Role="Institute" Multiplicity="1" />
@@ -345,6 +370,26 @@
           <Property Type="String" Name="PostOffice" Nullable="true" />
           <Property Type="String" Name="Details" Nullable="true" />
         </ComplexType>
+        <EntityType Name="AdmissionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Circulars" Relationship="Admission.AdmissionTypeCircular" FromRole="AdmissionType" ToRole="Circular" />
+        </EntityType>
+        <Association Name="AdmissionTypeCircular">
+          <End Type="Admission.AdmissionType" Role="AdmissionType" Multiplicity="1" />
+          <End Type="Admission.Circular" Role="Circular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Circular">
+              <PropertyRef Name="AdmissionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -372,61 +417,67 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="Admission" ZoomLevel="85" >
-        <EntityTypeShape EntityType="Admission.InstituteType" Width="1.5" PointX="0.75" PointY="6.75" Height="2.5571907552083317" />
-        <EntityTypeShape EntityType="Admission.InstituteCatagory" Width="1.5" PointX="3" PointY="6.5" Height="2.9417936197916648" />
+      <Diagram Name="Admission" ZoomLevel="78" >
+        <EntityTypeShape EntityType="Admission.InstituteType" Width="1.5" PointX="0.75" PointY="8.125" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="Admission.InstituteCatagory" Width="1.5" PointX="3" PointY="7.875" Height="2.9417936197916639" />
         <AssociationConnector Association="Admission.InstituteTypeInstituteCatagory">
-          <ConnectorPoint PointX="2.25" PointY="8.0285953776041659" />
-          <ConnectorPoint PointX="3" PointY="8.0285953776041659" />
+          <ConnectorPoint PointX="2.25" PointY="9.4035953776041659" />
+          <ConnectorPoint PointX="3" PointY="9.4035953776041659" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.InstituteSubcatagory" Width="1.5" PointX="5.25" PointY="6.5" Height="2.9417936197916648" />
+        <EntityTypeShape EntityType="Admission.InstituteSubcatagory" Width="1.5" PointX="5.25" PointY="7.875" Height="2.9417936197916639" />
         <AssociationConnector Association="Admission.InstituteCatagoryInstituteSubcatagory">
-          <ConnectorPoint PointX="4.5" PointY="7.9708968098958319" />
-          <ConnectorPoint PointX="5.25" PointY="7.9708968098958319" />
+          <ConnectorPoint PointX="4.5" PointY="9.3458968098958319" />
+          <ConnectorPoint PointX="5.25" PointY="9.3458968098958319" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.Institute" Width="1.5" PointX="7.5" PointY="6.25" Height="5.8263151041666656" />
+        <EntityTypeShape EntityType="Admission.Institute" Width="1.5" PointX="7.5" PointY="6.375" Height="6.0186165364583317" />
         <AssociationConnector Association="Admission.InstituteSubcatagoryInstitute">
-          <ConnectorPoint PointX="6.75" PointY="7.9708968098958319" />
-          <ConnectorPoint PointX="7.5" PointY="7.9708968098958319" />
+          <ConnectorPoint PointX="6.75" PointY="9.3458968098958319" />
+          <ConnectorPoint PointX="7.5" PointY="9.3458968098958319" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.Country" Width="1.5" PointX="5.25" PointY="2.75" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="Admission.Country" Width="1.5" PointX="5.25" PointY="4.125" Height="1.7879850260416657" />
         <AssociationConnector Association="Admission.CountryInstitute">
-          <ConnectorPoint PointX="6.75" PointY="4.0285953776041659" />
-          <ConnectorPoint PointX="8.25" PointY="4.0285953776041659" />
-          <ConnectorPoint PointX="8.25" PointY="6.25" />
+          <ConnectorPoint PointX="6.75" PointY="5.0189925130208328" />
+          <ConnectorPoint PointX="8.25" PointY="5.0189925130208328" />
+          <ConnectorPoint PointX="8.25" PointY="6.375" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.Comment" Width="1.5" PointX="12" PointY="4" Height="3.1340950520833335" />
+        <EntityTypeShape EntityType="Admission.Comment" Width="1.5" PointX="9.75" PointY="7.875" Height="3.1340950520833344" />
         <AssociationConnector Association="Admission.InstituteComment">
-          <ConnectorPoint PointX="9" PointY="6.6920475260416667" />
-          <ConnectorPoint PointX="10.416666666666666" PointY="6.6920475260416659" />
-          <ConnectorPoint PointX="10.583333333333334" PointY="6.6920475260416667" />
-          <ConnectorPoint PointX="12" PointY="6.6920475260416667" />
+          <ConnectorPoint PointX="9" PointY="9.4420475260416676" />
+          <ConnectorPoint PointX="9.75" PointY="9.4420475260416676" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.Circular" Width="1.5" PointX="9.75" PointY="7.25" Height="3.7109993489583344" />
+        <EntityTypeShape EntityType="Admission.Circular" Width="1.5" PointX="12.75" PointY="6.25" Height="6.2109179687500031" />
         <AssociationConnector Association="Admission.InstituteCircular">
-          <ConnectorPoint PointX="9" PointY="9.1054996744791676" />
-          <ConnectorPoint PointX="9.75" PointY="9.1054996744791676" />
+          <ConnectorPoint PointX="9" PointY="7.09375" />
+          <ConnectorPoint PointX="12.75" PointY="7.09375" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.Subject" Width="1.5" PointX="12" PointY="7.875" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="Admission.Subject" Width="1.5" PointX="15" PointY="8.125" Height="3.3263964843749996" />
         <AssociationConnector Association="Admission.CircularSubject">
-          <ConnectorPoint PointX="11.25" PointY="9.1535953776041659" />
-          <ConnectorPoint PointX="12" PointY="9.1535953776041659" />
+          <ConnectorPoint PointX="14.25" PointY="9.7881982421875" />
+          <ConnectorPoint PointX="15" PointY="9.7881982421875" />
         </AssociationConnector>
         <AssociationConnector Association="Admission.CircularComment">
-          <ConnectorPoint PointX="10.5" PointY="7.25" />
-          <ConnectorPoint PointX="10.5" PointY="5.2522712630208321" />
-          <ConnectorPoint PointX="12" PointY="5.2522712630208321" />
+          <ConnectorPoint PointX="12.75" PointY="9.4420475260416676" />
+          <ConnectorPoint PointX="11.25" PointY="9.4420475260416676" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.Notice" Width="1.5" PointX="9.75" PointY="11.75" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="Admission.Notice" Width="1.5" PointX="9.75" PointY="17.875" Height="2.1725878906250031" />
         <AssociationConnector Association="Admission.InstituteNotice">
-          <ConnectorPoint PointX="9" PointY="11.913157552083334" />
-          <ConnectorPoint PointX="9.75" PointY="11.913157552083334" />
+          <ConnectorPoint PointX="8.04687375" PointY="12.393616536458332" />
+          <ConnectorPoint PointX="8.04687375" PointY="18.9612939453125" />
+          <ConnectorPoint PointX="8.5729191666666669" PointY="18.9612939453125" />
+          <ConnectorPoint PointX="8.7395858333333347" PointY="18.9612939453125" />
+          <ConnectorPoint PointX="9.75" PointY="18.9612939453125" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Admission.News" Width="1.5" PointX="9.75" PointY="14.125" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="Admission.News" Width="1.5" PointX="9.75" PointY="20.25" Height="2.3648893229166674" />
         <AssociationConnector Association="Admission.InstituteNews">
-          <ConnectorPoint PointX="8.25" PointY="12.076315104166666" />
-          <ConnectorPoint PointX="8.25" PointY="15.307444661458334" />
-          <ConnectorPoint PointX="9.75" PointY="15.307444661458334" />
+          <ConnectorPoint PointX="8.6562525" PointY="12.393616536458332" />
+          <ConnectorPoint PointX="8.6562525" PointY="21.432444661458334" />
+          <ConnectorPoint PointX="9.75" PointY="21.432444661458334" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Admission.AdmissionType" Width="1.5" PointX="10.5" PointY="4.625" Height="1.5956835937499996" />
+        <AssociationConnector Association="Admission.AdmissionTypeCircular">
+          <ConnectorPoint PointX="12" PointY="5.422841796875" />
+          <ConnectorPoint PointX="13.5" PointY="5.422841796875" />
+          <ConnectorPoint PointX="13.5" PointY="6.25" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

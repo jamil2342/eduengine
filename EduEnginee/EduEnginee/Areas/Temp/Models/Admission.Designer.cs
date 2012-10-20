@@ -28,6 +28,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Admission", "CircularComment", "Circular", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Circular), "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Comment), true)]
 [assembly: EdmRelationshipAttribute("Admission", "InstituteNotice", "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Institute), "Notice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Notice), true)]
 [assembly: EdmRelationshipAttribute("Admission", "InstituteNews", "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.Institute), "News", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.News), true)]
+[assembly: EdmRelationshipAttribute("Admission", "AdmissionTypeCircular", "AdmissionType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EduEnginee.Areas.Temp.Models.AdmissionType), "Circular", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EduEnginee.Areas.Temp.Models.Circular), true)]
 
 #endregion
 
@@ -238,6 +239,22 @@ namespace EduEnginee.Areas.Temp.Models
             }
         }
         private ObjectSet<News> _News;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<AdmissionType> AdmissionTypes
+        {
+            get
+            {
+                if ((_AdmissionTypes == null))
+                {
+                    _AdmissionTypes = base.CreateObjectSet<AdmissionType>("AdmissionTypes");
+                }
+                return _AdmissionTypes;
+            }
+        }
+        private ObjectSet<AdmissionType> _AdmissionTypes;
 
         #endregion
         #region AddTo Methods
@@ -321,6 +338,14 @@ namespace EduEnginee.Areas.Temp.Models
         {
             base.AddObject("News", news);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the AdmissionTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAdmissionTypes(AdmissionType admissionType)
+        {
+            base.AddObject("AdmissionTypes", admissionType);
+        }
 
         #endregion
     }
@@ -329,6 +354,112 @@ namespace EduEnginee.Areas.Temp.Models
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Admission", Name="AdmissionType")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class AdmissionType : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new AdmissionType object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static AdmissionType CreateAdmissionType(global::System.Int32 id, global::System.String name)
+        {
+            AdmissionType admissionType = new AdmissionType();
+            admissionType.Id = id;
+            admissionType.Name = name;
+            return admissionType;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "AdmissionTypeCircular", "Circular")]
+        public EntityCollection<Circular> Circulars
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Circular>("Admission.AdmissionTypeCircular", "Circular");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Circular>("Admission.AdmissionTypeCircular", "Circular", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -354,7 +485,12 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="createdDate">Initial value of the CreatedDate property.</param>
         /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
         /// <param name="updatedDate">Initial value of the UpdatedDate property.</param>
-        public static Circular CreateCircular(global::System.Int32 id, global::System.Int32 instituteId, global::System.Byte[] seatPlan, global::System.Byte[] result, global::System.String resultLink, global::System.String seatPlanLink, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate)
+        /// <param name="session">Initial value of the Session property.</param>
+        /// <param name="courseType">Initial value of the CourseType property.</param>
+        /// <param name="admissionReq">Initial value of the AdmissionReq property.</param>
+        /// <param name="applyProc">Initial value of the ApplyProc property.</param>
+        /// <param name="admissionTypeId">Initial value of the AdmissionTypeId property.</param>
+        public static Circular CreateCircular(global::System.Int32 id, global::System.Int32 instituteId, global::System.Byte[] seatPlan, global::System.Byte[] result, global::System.String resultLink, global::System.String seatPlanLink, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String session, global::System.String courseType, global::System.String admissionReq, global::System.String applyProc, global::System.Int32 admissionTypeId)
         {
             Circular circular = new Circular();
             circular.Id = id;
@@ -368,6 +504,11 @@ namespace EduEnginee.Areas.Temp.Models
             circular.CreatedDate = createdDate;
             circular.UpdatedBy = updatedBy;
             circular.UpdatedDate = updatedDate;
+            circular.Session = session;
+            circular.CourseType = courseType;
+            circular.AdmissionReq = admissionReq;
+            circular.ApplyProc = applyProc;
+            circular.AdmissionTypeId = admissionTypeId;
             return circular;
         }
 
@@ -640,6 +781,294 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.DateTime _UpdatedDate;
         partial void OnUpdatedDateChanging(global::System.DateTime value);
         partial void OnUpdatedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Session
+        {
+            get
+            {
+                return _Session;
+            }
+            set
+            {
+                OnSessionChanging(value);
+                ReportPropertyChanging("Session");
+                _Session = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Session");
+                OnSessionChanged();
+            }
+        }
+        private global::System.String _Session;
+        partial void OnSessionChanging(global::System.String value);
+        partial void OnSessionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CourseType
+        {
+            get
+            {
+                return _CourseType;
+            }
+            set
+            {
+                OnCourseTypeChanging(value);
+                ReportPropertyChanging("CourseType");
+                _CourseType = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CourseType");
+                OnCourseTypeChanged();
+            }
+        }
+        private global::System.String _CourseType;
+        partial void OnCourseTypeChanging(global::System.String value);
+        partial void OnCourseTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String AdmissionReq
+        {
+            get
+            {
+                return _AdmissionReq;
+            }
+            set
+            {
+                OnAdmissionReqChanging(value);
+                ReportPropertyChanging("AdmissionReq");
+                _AdmissionReq = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("AdmissionReq");
+                OnAdmissionReqChanged();
+            }
+        }
+        private global::System.String _AdmissionReq;
+        partial void OnAdmissionReqChanging(global::System.String value);
+        partial void OnAdmissionReqChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ApplyProc
+        {
+            get
+            {
+                return _ApplyProc;
+            }
+            set
+            {
+                OnApplyProcChanging(value);
+                ReportPropertyChanging("ApplyProc");
+                _ApplyProc = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ApplyProc");
+                OnApplyProcChanged();
+            }
+        }
+        private global::System.String _ApplyProc;
+        partial void OnApplyProcChanging(global::System.String value);
+        partial void OnApplyProcChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> AppStart
+        {
+            get
+            {
+                return _AppStart;
+            }
+            set
+            {
+                OnAppStartChanging(value);
+                ReportPropertyChanging("AppStart");
+                _AppStart = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AppStart");
+                OnAppStartChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _AppStart;
+        partial void OnAppStartChanging(Nullable<global::System.DateTime> value);
+        partial void OnAppStartChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> AppEnd
+        {
+            get
+            {
+                return _AppEnd;
+            }
+            set
+            {
+                OnAppEndChanging(value);
+                ReportPropertyChanging("AppEnd");
+                _AppEnd = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AppEnd");
+                OnAppEndChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _AppEnd;
+        partial void OnAppEndChanging(Nullable<global::System.DateTime> value);
+        partial void OnAppEndChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> SubStart
+        {
+            get
+            {
+                return _SubStart;
+            }
+            set
+            {
+                OnSubStartChanging(value);
+                ReportPropertyChanging("SubStart");
+                _SubStart = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SubStart");
+                OnSubStartChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _SubStart;
+        partial void OnSubStartChanging(Nullable<global::System.DateTime> value);
+        partial void OnSubStartChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> SubEnd
+        {
+            get
+            {
+                return _SubEnd;
+            }
+            set
+            {
+                OnSubEndChanging(value);
+                ReportPropertyChanging("SubEnd");
+                _SubEnd = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SubEnd");
+                OnSubEndChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _SubEnd;
+        partial void OnSubEndChanging(Nullable<global::System.DateTime> value);
+        partial void OnSubEndChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> EligibleCanDate
+        {
+            get
+            {
+                return _EligibleCanDate;
+            }
+            set
+            {
+                OnEligibleCanDateChanging(value);
+                ReportPropertyChanging("EligibleCanDate");
+                _EligibleCanDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EligibleCanDate");
+                OnEligibleCanDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _EligibleCanDate;
+        partial void OnEligibleCanDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnEligibleCanDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> AddDate
+        {
+            get
+            {
+                return _AddDate;
+            }
+            set
+            {
+                OnAddDateChanging(value);
+                ReportPropertyChanging("AddDate");
+                _AddDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AddDate");
+                OnAddDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _AddDate;
+        partial void OnAddDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnAddDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ResDate
+        {
+            get
+            {
+                return _ResDate;
+            }
+            set
+            {
+                OnResDateChanging(value);
+                ReportPropertyChanging("ResDate");
+                _ResDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ResDate");
+                OnResDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ResDate;
+        partial void OnResDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnResDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 AdmissionTypeId
+        {
+            get
+            {
+                return _AdmissionTypeId;
+            }
+            set
+            {
+                OnAdmissionTypeIdChanging(value);
+                ReportPropertyChanging("AdmissionTypeId");
+                _AdmissionTypeId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AdmissionTypeId");
+                OnAdmissionTypeIdChanged();
+            }
+        }
+        private global::System.Int32 _AdmissionTypeId;
+        partial void OnAdmissionTypeIdChanging(global::System.Int32 value);
+        partial void OnAdmissionTypeIdChanged();
 
         #endregion
     
@@ -723,6 +1152,44 @@ namespace EduEnginee.Areas.Temp.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("Admission.CircularComment", "Comment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Admission", "AdmissionTypeCircular", "AdmissionType")]
+        public AdmissionType AdmissionType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdmissionType>("Admission.AdmissionTypeCircular", "AdmissionType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdmissionType>("Admission.AdmissionTypeCircular", "AdmissionType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<AdmissionType> AdmissionTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdmissionType>("Admission.AdmissionTypeCircular", "AdmissionType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AdmissionType>("Admission.AdmissionTypeCircular", "AdmissionType", value);
                 }
             }
         }
@@ -1088,20 +1555,12 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="isEnable">Initial value of the IsEnable property.</param>
-        /// <param name="createdBy">Initial value of the CreatedBy property.</param>
-        /// <param name="createdDate">Initial value of the CreatedDate property.</param>
-        /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
-        /// <param name="updatedDate">Initial value of the UpdatedDate property.</param>
-        public static Country CreateCountry(global::System.Int32 id, global::System.String name, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate)
+        public static Country CreateCountry(global::System.Int32 id, global::System.String name, global::System.Boolean isEnable)
         {
             Country country = new Country();
             country.Id = id;
             country.Name = name;
             country.IsEnable = isEnable;
-            country.CreatedBy = createdBy;
-            country.CreatedDate = createdDate;
-            country.UpdatedBy = updatedBy;
-            country.UpdatedDate = updatedDate;
             return country;
         }
 
@@ -1182,102 +1641,6 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.Boolean _IsEnable;
         partial void OnIsEnableChanging(global::System.Boolean value);
         partial void OnIsEnableChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String CreatedBy
-        {
-            get
-            {
-                return _CreatedBy;
-            }
-            set
-            {
-                OnCreatedByChanging(value);
-                ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("CreatedBy");
-                OnCreatedByChanged();
-            }
-        }
-        private global::System.String _CreatedBy;
-        partial void OnCreatedByChanging(global::System.String value);
-        partial void OnCreatedByChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime CreatedDate
-        {
-            get
-            {
-                return _CreatedDate;
-            }
-            set
-            {
-                OnCreatedDateChanging(value);
-                ReportPropertyChanging("CreatedDate");
-                _CreatedDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CreatedDate");
-                OnCreatedDateChanged();
-            }
-        }
-        private global::System.DateTime _CreatedDate;
-        partial void OnCreatedDateChanging(global::System.DateTime value);
-        partial void OnCreatedDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String UpdatedBy
-        {
-            get
-            {
-                return _UpdatedBy;
-            }
-            set
-            {
-                OnUpdatedByChanging(value);
-                ReportPropertyChanging("UpdatedBy");
-                _UpdatedBy = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("UpdatedBy");
-                OnUpdatedByChanged();
-            }
-        }
-        private global::System.String _UpdatedBy;
-        partial void OnUpdatedByChanging(global::System.String value);
-        partial void OnUpdatedByChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime UpdatedDate
-        {
-            get
-            {
-                return _UpdatedDate;
-            }
-            set
-            {
-                OnUpdatedDateChanging(value);
-                ReportPropertyChanging("UpdatedDate");
-                _UpdatedDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("UpdatedDate");
-                OnUpdatedDateChanged();
-            }
-        }
-        private global::System.DateTime _UpdatedDate;
-        partial void OnUpdatedDateChanging(global::System.DateTime value);
-        partial void OnUpdatedDateChanged();
 
         #endregion
     
@@ -1330,7 +1693,6 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
         /// <param name="updatedDate">Initial value of the UpdatedDate property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        /// <param name="location">Initial value of the Location property.</param>
         /// <param name="phone">Initial value of the Phone property.</param>
         /// <param name="emailAddress">Initial value of the EmailAddress property.</param>
         /// <param name="webSite">Initial value of the WebSite property.</param>
@@ -1340,7 +1702,8 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="noOfFemaleStd">Initial value of the NoOfFemaleStd property.</param>
         /// <param name="noOfMaleHostelSit">Initial value of the NoOfMaleHostelSit property.</param>
         /// <param name="noOfFemaleHostelSit">Initial value of the NoOfFemaleHostelSit property.</param>
-        public static Institute CreateInstitute(global::System.Int32 id, global::System.Int32 instituteSubcatagoryId, global::System.Int32 countryId, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String name, Location location, global::System.String phone, global::System.String emailAddress, global::System.String webSite, global::System.DateTime establishDate, global::System.String logoDirectory, global::System.Int32 noOfMaleStd, global::System.Int32 noOfFemaleStd, global::System.Int32 noOfMaleHostelSit, global::System.Int32 noOfFemaleHostelSit)
+        /// <param name="location">Initial value of the Location property.</param>
+        public static Institute CreateInstitute(global::System.Int32 id, global::System.Int32 instituteSubcatagoryId, global::System.Int32 countryId, global::System.Boolean isEnable, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String name, global::System.String phone, global::System.String emailAddress, global::System.String webSite, global::System.DateTime establishDate, global::System.String logoDirectory, global::System.Int32 noOfMaleStd, global::System.Int32 noOfFemaleStd, global::System.Int32 noOfMaleHostelSit, global::System.Int32 noOfFemaleHostelSit, global::System.String location)
         {
             Institute institute = new Institute();
             institute.Id = id;
@@ -1352,7 +1715,6 @@ namespace EduEnginee.Areas.Temp.Models
             institute.UpdatedBy = updatedBy;
             institute.UpdatedDate = updatedDate;
             institute.Name = name;
-            institute.Location = StructuralObject.VerifyComplexObjectIsNotNull(location, "Location");
             institute.Phone = phone;
             institute.EmailAddress = emailAddress;
             institute.WebSite = webSite;
@@ -1362,6 +1724,7 @@ namespace EduEnginee.Areas.Temp.Models
             institute.NoOfFemaleStd = noOfFemaleStd;
             institute.NoOfMaleHostelSit = noOfMaleHostelSit;
             institute.NoOfFemaleHostelSit = noOfFemaleHostelSit;
+            institute.Location = location;
             return institute;
         }
 
@@ -1826,39 +2189,29 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.Int32 _NoOfFemaleHostelSit;
         partial void OnNoOfFemaleHostelSitChanging(global::System.Int32 value);
         partial void OnNoOfFemaleHostelSitChanged();
-
-        #endregion
-        #region Complex Properties
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmComplexPropertyAttribute()]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [XmlElement(IsNullable=true)]
-        [SoapElement(IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Location Location
+        public global::System.String Location
         {
             get
             {
-                _Location = GetValidValue(_Location, "Location", false, _LocationInitialized);
-                _LocationInitialized = true;
                 return _Location;
             }
             set
             {
                 OnLocationChanging(value);
                 ReportPropertyChanging("Location");
-                _Location = SetValidValue(_Location, value, "Location");
-                _LocationInitialized = true;
+                _Location = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Location");
                 OnLocationChanged();
             }
         }
-        private Location _Location;
-        private bool _LocationInitialized;
-        partial void OnLocationChanging(Location value);
+        private global::System.String _Location;
+        partial void OnLocationChanging(global::System.String value);
         partial void OnLocationChanged();
 
         #endregion
@@ -2887,7 +3240,9 @@ namespace EduEnginee.Areas.Temp.Models
         /// <param name="createdDate">Initial value of the CreatedDate property.</param>
         /// <param name="updatedBy">Initial value of the UpdatedBy property.</param>
         /// <param name="updatedDate">Initial value of the UpdatedDate property.</param>
-        public static News CreateNews(global::System.Int32 id, global::System.Int32 instituteId, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate)
+        /// <param name="title">Initial value of the Title property.</param>
+        /// <param name="description">Initial value of the Description property.</param>
+        public static News CreateNews(global::System.Int32 id, global::System.Int32 instituteId, global::System.String createdBy, global::System.DateTime createdDate, global::System.String updatedBy, global::System.DateTime updatedDate, global::System.String title, global::System.String description)
         {
             News news = new News();
             news.Id = id;
@@ -2896,6 +3251,8 @@ namespace EduEnginee.Areas.Temp.Models
             news.CreatedDate = createdDate;
             news.UpdatedBy = updatedBy;
             news.UpdatedDate = updatedDate;
+            news.Title = title;
+            news.Description = description;
             return news;
         }
 
@@ -3048,6 +3405,78 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.DateTime _UpdatedDate;
         partial void OnUpdatedDateChanging(global::System.DateTime value);
         partial void OnUpdatedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Date;
+        partial void OnDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateChanged();
 
         #endregion
     
@@ -3109,11 +3538,15 @@ namespace EduEnginee.Areas.Temp.Models
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="instituteId">Initial value of the InstituteId property.</param>
-        public static Notice CreateNotice(global::System.Int32 id, global::System.Int32 instituteId)
+        /// <param name="title">Initial value of the Title property.</param>
+        /// <param name="description">Initial value of the Description property.</param>
+        public static Notice CreateNotice(global::System.Int32 id, global::System.Int32 instituteId, global::System.String title, global::System.String description)
         {
             Notice notice = new Notice();
             notice.Id = id;
             notice.InstituteId = instituteId;
+            notice.Title = title;
+            notice.Description = description;
             return notice;
         }
 
@@ -3170,6 +3603,78 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.Int32 _InstituteId;
         partial void OnInstituteIdChanging(global::System.Int32 value);
         partial void OnInstituteIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Date;
+        partial void OnDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateChanged();
 
         #endregion
     
@@ -3422,6 +3927,126 @@ namespace EduEnginee.Areas.Temp.Models
         private global::System.DateTime _UpdatedDate;
         partial void OnUpdatedDateChanging(global::System.DateTime value);
         partial void OnUpdatedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Credit
+        {
+            get
+            {
+                return _Credit;
+            }
+            set
+            {
+                OnCreditChanging(value);
+                ReportPropertyChanging("Credit");
+                _Credit = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Credit");
+                OnCreditChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Credit;
+        partial void OnCreditChanging(Nullable<global::System.Int32> value);
+        partial void OnCreditChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DurationInMnth
+        {
+            get
+            {
+                return _DurationInMnth;
+            }
+            set
+            {
+                OnDurationInMnthChanging(value);
+                ReportPropertyChanging("DurationInMnth");
+                _DurationInMnth = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DurationInMnth");
+                OnDurationInMnthChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DurationInMnth;
+        partial void OnDurationInMnthChanging(Nullable<global::System.Int32> value);
+        partial void OnDurationInMnthChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> NoOfTeacher
+        {
+            get
+            {
+                return _NoOfTeacher;
+            }
+            set
+            {
+                OnNoOfTeacherChanging(value);
+                ReportPropertyChanging("NoOfTeacher");
+                _NoOfTeacher = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NoOfTeacher");
+                OnNoOfTeacherChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _NoOfTeacher;
+        partial void OnNoOfTeacherChanging(Nullable<global::System.Int32> value);
+        partial void OnNoOfTeacherChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> NoOfMaleStudent
+        {
+            get
+            {
+                return _NoOfMaleStudent;
+            }
+            set
+            {
+                OnNoOfMaleStudentChanging(value);
+                ReportPropertyChanging("NoOfMaleStudent");
+                _NoOfMaleStudent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NoOfMaleStudent");
+                OnNoOfMaleStudentChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _NoOfMaleStudent;
+        partial void OnNoOfMaleStudentChanging(Nullable<global::System.Int32> value);
+        partial void OnNoOfMaleStudentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> NoOfFemaleStudent
+        {
+            get
+            {
+                return _NoOfFemaleStudent;
+            }
+            set
+            {
+                OnNoOfFemaleStudentChanging(value);
+                ReportPropertyChanging("NoOfFemaleStudent");
+                _NoOfFemaleStudent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NoOfFemaleStudent");
+                OnNoOfFemaleStudentChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _NoOfFemaleStudent;
+        partial void OnNoOfFemaleStudentChanging(Nullable<global::System.Int32> value);
+        partial void OnNoOfFemaleStudentChanged();
 
         #endregion
     
