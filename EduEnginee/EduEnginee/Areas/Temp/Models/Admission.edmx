@@ -4,11 +4,359 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Namespace="Admission.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="AdmissionTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="Admission.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="AdmissionStoreContainer">
+    <EntitySet Name="InstituteTypes" EntityType="Admission.Store.InstituteTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InstituteCatagories" EntityType="Admission.Store.InstituteCatagories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InstituteSubcatagories" EntityType="Admission.Store.InstituteSubcatagories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Institutes" EntityType="Admission.Store.Institutes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Countries" EntityType="Admission.Store.Countries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comments" EntityType="Admission.Store.Comments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Circulars" EntityType="Admission.Store.Circulars" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subjects" EntityType="Admission.Store.Subjects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Notices" EntityType="Admission.Store.Notices" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="News" EntityType="Admission.Store.News" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AdmissionTypes" EntityType="Admission.Store.AdmissionTypes" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="InstituteTypeInstituteCatagory" Association="Admission.Store.InstituteTypeInstituteCatagory">
+      <End Role="InstituteType" EntitySet="InstituteTypes" />
+      <End Role="InstituteCatagory" EntitySet="InstituteCatagories" />
+    </AssociationSet>
+    <AssociationSet Name="InstituteCatagoryInstituteSubcatagory" Association="Admission.Store.InstituteCatagoryInstituteSubcatagory">
+      <End Role="InstituteCatagory" EntitySet="InstituteCatagories" />
+      <End Role="InstituteSubcatagory" EntitySet="InstituteSubcatagories" />
+    </AssociationSet>
+    <AssociationSet Name="InstituteSubcatagoryInstitute" Association="Admission.Store.InstituteSubcatagoryInstitute">
+      <End Role="InstituteSubcatagory" EntitySet="InstituteSubcatagories" />
+      <End Role="Institute" EntitySet="Institutes" />
+    </AssociationSet>
+    <AssociationSet Name="CountryInstitute" Association="Admission.Store.CountryInstitute">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Institute" EntitySet="Institutes" />
+    </AssociationSet>
+    <AssociationSet Name="InstituteComment" Association="Admission.Store.InstituteComment">
+      <End Role="Institute" EntitySet="Institutes" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="InstituteCircular" Association="Admission.Store.InstituteCircular">
+      <End Role="Institute" EntitySet="Institutes" />
+      <End Role="Circular" EntitySet="Circulars" />
+    </AssociationSet>
+    <AssociationSet Name="CircularSubject" Association="Admission.Store.CircularSubject">
+      <End Role="Circular" EntitySet="Circulars" />
+      <End Role="Subject" EntitySet="Subjects" />
+    </AssociationSet>
+    <AssociationSet Name="CircularComment" Association="Admission.Store.CircularComment">
+      <End Role="Circular" EntitySet="Circulars" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="InstituteNotice" Association="Admission.Store.InstituteNotice">
+      <End Role="Institute" EntitySet="Institutes" />
+      <End Role="Notice" EntitySet="Notices" />
+    </AssociationSet>
+    <AssociationSet Name="InstituteNews" Association="Admission.Store.InstituteNews">
+      <End Role="Institute" EntitySet="Institutes" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="AdmissionTypeCircular" Association="Admission.Store.AdmissionTypeCircular">
+      <End Role="AdmissionType" EntitySet="AdmissionTypes" />
+      <End Role="Circular" EntitySet="Circulars" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="InstituteTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InstituteCatagories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstituteTypeId" Type="int" Nullable="false" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InstituteSubcatagories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstituteCatagoryId" Type="int" Nullable="false" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Institutes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstituteSubcatagoryId" Type="int" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WebSite" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EstablishDate" Type="datetime" Nullable="false" />
+    <Property Name="LogoDirectory" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NoOfMaleStd" Type="int" Nullable="false" />
+    <Property Name="NoOfFemaleStd" Type="int" Nullable="false" />
+    <Property Name="NoOfTeacher" Type="int" Nullable="true" />
+    <Property Name="NoOfMaleHostelSit" Type="int" Nullable="false" />
+    <Property Name="NoOfFemaleHostelSit" Type="int" Nullable="false" />
+    <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstituteId" Type="int" Nullable="false" />
+    <Property Name="CommentText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CircularId" Type="int" Nullable="false" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Circulars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstituteId" Type="int" Nullable="false" />
+    <Property Name="SeatPlan" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Result" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ResultLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SeatPlanLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Session" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CourseType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AdmissionReq" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ApplyProc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AppStart" Type="datetime" Nullable="true" />
+    <Property Name="AppEnd" Type="datetime" Nullable="true" />
+    <Property Name="SubStart" Type="datetime" Nullable="true" />
+    <Property Name="SubEnd" Type="datetime" Nullable="true" />
+    <Property Name="EligibleCanDate" Type="datetime" Nullable="true" />
+    <Property Name="AddDate" Type="datetime" Nullable="true" />
+    <Property Name="ResDate" Type="datetime" Nullable="true" />
+    <Property Name="AdmissionTypeId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CircularId" Type="int" Nullable="false" />
+    <Property Name="IsEnable" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Credit" Type="int" Nullable="true" />
+    <Property Name="DurationInMnth" Type="int" Nullable="true" />
+    <Property Name="NoOfTeacher" Type="int" Nullable="true" />
+    <Property Name="NoOfMaleStudent" Type="int" Nullable="true" />
+    <Property Name="NoOfFemaleStudent" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Notices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstituteId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstituteId" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AdmissionTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="InstituteTypeInstituteCatagory">
+    <End Role="InstituteType" Type="Admission.Store.InstituteTypes" Multiplicity="1" />
+    <End Role="InstituteCatagory" Type="Admission.Store.InstituteCatagories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InstituteType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InstituteCatagory">
+        <PropertyRef Name="InstituteTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InstituteCatagoryInstituteSubcatagory">
+    <End Role="InstituteCatagory" Type="Admission.Store.InstituteCatagories" Multiplicity="1" />
+    <End Role="InstituteSubcatagory" Type="Admission.Store.InstituteSubcatagories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InstituteCatagory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InstituteSubcatagory">
+        <PropertyRef Name="InstituteCatagoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InstituteSubcatagoryInstitute">
+    <End Role="InstituteSubcatagory" Type="Admission.Store.InstituteSubcatagories" Multiplicity="1" />
+    <End Role="Institute" Type="Admission.Store.Institutes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InstituteSubcatagory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Institute">
+        <PropertyRef Name="InstituteSubcatagoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CountryInstitute">
+    <End Role="Country" Type="Admission.Store.Countries" Multiplicity="1" />
+    <End Role="Institute" Type="Admission.Store.Institutes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Institute">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InstituteComment">
+    <End Role="Institute" Type="Admission.Store.Institutes" Multiplicity="1" />
+    <End Role="Comment" Type="Admission.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institute">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="InstituteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InstituteCircular">
+    <End Role="Institute" Type="Admission.Store.Institutes" Multiplicity="1" />
+    <End Role="Circular" Type="Admission.Store.Circulars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institute">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Circular">
+        <PropertyRef Name="InstituteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CircularSubject">
+    <End Role="Circular" Type="Admission.Store.Circulars" Multiplicity="1" />
+    <End Role="Subject" Type="Admission.Store.Subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circular">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="CircularId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CircularComment">
+    <End Role="Circular" Type="Admission.Store.Circulars" Multiplicity="1" />
+    <End Role="Comment" Type="Admission.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circular">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="CircularId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InstituteNotice">
+    <End Role="Institute" Type="Admission.Store.Institutes" Multiplicity="1" />
+    <End Role="Notice" Type="Admission.Store.Notices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institute">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notice">
+        <PropertyRef Name="InstituteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InstituteNews">
+    <End Role="Institute" Type="Admission.Store.Institutes" Multiplicity="1" />
+    <End Role="News" Type="Admission.Store.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institute">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="InstituteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AdmissionTypeCircular">
+    <End Role="AdmissionType" Type="Admission.Store.AdmissionTypes" Multiplicity="1" />
+    <End Role="Circular" Type="Admission.Store.Circulars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmissionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Circular">
+        <PropertyRef Name="AdmissionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Admission" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
@@ -395,13 +743,183 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="Admission" />
-        <Alias Key="Target" Value="Admission.Store" />
-        <EntityContainerMapping CdmEntityContainer="AdmissionContainer" StorageEntityContainer="AdmissionTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdmissionStoreContainer" CdmEntityContainer="AdmissionContainer">
+    <EntitySetMapping Name="InstituteTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.InstituteType)">
+        <MappingFragment StoreEntitySet="InstituteTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstituteCatagories">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.InstituteCatagory)">
+        <MappingFragment StoreEntitySet="InstituteCatagories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InstituteTypeId" ColumnName="InstituteTypeId" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstituteSubcatagories">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.InstituteSubcatagory)">
+        <MappingFragment StoreEntitySet="InstituteSubcatagories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InstituteCatagoryId" ColumnName="InstituteCatagoryId" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Institutes">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.Institute)">
+        <MappingFragment StoreEntitySet="Institutes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InstituteSubcatagoryId" ColumnName="InstituteSubcatagoryId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="EstablishDate" ColumnName="EstablishDate" />
+          <ScalarProperty Name="LogoDirectory" ColumnName="LogoDirectory" />
+          <ScalarProperty Name="NoOfMaleStd" ColumnName="NoOfMaleStd" />
+          <ScalarProperty Name="NoOfFemaleStd" ColumnName="NoOfFemaleStd" />
+          <ScalarProperty Name="NoOfTeacher" ColumnName="NoOfTeacher" />
+          <ScalarProperty Name="NoOfMaleHostelSit" ColumnName="NoOfMaleHostelSit" />
+          <ScalarProperty Name="NoOfFemaleHostelSit" ColumnName="NoOfFemaleHostelSit" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.Country)">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.Comment)">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InstituteId" ColumnName="InstituteId" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+          <ScalarProperty Name="CircularId" ColumnName="CircularId" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Circulars">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.Circular)">
+        <MappingFragment StoreEntitySet="Circulars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InstituteId" ColumnName="InstituteId" />
+          <ScalarProperty Name="SeatPlan" ColumnName="SeatPlan" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ResultLink" ColumnName="ResultLink" />
+          <ScalarProperty Name="SeatPlanLink" ColumnName="SeatPlanLink" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="AdmissionReq" ColumnName="AdmissionReq" />
+          <ScalarProperty Name="ApplyProc" ColumnName="ApplyProc" />
+          <ScalarProperty Name="AppStart" ColumnName="AppStart" />
+          <ScalarProperty Name="AppEnd" ColumnName="AppEnd" />
+          <ScalarProperty Name="SubStart" ColumnName="SubStart" />
+          <ScalarProperty Name="SubEnd" ColumnName="SubEnd" />
+          <ScalarProperty Name="EligibleCanDate" ColumnName="EligibleCanDate" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="ResDate" ColumnName="ResDate" />
+          <ScalarProperty Name="AdmissionTypeId" ColumnName="AdmissionTypeId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subjects">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.Subject)">
+        <MappingFragment StoreEntitySet="Subjects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CircularId" ColumnName="CircularId" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="DurationInMnth" ColumnName="DurationInMnth" />
+          <ScalarProperty Name="NoOfTeacher" ColumnName="NoOfTeacher" />
+          <ScalarProperty Name="NoOfMaleStudent" ColumnName="NoOfMaleStudent" />
+          <ScalarProperty Name="NoOfFemaleStudent" ColumnName="NoOfFemaleStudent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notices">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.Notice)">
+        <MappingFragment StoreEntitySet="Notices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InstituteId" ColumnName="InstituteId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.News)">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InstituteId" ColumnName="InstituteId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmissionTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(Admission.AdmissionType)">
+        <MappingFragment StoreEntitySet="AdmissionTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
