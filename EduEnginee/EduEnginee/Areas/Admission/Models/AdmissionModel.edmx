@@ -75,19 +75,19 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="InstituteId" Type="int" Nullable="false" />
-          <Property Name="SeatPlan" Type="varbinary(max)" Nullable="false" />
-          <Property Name="Result" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ResultLink" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SeatPlanLink" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="IsEnable" Type="bit" Nullable="false" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
-          <Property Name="Session" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CourseType" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="AdmissionReq" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ApplyProc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SeatPlan" Type="varbinary(max)" />
+          <Property Name="Result" Type="varbinary(max)" />
+          <Property Name="ResultLink" Type="nvarchar(max)" />
+          <Property Name="SeatPlanLink" Type="nvarchar(max)" />
+          <Property Name="IsEnable" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Session" Type="nvarchar(max)" />
+          <Property Name="CourseType" Type="nvarchar(max)" />
+          <Property Name="AdmissionReq" Type="nvarchar(max)" />
+          <Property Name="ApplyProc" Type="nvarchar(max)" />
           <Property Name="AppStart" Type="datetime" />
           <Property Name="AppEnd" Type="datetime" />
           <Property Name="SubStart" Type="datetime" />
@@ -95,7 +95,7 @@
           <Property Name="EligibleCanDate" Type="datetime" />
           <Property Name="AddDate" Type="datetime" />
           <Property Name="ResDate" Type="datetime" />
-          <Property Name="AdmissionTypeId" Type="int" Nullable="false" />
+          <Property Name="AdmissionTypeId" Type="int" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Comments">
@@ -103,14 +103,14 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="InstituteId" Type="int" Nullable="false" />
-          <Property Name="CommentText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="InstituteId" Type="int" />
+          <Property Name="CommentText" Type="nvarchar(max)" />
           <Property Name="CircularId" Type="int" Nullable="false" />
           <Property Name="IsEnable" Type="bit" Nullable="false" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Countries">
           <Key>
@@ -127,11 +127,11 @@
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="InstituteTypeId" Type="int" Nullable="false" />
-          <Property Name="IsEnable" Type="bit" Nullable="false" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Institutes">
           <Key>
@@ -139,24 +139,24 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="InstituteSubcataryId" Type="int" Nullable="false" />
-          <Property Name="CountryId" Type="int" Nullable="false" />
-          <Property Name="IsEnable" Type="bit" Nullable="false" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="IsEnable" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="WebSite" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="EstablishDate" Type="datetime" Nullable="false" />
-          <Property Name="LoDirectory" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="NoOfMaleStd" Type="int" Nullable="false" />
-          <Property Name="NoOfFemaleStd" Type="int" Nullable="false" />
-          <Property Name="NoOfTeacher" Type="int" Nullable="false" />
-          <Property Name="NoOfMaleHostelSit" Type="int" Nullable="false" />
-          <Property Name="NoOfFemaleHostelSit" Type="int" Nullable="false" />
-          <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="EmailAddress" Type="nvarchar(max)" />
+          <Property Name="WebSite" Type="nvarchar(max)" />
+          <Property Name="EstablishDate" Type="datetime" />
+          <Property Name="LoDirectory" Type="nvarchar(max)" />
+          <Property Name="NoOfMaleStd" Type="int" />
+          <Property Name="NoOfFemaleStd" Type="int" />
+          <Property Name="NoOfTeacher" Type="int" />
+          <Property Name="NoOfMaleHostelSit" Type="int" />
+          <Property Name="NoOfFemaleHostelSit" Type="int" />
+          <Property Name="Location" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="InstituteSubcataries">
           <Key>
@@ -165,11 +165,11 @@
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="InstituteCataryId" Type="int" Nullable="false" />
-          <Property Name="IsEnable" Type="bit" Nullable="false" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="InstituteTypes">
           <Key>
@@ -189,10 +189,10 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="InstituteId" Type="int" Nullable="false" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Date" Type="datetime" />
@@ -214,10 +214,10 @@
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CircularId" Type="int" Nullable="false" />
           <Property Name="IsEnable" Type="bit" Nullable="false" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="Credit" Type="int" />
           <Property Name="DurationInMnth" Type="int" />
           <Property Name="NoOfTeacher" Type="int" />
@@ -225,7 +225,7 @@
           <Property Name="NoOfFemaleStudent" Type="int" />
         </EntityType>
         <Association Name="FK_AdmissionTypeCircular">
-          <End Role="AdmissionTypes" Type="AdmissionDbModel.Store.AdmissionTypes" Multiplicity="1" />
+          <End Role="AdmissionTypes" Type="AdmissionDbModel.Store.AdmissionTypes" Multiplicity="0..1" />
           <End Role="Circulars" Type="AdmissionDbModel.Store.Circulars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AdmissionTypes">
@@ -261,7 +261,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CountryInstitute">
-          <End Role="Countries" Type="AdmissionDbModel.Store.Countries" Multiplicity="1" />
+          <End Role="Countries" Type="AdmissionDbModel.Store.Countries" Multiplicity="0..1" />
           <End Role="Institutes" Type="AdmissionDbModel.Store.Institutes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Countries">
@@ -297,7 +297,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_InstituteComment">
-          <End Role="Institutes" Type="AdmissionDbModel.Store.Institutes" Multiplicity="1" />
+          <End Role="Institutes" Type="AdmissionDbModel.Store.Institutes" Multiplicity="0..1" />
           <End Role="Comments" Type="AdmissionDbModel.Store.Comments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Institutes">

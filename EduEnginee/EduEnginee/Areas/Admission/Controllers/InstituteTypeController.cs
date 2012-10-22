@@ -64,6 +64,11 @@ namespace EduEnginee.Areas.Admission.Controllers
         [HttpPost]
         public ActionResult Create(InstituteType institutetype)
         {
+            institutetype.CreatedBy = User.Identity.ToString();
+            institutetype.UpdatedBy = User.Identity.ToString();
+            institutetype.CreatedDate = System.DateTime.Now;
+            institutetype.UpdatedDate = System.DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 db.InstituteTypes.Add(institutetype);
@@ -89,6 +94,11 @@ namespace EduEnginee.Areas.Admission.Controllers
         [HttpPost]
         public ActionResult Edit(InstituteType institutetype)
         {
+
+            institutetype.UpdatedBy = User.Identity.ToString();
+            institutetype.UpdatedDate = System.DateTime.Now;
+
+
             if (ModelState.IsValid)
             {
                 db.Entry(institutetype).State = EntityState.Modified;
