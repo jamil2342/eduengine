@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
+    <Compile Include="Areas\Admission\Controllers\AdmissionTypeController.cs" />
     <Compile Include="Areas\Admission\Controllers\CountryController.cs" />
     <Compile Include="Areas\Admission\Models\Admission.Context.cs">
       <AutoGen>True</AutoGen>
@@ -340,6 +341,9 @@
     <Content Include="Areas\Admission\Views\Country\Index.cshtml" />
     <Content Include="Areas\Admission\Views\Country\GridData.cshtml" />
     <Content Include="Areas\Admission\Views\Country\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\AdmissionType\Index.cshtml" />
+    <Content Include="Areas\Admission\Views\AdmissionType\GridData.cshtml" />
+    <Content Include="Areas\Admission\Views\AdmissionType\Edit.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
