@@ -15,8 +15,9 @@ namespace EduEnginee.Areas.Admission.Models
     public partial class Notice
     {
         public int Id { get; set; }
-        public int InstituteId { get; set; }
         public string Title { get; set; }
+        public int InstituteId { get; set; }
+      
         public string Description { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
     
