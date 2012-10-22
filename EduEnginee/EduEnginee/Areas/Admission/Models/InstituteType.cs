@@ -20,8 +20,9 @@ namespace EduEnginee.Areas.Admission.Models
         }
     
         public int Id { get; set; }
-        public bool IsEnable { get; set; }
         public string Title { get; set; }
+        public bool IsEnable { get; set; }
+        
     
         public virtual ICollection<InstituteCatary> InstituteCataries { get; set; }
     }
