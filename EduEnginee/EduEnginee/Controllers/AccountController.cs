@@ -15,7 +15,7 @@ namespace EduEnginee.Controllers
 
         //
         // GET: /Account/Login
-
+        //test
         [AllowAnonymous]
         public ActionResult Login()
         {
