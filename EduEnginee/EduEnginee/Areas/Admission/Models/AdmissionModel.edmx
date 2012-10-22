@@ -574,8 +574,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IsEnable" Type="Boolean" Nullable="false" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="InstituteCataries" Relationship="AdmissionDbModel.FK_InstituteTypeInstituteCatary" FromRole="InstituteTypes" ToRole="InstituteCataries" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -853,7 +853,6 @@
           <EntitySetMapping Name="InstituteTypes"><EntityTypeMapping TypeName="AdmissionDbModel.InstituteType"><MappingFragment StoreEntitySet="InstituteTypes">
             <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
-            <ScalarProperty Name="Title" ColumnName="Title" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="News"><EntityTypeMapping TypeName="AdmissionDbModel.News"><MappingFragment StoreEntitySet="News">
             <ScalarProperty Name="Id" ColumnName="Id" />
@@ -928,7 +927,7 @@
         <EntityTypeShape EntityType="AdmissionDbModel.InstituteCatary" Width="1.5" PointX="3" PointY="7.125" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.Institute" Width="1.5" PointX="7.5" PointY="5.625" Height="6.0186165364583317" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.InstituteSubcatary" Width="1.5" PointX="5.25" PointY="7.125" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdmissionDbModel.InstituteType" Width="1.5" PointX="0.75" PointY="7.25" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdmissionDbModel.InstituteType" Width="1.5" PointX="0.75" PointY="7.125" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.News" Width="1.5" PointX="9.75" PointY="12.875" Height="2.9417936197916674" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.Notice" Width="1.5" PointX="9.75" PointY="16.5" Height="2.172587890624996" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.Subject" Width="1.5" PointX="12" PointY="10.625" Height="3.7109993489583317" IsExpanded="true" />
@@ -969,8 +968,8 @@
           <ConnectorPoint PointX="5.25" PointY="8.2112939453125" />
         </AssociationConnector>
         <AssociationConnector Association="AdmissionDbModel.FK_InstituteTypeInstituteCatary" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="8.1439925130208337" />
-          <ConnectorPoint PointX="3" PointY="8.1439925130208337" />
+          <ConnectorPoint PointX="2.25" PointY="7.922841796875" />
+          <ConnectorPoint PointX="3" PointY="7.922841796875" />
         </AssociationConnector>
         <AssociationConnector Association="AdmissionDbModel.FK_InstituteNews" ManuallyRouted="false">
           <ConnectorPoint PointX="8.25" PointY="11.643616536458332" />

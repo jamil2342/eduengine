@@ -19,10 +19,9 @@ namespace EduEnginee.Areas.Admission.Models
             this.InstituteCataries = new HashSet<InstituteCatary>();
         }
     
-        public int Id { get; set; }
-        public string Title { get; set; }
+        public int Id { get; set; }        
         public bool IsEnable { get; set; }
-        
+        public string Title { get; set; }
     
         public virtual ICollection<InstituteCatary> InstituteCataries { get; set; }
     }
