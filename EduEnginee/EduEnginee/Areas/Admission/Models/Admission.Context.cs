@@ -36,5 +36,6 @@ namespace EduEnginee.Areas.Admission.Models
         public DbSet<News> News { get; set; }
         public DbSet<Notice> Notices { get; set; }
         public DbSet<Subject> Subjects { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

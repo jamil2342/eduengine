@@ -21,10 +21,6 @@ namespace EduEnginee.Areas.Admission.Models
     
         public int Id { get; set; }
         public bool IsEnable { get; set; }
-        public string CreatedBy { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-        public string UpdatedBy { get; set; }
-        public System.DateTime UpdatedDate { get; set; }
         public string Title { get; set; }
     
         public virtual ICollection<InstituteCatary> InstituteCataries { get; set; }

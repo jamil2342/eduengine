@@ -66,6 +66,10 @@ namespace EduEnginee.Areas.Admission.Controllers
         [HttpPost]
         public ActionResult Create(InstituteCatary institutecatary)
         {
+            //institutecatary.CreatedBy = User.Identity.Name;
+            //institutecatary.UpdatedBy = User.Identity.Name;
+            //institutecatary.CreatedDate = System.DateTime.Now;
+            //institutecatary.UpdatedDate = System.DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.InstituteCataries.Add(institutecatary);
@@ -93,6 +97,10 @@ namespace EduEnginee.Areas.Admission.Controllers
         [HttpPost]
         public ActionResult Edit(InstituteCatary institutecatary)
         {
+
+            //institutecatary.UpdatedBy = User.Identity.Name;
+
+            //institutecatary.UpdatedDate = System.DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Entry(institutecatary).State = EntityState.Modified;

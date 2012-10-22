@@ -65,10 +65,10 @@ namespace EduEnginee.Areas.Admission.Controllers
         [HttpPost]
         public ActionResult Create(InstituteType institutetype)
         {
-            institutetype.CreatedBy = User.Identity.Name;
-            institutetype.UpdatedBy = User.Identity.Name;
-            institutetype.CreatedDate = System.DateTime.Now;
-            institutetype.UpdatedDate = System.DateTime.Now;
+            //institutetype.CreatedBy = User.Identity.Name;
+            //institutetype.UpdatedBy = User.Identity.Name;
+            //institutetype.CreatedDate = System.DateTime.Now;
+            //institutetype.UpdatedDate = System.DateTime.Now;
 
             if (ModelState.IsValid)
             {
@@ -96,8 +96,8 @@ namespace EduEnginee.Areas.Admission.Controllers
         public ActionResult Edit(InstituteType institutetype)
         {
 
-            institutetype.UpdatedBy = User.Identity.Name;
-            institutetype.UpdatedDate = System.DateTime.Now;
+            //institutetype.UpdatedBy = User.Identity.Name;
+            //institutetype.UpdatedDate = System.DateTime.Now;
 
 
             if (ModelState.IsValid)

@@ -189,6 +189,9 @@
     <Compile Include="Areas\Admission\Models\Subject.cs">
       <DependentUpon>Admission.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admission\Models\sysdiagram.cs">
+      <DependentUpon>Admission.tt</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Quiz\Controllers\QuestionController.cs" />
     <Compile Include="Areas\Quiz\Controllers\QuizDefnController.cs" />
     <Compile Include="Areas\Quiz\Models\QuestionDefinition.cs">
