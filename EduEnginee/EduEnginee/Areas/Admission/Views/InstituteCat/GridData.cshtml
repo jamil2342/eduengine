@@ -1,0 +1,31 @@
+﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.InstituteCatary>
+
+@foreach (var item in Model) {
+    <tr data-pkey="@item.Id">
+        <td>
+            @Html.DisplayFor(modelItem => item.InstituteType.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEnable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td class="rowControl hidden">
+            <a href="#makeRowEditable" class="makeRowEditable">Edit</a> |
+            <a href="#deleteRow" class="deleteRow">Delete</a>
+        </td>
+    </tr>
+}
