@@ -56,7 +56,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.InstituteTypeId = new SelectList(db.InstituteTypes, "Id", "CreatedBy");
+            ViewBag.InstituteTypeId = new SelectList(db.InstituteTypes, "Id", "Title");
             return PartialView("Edit");
         }
 
@@ -73,7 +73,7 @@ namespace EduEnginee.Areas.Admission.Controllers
                 return PartialView("GridData", new InstituteCatary[] { institutecatary });
             }
 
-            ViewBag.InstituteTypeId = new SelectList(db.InstituteTypes, "Id", "CreatedBy", institutecatary.InstituteTypeId);
+            ViewBag.InstituteTypeId = new SelectList(db.InstituteTypes, "Id", "Title", institutecatary.InstituteTypeId);
             return PartialView("Edit", institutecatary);
         }
 
@@ -83,7 +83,7 @@ namespace EduEnginee.Areas.Admission.Controllers
         public ActionResult Edit(int id)
         {
             InstituteCatary institutecatary = db.InstituteCataries.Find(id);
-            ViewBag.InstituteTypeId = new SelectList(db.InstituteTypes, "Id", "CreatedBy", institutecatary.InstituteTypeId);
+            ViewBag.InstituteTypeId = new SelectList(db.InstituteTypes, "Id", "Title", institutecatary.InstituteTypeId);
             return PartialView(institutecatary);
         }
 
@@ -100,7 +100,7 @@ namespace EduEnginee.Areas.Admission.Controllers
                 return PartialView("GridData", new InstituteCatary[] { institutecatary });
             }
 
-            ViewBag.InstituteTypeId = new SelectList(db.InstituteTypes, "Id", "CreatedBy", institutecatary.InstituteTypeId);
+            ViewBag.InstituteTypeId = new SelectList(db.InstituteTypes, "Id", "Title", institutecatary.InstituteTypeId);
             return PartialView(institutecatary);
         }
 

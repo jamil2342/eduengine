@@ -11,6 +11,7 @@ using EduEnginee.Areas.Admission.Models;
 
 namespace EduEnginee.Areas.Admission.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class InstituteTypeController : Controller
     {
         private AdmissionDbEntities db = new AdmissionDbEntities();
@@ -64,8 +65,8 @@ namespace EduEnginee.Areas.Admission.Controllers
         [HttpPost]
         public ActionResult Create(InstituteType institutetype)
         {
-            institutetype.CreatedBy = User.Identity.ToString();
-            institutetype.UpdatedBy = User.Identity.ToString();
+            institutetype.CreatedBy = User.Identity.Name;
+            institutetype.UpdatedBy = User.Identity.Name;
             institutetype.CreatedDate = System.DateTime.Now;
             institutetype.UpdatedDate = System.DateTime.Now;
 
@@ -95,7 +96,7 @@ namespace EduEnginee.Areas.Admission.Controllers
         public ActionResult Edit(InstituteType institutetype)
         {
 
-            institutetype.UpdatedBy = User.Identity.ToString();
+            institutetype.UpdatedBy = User.Identity.Name;
             institutetype.UpdatedDate = System.DateTime.Now;
 
 

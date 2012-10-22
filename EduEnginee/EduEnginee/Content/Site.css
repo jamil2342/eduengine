@@ -647,3 +647,7 @@ ul#social li {
  
     width: 50%;
 }
+.hiddenTd
+{
+    width: 0px;
+}

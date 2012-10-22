@@ -26,6 +26,7 @@ namespace EduEnginee.Areas.Admission.Models
         public Nullable<int> NoOfTeacher { get; set; }
         public Nullable<int> NoOfMaleStudent { get; set; }
         public Nullable<int> NoOfFemaleStudent { get; set; }
+        public string Title { get; set; }
     
         public virtual Circular Circular { get; set; }
     }

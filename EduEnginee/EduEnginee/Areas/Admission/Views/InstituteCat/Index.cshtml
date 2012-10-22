@@ -67,10 +67,10 @@
     <table id="AjaxGrid">
         <thead>
             <tr>
-                <th data-column-name="InstituteType.CreatedBy">
-                    <span class="reorder">@Html.DisplayNameFor(model => model.InstituteType.CreatedBy)</span>
-                    <a href="@Url.RouteUrl(new { orderBy = "InstituteType.CreatedBy", desc = true })" class="uparrow">&uarr;</a>
-                    <a href="@Url.RouteUrl(new { orderBy = "InstituteType.CreatedBy" })" class="downarrow">&darr;</a>
+                <th class="hiddenTd" data-column-name="InstituteType.Title">
+                    <span class="reorder">@Html.DisplayNameFor(model => model.InstituteType.Title)</span>
+                    <a href="@Url.RouteUrl(new { orderBy = "InstituteType.Title", desc = true })" class="uparrow">&uarr;</a>
+                    <a href="@Url.RouteUrl(new { orderBy = "InstituteType.Title" })" class="downarrow">&darr;</a>
                 </th>
                 <th data-column-name="IsEnable">
                     <span class="reorder">@Html.DisplayNameFor(model => model.IsEnable)</span>

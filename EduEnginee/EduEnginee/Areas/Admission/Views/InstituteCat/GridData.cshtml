@@ -3,7 +3,7 @@
 @foreach (var item in Model) {
     <tr data-pkey="@item.Id">
         <td>
-            @Html.DisplayFor(modelItem => item.InstituteType.CreatedBy)
+            @Html.DisplayFor(modelItem => item.InstituteType.Title)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsEnable)
