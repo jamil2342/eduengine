@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AdmissionDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="AdmissionDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="AdmissionDbModelStoreContainer">
           <EntitySet Name="AdmissionTypes" EntityType="AdmissionDbModel.Store.AdmissionTypes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Circulars" EntityType="AdmissionDbModel.Store.Circulars" store:Type="Tables" Schema="dbo" />
@@ -125,13 +125,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="InstituteTypeId" Type="int" Nullable="false" />
           <Property Name="IsEnable" Type="bit" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
           <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
-          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Institutes">
           <Key>
@@ -153,7 +153,7 @@
           <Property Name="LoDirectory" Type="nvarchar(max)" Nullable="false" />
           <Property Name="NoOfMaleStd" Type="int" Nullable="false" />
           <Property Name="NoOfFemaleStd" Type="int" Nullable="false" />
-          <Property Name="NoOfTeacher" Type="int" />
+          <Property Name="NoOfTeacher" Type="int" Nullable="false" />
           <Property Name="NoOfMaleHostelSit" Type="int" Nullable="false" />
           <Property Name="NoOfFemaleHostelSit" Type="int" Nullable="false" />
           <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
@@ -163,25 +163,25 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="InstituteCataryId" Type="int" Nullable="false" />
           <Property Name="IsEnable" Type="bit" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
           <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
-          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="InstituteTypes">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="IsEnable" Type="bit" Nullable="false" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -356,8 +356,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AdmissionDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -519,7 +518,7 @@
           <Property Name="LoDirectory" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="NoOfMaleStd" Type="Int32" Nullable="false" />
           <Property Name="NoOfFemaleStd" Type="Int32" Nullable="false" />
-          <Property Name="NoOfTeacher" Type="Int32" />
+          <Property Name="NoOfTeacher" Type="Int32" Nullable="true" />
           <Property Name="NoOfMaleHostelSit" Type="Int32" Nullable="false" />
           <Property Name="NoOfFemaleHostelSit" Type="Int32" Nullable="false" />
           <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -890,7 +889,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="AdmissionModel">
+      <Diagram Name="AdmissionModel" ZoomLevel="76">
         <EntityTypeShape EntityType="AdmissionDbModel.AdmissionType" Width="1.5" PointX="7.5" PointY="2.75" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.Circular" Width="1.5" PointX="9.75" PointY="5.375" Height="6.4032194010416674" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.Comment" Width="1.5" PointX="12" PointY="6" Height="3.1340950520833317" IsExpanded="true" />
