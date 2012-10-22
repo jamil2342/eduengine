@@ -36,7 +36,7 @@ namespace EduEnginee.Areas.Admission.Controllers
         {
             Response.AppendHeader("X-Total-Row-Count", db.InstituteSubcataries.Count().ToString());
             ObjectQuery<InstituteSubcatary> institutesubcataries = (db as IObjectContextAdapter).ObjectContext.CreateObjectSet<InstituteSubcatary>();
-            institutesubcataries = institutesubcataries.Include(i => i.InstituteCatary);
+            //institutesubcataries = institutesubcataries.Include(i => i.InstituteCatary);
             institutesubcataries = institutesubcataries.OrderBy("it." + orderBy + (desc ? " desc" : ""));
 
             return PartialView(institutesubcataries.Skip(start).Take(itemsPerPage));
