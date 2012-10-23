@@ -1,0 +1,142 @@
+﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.Institute>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstituteSubcatary.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEnable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebSite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstablishDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoDirectory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfMaleStd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfFemaleStd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfTeacher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfMaleHostelSit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfFemaleHostelSit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstituteSubcatary.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEnable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebSite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstablishDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoDirectory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfMaleStd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfFemaleStd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfTeacher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfMaleHostelSit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfFemaleHostelSit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

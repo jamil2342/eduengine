@@ -139,6 +139,7 @@
     <Compile Include="Areas\Admission\Controllers\AdTypeController.cs" />
     <Compile Include="Areas\Admission\Controllers\CountryController.cs" />
     <Compile Include="Areas\Admission\Controllers\InCatController.cs" />
+    <Compile Include="Areas\Admission\Controllers\InController.cs" />
     <Compile Include="Areas\Admission\Controllers\InSubCatController.cs" />
     <Compile Include="Areas\Admission\Controllers\InTypeController.cs" />
     <Compile Include="Areas\Admission\Models\AdmissionModel.Context.cs">
@@ -362,6 +363,11 @@
     <Content Include="Areas\Admission\Views\InSubCat\Index.cshtml" />
     <Content Include="Areas\Admission\Views\InSubCat\GridData.cshtml" />
     <Content Include="Areas\Admission\Views\InSubCat\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\In\Index.cshtml" />
+    <Content Include="Areas\Admission\Views\In\Details.cshtml" />
+    <Content Include="Areas\Admission\Views\In\Create.cshtml" />
+    <Content Include="Areas\Admission\Views\In\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\In\Delete.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>

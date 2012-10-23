@@ -1,0 +1,179 @@
+﻿@model EduEnginee.Areas.Admission.Models.Institute
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Institute</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InstituteSubcataryId, "InstituteSubcatary")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("InstituteSubcataryId", String.Empty)
+            @Html.ValidationMessageFor(model => model.InstituteSubcataryId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CountryId, "Country")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CountryId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CountryId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsEnable)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsEnable)
+            @Html.ValidationMessageFor(model => model.IsEnable)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreatedBy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreatedBy)
+            @Html.ValidationMessageFor(model => model.CreatedBy)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreatedDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreatedDate)
+            @Html.ValidationMessageFor(model => model.CreatedDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UpdatedBy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UpdatedBy)
+            @Html.ValidationMessageFor(model => model.UpdatedBy)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UpdatedDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UpdatedDate)
+            @Html.ValidationMessageFor(model => model.UpdatedDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WebSite)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WebSite)
+            @Html.ValidationMessageFor(model => model.WebSite)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EstablishDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EstablishDate)
+            @Html.ValidationMessageFor(model => model.EstablishDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LoDirectory)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LoDirectory)
+            @Html.ValidationMessageFor(model => model.LoDirectory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoOfMaleStd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoOfMaleStd)
+            @Html.ValidationMessageFor(model => model.NoOfMaleStd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoOfFemaleStd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoOfFemaleStd)
+            @Html.ValidationMessageFor(model => model.NoOfFemaleStd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoOfTeacher)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoOfTeacher)
+            @Html.ValidationMessageFor(model => model.NoOfTeacher)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoOfMaleHostelSit)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoOfMaleHostelSit)
+            @Html.ValidationMessageFor(model => model.NoOfMaleHostelSit)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoOfFemaleHostelSit)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoOfFemaleHostelSit)
+            @Html.ValidationMessageFor(model => model.NoOfFemaleHostelSit)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Location)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Location)
+            @Html.ValidationMessageFor(model => model.Location)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
