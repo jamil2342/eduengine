@@ -136,10 +136,59 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
+    <Compile Include="Areas\Admission\Models\AdmissionModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdmissionModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\AdmissionModel.Context.Extensions.cs">
+      <DependentUpon>AdmissionModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\AdmissionModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admission\Models\AdmissionModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AdmissionModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\AdmissionType.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\Circular.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\Comment.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\Country.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\Institute.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\InstituteCatary.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\InstituteSubcatary.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\InstituteType.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\News.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\Notice.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\Subject.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admission\Models\sysdiagram.cs">
+      <DependentUpon>AdmissionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Quiz\Controllers\QuestionController.cs" />
     <Compile Include="Areas\Quiz\Controllers\QuizDefnController.cs" />
@@ -285,6 +334,14 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AdmissionModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Areas\Admission\Models\AdmissionModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AdmissionModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Admission\Models\AdmissionModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AdmissionModel.cs</LastGenOutput>
+    </None>
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
