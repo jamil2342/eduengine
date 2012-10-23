@@ -136,60 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
-    <Compile Include="Areas\Admission\Controllers\AdmissionTypeController.cs" />
-    <Compile Include="Areas\Admission\Controllers\CountryController.cs" />
-    <Compile Include="Areas\Admission\Controllers\InTypeController.cs" />
-    <Compile Include="Areas\Admission\Models\Admission.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Admission.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\Admission.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\AdmissionModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdmissionModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\AdmissionType.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\Circular.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\Comment.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\Country.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\Institute.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\InstituteCatary.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\InstituteSubcatary.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\InstituteType.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\News.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\Notice.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\Subject.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admission\Models\sysdiagram.cs">
-      <DependentUpon>Admission.tt</DependentUpon>
-    </Compile>
     <Compile Include="Areas\Quiz\Controllers\QuestionController.cs" />
     <Compile Include="Areas\Quiz\Controllers\QuizDefnController.cs" />
     <Compile Include="Areas\Quiz\Models\QuestionDefinition.cs">
@@ -330,27 +276,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QuizDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="Areas\Admission\Models\AdmissionModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AdmissionModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Areas\Admission\Models\Admission.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Admission.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Areas\Admission\Models\Admission.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Admission.cs</LastGenOutput>
-    </None>
-    <Content Include="Areas\Admission\Views\Country\Index.cshtml" />
-    <Content Include="Areas\Admission\Views\Country\GridData.cshtml" />
-    <Content Include="Areas\Admission\Views\Country\Edit.cshtml" />
-    <Content Include="Areas\Admission\Views\AdmissionType\Index.cshtml" />
-    <Content Include="Areas\Admission\Views\AdmissionType\GridData.cshtml" />
-    <Content Include="Areas\Admission\Views\AdmissionType\Edit.cshtml" />
-    <Content Include="Areas\Admission\Views\InType\Index.cshtml" />
-    <Content Include="Areas\Admission\Views\InType\GridData.cshtml" />
-    <Content Include="Areas\Admission\Views\InType\Edit.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
@@ -377,6 +302,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Admission\Controllers\" />
+    <Folder Include="Areas\Admission\Models\" />
     <Folder Include="Areas\Admission\Views\Shared\" />
     <Folder Include="Areas\Quiz\Views\Shared\" />
     <Folder Include="Areas\Temp\Controllers\" />
