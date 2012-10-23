@@ -136,6 +136,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
+    <Compile Include="Areas\Admission\Models\AdmissionModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdmissionModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Quiz\Controllers\QuestionController.cs" />
     <Compile Include="Areas\Quiz\Controllers\QuizDefnController.cs" />
     <Compile Include="Areas\Quiz\Models\QuestionDefinition.cs">
@@ -276,6 +281,10 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QuizDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Areas\Admission\Models\AdmissionModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdmissionModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
@@ -303,7 +312,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admission\Controllers\" />
-    <Folder Include="Areas\Admission\Models\" />
     <Folder Include="Areas\Admission\Views\Shared\" />
     <Folder Include="Areas\Quiz\Views\Shared\" />
     <Folder Include="Areas\Temp\Controllers\" />
