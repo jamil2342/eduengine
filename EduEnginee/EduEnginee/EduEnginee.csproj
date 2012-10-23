@@ -136,7 +136,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
+    <Compile Include="Areas\Admission\Controllers\AdTypeController.cs" />
     <Compile Include="Areas\Admission\Controllers\CountryController.cs" />
+    <Compile Include="Areas\Admission\Controllers\InCatController.cs" />
+    <Compile Include="Areas\Admission\Controllers\InSubCatController.cs" />
+    <Compile Include="Areas\Admission\Controllers\InTypeController.cs" />
     <Compile Include="Areas\Admission\Models\AdmissionModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -346,6 +350,18 @@
     <Content Include="Areas\Admission\Views\Country\Index.cshtml" />
     <Content Include="Areas\Admission\Views\Country\GridData.cshtml" />
     <Content Include="Areas\Admission\Views\Country\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\AdType\Index.cshtml" />
+    <Content Include="Areas\Admission\Views\AdType\GridData.cshtml" />
+    <Content Include="Areas\Admission\Views\AdType\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\InType\Index.cshtml" />
+    <Content Include="Areas\Admission\Views\InType\GridData.cshtml" />
+    <Content Include="Areas\Admission\Views\InType\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\InCat\Index.cshtml" />
+    <Content Include="Areas\Admission\Views\InCat\GridData.cshtml" />
+    <Content Include="Areas\Admission\Views\InCat\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\InSubCat\Index.cshtml" />
+    <Content Include="Areas\Admission\Views\InSubCat\GridData.cshtml" />
+    <Content Include="Areas\Admission\Views\InSubCat\Edit.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
