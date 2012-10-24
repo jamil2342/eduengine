@@ -38,6 +38,7 @@
             this.inputTb.Location = new System.Drawing.Point(24, 33);
             this.inputTb.Multiline = true;
             this.inputTb.Name = "inputTb";
+            this.inputTb.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.inputTb.Size = new System.Drawing.Size(796, 230);
             this.inputTb.TabIndex = 0;
             // 
@@ -56,6 +57,7 @@
             this.outputTb.Location = new System.Drawing.Point(24, 351);
             this.outputTb.Multiline = true;
             this.outputTb.Name = "outputTb";
+            this.outputTb.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.outputTb.Size = new System.Drawing.Size(796, 266);
             this.outputTb.TabIndex = 2;
             // 
