@@ -967,11 +967,11 @@
     <Diagrams>
       <Diagram Name="AdmissionModel">
         <EntityTypeShape EntityType="AdmissionDbModel.AdmissionType" Width="1.5" PointX="7.5" PointY="2.875" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdmissionDbModel.Circular" Width="1.5" PointX="9.75" PointY="5.5" Height="6.4032194010416665" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdmissionDbModel.Comment" Width="1.5" PointX="12" PointY="6.125" Height="3.1340950520833326" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdmissionDbModel.Circular" Width="1.5" PointX="9.75" PointY="5.5" Height="6.4032194010416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdmissionDbModel.Comment" Width="1.5" PointX="12" PointY="6.125" Height="3.1340950520833317" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.Country" Width="1.5" PointX="5.25" PointY="4.75" Height="1.7879850260416657" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.InstituteCatary" Width="1.5" PointX="3" PointY="7.5" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdmissionDbModel.Institute" Width="1.5" PointX="7.5" PointY="5.625" Height="6.0186165364583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdmissionDbModel.Institute" Width="1.5" PointX="7.5" PointY="5.625" Height="6.0186165364583317" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.InstituteSubcatary" Width="1.5" PointX="5.25" PointY="7.5" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.InstituteType" Width="1.5" PointX="0.75" PointY="7.75" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.News" Width="1.5" PointX="9.75" PointY="12.875" Height="2.9417936197916674" IsExpanded="true" />
@@ -988,8 +988,8 @@
           <ConnectorPoint PointX="12" PointY="7.6920475260416659" />
         </AssociationConnector>
         <AssociationConnector Association="AdmissionDbModel.FK_CircularSubject" ManuallyRouted="false">
-          <ConnectorPoint PointX="11.25" PointY="11.264109700520834" />
-          <ConnectorPoint PointX="12" PointY="11.264109700520834" />
+          <ConnectorPoint PointX="11.25" PointY="11.264109700676054" />
+          <ConnectorPoint PointX="12" PointY="11.264109700676054" />
         </AssociationConnector>
         <AssociationConnector Association="AdmissionDbModel.FK_InstituteCircular" ManuallyRouted="false">
           <ConnectorPoint PointX="9" PointY="8.6343082682291659" />
@@ -997,16 +997,16 @@
         </AssociationConnector>
         <AssociationConnector Association="AdmissionDbModel.FK_InstituteComment" ManuallyRouted="false">
           <ConnectorPoint PointX="8.25" PointY="5.625" />
-          <ConnectorPoint PointX="8.25" PointY="5.2500000000000009" />
-          <ConnectorPoint PointX="10.416666666666666" PointY="5.25" />
-          <ConnectorPoint PointX="10.583333333333334" PointY="5.2500000000000009" />
-          <ConnectorPoint PointX="11.625" PointY="5.2500000000000009" />
-          <ConnectorPoint PointX="11.625" PointY="7.6920475260416659" />
-          <ConnectorPoint PointX="12" PointY="7.6920475260416659" />
+          <ConnectorPoint PointX="8.25" PointY="5.2499999996026361" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="5.2499999996026352" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="5.2499999996026361" />
+          <ConnectorPoint PointX="11.625" PointY="5.2499999996026361" />
+          <ConnectorPoint PointX="11.625" PointY="6.8772717629773705" />
+          <ConnectorPoint PointX="12" PointY="6.8772717629773705" />
         </AssociationConnector>
         <AssociationConnector Association="AdmissionDbModel.FK_CountryInstitute" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="6.0814925130208319" />
-          <ConnectorPoint PointX="7.5" PointY="6.0814925130208319" />
+          <ConnectorPoint PointX="6.75" PointY="6.0814925131760535" />
+          <ConnectorPoint PointX="7.5" PointY="6.0814925131760535" />
         </AssociationConnector>
         <AssociationConnector Association="AdmissionDbModel.FK_InstituteCataryInstituteSubcatary" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="8.5862939453125" />
@@ -1017,15 +1017,15 @@
           <ConnectorPoint PointX="3" PointY="8.6439925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="AdmissionDbModel.FK_InstituteNews" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.0039053124999988" PointY="11.643616536458334" />
-          <ConnectorPoint PointX="8.0039053124999988" PointY="14.345896809895834" />
-          <ConnectorPoint PointX="8.4498718229166645" PointY="14.345896809895834" />
-          <ConnectorPoint PointX="8.6165384895833324" PointY="14.345896809895834" />
+          <ConnectorPoint PointX="8.25" PointY="11.643616536458332" />
+          <ConnectorPoint PointX="8.25" PointY="14.345896809895834" />
+          <ConnectorPoint PointX="8.5729191666666669" PointY="14.345896809895834" />
+          <ConnectorPoint PointX="8.7395858333333347" PointY="14.345896809895834" />
           <ConnectorPoint PointX="9.75" PointY="14.345896809895834" />
         </AssociationConnector>
         <AssociationConnector Association="AdmissionDbModel.FK_InstituteNotice" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.5332051562499984" PointY="11.643616536458334" />
-          <ConnectorPoint PointX="8.5332051562499984" PointY="17.586293945312498" />
+          <ConnectorPoint PointX="8.6562525" PointY="11.643616536458332" />
+          <ConnectorPoint PointX="8.6562525" PointY="17.586293945312498" />
           <ConnectorPoint PointX="9.75" PointY="17.586293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="AdmissionDbModel.FK_InstituteSubcataryInstitute" ManuallyRouted="false">
