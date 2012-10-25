@@ -965,7 +965,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="AdmissionModel">
+      <Diagram Name="AdmissionModel" ZoomLevel="77">
         <EntityTypeShape EntityType="AdmissionDbModel.AdmissionType" Width="1.5" PointX="7.5" PointY="2.875" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.Circular" Width="1.5" PointX="9.75" PointY="5.5" Height="6.4032194010416674" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.Comment" Width="1.5" PointX="12" PointY="6.125" Height="3.1340950520833317" IsExpanded="true" />
