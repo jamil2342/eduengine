@@ -31,11 +31,23 @@ namespace DataImport
                 string temp = "";
                 currentPos = input.IndexOf("<h2");
                 nextPos = input.IndexOf('\n', currentPos);
-                temp = input.Substring(currentPos, nextPos - currentPos);
-                inCat.Add(temp);
-                input = input.Replace(temp, "");
+                if (nextPos!=-1)
+                {
+                    temp = input.Substring(currentPos, nextPos - currentPos);
+                    input = input.Replace(temp, "");
+                    temp = MyString.tokenString(temp, "\">", "</a>");
+                    inCat.Add(temp);
+                }
+                else
+                {
+                    break;
+                }
+
+
 
 	        }
+
+
             //for (int i = 0; i < input.Length; i++)
             //{
 
