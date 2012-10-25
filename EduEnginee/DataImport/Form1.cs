@@ -21,7 +21,9 @@ namespace DataImport
         int currentPos = 0;
         int nextPos = 0;
         List<string> inCat = new List<string>();
-        
+        string DummyInsert = @"INSERT INTO InstituteCataries
+             (Title)
+            VALUES ('#Title');"+"\n";
         
         private void submitBtn_Click(object sender, EventArgs e)
         {
@@ -43,9 +45,13 @@ namespace DataImport
                     break;
                 }
 
-
-
 	        }
+
+            for (int i = 0; i < inCat.Count; i++)
+            {
+                output += DummyInsert.Replace("#Title",inCat[i]);
+               
+            }
 
 
             //for (int i = 0; i < input.Length; i++)
