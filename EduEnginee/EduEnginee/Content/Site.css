@@ -651,3 +651,25 @@ ul#social li {
 {
     width: 0px;
 }
+
+
+td
+{
+    text-align: left;
+}
+
+thead
+{
+    text-decoration: underline;
+}
+
+th
+{
+    text-align: left;
+}
+
+
+tr:nth-child(even)
+{
+    background-color: #FFFF99;
+}
