@@ -11,6 +11,47 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeMvcDemo", "..\Awesom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImport", "DataImport\DataImport.csproj", "{63AC55C4-E4E5-45DC-B3A2-14BFAE21B4A0}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QuizCS", "Snapshot8\QuizCS\", "{A27F3395-8077-4584-AE6D-879337BD027E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/QuizCS"
+		Debug.AspNetCompiler.PhysicalPath = "Snapshot8\QuizCS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\QuizCS\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/QuizCS"
+		Release.AspNetCompiler.PhysicalPath = "Snapshot8\QuizCS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\QuizCS\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "56031"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "localhost", "http://localhost:63474", "{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv2.0"
+		Debug.AspNetCompiler.VirtualPath = "/QuizCS(1)"
+		Debug.AspNetCompiler.PhysicalPath = "Snapshot7\QuizCS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\QuizCS(1)\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/QuizCS(1)"
+		Release.AspNetCompiler.PhysicalPath = "Snapshot7\QuizCS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\QuizCS(1)\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Snapshot7\QuizCS\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -63,6 +104,26 @@ Global
 		{63AC55C4-E4E5-45DC-B3A2-14BFAE21B4A0}.Release|Mixed Platforms.Build.0 = Release|x86
 		{63AC55C4-E4E5-45DC-B3A2-14BFAE21B4A0}.Release|x86.ActiveCfg = Release|x86
 		{63AC55C4-E4E5-45DC-B3A2-14BFAE21B4A0}.Release|x86.Build.0 = Release|x86
+		{A27F3395-8077-4584-AE6D-879337BD027E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A27F3395-8077-4584-AE6D-879337BD027E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A27F3395-8077-4584-AE6D-879337BD027E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A27F3395-8077-4584-AE6D-879337BD027E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A27F3395-8077-4584-AE6D-879337BD027E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A27F3395-8077-4584-AE6D-879337BD027E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{A27F3395-8077-4584-AE6D-879337BD027E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A27F3395-8077-4584-AE6D-879337BD027E}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A27F3395-8077-4584-AE6D-879337BD027E}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A27F3395-8077-4584-AE6D-879337BD027E}.Release|x86.ActiveCfg = Debug|Any CPU
+		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

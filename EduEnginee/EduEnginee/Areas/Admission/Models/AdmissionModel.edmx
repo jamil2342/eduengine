@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AdmissionDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="AdmissionDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="AdmissionDbModelStoreContainer">
           <EntitySet Name="AdmissionTypes" EntityType="AdmissionDbModel.Store.AdmissionTypes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Circulars" EntityType="AdmissionDbModel.Store.Circulars" store:Type="Tables" Schema="dbo" />
@@ -127,7 +127,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="InstituteTypeId" Type="int" Nullable="false" />
+          <Property Name="InstituteTypeId" Type="int" />
           <Property Name="IsEnable" Type="bit" />
         </EntityType>
         <EntityType Name="Institutes">
@@ -161,7 +161,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="InstituteCataryId" Type="int" Nullable="false" />
+          <Property Name="InstituteCataryId" Type="int" />
           <Property Name="IsEnable" Type="bit" />
         </EntityType>
         <EntityType Name="InstituteTypes">
@@ -273,7 +273,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_InstituteCataryInstituteSubcatary">
-          <End Role="InstituteCataries" Type="AdmissionDbModel.Store.InstituteCataries" Multiplicity="1" />
+          <End Role="InstituteCataries" Type="AdmissionDbModel.Store.InstituteCataries" Multiplicity="0..1" />
           <End Role="InstituteSubcataries" Type="AdmissionDbModel.Store.InstituteSubcataries" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="InstituteCataries">
@@ -345,7 +345,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_InstituteTypeInstituteCatary">
-          <End Role="InstituteTypes" Type="AdmissionDbModel.Store.InstituteTypes" Multiplicity="1" />
+          <End Role="InstituteTypes" Type="AdmissionDbModel.Store.InstituteTypes" Multiplicity="0..1" />
           <End Role="InstituteCataries" Type="AdmissionDbModel.Store.InstituteCataries" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="InstituteTypes">
@@ -387,8 +387,7 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AdmissionDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -965,7 +964,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="AdmissionModel" ZoomLevel="77">
+      <Diagram Name="AdmissionModel" ZoomLevel="100">
         <EntityTypeShape EntityType="AdmissionDbModel.AdmissionType" Width="1.5" PointX="7.5" PointY="2.875" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.Circular" Width="1.5" PointX="9.75" PointY="5.5" Height="6.4032194010416674" IsExpanded="true" />
         <EntityTypeShape EntityType="AdmissionDbModel.Comment" Width="1.5" PointX="12" PointY="6.125" Height="3.1340950520833317" IsExpanded="true" />
