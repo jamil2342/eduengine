@@ -1,0 +1,89 @@
+﻿@model EduEnginee.Areas.Admission.Models.Institute
+
+<tr @if (Model != null) {
+    @:data-pkey="@Model.Id"
+}>
+    <td>
+        @Html.EditorFor(model => model.Title)
+        @Html.ValidationMessageFor(model => model.Title)
+    </td>
+    <td>
+        @Html.DropDownList("InstituteSubcataryId", String.Empty)
+        @Html.ValidationMessageFor(model => model.InstituteSubcataryId)
+    </td>
+    <td>
+        @Html.DropDownList("CountryId", String.Empty)
+        @Html.ValidationMessageFor(model => model.CountryId)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.IsEnable)
+        @Html.ValidationMessageFor(model => model.IsEnable)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.CreatedBy)
+        @Html.ValidationMessageFor(model => model.CreatedBy)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.CreatedDate)
+        @Html.ValidationMessageFor(model => model.CreatedDate)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.UpdatedBy)
+        @Html.ValidationMessageFor(model => model.UpdatedBy)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.UpdatedDate)
+        @Html.ValidationMessageFor(model => model.UpdatedDate)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Phone)
+        @Html.ValidationMessageFor(model => model.Phone)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.EmailAddress)
+        @Html.ValidationMessageFor(model => model.EmailAddress)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.WebSite)
+        @Html.ValidationMessageFor(model => model.WebSite)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.EstablishDate)
+        @Html.ValidationMessageFor(model => model.EstablishDate)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.LoDirectory)
+        @Html.ValidationMessageFor(model => model.LoDirectory)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.NoOfMaleStd)
+        @Html.ValidationMessageFor(model => model.NoOfMaleStd)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.NoOfFemaleStd)
+        @Html.ValidationMessageFor(model => model.NoOfFemaleStd)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.NoOfTeacher)
+        @Html.ValidationMessageFor(model => model.NoOfTeacher)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.NoOfMaleHostelSit)
+        @Html.ValidationMessageFor(model => model.NoOfMaleHostelSit)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.NoOfFemaleHostelSit)
+        @Html.ValidationMessageFor(model => model.NoOfFemaleHostelSit)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Location)
+        @Html.ValidationMessageFor(model => model.Location)
+    </td>
+    <td>
+@if (ViewContext.RouteData.Values["Action"].ToString() == "Edit") {
+        <button class="editRow">Save</button><button class="cancelEditRow">Cancel</button>
+} else {
+        <button class="createRow">Create</button><button class="cancelCreateRow">Cancel</button>
+}
+    </td>
+</tr>

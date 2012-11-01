@@ -137,6 +137,7 @@
   <ItemGroup>
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
     <Compile Include="Areas\Admission\Controllers\AdTypeController.cs" />
+    <Compile Include="Areas\Admission\Controllers\AjaxInController.cs" />
     <Compile Include="Areas\Admission\Controllers\CountryController.cs" />
     <Compile Include="Areas\Admission\Controllers\InCatController.cs" />
     <Compile Include="Areas\Admission\Controllers\InController.cs" />
@@ -368,6 +369,9 @@
     <Content Include="Areas\Admission\Views\In\Create.cshtml" />
     <Content Include="Areas\Admission\Views\In\Edit.cshtml" />
     <Content Include="Areas\Admission\Views\In\Delete.cshtml" />
+    <Content Include="Areas\Admission\Views\AjaxIn\Index.cshtml" />
+    <Content Include="Areas\Admission\Views\AjaxIn\GridData.cshtml" />
+    <Content Include="Areas\Admission\Views\AjaxIn\Edit.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>

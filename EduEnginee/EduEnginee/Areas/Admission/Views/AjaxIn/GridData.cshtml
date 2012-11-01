@@ -1,0 +1,67 @@
+﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.Institute>
+
+@foreach (var item in Model) {
+    <tr data-pkey="@item.Id">
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstituteSubcatary.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEnable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebSite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstablishDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoDirectory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfMaleStd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfFemaleStd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfTeacher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfMaleHostelSit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfFemaleHostelSit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td class="rowControl hidden">
+            <a href="#makeRowEditable" class="makeRowEditable">Edit</a> |
+            <a href="#deleteRow" class="deleteRow">Delete</a>
+        </td>
+    </tr>
+}
