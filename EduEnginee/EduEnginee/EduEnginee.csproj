@@ -376,6 +376,7 @@
     <Content Include="Areas\Admission\Views\AjaxIn\partialCreate.cshtml" />
     <Content Include="Areas\Admission\Views\In\_Create.cshtml" />
     <Content Include="Areas\Admission\Views\In\_List.cshtml" />
+    <Content Include="Areas\Admission\Views\In\__Create.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>

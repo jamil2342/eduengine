@@ -639,14 +639,30 @@ ul#social li {
 }
 .editor-label
 {
- 
     width: 30%;
+    text-align: right;
+    float: left;
 }
 .editor-field
 {
- 
     width: 50%;
+    text-align: left;
+    float: left;
 }
+
+.display-label
+{
+    width: 30%;
+    text-align: left;
+    float: left;
+}
+.display-field
+{
+    width: 50%;
+    text-align: left;
+    float: left;
+}
+
 .hiddenTd
 {
     width: 0px;
