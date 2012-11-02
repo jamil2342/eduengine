@@ -112,14 +112,29 @@ namespace EduEnginee.Areas.Admission.Controllers
         //
         // POST: /Admission/Circular/Delete/5
 
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
+        //[HttpPost, ActionName("Delete")]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Circular circular = db.Circulars.Single(c => c.Id == id);
+        //    db.Circulars.DeleteObject(circular);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
+
+
+        [AcceptVerbs(HttpVerbs.Delete)]
+        [ActionName("Delete")]
+        public ActionResult AjaxDelete(int id)
         {
             Circular circular = db.Circulars.Single(c => c.Id == id);
             db.Circulars.DeleteObject(circular);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+
+            return PartialView("_Accordin", db.Circulars.ToList());
         }
+
 
         protected override void Dispose(bool disposing)
         {

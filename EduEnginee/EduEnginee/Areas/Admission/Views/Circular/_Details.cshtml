@@ -1,6 +1,6 @@
 ﻿@model EduEnginee.Areas.Admission.Models.Circular
 
-<fieldset>
+@*<fieldset>
     <legend>Circular</legend>
 
     <div class="display-label">
@@ -31,33 +31,7 @@
         @Html.DisplayFor(model => model.IsEnable)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CreatedBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CreatedBy)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CreatedDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CreatedDate)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.UpdatedBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.UpdatedBy)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.UpdatedDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.UpdatedDate)
-    </div>
+    
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Session)
@@ -149,8 +123,145 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Title)
     </div>
-</fieldset>
+</fieldset>*@
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="border:1px solid #D0CCC9;">
+		<tbody><tr>
+			<td colspan="2">
+
+			</td>
+		</tr>
+		<tr>
+			<td width="100%" align="center">
+				<div class="social-plugin-box">
+	<table cellspacing="0" cellpadding="0" border="0" align="left" style="border:0px solid #ffffff;" class="social-plugin">
+		<tbody>
+		<tr>
+			<td valign="top" align="center">
+				<br>
+				<table width="100%" align="center">
+					<tbody><tr>
+						<td width="100%" valign="top" align="center" style="padding-bottom:30px; padding-top:10px;">
+						<div align="center">
+							<font style="font-size: 20px;">Admission Circular</font><br>
+							<font style="font-size: 14px;">####admissionType,&nbsp;@Model.Title,&nbsp;Session: @Model.Session</font>
+						</div>
+						</td>
+					</tr>
+				</tbody></table>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div style="text-align: left;" class="heading2">Admission Requirements </div>
+                <p>
+                    @Model.AdmissionReq
+                </p>              
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table width="100%" align="center">
+					<tbody><tr>
+						<td width="65%" valign="top">
+							<div style="text-align: center;" class="heading2">Subjects Under Common Unit</div>
+							@foreach (var item in Model.Subjects)
+                               {
+                                   @item.Title 
+                                    @Html.Encode("</br>")                                     
+                                        
+                                        
+                               }
+                        </td>
+						<td width="35%" valign="top">
+							<table width="300" cellspacing="0" cellpadding="0" border="0" align="center" class="containingbox">
+								<tbody><tr>
+									<td width="40%" valign="top" style="padding-left:6px;" class="related">
+										<div class="heading11">Important Info</div>
+											<div class="heading10">
+												Start Date: <font color="#575757">@Model.AppStart</font><br>
+												End Date: <font color="#575757">@Model.AppEnd</font><br>
+												Admission Test: <font color="#575757">@Model.AddDate</font><br>
+																									Helpline: <font color="#575757">@Model.Institute.Phone</font><br>
+																									More Info: <font color="#575757">@Model.Institute.WebSite</font><br>
+																							</div>	
+									</td>
+									<!--<td class="middle-middle">
+										<h3>Important Info:</h3>
+										Start Date: <font color="#575757"></font><br>
+										End Date: <font color="#575757"></font><br>
+										Admission Test: <font color="#575757"></font><br>
+										Helpline: <font color="#575757"></font><br>
+									</td> -->
+									
+								</tr>
+							</tbody></table>
+						</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<div style="text-align: left;" class="heading2">Apply Procedure </div>
+				<p style="padding-left:16px; padding-right:16px">
+                    @Model.ApplyProc
+                </p>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="left" style="padding-left:12px; padding-bottom:10px;">
+				<div style="float:left;width:50%;">
+					<table width="100%" border="0" align="left" class="visa-foreign">
+						<tbody><tr class="title">
+							<td align="left" colspan="2">Important Dates</td>
+						</tr>
+													<tr>
+								<td>Application Start</td>
+								
+								<td>@Model.AppStart</td>
+							</tr>
+														<tr class="alt">
+								<td>Application End</td>
+								
+								<td>@Model.AppEnd</td>
+							</tr>
+														<tr>
+								<td>Submission Start</td>
+							
+								<td>@Model.SubStart</td>
+							</tr>
+														<tr class="alt">
+								<td>Submission End</td>
+								
+								<td>@Model.SubEnd</td>
+							</tr>
+														<tr>
+								<td>Admission Test</td>
+								
+								<td>@Model.AddDate</td>
+							</tr>
+														<tr class="alt">
+								<td>Result Date</td>
+								
+								<td>@Model.ResDate</td>
+							</tr>
+												</tbody></table>
+				</div>
+							</td>
+		</tr>
+
+	</tbody></table>
+    </table>
+
+
+			
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |    
+    @Ajax.ActionLink("Delete", "Delete", "Circular", new { id = Model.Id }, new AjaxOptions { Confirm = "Delete contact?", HttpMethod = "Delete", UpdateTargetId = "List" })
 </p>
