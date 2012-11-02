@@ -4,7 +4,7 @@
     @:data-pkey="@Model.Id"
 }>
     <td>
-        @Html.HiddenFor(model => model.Id)
+        
         @Html.HiddenFor(model => model.CreatedBy)
         @Html.HiddenFor(model => model.CreatedDate)
 
@@ -129,14 +129,15 @@
             @Html.EditorFor(model => model.Location)
             @Html.ValidationMessageFor(model => model.Location)
         </div>
+        @if (ViewContext.RouteData.Values["Action"].ToString() == "Edit") {
+        <button class="editRow">Save</button><button class="cancelEditRow">Cancel</button>
+        } else {
+                <button class="createRow">Create</button><button class="cancelCreateRow">Cancel</button>
+        }
 
     </td>
     
-     <td>
-@if (ViewContext.RouteData.Values["Action"].ToString() == "Edit") {
-        <button class="editRow">Save</button><button class="cancelEditRow">Cancel</button>
-} else {
-        <button class="createRow">Create</button><button class="cancelCreateRow">Cancel</button>
-}
-    </td>
+     
+
+    
 </tr>
