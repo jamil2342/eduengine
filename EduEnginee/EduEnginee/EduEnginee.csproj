@@ -138,6 +138,7 @@
     <Compile Include="Areas\Admission\AdmissionAreaRegistration.cs" />
     <Compile Include="Areas\Admission\Controllers\AdTypeController.cs" />
     <Compile Include="Areas\Admission\Controllers\AjaxInController.cs" />
+    <Compile Include="Areas\Admission\Controllers\AjaxNewsController.cs" />
     <Compile Include="Areas\Admission\Controllers\CountryController.cs" />
     <Compile Include="Areas\Admission\Controllers\InCatController.cs" />
     <Compile Include="Areas\Admission\Controllers\InController.cs" />
@@ -229,6 +230,8 @@
     <Compile Include="Areas\Quiz\QuizAreaRegistration.cs" />
     <Compile Include="Areas\Temp\TempAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdmissionDbController.cs" />
+    <Compile Include="Controllers\AdmissionDbController.News.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -291,6 +294,7 @@
     <Content Include="Scripts\knockout-2.0.0.debug.js" />
     <Content Include="Scripts\knockout-2.0.0.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Scripts\NewsViewModel.js" />
     <Content Include="Scripts\QuestionDefinitionsViewModel.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -377,6 +381,11 @@
     <Content Include="Areas\Admission\Views\In\_Create.cshtml" />
     <Content Include="Areas\Admission\Views\In\_List.cshtml" />
     <Content Include="Areas\Admission\Views\In\__Create.cshtml" />
+    <Content Include="Areas\Admission\Views\AjaxNews\Index.cshtml" />
+    <Content Include="Areas\Admission\Views\AjaxNews\GridData.cshtml" />
+    <Content Include="Areas\Admission\Views\AjaxNews\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\AjaxNews\_Details.cshtml" />
+    <Content Include="Areas\Admission\Views\AjaxNews\_Edit.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
