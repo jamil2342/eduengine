@@ -65,6 +65,12 @@ namespace EduEnginee.Areas.Admission.Controllers
         [HttpPost]
         public ActionResult Create(Institute institute)
         {
+            institute.CreatedBy = User.Identity.Name;
+            institute.CreatedDate = System.DateTime.Now;
+
+            institute.UpdatedBy = User.Identity.Name;
+            institute.UpdatedDate = System.DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 db.Institutes.AddObject(institute);
@@ -94,6 +100,8 @@ namespace EduEnginee.Areas.Admission.Controllers
         [HttpPost]
         public ActionResult Edit(Institute institute)
         {
+            institute.UpdatedBy = User.Identity.Name;
+            institute.UpdatedDate = System.DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Institutes.Attach(institute);
