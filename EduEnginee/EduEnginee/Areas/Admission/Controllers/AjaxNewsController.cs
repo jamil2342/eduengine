@@ -64,6 +64,11 @@ namespace EduEnginee.Areas.Admission.Controllers
         [HttpPost]
         public ActionResult Create(News news)
         {
+            news.CreatedBy = User.Identity.Name;
+            news.CreatedDate = System.DateTime.Now;
+
+            news.UpdatedBy = User.Identity.Name;
+            news.UpdatedDate = System.DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.News.AddObject(news);
@@ -91,6 +96,10 @@ namespace EduEnginee.Areas.Admission.Controllers
         [HttpPost]
         public ActionResult Edit(News news)
         {
+            news.UpdatedBy = User.Identity.Name;
+            news.UpdatedDate = System.DateTime.Now;
+
+
             if (ModelState.IsValid)
             {
                 db.News.Attach(news);
