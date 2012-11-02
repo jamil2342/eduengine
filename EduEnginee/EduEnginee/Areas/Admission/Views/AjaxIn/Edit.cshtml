@@ -4,66 +4,135 @@
     @:data-pkey="@Model.Id"
 }>
     <td>
-        @Html.EditorFor(model => model.Title)
-        @Html.ValidationMessageFor(model => model.Title)
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.CreatedBy)
+        @Html.HiddenFor(model => model.CreatedDate)
 
-        @Html.DropDownList("InstituteSubcataryId", String.Empty)
-        @Html.ValidationMessageFor(model => model.InstituteSubcataryId)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InstituteSubcataryId, "InstituteSubcatary")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("InstituteSubcataryId", String.Empty)
+            @Html.ValidationMessageFor(model => model.InstituteSubcataryId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CountryId, "Country")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CountryId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CountryId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsEnable)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsEnable)
+            @Html.ValidationMessageFor(model => model.IsEnable)
+        </div>
+
+       
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WebSite)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WebSite)
+            @Html.ValidationMessageFor(model => model.WebSite)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EstablishDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EstablishDate)
+            @Html.ValidationMessageFor(model => model.EstablishDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LoDirectory)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LoDirectory)
+            @Html.ValidationMessageFor(model => model.LoDirectory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoOfMaleStd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoOfMaleStd)
+            @Html.ValidationMessageFor(model => model.NoOfMaleStd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoOfFemaleStd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoOfFemaleStd)
+            @Html.ValidationMessageFor(model => model.NoOfFemaleStd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoOfTeacher)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoOfTeacher)
+            @Html.ValidationMessageFor(model => model.NoOfTeacher)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoOfMaleHostelSit)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoOfMaleHostelSit)
+            @Html.ValidationMessageFor(model => model.NoOfMaleHostelSit)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NoOfFemaleHostelSit)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NoOfFemaleHostelSit)
+            @Html.ValidationMessageFor(model => model.NoOfFemaleHostelSit)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Location)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Location)
+            @Html.ValidationMessageFor(model => model.Location)
+        </div>
+
     </td>
     
-    <td>
-        @Html.DropDownList("CountryId", String.Empty)
-        @Html.ValidationMessageFor(model => model.CountryId)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.IsEnable)
-        @Html.ValidationMessageFor(model => model.IsEnable)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.Phone)
-        @Html.ValidationMessageFor(model => model.Phone)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.EmailAddress)
-        @Html.ValidationMessageFor(model => model.EmailAddress)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.WebSite)
-        @Html.ValidationMessageFor(model => model.WebSite)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.EstablishDate)
-        @Html.ValidationMessageFor(model => model.EstablishDate)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.LoDirectory)
-        @Html.ValidationMessageFor(model => model.LoDirectory)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.NoOfMaleStd)
-        @Html.ValidationMessageFor(model => model.NoOfMaleStd)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.NoOfFemaleStd)
-        @Html.ValidationMessageFor(model => model.NoOfFemaleStd)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.NoOfTeacher)
-        @Html.ValidationMessageFor(model => model.NoOfTeacher)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.NoOfMaleHostelSit)
-        @Html.ValidationMessageFor(model => model.NoOfMaleHostelSit)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.NoOfFemaleHostelSit)
-        @Html.ValidationMessageFor(model => model.NoOfFemaleHostelSit)
-    </td>
-    <td>
-        @Html.EditorFor(model => model.Location)
-        @Html.ValidationMessageFor(model => model.Location)
-    </td>
-    <td>
+     <td>
 @if (ViewContext.RouteData.Values["Action"].ToString() == "Edit") {
         <button class="editRow">Save</button><button class="cancelEditRow">Cancel</button>
 } else {

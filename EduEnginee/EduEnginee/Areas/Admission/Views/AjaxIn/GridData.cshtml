@@ -3,11 +3,11 @@
 @foreach (var item in Model) {
     <tr data-pkey="@item.Id">
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
-            @Html.DisplayFor(modelItem => item.InstituteSubcatary.Title)
+            @Html.Partial("PartialDetails",item)
+          
         </td>
         
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Country.Name)
         </td>
         <td>
@@ -47,6 +47,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Location)
         </td>
+*@        
         <td class="rowControl hidden">
             <a href="#makeRowEditable" class="makeRowEditable">Edit</a> |
             <a href="#deleteRow" class="deleteRow">Delete</a>
