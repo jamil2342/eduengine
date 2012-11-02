@@ -1,0 +1,21 @@
+﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.Circular>
+
+        <div id="accordion" class="accordin">
+            
+            
+            @foreach (var item in Model)
+            {
+                
+            <h3><a href="#">@item.Title</a></h3>
+            <div>
+                <p>
+                    @Html.Partial("_Details",item)
+                </p>
+            </div>
+    
+            }
+
+
+        </div> 
+
+
