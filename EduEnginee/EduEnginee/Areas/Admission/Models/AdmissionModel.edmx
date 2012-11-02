@@ -135,8 +135,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="InstituteSubcataryId" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="InstituteSubcataryId" Type="int" />
           <Property Name="CountryId" Type="int" />
           <Property Name="IsEnable" Type="bit" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
@@ -333,7 +333,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_InstituteSubcataryInstitute">
-          <End Role="InstituteSubcataries" Type="AdmissionDbModel.Store.InstituteSubcataries" Multiplicity="1" />
+          <End Role="InstituteSubcataries" Type="AdmissionDbModel.Store.InstituteSubcataries" Multiplicity="0..1" />
           <End Role="Institutes" Type="AdmissionDbModel.Store.Institutes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="InstituteSubcataries">
