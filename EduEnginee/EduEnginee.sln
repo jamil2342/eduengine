@@ -28,7 +28,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QuizCS", "Snapshot8\QuizCS\
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "56031"
+		VWDPort = "49815"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "localhost", "http://localhost:63474", "{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C}"
@@ -132,7 +132,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7E5DDCEE-3A86-424D-A78C-024DA5B853AE} = {34AA1526-42CB-410D-AF4C-5ADA39517909}
-		{A27F3395-8077-4584-AE6D-879337BD027E} = {293EA06F-226A-4001-8611-D69C7B3C837E}
 		{2DB83C1D-3237-4078-8E3F-CE7D9510FE6C} = {293EA06F-226A-4001-8611-D69C7B3C837E}
+		{A27F3395-8077-4584-AE6D-879337BD027E} = {293EA06F-226A-4001-8611-D69C7B3C837E}
 	EndGlobalSection
 EndGlobal

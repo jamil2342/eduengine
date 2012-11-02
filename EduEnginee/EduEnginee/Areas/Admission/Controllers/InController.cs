@@ -35,14 +35,34 @@ namespace EduEnginee.Areas.Admission.Controllers
             return View(institute);
         }
 
+
+
+
+
         //
         // GET: /Admission/In/Create
 
-        public ActionResult Create()
+        public ActionResult _Create()
         {
             ViewBag.CountryId = new SelectList(db.Countries, "Id", "Name");
             ViewBag.InstituteSubcataryId = new SelectList(db.InstituteSubcataries, "Id", "Title");
-            return View();
+            return PartialView();
+        }
+        //
+        // GET: /Admission/In/Create
+
+        public ActionResult Create(string mode)
+        {
+            ViewBag.CountryId = new SelectList(db.Countries, "Id", "Name");
+            ViewBag.InstituteSubcataryId = new SelectList(db.InstituteSubcataries, "Id", "Title");
+            if (mode!="partial")
+            {
+                return View(); 
+            }
+            else
+            {
+                return PartialView("_Create");
+            }
         }
 
         //
