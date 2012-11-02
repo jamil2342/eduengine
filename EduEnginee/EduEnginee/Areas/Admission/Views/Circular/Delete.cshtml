@@ -1,0 +1,166 @@
+﻿@model EduEnginee.Areas.Admission.Models.Circular
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Circular</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Institute.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Institute.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ResultLink)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ResultLink)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SeatPlanLink)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SeatPlanLink)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsEnable)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsEnable)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UpdatedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UpdatedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UpdatedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UpdatedDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Session)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Session)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CourseType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CourseType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AdmissionReq)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AdmissionReq)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ApplyProc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplyProc)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AppStart)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AppStart)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AppEnd)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AppEnd)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SubStart)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubStart)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SubEnd)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubEnd)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EligibleCanDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EligibleCanDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ResDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ResDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AdmissionType.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AdmissionType.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

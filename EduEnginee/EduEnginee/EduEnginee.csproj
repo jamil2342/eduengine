@@ -140,6 +140,7 @@
     <Compile Include="Areas\Admission\Controllers\AjaxInController.cs" />
     <Compile Include="Areas\Admission\Controllers\AjaxNewsController.cs" />
     <Compile Include="Areas\Admission\Controllers\AjaxNoticeController.cs" />
+    <Compile Include="Areas\Admission\Controllers\CircularController.cs" />
     <Compile Include="Areas\Admission\Controllers\CountryController.cs" />
     <Compile Include="Areas\Admission\Controllers\InCatController.cs" />
     <Compile Include="Areas\Admission\Controllers\InController.cs" />
@@ -391,6 +392,11 @@
     <Content Include="Areas\Admission\Views\AjaxNotice\GridData.cshtml" />
     <Content Include="Areas\Admission\Views\AjaxNotice\Edit.cshtml" />
     <Content Include="Areas\Admission\Views\AjaxNotice\_Details.cshtml" />
+    <Content Include="Areas\Admission\Views\Circular\Index.cshtml" />
+    <Content Include="Areas\Admission\Views\Circular\Details.cshtml" />
+    <Content Include="Areas\Admission\Views\Circular\Create.cshtml" />
+    <Content Include="Areas\Admission\Views\Circular\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\Circular\Delete.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>

@@ -1,0 +1,197 @@
+﻿@model EduEnginee.Areas.Admission.Models.Circular
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Circular</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InstituteId, "Institute")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("InstituteId", String.Empty)
+            @Html.ValidationMessageFor(model => model.InstituteId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ResultLink)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ResultLink)
+            @Html.ValidationMessageFor(model => model.ResultLink)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SeatPlanLink)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SeatPlanLink)
+            @Html.ValidationMessageFor(model => model.SeatPlanLink)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsEnable)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsEnable)
+            @Html.ValidationMessageFor(model => model.IsEnable)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreatedBy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreatedBy)
+            @Html.ValidationMessageFor(model => model.CreatedBy)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreatedDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreatedDate)
+            @Html.ValidationMessageFor(model => model.CreatedDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UpdatedBy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UpdatedBy)
+            @Html.ValidationMessageFor(model => model.UpdatedBy)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UpdatedDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UpdatedDate)
+            @Html.ValidationMessageFor(model => model.UpdatedDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Session)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Session)
+            @Html.ValidationMessageFor(model => model.Session)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CourseType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CourseType)
+            @Html.ValidationMessageFor(model => model.CourseType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdmissionReq)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdmissionReq)
+            @Html.ValidationMessageFor(model => model.AdmissionReq)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ApplyProc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplyProc)
+            @Html.ValidationMessageFor(model => model.ApplyProc)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AppStart)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AppStart)
+            @Html.ValidationMessageFor(model => model.AppStart)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AppEnd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AppEnd)
+            @Html.ValidationMessageFor(model => model.AppEnd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SubStart)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SubStart)
+            @Html.ValidationMessageFor(model => model.SubStart)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SubEnd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SubEnd)
+            @Html.ValidationMessageFor(model => model.SubEnd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EligibleCanDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EligibleCanDate)
+            @Html.ValidationMessageFor(model => model.EligibleCanDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AddDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AddDate)
+            @Html.ValidationMessageFor(model => model.AddDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ResDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ResDate)
+            @Html.ValidationMessageFor(model => model.ResDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdmissionTypeId, "AdmissionType")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("AdmissionTypeId", String.Empty)
+            @Html.ValidationMessageFor(model => model.AdmissionTypeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
