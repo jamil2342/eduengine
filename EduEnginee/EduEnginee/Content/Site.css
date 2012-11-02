@@ -639,7 +639,7 @@ ul#social li {
 }
 .editor-label
 {
-    width: 30%;
+    width: 50%;
     text-align: right;
     float: left;
 }
@@ -652,7 +652,7 @@ ul#social li {
 
 .display-label
 {
-    width: 30%;
+    width: 50%;
     text-align: left;
     float: left;
 }
