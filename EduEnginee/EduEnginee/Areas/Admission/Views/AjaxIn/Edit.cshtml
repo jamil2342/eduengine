@@ -6,11 +6,11 @@
     <td>
         @Html.EditorFor(model => model.Title)
         @Html.ValidationMessageFor(model => model.Title)
-    </td>
-    <td>
+
         @Html.DropDownList("InstituteSubcataryId", String.Empty)
         @Html.ValidationMessageFor(model => model.InstituteSubcataryId)
     </td>
+    
     <td>
         @Html.DropDownList("CountryId", String.Empty)
         @Html.ValidationMessageFor(model => model.CountryId)

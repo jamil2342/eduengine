@@ -4,10 +4,9 @@
     <tr data-pkey="@item.Id">
         <td>
             @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.InstituteSubcatary.Title)
         </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.Country.Name)
         </td>
