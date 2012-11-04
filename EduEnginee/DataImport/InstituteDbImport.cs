@@ -46,6 +46,7 @@ SET       Title =#Title, HeadName =#, Phone =#, EmailAddress =#, WebSite =#, Est
             
             
             //for Title <font style="font-size: 20px;">Ad-din Womens Medical College</font>
+            	//<title>Bangladesh University of Engineering and Technology (BUET)</title>
             
             
 
@@ -66,14 +67,14 @@ SET       Title =#Title, HeadName =#, Phone =#, EmailAddress =#, WebSite =#, Est
              * 
 							Phone: 02-9665650-80, 8616833-38, 8614640-44, 8618344-49 , Fax: 02-8613046<br>
              
-             */]
+             */
 
 
 
             //for email
             //    <a href="mailto:vcoffice@vc.buet.ac.bd" target="_blank" class="email" title="vcoffice@vc.buet.ac.bd">Email</a>
             //    <a href="mailto:duet@duet.ac.bd" target="_blank" class="email" title="duet@duet.ac.bd">Email</a>
-							,
+							
 			
             
             //for Web
@@ -100,25 +101,40 @@ SET       Title =#Title, HeadName =#, Phone =#, EmailAddress =#, WebSite =#, Est
             //                <td align="right">1269</td>
 
 
+            //total teacher
+            //    <td>Total Teacher</td>
+            //                <td>:</td>
+            //                <td align="right">496</td>
 
+
+            //<td>Male Hostel Seat</td>
+            //                <td>:</td>
+            //                <td align="right">2482</td>
 						
         for (int i = startId; i <= endId; i++)
             {
                 
                 totalHtml = WebFetch.GetHtml(tempUrl+i);
-                tempInstitute.Title=MyString.tokenString(totalHtml,"<font style=\"font-size: 20px;\">","</font>");
-                tempInstitute.Location = MyString.tokenString(totalHtml, "</font><br>", "<br>");
+                tempInstitute.Title = MyString.tokenString(totalHtml, "<title>", "</title>");
+               tempInstitute.Location = MyString.tokenString(totalHtml,"</title>", "</font><br>", "<br>");
+                tempInstitute.EstablishDate = MyString.tokenString(totalHtml, "Established in ", "</font>");
+                tempInstitute.Location= tempInstitute.Location.Replace("\t","");
                 tempInstitute.Phone = MyString.tokenString(totalHtml, "Phone: ", "<br>");
                 tempInstitute.EmailAddress = MyString.tokenString(totalHtml, "mailto:", "\"");
                 tempInstitute.WebSite = MyString.tokenString(totalHtml, "class=\"web\" title=\"", "\">Website");
                 tempInstitute.HeadName = MyString.tokenString(totalHtml, "<p class=\"head\" style=\"margin-left: 18px;\">", "</p>");
-                tempInstitute.NoOfMaleStd = MyString.tokenString(totalHtml, "<td align=\"right\" width=\"7%\">", "</td>");
+                tempInstitute.NoOfMaleStd = MyString.tokenString(totalHtml, "Male Student", "align=\"right\">", "</td>");
                 tempInstitute.NoOfFemaleStd = MyString.tokenString(totalHtml, "Female Student","<td align=\"right\">", "</td>");
-                tempInstitute.Location = MyString.tokenString(totalHtml, "", "", "");
-                tempInstitute.Location = MyString.tokenString(totalHtml, "",  "","");
-                tempInstitute.Location = MyString.tokenString(totalHtml, "", "", "");
+                tempInstitute.NoOfTeacher = MyString.tokenString(totalHtml, "Total Teacher", "<td align=\"right\">", "</td>");
+                tempInstitute.NoOfMaleHostelSit = MyString.tokenString(totalHtml, "Male Hostel Seat",  "<td align=\"right\">","</td>");
+                tempInstitute.NoOfFemaleHostelSit = MyString.tokenString(totalHtml, "Female Hostel Seat", "<td align=\"right\">", "</td>");
+
+
+
+                insList.Add(tempInstitute);
 
             }
+            ;
         }
     }
 }
