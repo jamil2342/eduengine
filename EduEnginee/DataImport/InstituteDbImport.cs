@@ -137,10 +137,10 @@ where Id=#Id;"+"\n";
                     tempInstitute.EstablishDate = "0";
                 }
                 tempInstitute.Location= tempInstitute.Location.Replace("\t","");
-                tempInstitute.Phone = MyString.tokenString(totalHtml, "Phone: ", "<br>");
-                tempInstitute.EmailAddress = MyString.tokenString(totalHtml, "mailto", "\"");
+                tempInstitute.Phone = MyString.tokenString(totalHtml, "Phone: ", "<br>",100);
+                tempInstitute.EmailAddress = MyString.tokenString(totalHtml, "mailto:", "\"");
                 tempInstitute.WebSite = MyString.tokenString(totalHtml, "class=\"web\" title=\"", "\">Website",30);
-                tempInstitute.HeadName = MyString.tokenString(totalHtml, "<p class=\"head\" style=\"margin-left: 18px;\">", "</p>",20);
+                tempInstitute.HeadName = MyString.tokenString(totalHtml, "<p class=\"head\" style=\"margin-left: 18px;\">", "</p>");
                 tempInstitute.NoOfMaleStd = MyString.tokenString(totalHtml, "Male Student", "align=\"right\">", "</td>",7);
                 tempInstitute.NoOfFemaleStd = MyString.tokenString(totalHtml, "Female Student", "<td align=\"right\">", "</td>", 7);
                 tempInstitute.NoOfTeacher = MyString.tokenString(totalHtml, "Total Teacher", "<td align=\"right\">", "</td>", 7);
