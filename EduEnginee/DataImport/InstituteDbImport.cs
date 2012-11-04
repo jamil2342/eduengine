@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace DataImport
 {
@@ -41,7 +42,7 @@ namespace DataImport
         
         public String tempQry = @"UPDATE Institutes
 SET       Title ='#Title', HeadName ='#HeadName', Phone ='#Phone', EmailAddress ='#EmailAddress', WebSite ='#WebSite', EstablishDate =#EstablishDate, NoOfMaleStd =#NoOfMaleStd, NoOfFemaleStd =#NoOfFemaleStd, NoOfTeacher =#NoOfTeacher, NoOfMaleHostelSit =#NoOfMaleHostelSit, NoOfFemaleHostelSit =#NoOfFemaleHostelSit, Location ='#Location'
-where Id=#Id;\n";
+where Id=#Id;"+"\n";
 
         int startId = 0;
         int endId = 0;
@@ -123,44 +124,37 @@ where Id=#Id;\n";
 						
             for (int i = startId; i <= endId; i++)
             {
-
+                label1.Text = "" + i + "progress";
                 
                 totalHtml = WebFetch.GetHtml(tempUrl+i);
                 tempInstitute.Id = i;
                 
                 tempInstitute.Title = MyString.tokenString(totalHtml, "<title>", "</title>");
                 tempInstitute.Location = MyString.tokenString(totalHtml,"</title>", "</font><br>", "<br>");
-                tempInstitute.EstablishDate = MyString.tokenString(totalHtml, "Established in ", "</font>");
+                tempInstitute.EstablishDate = MyString.tokenString(totalHtml, "Established in ", "</font>",7);
+                if (String.IsNullOrEmpty(tempInstitute.EstablishDate))
+                {
+                    tempInstitute.EstablishDate = "0";
+                }
                 tempInstitute.Location= tempInstitute.Location.Replace("\t","");
                 tempInstitute.Phone = MyString.tokenString(totalHtml, "Phone: ", "<br>");
-                tempInstitute.EmailAddress = MyString.tokenString(totalHtml, "mailto:", "\"");
-                tempInstitute.WebSite = MyString.tokenString(totalHtml, "class=\"web\" title=\"", "\">Website");
-                tempInstitute.HeadName = MyString.tokenString(totalHtml, "<p class=\"head\" style=\"margin-left: 18px;\">", "</p>");
-                tempInstitute.NoOfMaleStd = MyString.tokenString(totalHtml, "Male Student", "align=\"right\">", "</td>");
-                tempInstitute.NoOfFemaleStd = MyString.tokenString(totalHtml, "Female Student","<td align=\"right\">", "</td>");
-                tempInstitute.NoOfTeacher = MyString.tokenString(totalHtml, "Total Teacher", "<td align=\"right\">", "</td>");
-                tempInstitute.NoOfMaleHostelSit = MyString.tokenString(totalHtml, "Male Hostel Seat",  "<td align=\"right\">","</td>");
-                tempInstitute.NoOfFemaleHostelSit = MyString.tokenString(totalHtml, "Female Hostel Seat", "<td align=\"right\">", "</td>");
+                tempInstitute.EmailAddress = MyString.tokenString(totalHtml, "mailto", "\"");
+                tempInstitute.WebSite = MyString.tokenString(totalHtml, "class=\"web\" title=\"", "\">Website",30);
+                tempInstitute.HeadName = MyString.tokenString(totalHtml, "<p class=\"head\" style=\"margin-left: 18px;\">", "</p>",20);
+                tempInstitute.NoOfMaleStd = MyString.tokenString(totalHtml, "Male Student", "align=\"right\">", "</td>",7);
+                tempInstitute.NoOfFemaleStd = MyString.tokenString(totalHtml, "Female Student", "<td align=\"right\">", "</td>", 7);
+                tempInstitute.NoOfTeacher = MyString.tokenString(totalHtml, "Total Teacher", "<td align=\"right\">", "</td>", 7);
+                tempInstitute.NoOfMaleHostelSit = MyString.tokenString(totalHtml, "Male Hostel Seat", "<td align=\"right\">", "</td>", 7);
+                tempInstitute.NoOfFemaleHostelSit = MyString.tokenString(totalHtml, "Female Hostel Seat", "<td align=\"right\">", "</td>", 7);
 
 
 
                 insList.Add(tempInstitute);
                 finalQry = CreateSql(finalQry, tempInstitute);
-
+                Debug.WriteLine(finalQry);
             }
             
-//                    public String tempQry = @"UPDATE Institutes
-//SET       Title ='#Title', HeadName ='#HeadName', Phone ='#Phone', EmailAddress ='#EmailAddress', WebSite ='#WebSite', EstablishDate =#EstablishDate, NoOfMaleStd =#NoOfMaleStd, NoOfFemaleStd =#NoOfFemaleStd, NoOfTeacher =#NoOfTeacher, NoOfMaleHostelSit =#NoOfMaleHostelSit, NoOfFemaleHostelSit =#NoOfFemaleHostelSit, Location ='#Location
-//where Id='#Id";
 
-            for (int i = 0; i < insList.Count; i++)
-            {
-
-                finalQry = CreateSql(finalQry, insList[i]);
-
-                
-
-            }
 
             
         }

@@ -52,6 +52,38 @@ namespace DataImport
 
         
         }
+        
+        
+        public static string tokenString(string mainStr, string startStr, string endStr,int highestLen)
+        {
+
+            string temp = "";
+            try
+            {
+                int startIndex = mainStr.IndexOf(startStr);
+                temp = mainStr.Substring(startIndex + startStr.Length);
+
+                int len = temp.IndexOf(endStr);
+                //len = len - endStr.Length;
+                temp = temp.Remove(len);
+                temp = temp.Replace("\n", "");
+                temp = temp.Replace("\r", "");
+            }
+            catch (Exception ex)
+            {
+                temp = "";
+
+            }
+            if (temp.Length>highestLen)
+            {
+                temp = "";
+            }
+            return temp;
+
+
+
+
+        }
 
         public static string tokenString(string mainStr,string firstStart, string startStr, string endStr)
         {
@@ -65,6 +97,28 @@ namespace DataImport
             
             
             return tokenString(delemetedString, startStr, endStr);
+
+
+
+        }
+        public static string tokenString(string mainStr, string firstStart, string startStr, string endStr,int highestLen)
+        {
+            string delemetedString = "";
+            int temp = mainStr.IndexOf(firstStart);
+            delemetedString = mainStr.Remove(0, temp);
+
+
+
+
+
+
+            string tempStr = tokenString(delemetedString, startStr, endStr);
+            if (tempStr.Length>highestLen)
+            {
+                tempStr = "";
+            }
+
+            return tempStr;
 
 
 
