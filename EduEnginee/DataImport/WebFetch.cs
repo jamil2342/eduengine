@@ -16,7 +16,7 @@ namespace DataImport
     /// </summary>
     class WebFetch
     {
-        static string GetHtml(string Url)
+        public static string GetHtml(string Url)
         {
             // used to build entire input
             StringBuilder sb = new StringBuilder();
