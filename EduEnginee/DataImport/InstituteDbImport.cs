@@ -43,16 +43,18 @@ namespace DataImport
 SET       Title ='#Title', HeadName ='#HeadName', Phone ='#Phone', EmailAddress ='#EmailAddress', WebSite ='#WebSite', EstablishDate =#EstablishDate, NoOfMaleStd =#NoOfMaleStd, NoOfFemaleStd =#NoOfFemaleStd, NoOfTeacher =#NoOfTeacher, NoOfMaleHostelSit =#NoOfMaleHostelSit, NoOfFemaleHostelSit =#NoOfFemaleHostelSit, Location ='#Location'
 where Id=#Id;\n";
 
-
+        int startId = 0;
+        int endId = 0;
         private void SubmitTb_Click(object sender, EventArgs e)
         {
-            int startId = Convert.ToInt32(StartIdTb.Text);
-            int endId = Convert.ToInt32(EndIdTb.Text);
+            insList.Clear();
+            startId = Convert.ToInt32(StartIdTb.Text);
+            endId = Convert.ToInt32(EndIdTb.Text);
             string totalHtml = "";
             string tempUrl = "http://www.eduicon.com/Institute/?Institute_Basic_ID=";
             institute tempInstitute = new institute();
             
-            
+            string finalQry = "";
             //for Title <font style="font-size: 20px;">Ad-din Womens Medical College</font>
             	//<title>Bangladesh University of Engineering and Technology (BUET)</title>
             
@@ -143,9 +145,10 @@ where Id=#Id;\n";
 
 
                 insList.Add(tempInstitute);
+                finalQry = CreateSql(finalQry, tempInstitute);
 
             }
-            string finalQry = "";
+            
 //                    public String tempQry = @"UPDATE Institutes
 //SET       Title ='#Title', HeadName ='#HeadName', Phone ='#Phone', EmailAddress ='#EmailAddress', WebSite ='#WebSite', EstablishDate =#EstablishDate, NoOfMaleStd =#NoOfMaleStd, NoOfFemaleStd =#NoOfFemaleStd, NoOfTeacher =#NoOfTeacher, NoOfMaleHostelSit =#NoOfMaleHostelSit, NoOfFemaleHostelSit =#NoOfFemaleHostelSit, Location ='#Location
 //where Id='#Id";
@@ -153,32 +156,54 @@ where Id=#Id;\n";
             for (int i = 0; i < insList.Count; i++)
             {
 
-                finalQry = tempQry;
-
-
-                finalQry = finalQry.Replace("#Title",insList[i].Title);
-                finalQry = finalQry.Replace("#HeadName", insList[i].HeadName);
-                finalQry = finalQry.Replace("#Phone", insList[i].Phone);
-                finalQry = finalQry.Replace("#EmailAddress", insList[i].EmailAddress);
-                finalQry = finalQry.Replace("#WebSite", insList[i].WebSite);
-                finalQry = finalQry.Replace("#EstablishDate", insList[i].EstablishDate);
-                finalQry = finalQry.Replace("#NoOfMaleStd", insList[i].NoOfMaleStd);
-                finalQry = finalQry.Replace("#NoOfFemaleStd", insList[i].NoOfFemaleStd);
-                finalQry = finalQry.Replace("#NoOfTeacher", insList[i].NoOfTeacher);
-                finalQry = finalQry.Replace("#NoOfMaleHostelSit", insList[i].NoOfMaleHostelSit);
-                finalQry = finalQry.Replace("#NoOfFemaleHostelSit", insList[i].NoOfFemaleHostelSit);
-                finalQry = finalQry.Replace("#Location", insList[i].Location);
-                finalQry = finalQry.Replace("#Id",""+ insList[i].Id);
-
-                output += finalQry ;
+                finalQry = CreateSql(finalQry, insList[i]);
 
                 
 
             }
-            output = output.Replace("N/A", "0");
 
-            OutputTb.Text = output;
             
+        }
+
+        private string CreateSql(string finalQry, institute ins)
+        {
+            finalQry = tempQry;
+
+
+            finalQry = finalQry.Replace("#Title", ins.Title);
+            finalQry = finalQry.Replace("#HeadName", ins.HeadName);
+            finalQry = finalQry.Replace("#Phone", ins.Phone);
+            finalQry = finalQry.Replace("#EmailAddress", ins.EmailAddress);
+            finalQry = finalQry.Replace("#WebSite", ins.WebSite);
+            finalQry = finalQry.Replace("#EstablishDate", ins.EstablishDate);
+            finalQry = finalQry.Replace("#NoOfMaleStd", ins.NoOfMaleStd);
+            finalQry = finalQry.Replace("#NoOfFemaleStd", ins.NoOfFemaleStd);
+            finalQry = finalQry.Replace("#NoOfTeacher", ins.NoOfTeacher);
+            finalQry = finalQry.Replace("#NoOfMaleHostelSit", ins.NoOfMaleHostelSit);
+            finalQry = finalQry.Replace("#NoOfFemaleHostelSit", ins.NoOfFemaleHostelSit);
+            finalQry = finalQry.Replace("#Location", ins.Location);
+            finalQry = finalQry.Replace("#Id", "" + ins.Id);
+
+            finalQry = finalQry.Replace("N/A", "0");
+
+            OutputTb.Text += finalQry;
+            return finalQry;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            startId += 50;
+            endId += 50;
+            StartIdTb.Text =""+ startId;
+            EndIdTb.Text = "" + endId;
+        }
+
+        private void minusBtn_Click(object sender, EventArgs e)
+        {
+            startId-= 50;
+            endId -= 50;
+            StartIdTb.Text = "" + startId;
+            EndIdTb.Text = "" + endId;
         }
     }
 }

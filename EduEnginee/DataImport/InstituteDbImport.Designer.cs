@@ -32,6 +32,8 @@
             this.StartIdTb = new System.Windows.Forms.TextBox();
             this.OutputTb = new System.Windows.Forms.TextBox();
             this.EndIdTb = new System.Windows.Forms.TextBox();
+            this.minusBtn = new System.Windows.Forms.Button();
+            this.plusBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SubmitTb
@@ -50,13 +52,14 @@
             this.StartIdTb.Name = "StartIdTb";
             this.StartIdTb.Size = new System.Drawing.Size(100, 26);
             this.StartIdTb.TabIndex = 1;
-            this.StartIdTb.Text = "4052";
+            this.StartIdTb.Text = "4050";
             // 
             // OutputTb
             // 
             this.OutputTb.Location = new System.Drawing.Point(124, 192);
             this.OutputTb.Multiline = true;
             this.OutputTb.Name = "OutputTb";
+            this.OutputTb.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.OutputTb.Size = new System.Drawing.Size(588, 239);
             this.OutputTb.TabIndex = 2;
             // 
@@ -66,13 +69,35 @@
             this.EndIdTb.Name = "EndIdTb";
             this.EndIdTb.Size = new System.Drawing.Size(100, 26);
             this.EndIdTb.TabIndex = 4;
-            this.EndIdTb.Text = "4052";
+            this.EndIdTb.Text = "4100";
+            // 
+            // minusBtn
+            // 
+            this.minusBtn.Location = new System.Drawing.Point(523, 111);
+            this.minusBtn.Name = "minusBtn";
+            this.minusBtn.Size = new System.Drawing.Size(41, 36);
+            this.minusBtn.TabIndex = 5;
+            this.minusBtn.Text = "-";
+            this.minusBtn.UseVisualStyleBackColor = true;
+            this.minusBtn.Click += new System.EventHandler(this.minusBtn_Click);
+            // 
+            // plusBtn
+            // 
+            this.plusBtn.Location = new System.Drawing.Point(464, 111);
+            this.plusBtn.Name = "plusBtn";
+            this.plusBtn.Size = new System.Drawing.Size(41, 36);
+            this.plusBtn.TabIndex = 6;
+            this.plusBtn.Text = "+";
+            this.plusBtn.UseVisualStyleBackColor = true;
+            this.plusBtn.Click += new System.EventHandler(this.button2_Click);
             // 
             // InstituteDbImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 570);
+            this.Controls.Add(this.plusBtn);
+            this.Controls.Add(this.minusBtn);
             this.Controls.Add(this.EndIdTb);
             this.Controls.Add(this.OutputTb);
             this.Controls.Add(this.StartIdTb);
@@ -90,5 +115,7 @@
         private System.Windows.Forms.TextBox StartIdTb;
         private System.Windows.Forms.TextBox OutputTb;
         private System.Windows.Forms.TextBox EndIdTb;
+        private System.Windows.Forms.Button minusBtn;
+        private System.Windows.Forms.Button plusBtn;
     }
 }
