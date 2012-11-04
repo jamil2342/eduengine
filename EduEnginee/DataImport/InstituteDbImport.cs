@@ -43,9 +43,17 @@ SET       Title =#Title, HeadName =#, Phone =#, EmailAddress =#, WebSite =#, Est
             string totalHtml = "";
             string tempUrl = "http://www.eduicon.com/Institute/?Institute_Basic_ID=";
             institute tempInstitute = new institute();
+            
+            
+            //for Title <font style="font-size: 20px;">Ad-din Womens Medical College</font>
+            
+            
             for (int i = startId; i <= endId; i++)
             {
+                
                 totalHtml = WebFetch.GetHtml(tempUrl+i);
+                tempInstitute.Title=MyString.tokenString(totalHtml,"<font style=\"font-size: 20px;\">","</font>");
+                tempInstitute.
 
             }
         }
