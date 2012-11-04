@@ -48,12 +48,40 @@ SET       Title =#Title, HeadName =#, Phone =#, EmailAddress =#, WebSite =#, Est
             //for Title <font style="font-size: 20px;">Ad-din Womens Medical College</font>
             
             
+
+
+            /*
+             
+             for location
+             * 
+             * (BUET)</font><br>
+							Dhaka-1000<br>
+							Phone
+             */
+
+
+
+            /*
+             for phone
+             * 
+							Phone: 02-9665650-80, 8616833-38, 8614640-44, 8618344-49 , Fax: 02-8613046<br>
+             
+             */
             for (int i = startId; i <= endId; i++)
             {
                 
                 totalHtml = WebFetch.GetHtml(tempUrl+i);
                 tempInstitute.Title=MyString.tokenString(totalHtml,"<font style=\"font-size: 20px;\">","</font>");
-                tempInstitute.
+                tempInstitute.Location = MyString.tokenString(totalHtml, "</font><br>", "<br>");
+                tempInstitute.Phone = MyString.tokenString(totalHtml, "Phone: ", "<br>");
+                tempInstitute.Location = MyString.tokenString(totalHtml, "", "");
+                tempInstitute.Location = MyString.tokenString(totalHtml, "", "");
+                tempInstitute.Location = MyString.tokenString(totalHtml, "", "");
+                tempInstitute.Location = MyString.tokenString(totalHtml, "", "");
+                tempInstitute.Location = MyString.tokenString(totalHtml, "", "");
+                tempInstitute.Location = MyString.tokenString(totalHtml, "", "");
+                tempInstitute.Location = MyString.tokenString(totalHtml, "", "");
+                tempInstitute.Location = MyString.tokenString(totalHtml, "", "");
 
             }
         }
