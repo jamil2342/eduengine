@@ -15,15 +15,23 @@ namespace DataImport
         public static string tokenString(string mainStr,string startStr,string endStr)
         {
 
+            string temp = "";
+            try
+            {
+                int startIndex = mainStr.IndexOf(startStr);
+                temp = mainStr.Substring(startIndex + startStr.Length);
 
-            int startIndex = mainStr.IndexOf(startStr);
-            string temp = mainStr.Substring(startIndex+startStr.Length);
-
-            int len = temp.IndexOf(endStr);
-            //len = len - endStr.Length;
-            temp = temp.Remove(len);
-            temp=temp.Replace("\n","");
-            temp=temp.Replace("\r","");
+                int len = temp.IndexOf(endStr);
+                //len = len - endStr.Length;
+                temp = temp.Remove(len);
+                temp = temp.Replace("\n", "");
+                temp = temp.Replace("\r", "");
+            }
+            catch (Exception ex)
+            {
+                temp = "";
+                
+            }
             return temp;
 
             //string temp = mainStr.Substring(startIndex+startStr.Length, endIndex-endStr.Length+1);

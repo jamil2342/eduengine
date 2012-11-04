@@ -50,6 +50,7 @@
             this.StartIdTb.Name = "StartIdTb";
             this.StartIdTb.Size = new System.Drawing.Size(100, 26);
             this.StartIdTb.TabIndex = 1;
+            this.StartIdTb.Text = "4052";
             // 
             // OutputTb
             // 
@@ -65,6 +66,7 @@
             this.EndIdTb.Name = "EndIdTb";
             this.EndIdTb.Size = new System.Drawing.Size(100, 26);
             this.EndIdTb.TabIndex = 4;
+            this.EndIdTb.Text = "4052";
             // 
             // InstituteDbImport
             // 

@@ -15,11 +15,11 @@ namespace DataImport
         {
             InitializeComponent();
         }
-        public String tempQry = @"UPDATE Institutes
-SET       Title =#Title, HeadName =#, Phone =#, EmailAddress =#, WebSite =#, EstablishDate =#, NoOfMaleStd =#, NoOfFemaleStd =#, NoOfTeacher =#, NoOfMaleHostelSit =#, NoOfFemaleHostelSit =#, Location =#";
+
 
         public class institute
         {
+            public int Id;
             public  string Title; 
             public string  HeadName ; 
             public string  Phone ; 
@@ -36,6 +36,14 @@ SET       Title =#Title, HeadName =#, Phone =#, EmailAddress =#, WebSite =#, Est
         }
 
         List<institute> insList = new List<institute>();
+        
+        string output = "";
+        
+        public String tempQry = @"UPDATE Institutes
+SET       Title ='#Title', HeadName ='#HeadName', Phone ='#Phone', EmailAddress ='#EmailAddress', WebSite ='#WebSite', EstablishDate =#EstablishDate, NoOfMaleStd =#NoOfMaleStd, NoOfFemaleStd =#NoOfFemaleStd, NoOfTeacher =#NoOfTeacher, NoOfMaleHostelSit =#NoOfMaleHostelSit, NoOfFemaleHostelSit =#NoOfFemaleHostelSit, Location ='#Location'
+where Id=#Id;\n";
+
+
         private void SubmitTb_Click(object sender, EventArgs e)
         {
             int startId = Convert.ToInt32(StartIdTb.Text);
@@ -111,12 +119,15 @@ SET       Title =#Title, HeadName =#, Phone =#, EmailAddress =#, WebSite =#, Est
             //                <td>:</td>
             //                <td align="right">2482</td>
 						
-        for (int i = startId; i <= endId; i++)
+            for (int i = startId; i <= endId; i++)
             {
+
                 
                 totalHtml = WebFetch.GetHtml(tempUrl+i);
+                tempInstitute.Id = i;
+                
                 tempInstitute.Title = MyString.tokenString(totalHtml, "<title>", "</title>");
-               tempInstitute.Location = MyString.tokenString(totalHtml,"</title>", "</font><br>", "<br>");
+                tempInstitute.Location = MyString.tokenString(totalHtml,"</title>", "</font><br>", "<br>");
                 tempInstitute.EstablishDate = MyString.tokenString(totalHtml, "Established in ", "</font>");
                 tempInstitute.Location= tempInstitute.Location.Replace("\t","");
                 tempInstitute.Phone = MyString.tokenString(totalHtml, "Phone: ", "<br>");
@@ -134,7 +145,40 @@ SET       Title =#Title, HeadName =#, Phone =#, EmailAddress =#, WebSite =#, Est
                 insList.Add(tempInstitute);
 
             }
-            ;
+            string finalQry = "";
+//                    public String tempQry = @"UPDATE Institutes
+//SET       Title ='#Title', HeadName ='#HeadName', Phone ='#Phone', EmailAddress ='#EmailAddress', WebSite ='#WebSite', EstablishDate =#EstablishDate, NoOfMaleStd =#NoOfMaleStd, NoOfFemaleStd =#NoOfFemaleStd, NoOfTeacher =#NoOfTeacher, NoOfMaleHostelSit =#NoOfMaleHostelSit, NoOfFemaleHostelSit =#NoOfFemaleHostelSit, Location ='#Location
+//where Id='#Id";
+
+            for (int i = 0; i < insList.Count; i++)
+            {
+
+                finalQry = tempQry;
+
+
+                finalQry = finalQry.Replace("#Title",insList[i].Title);
+                finalQry = finalQry.Replace("#HeadName", insList[i].HeadName);
+                finalQry = finalQry.Replace("#Phone", insList[i].Phone);
+                finalQry = finalQry.Replace("#EmailAddress", insList[i].EmailAddress);
+                finalQry = finalQry.Replace("#WebSite", insList[i].WebSite);
+                finalQry = finalQry.Replace("#EstablishDate", insList[i].EstablishDate);
+                finalQry = finalQry.Replace("#NoOfMaleStd", insList[i].NoOfMaleStd);
+                finalQry = finalQry.Replace("#NoOfFemaleStd", insList[i].NoOfFemaleStd);
+                finalQry = finalQry.Replace("#NoOfTeacher", insList[i].NoOfTeacher);
+                finalQry = finalQry.Replace("#NoOfMaleHostelSit", insList[i].NoOfMaleHostelSit);
+                finalQry = finalQry.Replace("#NoOfFemaleHostelSit", insList[i].NoOfFemaleHostelSit);
+                finalQry = finalQry.Replace("#Location", insList[i].Location);
+                finalQry = finalQry.Replace("#Id",""+ insList[i].Id);
+
+                output += finalQry ;
+
+                
+
+            }
+            output = output.Replace("N/A", "0");
+
+            OutputTb.Text = output;
+            
         }
     }
 }
