@@ -1,0 +1,22 @@
+﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.InstituteType>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div id="accordion" class="accordin">
+    @foreach (var item in Model)
+    {
+                
+        <h3>
+            <a href="#">@item.Title</a></h3>
+        <div>
+            <p>
+                @Html.Partial("_Details", item)
+            </p>
+        </div>
+    
+    }
+</div>
