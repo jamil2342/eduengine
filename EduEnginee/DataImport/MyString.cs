@@ -89,7 +89,10 @@ namespace DataImport
         {
             string delemetedString = "";
             int temp=mainStr.IndexOf(firstStart);
-            delemetedString=mainStr.Remove(0, temp);
+            if (temp>0)
+            {
+                delemetedString = mainStr.Remove(0, temp); 
+            }
 
 
             
@@ -105,7 +108,10 @@ namespace DataImport
         {
             string delemetedString = "";
             int temp = mainStr.IndexOf(firstStart);
-            delemetedString = mainStr.Remove(0, temp);
+            if (temp>0)
+            {
+                delemetedString = mainStr.Remove(0, temp); 
+            }
 
 
 

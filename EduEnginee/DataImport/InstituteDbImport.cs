@@ -39,10 +39,10 @@ namespace DataImport
         List<institute> insList = new List<institute>();
         
         string output = "";
-        
-        public String tempQry = @"UPDATE Institutes
+
+        public String tempQry = "\n" + @"UPDATE Institutes
 SET       Title ='#Title', HeadName ='#HeadName', Phone ='#Phone', EmailAddress ='#EmailAddress', WebSite ='#WebSite', EstablishDate =#EstablishDate, NoOfMaleStd =#NoOfMaleStd, NoOfFemaleStd =#NoOfFemaleStd, NoOfTeacher =#NoOfTeacher, NoOfMaleHostelSit =#NoOfMaleHostelSit, NoOfFemaleHostelSit =#NoOfFemaleHostelSit, Location ='#Location'
-where Id=#Id;"+"\n";
+where Id=#Id;" + "\n";
 
         int startId = 0;
         int endId = 0;
@@ -130,15 +130,28 @@ where Id=#Id;"+"\n";
                 tempInstitute.Id = i;
                 
                 tempInstitute.Title = MyString.tokenString(totalHtml, "<title>", "</title>");
+                tempInstitute.Title= tempInstitute.Title.Replace("'","");
+                if (tempInstitute.Title.Contains('?'))
+                {
+                    tempInstitute.Title="";
+                }
                 tempInstitute.Location = MyString.tokenString(totalHtml,"</title>", "</font><br>", "<br>");
                 tempInstitute.EstablishDate = MyString.tokenString(totalHtml, "Established in ", "</font>",7);
+                
                 if (String.IsNullOrEmpty(tempInstitute.EstablishDate))
                 {
                     tempInstitute.EstablishDate = "0";
                 }
                 tempInstitute.Location= tempInstitute.Location.Replace("\t","");
+
+                if (tempInstitute.Location.Contains('?'))
+                {
+                    tempInstitute.Location="";
+                }
+                
+                
                 tempInstitute.Phone = MyString.tokenString(totalHtml, "Phone: ", "<br>",100);
-                tempInstitute.EmailAddress = MyString.tokenString(totalHtml, "mailto:", "\"");
+                tempInstitute.EmailAddress = MyString.tokenString(totalHtml, "mailto:", "\"",40);
                 tempInstitute.WebSite = MyString.tokenString(totalHtml, "class=\"web\" title=\"", "\">Website",30);
                 tempInstitute.HeadName = MyString.tokenString(totalHtml, "<p class=\"head\" style=\"margin-left: 18px;\">", "</p>");
                 tempInstitute.NoOfMaleStd = MyString.tokenString(totalHtml, "Male Student", "align=\"right\">", "</td>",7);
@@ -178,8 +191,9 @@ where Id=#Id;"+"\n";
             finalQry = finalQry.Replace("#Location", ins.Location);
             finalQry = finalQry.Replace("#Id", "" + ins.Id);
 
+            
             finalQry = finalQry.Replace("N/A", "0");
-
+            finalQry = finalQry.Replace("=,", "=0,");
             OutputTb.Text += finalQry;
             return finalQry;
         }
