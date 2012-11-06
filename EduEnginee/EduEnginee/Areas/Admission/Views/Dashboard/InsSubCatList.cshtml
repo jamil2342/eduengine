@@ -9,21 +9,22 @@
 
 <div id="tabs">
    <ul>
-      
-       <li><a href="#1">Nunc tincidunt</a></li>
-       <li><a href="#2">Proin dolor</a></li>
-      <li><a href="#3">Aenean lacinia</a></li>
+   @foreach (var item in Model)
+   {
+        <li><a href="#@item.Id">@item.Title</a></li>    
+   }   
+   
    </ul>
-    <div id="1">
+
+    @foreach (var item in Model)
+    {
+        <div id="@item.Id">
         <p>
             Tab 1 content</p>
-    </div>
-   <div id="2">
-      <p>Tab 2 content</p>
-   </div>
-   <div id="3">
-      <p>Tab 3 content</p>
-   </div>
+        </div>
+    }
+
+
            
 </div>
 
