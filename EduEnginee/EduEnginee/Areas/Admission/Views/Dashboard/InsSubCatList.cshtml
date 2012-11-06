@@ -6,54 +6,24 @@
 }
 
 <h2>InsSubCatList</h2>
+
 <div id="tabs">
-    <ul>
-        <li><a href="#fragment-1"><span>One</span></a></li>
-        <li><a href="#fragment-2"><span>Two</span></a></li>
-        <li><a href="#fragment-3"><span>Three</span></a></li>
-    </ul>
-    <div id="fragment-1">
-        <p>First tab is active by default:</p>
-        <pre><code>$('#example').tabs();</code></pre>
+   <ul>
+      
+       <li><a href="#1">Nunc tincidunt</a></li>
+       <li><a href="#2">Proin dolor</a></li>
+      <li><a href="#3">Aenean lacinia</a></li>
+   </ul>
+    <div id="1">
+        <p>
+            Tab 1 content</p>
     </div>
-    <div id="fragment-2">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-    </div>
-    <div id="fragment-3">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-    </div>
+   <div id="2">
+      <p>Tab 2 content</p>
+   </div>
+   <div id="3">
+      <p>Tab 3 content</p>
+   </div>
+           
 </div>
 
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InstituteCataryId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsEnable)
-        </th>
-   
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InstituteCataryId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsEnable)
-        </td>
-
-    </tr>
-}
-
-</table>
