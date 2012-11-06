@@ -7,7 +7,7 @@
 
 <h2>InsSubCatList</h2>
 
-<div id="tabs">
+<div id="tabs" >
    <ul>
    @foreach (var item in Model)
    {
@@ -18,9 +18,10 @@
 
     @foreach (var item in Model)
     {
+        
         <div id="@item.Id">
         <p>
-            Tab 1 content</p>
+            @item.Title</p>
         </div>
     }
 

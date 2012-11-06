@@ -40,6 +40,14 @@ namespace EduEnginee.Areas.Admission.Controllers
             return View(qry.ToList());
         }
 
+        public ActionResult InsList(int? InsSubCatId)
+        {
+            var qry = from q in db.Institutes
+                      where q.InstituteSubcataryId == InsSubCatId
+                      select q;
+
+            return View(qry.ToList());
+        }
 
         //
         // GET: /Admission/Dashboard/Details/5
