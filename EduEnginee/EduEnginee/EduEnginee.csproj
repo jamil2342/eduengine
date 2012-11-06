@@ -405,7 +405,6 @@
     <Content Include="Areas\Admission\Views\Dashboard\Create.cshtml" />
     <Content Include="Areas\Admission\Views\Dashboard\Edit.cshtml" />
     <Content Include="Areas\Admission\Views\Dashboard\Delete.cshtml" />
-    <Content Include="Areas\Admission\Views\Dashboard\_InsCatList.cshtml" />
     <Content Include="Areas\Admission\Views\Dashboard\_insCat.cshtml" />
     <Content Include="Areas\Admission\Views\Dashboard\InsSubCatList.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">

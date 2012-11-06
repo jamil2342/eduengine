@@ -31,7 +31,7 @@ namespace EduEnginee.Areas.Admission.Controllers
         }
 
 
-        public ActionResult InsList(int? InsCatId)
+        public ActionResult InsSubCatList(int? InsCatId)
         {
             var qry = from q in db.InstituteSubcataries
                       where q.InstituteCataryId == InsCatId
