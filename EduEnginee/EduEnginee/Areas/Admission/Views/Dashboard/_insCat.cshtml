@@ -1,25 +1,17 @@
 ﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.InstituteCatary>
 
 
-@foreach (var item in Model) {
-    @item.Title
-    
-}
 
-
-
-
-
-@*<table>
+<table>
 
 @foreach (var item in Model) {
     <tr>
-    <td>@item.Title</td>
+    <td>@Html.ActionLink(item.Title,"InsList",new {InsCatId=item.Id}) </td>
+    <td></td>
+    
     </tr>
 }
-
-
-</table>*@
+</table>
 
 
 

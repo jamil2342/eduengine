@@ -21,6 +21,26 @@ namespace EduEnginee.Areas.Admission.Controllers
             return View(db.InstituteTypes.ToList());
         }
 
+
+        public ActionResult _insCat(int InsTypeId)
+        {
+            var qry = from q in db.InstituteCataries
+                      where q.InstituteTypeId == InsTypeId
+                      select q;
+            return PartialView(qry.ToList());
+        }
+
+
+        public ActionResult InsList(int? InsCatId)
+        {
+            var qry = from q in db.InstituteSubcataries
+                      where q.InstituteCataryId == InsCatId
+                      select q;
+
+            return View(qry.ToList());
+        }
+
+
         //
         // GET: /Admission/Dashboard/Details/5
 

@@ -14,7 +14,7 @@
             <a href="#">@item.Title</a></h3>
         <div>
             <p>
-                @Html.Partial("_InsCatList", item.InstituteCataries.ToList());
+                @Html.Action("_insCat",new {InsTypeId=item.Id})
             </p>
         </div>
     
