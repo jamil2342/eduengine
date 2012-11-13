@@ -1,15 +1,17 @@
-﻿html {
+﻿html
+{
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;
 }
 
-body {
-    background-color: #fff;
+body
+{
+    background-color: #FFFFFF;
     border-top: solid 10px #000;
     color: #333;
     font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    font-family: "Segoe UI" , Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
 }
@@ -639,28 +641,20 @@ ul#social li {
 }
 .editor-label
 {
-    width: 50%;
-    text-align: right;
-    float: left;
+    
 }
 .editor-field
 {
-    width: 50%;
-    text-align: left;
-    float: left;
+    
 }
 
 .display-label
 {
-    width: 50%;
-    text-align: left;
-    float: left;
+    
 }
 .display-field
 {
-    width: 50%;
-    text-align: left;
-    float: left;
+    
 }
 
 .hiddenTd
@@ -687,11 +681,49 @@ th
 
 tr:nth-child(even)
 {
-    background-color: #FFFF99;
+    background-color: #FFFFFF;
+    color: #000000;
 }
 
 
 .accordin
 {
     width:100%; 
+}
+
+
+#tabs
+{    
+    
+    border: thick solid #808080;
+}
+
+#left {
+    display: table-cell;
+    min-width: 260px;
+}
+#right {
+    display: table-cell;
+    width: 100%;
+    vertical-align: top;
+}
+
+
+.shortDetails
+{
+    text-align: center;
+    vertical-align: middle;
+    width:70%;
+}
+
+
+#Header
+{
+    text-align: left;
+    background-color: #FFFFFF;
+}
+
+.mainTable
+{
+    border: thick solid #808080;
 }

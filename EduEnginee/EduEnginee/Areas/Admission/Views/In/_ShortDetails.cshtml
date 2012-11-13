@@ -1,0 +1,42 @@
+﻿@model EduEnginee.Areas.Admission.Models.Institute
+
+
+<table>
+<tr>
+						<td width="70%" style="padding-left:17px;">
+							<table cellspacing="0" cellpadding="0" border="0" bgcolor="#f8f8f8" align="center" style="margin:12px 5px 8px;">
+								<tbody>
+                                <tr>
+									<td valign="middle" align="center">
+										<a title=@Model.Title href="http://www.eduicon.com/Institute/?Institute_Basic_ID=4140"><img height="100" class="img" src="http://www.eduicon.com/admin/images/Institute/4140_Institute_large.jpg"></a>
+									</td>
+								</tr>
+								<tr>
+								     <td valign="top" align="center">
+                                     @if (Model.EstablishDate!=0&&Model.EstablishDate!=null)
+                                     {
+                                         <div style="font-size:12px;color:#000;padding:5px;">
+												<font style="font-size:12px;">Established in&nbsp;@Model.EstablishDate</font>											</div>
+                                     }
+											
+									  </td>
+							     </tr>
+								</tbody>
+                             </table>							
+						</td>
+						<td class="shortDetails">
+
+                            <h2>@Html.ActionLink(Model.Title, "Details", "In", new { id = Model.Id }, null)</h2>                           
+                            <br />
+                            @Model.Location							
+							<br>
+                            Phone: @Model.Phone							
+                            <br>
+							<a title="@Model.EmailAddress" class="email" target="_blank" href="mailto:@Model.EmailAddress">Email</a>
+	, 								<a title="@Model.WebSite" class="web" target="_blank" href="@Model.WebSite">Website</a>
+								
+						</td>
+						
+
+					</tr>
+</table>

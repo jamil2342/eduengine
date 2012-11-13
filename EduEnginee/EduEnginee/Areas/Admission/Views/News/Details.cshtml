@@ -1,0 +1,27 @@
+﻿@model EduEnginee.Areas.Admission.Models.News
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+
+
+<fieldset>
+    <legend>News</legend>
+    @Html.Action("_ShortDetails","In",new {id=Model.InstituteId})
+<div id="Header">
+    <h3>@Model.Title</h3>
+    
+    <br />
+    @Model.Date
+</div>
+@Model.Description
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

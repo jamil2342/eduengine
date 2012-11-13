@@ -22,6 +22,38 @@ namespace EduEnginee.Areas.Admission.Controllers
             return View(circulars.ToList());
         }
 
+
+        public ActionResult ViewerCirIndex(int? insCat)
+        {
+            var qry = from q in db.Institutes  
+                      where !String.IsNullOrEmpty(q.Title) && q.Circulars.Count>0
+                      select q;
+
+            if (insCat!=null)
+            {
+                qry = from q in qry
+                      where q.InstituteSubcatary.InstituteCataryId == insCat
+                      select q;
+            }
+            return View(qry.ToList());
+        }
+
+
+        public ActionResult _InsCatList()
+        {
+            var qry = from q in db.InstituteCataries
+                      select q;
+            return PartialView(qry.ToList());
+        }
+
+        public ActionResult _CirList(int ? instituteId)
+        {
+            var qry = from q in db.Circulars
+                      where q.InstituteId == instituteId
+                      select q;
+            return PartialView(qry.ToList());
+        }
+
         //
         // GET: /Admission/Circular/Details/5
 
@@ -109,17 +141,7 @@ namespace EduEnginee.Areas.Admission.Controllers
             return View(circular);
         }
 
-        //
-        // POST: /Admission/Circular/Delete/5
 
-        //[HttpPost, ActionName("Delete")]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Circular circular = db.Circulars.Single(c => c.Id == id);
-        //    db.Circulars.DeleteObject(circular);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
 
 
 

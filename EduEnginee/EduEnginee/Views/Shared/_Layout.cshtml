@@ -10,6 +10,8 @@
         <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Scripts/js")"></script>
         <script src="../../Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
         <script src="../../Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
+                <script src="../../Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+        <script src="../../Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
 
         <script>
               $(document).ready(function () {
@@ -17,10 +19,13 @@
               });
         </script>
 
+        <script>
+            function goBack() {
+                window.history.back()
+            }
+        </script>
+     
 
-        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
   
           <script>
               $(document).ready(function () {
@@ -48,11 +53,11 @@
 @*                            <li>@Html.ActionLink("Quize", "Index", "QuizDefn", new { Area = "Quiz" }, new{})</li>
                             <li>@Html.ActionLink("Question", "Index", "Question", new { Area = "Quiz" }, new{})</li>*@
 @*                            <li>@Html.ActionLink("Country", "Index", "Country", new { Area = "Admission" }, new{})</li>
-                            <li>@Html.ActionLink("Ad Type", "Index", "AdType", new { Area = "Admission" }, new{})</li>*@
-@*                            <li>@Html.ActionLink("In Type", "Index", "InType", new { Area = "Admission" }, new { })</li>
+                            <li>@Html.ActionLink("Ad Type", "Index", "AdType", new { Area = "Admission" }, new{})</li>
+                            <li>@Html.ActionLink("In Type", "Index", "InType", new { Area = "Admission" }, new { })</li>
                             <li>@Html.ActionLink("In Cat", "Index", "InCat", new { Area = "Admission" }, new{})</li>
-                            <li>@Html.ActionLink("In Sub Cat", "Index", "InSubCat", new { Area = "Admission" }, new { })</li>
-                            <li>@Html.ActionLink("In", "Index", "AjaxIn", new { Area = "Admission" }, new { })</li>*@
+                            <li>@Html.ActionLink("In Sub Cat", "Index", "InSubCat", new { Area = "Admission" }, new { })</li>*@
+                            <li>@Html.ActionLink("In", "Index", "AjaxIn", new { Area = "Admission" }, new { })</li>
                             @*<li>@Html.ActionLink("In", "Index", "In", new { Area = "Admission" }, new { })</li>*@
                             @*<li>@Html.ActionLink("RepoIn", "Index", "RepoIn", new { Area = "Admission" }, new { })</li>*@
 @*                            <li>@Html.ActionLink("Circular", "Index", "Circular", new { Area = "Admission" }, new { })</li>
@@ -60,6 +65,9 @@
                             <li>@Html.ActionLink("Notice", "Index", "AjaxNotice", new { Area = "Admission" }, new { })</li>
                             <li>@Html.ActionLink("Circular", "Index", "Circular", new { Area = "Admission" }, new { })</li>*@
                             <li>@Html.ActionLink("Dash Board", "Index", "Dashboard", new { Area = "Admission" }, new { })</li>
+                            <li>@Html.ActionLink("Circular", "ViewerCirIndex", "Circular", new { Area = "Admission" }, new { })</li>
+                            <li>@Html.ActionLink("News", "ViewerCirIndex", "News", new { Area = "Admission" }, new { })</li>
+                            <li>@Html.ActionLink("Notice", "ViewerCirIndex", "Notice", new { Area = "Admission" }, new { })</li>
                         </ul>
                     </nav>
                 </div>
@@ -68,6 +76,10 @@
         <div id="body">
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
+            
+                @*<input type="button" value="Back" onclick="goBack()">*@
+                <li></li>
+                
                 @RenderBody()
             </section>
         </div>

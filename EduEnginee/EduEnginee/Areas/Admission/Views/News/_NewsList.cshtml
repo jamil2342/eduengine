@@ -1,0 +1,8 @@
+﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.News>
+
+    @foreach (var item in Model)
+    {
+    @Html.ActionLink(item.Title, "Details", new { id = item.Id })@*<br />*@
+    }
+    
+

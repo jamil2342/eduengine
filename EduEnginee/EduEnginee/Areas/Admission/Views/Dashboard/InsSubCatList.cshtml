@@ -20,12 +20,9 @@
     {
         
         <div id="@item.Id">
-        <p>
-            @item.Title</p>
+        <p> @Html.Action("InstituteList", new { insSubCatId = @item.Id })    </p>
         </div>
-    }
-
-
-           
+    }           
 </div>
 
+<input type="button" value="Back" onclick="goBack()">

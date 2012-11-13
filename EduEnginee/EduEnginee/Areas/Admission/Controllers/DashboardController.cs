@@ -40,15 +40,31 @@ namespace EduEnginee.Areas.Admission.Controllers
             return View(qry.ToList());
         }
 
-        public ActionResult InsList(int? InsSubCatId)
+
+
+
+
+        public ActionResult InstituteList(int insSubCatId)
         {
             var qry = from q in db.Institutes
-                      where q.InstituteSubcataryId == InsSubCatId
+                      where q.InstituteSubcataryId == insSubCatId && !String.IsNullOrEmpty(q.Title)
                       select q;
-
-            return View(qry.ToList());
+            return PartialView(qry.ToList());
         }
 
+
+
+
+        public ActionResult _Details(int id = 0)
+        {
+            InstituteType institutetype = db.InstituteTypes.Single(i => i.Id == id);
+            if (institutetype == null)
+            {
+                return HttpNotFound();
+            }
+            return View(institutetype);
+        }
+        
         //
         // GET: /Admission/Dashboard/Details/5
 

@@ -22,6 +22,18 @@ namespace EduEnginee.Areas.Admission.Controllers
             return View(institutes.ToList());
         }
 
+
+
+        public ActionResult _ShortDetails(int id = 0)
+        {
+            Institute institute = db.Institutes.Single(i => i.Id == id);
+            if (institute == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView(institute);
+        }
+
         //
         // GET: /Admission/In/Details/5
 

@@ -5,109 +5,85 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+
 
 <fieldset>
     <legend>Institute</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Title)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Title)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.InstituteSubcatary.Title)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.InstituteSubcatary.Title)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Country.Name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Country.Name)
-    </div>
+    @Html.Action("_ShortDetails","In",new {id=Model.Id})
 
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Phone)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Phone)
-    </div>
+    <table class="mainTable" align="center">
+<tr>
+			<td width="200px" valign="top" align="left">
+            <u>Vice Chancellor</u><br />
+            @Model.HeadName
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.EmailAddress)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.EmailAddress)
-    </div>
+			</td>
+			
+			<td width="500px" valign="top">
+				<table cellspacing="0" cellpadding="0" class="rel">
+						<tbody><tr>
+							<th colspan="3">
+								General Information
+							</th>
+						</tr>
+						<tr>
+							<td width="38%">Male Student</td>
+							<td width="5%">:</td>
+							<td width="7%" align="right">@Model.NoOfMaleStd</td>
+						</tr>
+						<tr>
+							<td>Female Student</td>
+							<td>:</td>
+							<td align="right">@Model.NoOfFemaleStd</td>
+						</tr>	
+						<tr>
+							<td>Total Teacher</td>
+							<td>:</td>
+							<td align="right">@Model.NoOfTeacher</td>
+						</tr>
+						<tr>
+							<td>Male Hostel Seat</td>
+							<td>:</td>
+							<td align="right">@Model.NoOfMaleHostelSit</td>
+						</tr>
+						<tr>
+							<td>Female Hostel Seat</td>
+							<td>:</td>
+							<td align="right">@Model.NoOfFemaleHostelSit</td>
+						</tr>				
+					</tbody></table>
+			</td>
+		</tr>
+    </table>
+    <br />
+    <br />
+    <br />
+    <br />
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.WebSite)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.WebSite)
-    </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.EstablishDate)
+    <div id="tabs" width="220px"  aligh="center">
+   <ul>
+ 
+ 
+        <li><a href="#1">News</a></li>    
+        <li><a href="#2">Notices</a></li>    
+        <li><a href="#3">Circular</a></li> 
+        <div id="1">
+        <p><br /><br /><br />  @Html.Action("_NewsList","News",new {instituteId=Model.Id})   </p>
+        </div>
+        <div id="2">
+        <p><br /><br /><br /> @Html.Action("_NoticeList","Notice",new {instituteId=Model.Id})</p>
+        </div>
+        <div id="3">
+        <p><br /><br /><br /> @Html.Action("_CirList","Circular",new {instituteId=Model.Id})</p>
+        </div>
+              
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.EstablishDate)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.LoDirectory)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.LoDirectory)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.NoOfMaleStd)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.NoOfMaleStd)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.NoOfFemaleStd)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.NoOfFemaleStd)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.NoOfTeacher)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.NoOfTeacher)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.NoOfMaleHostelSit)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.NoOfMaleHostelSit)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.NoOfFemaleHostelSit)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.NoOfFemaleHostelSit)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Location)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Location)
-    </div>
+   
+    
+        
+    
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |

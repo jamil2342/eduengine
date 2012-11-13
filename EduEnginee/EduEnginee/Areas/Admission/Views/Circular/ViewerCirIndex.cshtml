@@ -1,0 +1,34 @@
+﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.Institute>
+
+@{
+    ViewBag.Title = "ViewerCirIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewerCirIndex</h2>
+
+<div id="left">
+  @Html.Action("_InsCatList")
+</div>
+<div id="right">
+    <table>
+        <tr>
+            <th>
+                Institute
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Title,"Details","In",new {id=item.Id},null)
+            
+                </td>
+                <td>
+                    @Html.Action("_CirList",new {instituteId=item.Id})
+                </td>
+            </tr>
+        }
+    </table>
+</div>

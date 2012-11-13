@@ -229,7 +229,7 @@ namespace EduEnginee.Areas.Admission.Models
         private string _webSite;
     
         [DataMember]
-        public Nullable<System.DateTime> EstablishDate
+        public Nullable<int> EstablishDate
         {
             get { return _establishDate; }
             set
@@ -241,7 +241,7 @@ namespace EduEnginee.Areas.Admission.Models
                 }
             }
         }
-        private Nullable<System.DateTime> _establishDate;
+        private Nullable<int> _establishDate;
     
         [DataMember]
         public string LoDirectory
@@ -347,6 +347,21 @@ namespace EduEnginee.Areas.Admission.Models
             }
         }
         private string _location;
+    
+        [DataMember]
+        public string HeadName
+        {
+            get { return _headName; }
+            set
+            {
+                if (_headName != value)
+                {
+                    _headName = value;
+                    OnPropertyChanged("HeadName");
+                }
+            }
+        }
+        private string _headName;
 
         #endregion
         #region Navigation Properties

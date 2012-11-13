@@ -136,6 +136,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="HeadName" Type="nvarchar(max)" />
           <Property Name="InstituteSubcataryId" Type="int" />
           <Property Name="CountryId" Type="int" />
           <Property Name="IsEnable" Type="bit" />
@@ -146,7 +147,7 @@
           <Property Name="Phone" Type="nvarchar(max)" />
           <Property Name="EmailAddress" Type="nvarchar(max)" />
           <Property Name="WebSite" Type="nvarchar(max)" />
-          <Property Name="EstablishDate" Type="datetime" />
+          <Property Name="EstablishDate" Type="int" />
           <Property Name="LoDirectory" Type="nvarchar(max)" />
           <Property Name="NoOfMaleStd" Type="int" />
           <Property Name="NoOfFemaleStd" Type="int" />
@@ -542,7 +543,7 @@
           <Property Name="Phone" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="EmailAddress" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="WebSite" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="EstablishDate" Type="DateTime" />
+          <Property Name="EstablishDate" Type="Int32" />
           <Property Name="LoDirectory" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="NoOfMaleStd" Type="Int32" />
           <Property Name="NoOfFemaleStd" Type="Int32" />
@@ -556,6 +557,7 @@
           <NavigationProperty Name="News" Relationship="AdmissionDbModel.FK_InstituteNews" FromRole="Institutes" ToRole="News" />
           <NavigationProperty Name="Notices" Relationship="AdmissionDbModel.FK_InstituteNotice" FromRole="Institutes" ToRole="Notices" />
           <NavigationProperty Name="InstituteSubcatary" Relationship="AdmissionDbModel.FK_InstituteSubcataryInstitute" FromRole="Institutes" ToRole="InstituteSubcataries" />
+          <Property Type="String" Name="HeadName" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="InstituteSubcatary">
           <Key>
@@ -845,6 +847,7 @@
           <EntitySetMapping Name="Institutes">
             <EntityTypeMapping TypeName="AdmissionDbModel.Institute">
               <MappingFragment StoreEntitySet="Institutes">
+                <ScalarProperty Name="HeadName" ColumnName="HeadName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="InstituteSubcataryId" ColumnName="InstituteSubcataryId" />
