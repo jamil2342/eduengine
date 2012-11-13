@@ -695,7 +695,7 @@ tr:nth-child(even)
 #tabs
 {    
     
-    border: thick solid #808080;
+    
 }
 
 #left {
@@ -725,5 +725,5 @@ tr:nth-child(even)
 
 .mainTable
 {
-    border: thick solid #808080;
+    
 }
