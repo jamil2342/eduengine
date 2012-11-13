@@ -52,6 +52,7 @@ where Id=#Id;" + "\n";
             startId = Convert.ToInt32(StartIdTb.Text);
             endId = Convert.ToInt32(EndIdTb.Text);
             string totalHtml = "";
+            
             string tempUrl = "http://www.eduicon.com/Institute/?Institute_Basic_ID=";
             institute tempInstitute = new institute();
             
@@ -124,9 +125,10 @@ where Id=#Id;" + "\n";
 						
             for (int i = startId; i <= endId; i++)
             {
-                label1.Text = "" + i + "progress";
+                
                 
                 totalHtml = WebFetch.GetHtml(tempUrl+i);
+                totalHtml = Char.GetUnicodeCategory(totalHtml, 0).ToString();
                 tempInstitute.Id = i;
                 
                 tempInstitute.Title = MyString.tokenString(totalHtml, "<title>", "</title>");
@@ -194,7 +196,14 @@ where Id=#Id;" + "\n";
             
             finalQry = finalQry.Replace("N/A", "0");
             finalQry = finalQry.Replace("=,", "=0,");
-            OutputTb.Text += finalQry;
+            output += finalQry;
+            //label1.Text = finalQry;
+            if (ins.Id%100==0)
+            {
+                OutputTb.Text += output;
+                output = "";
+            }
+            
             return finalQry;
         }
 
