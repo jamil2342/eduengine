@@ -14,6 +14,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace EduEnginee.Areas.Admission.Models
 {
@@ -94,7 +95,7 @@ namespace EduEnginee.Areas.Admission.Models
             }
         }
         private string _description;
-    
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         [DataMember]
         public Nullable<System.DateTime> Date
         {
