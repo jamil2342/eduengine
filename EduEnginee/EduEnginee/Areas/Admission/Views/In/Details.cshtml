@@ -15,8 +15,13 @@
     <table class="mainTable" align="center">
 <tr>
 			<td valign=top  >
-            <u>Vice Chancellor</u><br />
-            @Model.HeadName
+            @if (!String.IsNullOrEmpty(Model.HeadName))
+            {
+                            <u>Vice Chancellor</u><br />
+                    @Model.HeadName
+                
+            }
+
 
 			</td>
 			
@@ -70,13 +75,13 @@
         <li><a href="#2">Notices</a></li>    
         <li><a href="#3">Circular</a></li> 
         <div id="1">
-        <p><br /><br /><br />  @Html.Action("_NewsList","News",new {instituteId=Model.Id})   </p>
+        <p><br /><br /><br />  @Html.Action("_NewsList", "News", new { instituteId = Model.Id })   </p>
         </div>
         <div id="2">
-        <p><br /><br /><br /> @Html.Action("_NoticeList","Notice",new {instituteId=Model.Id})</p>
+        <p><br /><br /><br /> @Html.Action("_NoticeList", "Notice", new { instituteId = Model.Id })</p>
         </div>
         <div id="3">
-        <p><br /><br /><br /> @Html.Action("_CirList","Circular",new {instituteId=Model.Id})</p>
+        <p><br /><br /><br /> @Html.Action("_CirList", "Circular", new { instituteId = Model.Id })</p>
         </div>
               
     </div>
@@ -86,6 +91,6 @@
     
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
