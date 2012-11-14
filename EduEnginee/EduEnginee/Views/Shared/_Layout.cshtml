@@ -46,6 +46,7 @@
                     </section>
                     <nav>
                         <ul id="menu">
+                            @Html.MvcSiteMap().Menu()
                             @*<li>@Html.ActionLink("Create A new Quiz", "Create", "QuizDefinition")</li>*@
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
@@ -74,6 +75,7 @@
             </div>
         </header>
         <div id="body">
+            
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
             
