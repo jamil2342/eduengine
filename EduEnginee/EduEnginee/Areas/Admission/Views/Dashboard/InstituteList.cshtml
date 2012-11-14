@@ -36,7 +36,8 @@
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EmailAddress)
+            <a title="@item.EmailAddress" class="email" target="_blank" href="mailto:@item.EmailAddress">@item.EmailAddress</a><br />
+
         </td>
 
       @*  <td>
