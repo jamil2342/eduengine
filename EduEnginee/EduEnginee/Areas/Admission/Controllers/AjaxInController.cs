@@ -34,9 +34,9 @@ namespace EduEnginee.Areas.Admission.Controllers
         public ActionResult GridData(int start = 0, int itemsPerPage = 20, string orderBy = "Id", bool desc = false)
         {
             Response.AppendHeader("X-Total-Row-Count", db.Institutes.Count().ToString());
-            ObjectQuery<Institute> institutes = db.Institutes.Include("Country").Include("InstituteSubcatary");
+            ObjectQuery<Institute> institutes = db.Institutes.Include("Country").Include("InstituteSubcatary");           
             institutes = institutes.OrderBy("it." + orderBy + (desc ? " desc" : ""));
-
+            
             return PartialView(institutes.Skip(start).Take(itemsPerPage));
         }
 

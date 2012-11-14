@@ -1,15 +1,19 @@
 ﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.Institute>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
+
     <tr data-pkey="@item.Id">
         <td>
-            @Html.Partial("PartialDetails",item)
+                @Html.Action("_ShortDetails", "In", new { id = item.Id })    
+
+            
             <a href="#makeRowEditable" class="makeRowEditable">Edit</a> |
             <a href="#deleteRow" class="deleteRow">Delete</a>
           
-        </td>
-        
-    
+        </td>         
 
-    </tr>
+    </tr>        
+
+
 }

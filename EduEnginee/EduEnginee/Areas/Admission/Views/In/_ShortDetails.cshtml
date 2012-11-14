@@ -26,14 +26,34 @@
 						</td>
 						<td class="shortDetails">
 
-                            <h2>@Html.ActionLink(Model.Title, "Details", "In", new { id = Model.Id }, null)</h2>                           
+                        
+                            <h1>@Html.ActionLink(Model.Title, "Details", "In", new { id = Model.Id }, null)</h1>
                             <br />
                             @Model.Location							
 							<br>
-                            Phone: @Model.Phone							
+                            @if (!String.IsNullOrEmpty(Model.Phone))
+	                        {
+                                @Html.Encode("Phone:")                                		                                                       
+                                @Model.Phone
+                            }
+					
                             <br>
-							<a title="@Model.EmailAddress" class="email" target="_blank" href="mailto:@Model.EmailAddress">Email</a>
-	, 								<a title="@Model.WebSite" class="web" target="_blank" href="@Model.WebSite">Website</a>
+                            @if (!String.IsNullOrEmpty(Model.EmailAddress))
+                            {
+                              @Html.Encode("Email:")
+                            <a title="@Model.EmailAddress" class="email" target="_blank" href="mailto:@Model.EmailAddress">@Model.EmailAddress</a><br />
+                                
+                             
+                            }
+                            @if (!String.IsNullOrEmpty(Model.WebSite))
+                            {
+                                @Html.Encode("WebSite:")
+                            	<a title="@Model.WebSite" class="web" target="_blank" href="@Model.WebSite">@Model.WebSite</a><br />
+                            }
+                            
+                            
+							
+					
 								
 						</td>
 						
