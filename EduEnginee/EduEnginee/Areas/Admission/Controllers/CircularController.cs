@@ -35,6 +35,7 @@ namespace EduEnginee.Areas.Admission.Controllers
                       where q.InstituteSubcatary.InstituteCataryId == insCat
                       select q;
             }
+            
             return View(qry.ToList());
         }
 

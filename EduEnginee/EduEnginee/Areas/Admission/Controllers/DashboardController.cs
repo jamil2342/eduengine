@@ -47,7 +47,7 @@ namespace EduEnginee.Areas.Admission.Controllers
         public ActionResult InstituteList(int insSubCatId)
         {
             var qry = from q in db.Institutes
-                      where q.InstituteSubcataryId == insSubCatId && !String.IsNullOrEmpty(q.Title)
+                      where q.InstituteSubcataryId == insSubCatId && !String.IsNullOrEmpty(q.Title)&& !q.Title.Contains("N/A")
                       select q;
             return PartialView(qry.ToList());
         }

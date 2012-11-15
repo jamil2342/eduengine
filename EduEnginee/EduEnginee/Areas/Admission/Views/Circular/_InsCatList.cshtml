@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.InstituteCatary>
 
 
-
-
+    <h3><u>Catagory</u></h3>
+    <h4>@Html.ActionLink("All", "ViewerCirIndex")<br /></h4>
     @foreach (var item in Model) {
         @Html.ActionLink(item.Title, "ViewerCirIndex", new { insCat = item.Id })<br />
     }
