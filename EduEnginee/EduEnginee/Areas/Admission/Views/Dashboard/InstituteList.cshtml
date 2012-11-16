@@ -36,7 +36,15 @@
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
-            <a title="@item.EmailAddress" class="email" target="_blank" href="mailto:@item.EmailAddress">@item.EmailAddress</a><br />
+        @if (!String.IsNullOrEmpty(item.EmailAddress))
+        {
+            <a title="@item.EmailAddress" class="email" target="_blank" href="mailto:@item.EmailAddress">@item.EmailAddress</a>
+        }
+        else
+        {
+            @Html.Raw("N/A")
+        }
+            
 
         </td>
 
