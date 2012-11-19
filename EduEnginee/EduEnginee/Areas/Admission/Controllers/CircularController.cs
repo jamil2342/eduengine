@@ -70,7 +70,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // GET: /Admission/Circular/Create
-
+        [Authorize(Roles="admin")]
         public ActionResult Create()
         {
             ViewBag.AdmissionTypeId = new SelectList(db.AdmissionTypes, "Id", "Title");
@@ -80,7 +80,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // POST: /Admission/Circular/Create
-
+        [Authorize(Roles="admin")]
         [HttpPost]
         public ActionResult Create(Circular circular)
         {
@@ -98,7 +98,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // GET: /Admission/Circular/Edit/5
-
+        [Authorize(Roles="admin")]
         public ActionResult Edit(int id = 0)
         {
             Circular circular = db.Circulars.Single(c => c.Id == id);
@@ -113,7 +113,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // POST: /Admission/Circular/Edit/5
-
+        [Authorize(Roles="admin")]
         [HttpPost]
         public ActionResult Edit(Circular circular)
         {
@@ -131,7 +131,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // GET: /Admission/Circular/Delete/5
-
+        [Authorize(Roles="admin")]
         public ActionResult Delete(int id = 0)
         {
             Circular circular = db.Circulars.Single(c => c.Id == id);
@@ -145,7 +145,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
 
 
-
+        [Authorize(Roles="admin")]
         [AcceptVerbs(HttpVerbs.Delete)]
         [ActionName("Delete")]
         public ActionResult AjaxDelete(int id)
