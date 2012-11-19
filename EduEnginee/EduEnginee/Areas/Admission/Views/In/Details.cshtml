@@ -95,7 +95,7 @@
         <p>
         @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
         @Html.ActionLink("Delete", "Delete", new { id = Model.Id })| 
-        @Html.ActionLink("List","ViewerCirIndex","DashBoard")
+        @Html.ActionLink("List","Index","Dashboard")
         </p>
     
     
@@ -103,5 +103,5 @@
 else
 {
     <p>
-        @Html.ActionLink("List", "ViewerCirIndex", "DashBoard")</p>
+        @Html.ActionLink("List", "Index", "Dashboard")</p>
 }
