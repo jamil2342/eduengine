@@ -71,7 +71,7 @@ namespace EduEnginee.Areas.Admission.Controllers
             {
                 return HttpNotFound();
             }
-            return View(news);
+            return View("Details",news);
         }
 
         //
@@ -93,11 +93,11 @@ namespace EduEnginee.Areas.Admission.Controllers
             {
                 db.News.AddObject(news);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
 
             ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", news.InstituteId);
-            return View(news);
+            return Details(news.Id);
         }
 
         //
@@ -125,10 +125,10 @@ namespace EduEnginee.Areas.Admission.Controllers
                 db.News.Attach(news);
                 db.ObjectStateManager.ChangeObjectState(news, EntityState.Modified);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
             ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", news.InstituteId);
-            return View(news);
+            return Details(news.Id);
         }
 
         //

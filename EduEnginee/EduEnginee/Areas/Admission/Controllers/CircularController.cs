@@ -65,7 +65,7 @@ namespace EduEnginee.Areas.Admission.Controllers
             {
                 return HttpNotFound();
             }
-            return View(circular);
+            return View("Details",circular);
         }
 
         //
@@ -88,12 +88,12 @@ namespace EduEnginee.Areas.Admission.Controllers
             {
                 db.Circulars.AddObject(circular);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
 
             ViewBag.AdmissionTypeId = new SelectList(db.AdmissionTypes, "Id", "Title", circular.AdmissionTypeId);
             ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", circular.InstituteId);
-            return View(circular);
+            return Details(circular.Id);
         }
 
         //
@@ -122,11 +122,11 @@ namespace EduEnginee.Areas.Admission.Controllers
                 db.Circulars.Attach(circular);
                 db.ObjectStateManager.ChangeObjectState(circular, EntityState.Modified);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
             ViewBag.AdmissionTypeId = new SelectList(db.AdmissionTypes, "Id", "Title", circular.AdmissionTypeId);
             ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", circular.InstituteId);
-            return View(circular);
+            return Details(circular.Id);
         }
 
         //
