@@ -35,7 +35,7 @@
             @Html.LabelFor(model => model.Description)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Description)
+            @Html.TextAreaFor(model => model.Description, new { cols = 35, @rows = 10 })
             @Html.ValidationMessageFor(model => model.Description)
         </div>
 
@@ -54,6 +54,6 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "ViewerCirIndex")
 </div>
 
