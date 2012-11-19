@@ -6,6 +6,10 @@
 }
 
 <h2>Circular</h2>
+@if (User.IsInRole("admin"))
+{
+    <p>@Html.ActionLink("Create New", "Create")</p>    
+}
 
 <div id="left">
   @Html.Action("_InsCatList")
@@ -22,11 +26,11 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(item.Title,"Details","In",new {id=item.Id},null)
+                    @Html.ActionLink(item.Title, "Details", "In", new { id = item.Id }, null)
             
                 </td>
                 <td>
-                    @Html.Action("_CirList",new {instituteId=item.Id})
+                    @Html.Action("_CirList", new { instituteId = item.Id })
                 </td>
             </tr>
         }

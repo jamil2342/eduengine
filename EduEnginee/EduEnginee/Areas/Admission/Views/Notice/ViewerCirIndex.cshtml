@@ -6,7 +6,10 @@
 }
 
 <h2>ViewerCirIndex</h2>
-
+@if (User.IsInRole("admin"))
+{
+    <p>@Html.ActionLink("Create New", "Create")</p>    
+}
 <div id="left">
   @Html.Action("_InsCatList")
 </div>
