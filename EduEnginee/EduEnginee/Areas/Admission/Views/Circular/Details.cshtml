@@ -7,7 +7,7 @@
 
 
 
-<fieldset>
+@*<fieldset>
     <legend>Circular</legend>
 
     @Html.Action("_ShortDetails","In",new {id=Model.InstituteId})
@@ -63,7 +63,7 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.AppStart)
     </div>
-
+    
     <div class="display-label">
          @Html.DisplayNameFor(model => model.AppEnd)
     </div>
@@ -120,7 +120,88 @@
         @Html.DisplayFor(model => model.Title)
     </div>
 </fieldset>
+*@
 
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="border:1px solid #D0CCC9;">
+		<tbody><tr>
+			<td colspan="2">
+				<table width="100%" border="0" bgcolor="#eeeeee" align="center">
+					<tbody><tr>
+                        <td>@Html.Action("_ShortDetails","In",new {id=Model.InstituteId})</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+	<tr>
+			<td align="center">
+				<br>
+				<table width="100%" align="center">
+					<tbody><tr>
+						<td width="100%" valign="top" align="center" style="padding-bottom:30px; padding-top:10px;">
+						<div align="center">
+							<font style="font-size: 20px;">Admission Circular</font><br>
+							<font style="font-size: 14px;">@Model.Title  , Session: @Model.Session</font>
+						</div>
+						</td>
+					</tr>
+				</tbody></table>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+            <h3>Admission Requirements</h3>				
+				<p class="description">@Model.AdmissionReq</p>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<h3>Apply Procedure</h3>
+				<p class="description">@Model.ApplyProc</p>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="left" style="padding-left:12px; padding-bottom:10px;">
+				<table width="50%" border="0" align="left" class="visa-foreign">
+					<tbody><tr class="title">
+						<td align="left" colspan="3"><h3>Important Dates</h3></td>
+					</tr>
+											<tr class="description">
+							<td>Application Start</td>
+							
+							<td>@Model.AppStart</td>
+						</tr>
+												<tr  class="description">
+							<td>Application End</td>
+							
+							<td>@Model.AppEnd</td>
+						</tr>
+												<tr class="description">
+							<td>Submission Start</td>
+							
+							<td>@Model.SubStart</td>
+						</tr>
+												<tr class="description">
+							<td>Submission End</td>
+							
+							<td>@Model.SubEnd</td>
+						</tr>
+												<tr class="description">
+							<td>Admission Test</td>
+							
+							<td>@Model.AddDate</td>
+						</tr>
+										</tbody></table>
+			</td>
+		</tr>
+
+	</tbody></table>
+</div>			</td>
+		</tr>
+	</tbody></table>
 @if (User.IsInRole("admin"))
 {
         <p>
