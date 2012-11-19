@@ -55,30 +55,30 @@
 			<td>
             <h3 class="title">Important Dates</h3>				
 				<p class="description">
-                	<table width="100%" border="0" align="left" class="visa-foreign">
+                	<table width="100%" style=" padding-left: 0px" border="0" align="left" class="description">
 					<tbody>
 											<tr >
-							<td>Application Start</td>
+							<td>Application Start:</td>
 							
 							<td>@Model.AppStart</td>
 						</tr>
 												<tr  >
-							<td>Application End</td>
+							<td>Application End:</td>
 							
 							<td>@Model.AppEnd</td>
 						</tr>
 												<tr >
-							<td>Submission Start</td>
+							<td>Submission Start:</td>
 							
 							<td>@Model.SubStart</td>
 						</tr>
 												<tr >
-							<td>Submission End</td>
+							<td>Submission End:</td>
 							
 							<td>@Model.SubEnd</td>
 						</tr>
 												<tr >
-							<td>Admission Test</td>
+							<td>Admission Test:</td>
 							
 							<td>@Model.AddDate</td>
 						</tr>
@@ -92,9 +92,7 @@
 
 	</tbody>
     </table>
-</div>			</td>
-		</tr>
-	</tbody></table>
+
 @if (User.IsInRole("admin"))
 {
         <p>
