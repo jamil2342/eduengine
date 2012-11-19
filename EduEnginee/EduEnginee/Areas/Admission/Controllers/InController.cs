@@ -44,7 +44,7 @@ namespace EduEnginee.Areas.Admission.Controllers
             {
                 return HttpNotFound();
             }
-            return View(institute);
+            return View("Details",institute);
         }
 
 
@@ -93,12 +93,12 @@ namespace EduEnginee.Areas.Admission.Controllers
             {
                 db.Institutes.AddObject(institute);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
 
             ViewBag.CountryId = new SelectList(db.Countries, "Id", "Name", institute.CountryId);
             ViewBag.InstituteSubcataryId = new SelectList(db.InstituteSubcataries, "Id", "Title", institute.InstituteSubcataryId);
-            return View(institute);
+            return Details(institute.Id);
         }
 
         //
@@ -130,11 +130,11 @@ namespace EduEnginee.Areas.Admission.Controllers
                 db.Institutes.Attach(institute);
                 db.ObjectStateManager.ChangeObjectState(institute, EntityState.Modified);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
             ViewBag.CountryId = new SelectList(db.Countries, "Id", "Name", institute.CountryId);
             ViewBag.InstituteSubcataryId = new SelectList(db.InstituteSubcataries, "Id", "Title", institute.InstituteSubcataryId);
-            return View(institute);
+            return Details(institute.Id);
         }
 
         //
@@ -160,6 +160,7 @@ namespace EduEnginee.Areas.Admission.Controllers
             db.Institutes.DeleteObject(institute);
             db.SaveChanges();
             return RedirectToAction("Index");
+            
         }
 
         protected override void Dispose(bool disposing)
