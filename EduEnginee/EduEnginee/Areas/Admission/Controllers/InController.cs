@@ -53,7 +53,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // GET: /Admission/In/Create
-
+        [Authorize(Roles="admin")]
         public ActionResult _Create()
         {
             ViewBag.CountryId = new SelectList(db.Countries, "Id", "Name");
@@ -62,7 +62,7 @@ namespace EduEnginee.Areas.Admission.Controllers
         }
         //
         // GET: /Admission/In/Create
-
+        [Authorize(Roles="admin")]
         public ActionResult Create(string mode)
         {
             ViewBag.CountryId = new SelectList(db.Countries, "Id", "Name");
@@ -79,7 +79,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // POST: /Admission/In/Create
-
+        [Authorize(Roles="admin")]
         [HttpPost]
         public ActionResult Create(Institute institute)
         {
@@ -103,7 +103,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // GET: /Admission/In/Edit/5
-
+        [Authorize(Roles="admin")]
         public ActionResult Edit(int id = 0)
         {
             Institute institute = db.Institutes.Single(i => i.Id == id);
@@ -118,7 +118,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // POST: /Admission/In/Edit/5
-
+        [Authorize(Roles="admin")]
         [HttpPost]
         public ActionResult Edit(Institute institute)
         {
@@ -139,7 +139,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // GET: /Admission/In/Delete/5
-
+        [Authorize(Roles="admin")]
         public ActionResult Delete(int id = 0)
         {
             Institute institute = db.Institutes.Single(i => i.Id == id);
@@ -152,7 +152,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // POST: /Admission/In/Delete/5
-
+        [Authorize(Roles="admin")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
