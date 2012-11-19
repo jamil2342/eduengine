@@ -75,7 +75,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // GET: /Admission/Notice/Create
-
+        [Authorize(Roles="admin")]
         public ActionResult Create()
         {
             ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title");
@@ -84,7 +84,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // POST: /Admission/Notice/Create
-
+        [Authorize(Roles="admin")]
         [HttpPost]
         public ActionResult Create(Notice notice)
         {
@@ -101,7 +101,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // GET: /Admission/Notice/Edit/5
-
+        [Authorize(Roles="admin")]
         public ActionResult Edit(int id = 0)
         {
             Notice notice = db.Notices.Single(n => n.Id == id);
@@ -115,7 +115,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // POST: /Admission/Notice/Edit/5
-
+        [Authorize(Roles="admin")]
         [HttpPost]
         public ActionResult Edit(Notice notice)
         {
@@ -132,7 +132,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // GET: /Admission/Notice/Delete/5
-
+        [Authorize(Roles="admin")]
         public ActionResult Delete(int id = 0)
         {
             Notice notice = db.Notices.Single(n => n.Id == id);
@@ -145,7 +145,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // POST: /Admission/Notice/Delete/5
-
+        [Authorize(Roles="admin")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
