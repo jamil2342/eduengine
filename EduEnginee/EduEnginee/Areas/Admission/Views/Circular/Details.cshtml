@@ -120,13 +120,21 @@
         @Html.DisplayFor(model => model.Title)
     </div>
 </fieldset>
+
 @if (User.IsInRole("admin"))
 {
-    <p>
+        <p>
         @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
         @Html.ActionLink("Delete", "Delete", new { id = Model.Id })| 
-    </p>
+        <a href="" onclick="goBack()">
+            Back to List</a>
+        </p>
+    
     
 }
-<a href="" onclick="goBack()">
-            Back to List</a>
+else
+{
+    <p>
+        <a href="" onclick="goBack()">
+            Back to List</a></p>
+}
