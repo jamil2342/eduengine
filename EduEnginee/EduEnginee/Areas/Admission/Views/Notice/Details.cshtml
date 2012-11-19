@@ -25,8 +25,8 @@
 {
     <p>
         @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })| <a href="" onclick="goBack()">
-            Back to List</a>
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })|
+        @Html.ActionLink("List","ViewerCirIndex")
     </p>
     
     
@@ -34,5 +34,5 @@
 else
 {
     <p>
-        <a href="" onclick="goBack()">Back to List</a></p>
+        @Html.ActionLink("List","ViewerCirIndex")</p>
 }
