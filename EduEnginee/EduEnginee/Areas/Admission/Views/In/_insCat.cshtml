@@ -1,0 +1,17 @@
+﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.InstituteCatary>
+
+
+
+<table>
+
+@foreach (var item in Model) {
+    <tr>
+    <td>@Html.ActionLink(item.Title, "InsSubCatList", new { InsCatId = item.Id }) </td>
+    <td></td>
+    
+    </tr>
+}
+</table>
+
+
+

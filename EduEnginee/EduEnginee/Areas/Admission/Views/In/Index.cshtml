@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.Institute>
+﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.InstituteType>
 
 @{
     ViewBag.Title = "Index";
@@ -6,12 +6,21 @@
 }
 
 <h2>Index</h2>
-@using (Html.BeginForm("Create","In"))
-{ 
-    @Html.Partial("__Create",Model)
-} 
-
-
-<div id="List">
-     @Html.Partial("_List", Model);
-</div id="List">
+@if (User.IsInRole("admin"))
+{
+    <p>@Html.ActionLink("Create New", "Create","In")</p>    
+}
+<div id="accordion" class="accordin">
+    @foreach (var item in Model)
+    {
+                
+        <h3>
+            <a href="#">@item.Title</a></h3>
+        <div>
+            <p>
+                @Html.Action("_insCat",new {InsTypeId=item.Id})
+            </p>
+        </div>
+    
+    }
+</div>

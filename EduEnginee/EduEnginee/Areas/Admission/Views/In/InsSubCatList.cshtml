@@ -1,0 +1,28 @@
+﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.InstituteSubcatary>
+
+@{
+    ViewBag.Title = "InsSubCatList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>InsSubCatList</h2>
+
+<div id="tabs" >
+   <ul>
+   @foreach (var item in Model)
+   {
+        <li><a href="#@item.Id">@item.Title</a></li>    
+   }   
+   
+   </ul>
+
+    @foreach (var item in Model)
+    {
+        
+        <div id="@item.Id">
+        <p> @Html.Action("InstituteList", new { insSubCatId = @item.Id })    </p>
+        </div>
+    }           
+</div>
+
+<input type="button" value="Back" onclick="goBack()">

@@ -18,8 +18,38 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         public ActionResult Index()
         {
-            var institutes = db.Institutes.Include("Country").Include("InstituteSubcatary");
-            return View(institutes.ToList());
+            return View(db.InstituteTypes.ToList());
+        }
+
+
+        public ActionResult _insCat(int InsTypeId)
+        {
+            var qry = from q in db.InstituteCataries
+                      where q.InstituteTypeId == InsTypeId
+                      select q;
+            return PartialView(qry.ToList());
+        }
+
+
+        public ActionResult InsSubCatList(int? InsCatId)
+        {
+            var qry = from q in db.InstituteSubcataries
+                      where q.InstituteCataryId == InsCatId
+                      select q;
+
+            return View(qry.ToList());
+        }
+
+
+
+
+
+        public ActionResult InstituteList(int insSubCatId)
+        {
+            var qry = from q in db.Institutes
+                      where q.InstituteSubcataryId == insSubCatId && !String.IsNullOrEmpty(q.Title) && !q.Title.Contains("N/A")
+                      select q;
+            return PartialView(qry.ToList());
         }
 
 

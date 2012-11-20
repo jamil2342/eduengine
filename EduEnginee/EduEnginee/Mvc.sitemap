@@ -7,7 +7,7 @@
   <mvcSiteMapNode title="Home" controller="Home" action="Index">
     <mvcSiteMapNode title="About" controller="Home"  action="About"/>
     <mvcSiteMapNode title="Contact" controller="Home"  action="Contact"/>
-    <mvcSiteMapNode title="University/College" area="Admission" controller="DashBoard" action="Index">
+    <mvcSiteMapNode title="University/College" area="Admission" controller="In" action="Index">
     </mvcSiteMapNode>
     <!--<mvcSiteMapNode title="University/College" roles="Admin" area="Admission" controller="AjaxIn" action="Index">
     </mvcSiteMapNode>-->
