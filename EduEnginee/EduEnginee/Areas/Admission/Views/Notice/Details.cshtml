@@ -9,16 +9,13 @@
 
 <fieldset>
     <legend>News</legend>
-    @Html.Action("_ShortDetails","In",new {id=Model.InstituteId})
-<div id="Header">
-    <h3>@Model.Title</h3>
-    
-    <br />
-
-     
-     @Html.DisplayFor(x => x.Date)
-</div>
-@Model.Description
+    @Html.Action("_ShortDetails", "In", new { id = Model.InstituteId })
+    <div id="Header">
+        <h3>@Model.Title</h3>
+        <br />
+        @Html.DisplayFor(x => x.Date)
+    </div>
+    @Model.Description
 
 </fieldset>
 @if (User.IsInRole("admin"))
