@@ -145,19 +145,17 @@ namespace EduEnginee.Areas.Admission.Controllers
 
 
 
-        [Authorize(Roles="admin")]
-        [AcceptVerbs(HttpVerbs.Delete)]
-        [ActionName("Delete")]
-        public ActionResult AjaxDelete(int id)
+        
+        [Authorize(Roles = "admin")]
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
             Circular circular = db.Circulars.Single(c => c.Id == id);
             db.Circulars.DeleteObject(circular);
             db.SaveChanges();
-
-
-            return PartialView("_Accordin", db.Circulars.ToList());
+           
+            return RedirectToAction("ViewerCirIndex");
         }
-
 
         protected override void Dispose(bool disposing)
         {

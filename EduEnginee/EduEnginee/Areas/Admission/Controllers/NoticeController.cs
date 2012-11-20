@@ -152,7 +152,7 @@ namespace EduEnginee.Areas.Admission.Controllers
             Notice notice = db.Notices.Single(n => n.Id == id);
             db.Notices.DeleteObject(notice);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ViewerCirIndex");
         }
 
         protected override void Dispose(bool disposing)

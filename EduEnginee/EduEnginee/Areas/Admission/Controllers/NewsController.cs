@@ -153,7 +153,7 @@ namespace EduEnginee.Areas.Admission.Controllers
             News news = db.News.Single(n => n.Id == id);
             db.News.DeleteObject(news);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ViewerCirIndex");
         }
 
         protected override void Dispose(bool disposing)
