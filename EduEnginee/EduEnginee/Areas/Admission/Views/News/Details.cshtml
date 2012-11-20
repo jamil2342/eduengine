@@ -8,13 +8,7 @@
 <fieldset>
     <legend>News</legend>
     @Html.Action("_ShortDetails","In",new {id=Model.InstituteId})
-<div id="Header">
-    <h3>@Model.Title</h3>
-    
-    <br />
-   @Html.DisplayFor(x => x.Date)
-</div>
-@Model.Description
+    @Html.Partial("_Details",Model)
 
 </fieldset>
 @if (User.IsInRole("admin"))
