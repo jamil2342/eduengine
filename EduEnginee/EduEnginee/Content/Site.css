@@ -375,6 +375,13 @@ fieldset {
         font-weight: 600;
         padding: 7px;
     }
+    
+fieldset  select
+{
+
+
+        width: 325px;
+}
 
 /* ajax login/registration dialog */
 .modal-popup {
@@ -640,6 +647,7 @@ ul#social li {
             width: auto;
         }
 }
+/*
 .editor-label
 {
     
@@ -657,7 +665,7 @@ ul#social li {
 {
     
 }
-
+*/
 .hiddenTd
 {
     width: 0px;
@@ -756,9 +764,3 @@ text-box single-line
 
 */
 
-select
-{
-
-
-        width: 325px;
-}

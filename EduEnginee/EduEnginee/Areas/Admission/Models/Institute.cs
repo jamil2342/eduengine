@@ -14,6 +14,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace EduEnginee.Areas.Admission.Models
 {
@@ -332,7 +333,7 @@ namespace EduEnginee.Areas.Admission.Models
             }
         }
         private Nullable<int> _noOfFemaleHostelSit;
-    
+        [DataType(DataType.MultilineText)]
         [DataMember]
         public string Location
         {

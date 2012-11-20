@@ -140,7 +140,7 @@ namespace EduEnginee.Areas.Admission.Models
             }
         }
         private Nullable<System.DateTime> _updatedDate;
-    
+        [DataType(DataType.MultilineText)]
         [DataMember]
         public string Description
         {

@@ -71,10 +71,10 @@
             @Html.DropDownList("CountryId", String.Empty)
             @Html.ValidationMessageFor(model => model.CountryId)
         </div>
-                <div class="editor-label">
+        <div class="editor-label">
             @Html.LabelFor(model => model.Location)
         </div>
-        <div class="editor-field">
+        <div class="editor-multiline-field">
             @Html.EditorFor(model => model.Location)
             @Html.ValidationMessageFor(model => model.Location)
         </div>

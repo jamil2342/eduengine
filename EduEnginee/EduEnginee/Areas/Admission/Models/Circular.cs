@@ -14,6 +14,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace EduEnginee.Areas.Admission.Models
 {
@@ -232,7 +233,7 @@ namespace EduEnginee.Areas.Admission.Models
             }
         }
         private string _courseType;
-    
+        [DataType(DataType.MultilineText)]
         [DataMember]
         public string AdmissionReq
         {
@@ -247,7 +248,7 @@ namespace EduEnginee.Areas.Admission.Models
             }
         }
         private string _admissionReq;
-    
+        [DataType(DataType.MultilineText)]
         [DataMember]
         public string ApplyProc
         {

@@ -80,7 +80,7 @@ namespace EduEnginee.Areas.Admission.Models
             }
         }
         private int _instituteId;
-    
+        [DataType(DataType.MultilineText)]
         [DataMember]
         public string Description
         {
