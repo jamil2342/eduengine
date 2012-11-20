@@ -440,6 +440,7 @@
     <Content Include="Areas\Admission\Views\News\_Details.cshtml" />
     <Content Include="Areas\Admission\Views\Notice\_Details.cshtml" />
     <Content Include="Areas\Admission\Views\Circular\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\In\Edit.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
