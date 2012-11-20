@@ -155,8 +155,9 @@ namespace EduEnginee.Areas.Admission.Models
             }
         }
         private string _description;
-        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
-        [DataMember]
+        
+        [DataMember]  
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Date
         {
             get { return _date; }
