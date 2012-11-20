@@ -411,7 +411,6 @@
     <Content Include="Areas\Admission\Views\Circular\Index.cshtml" />
     <Content Include="Areas\Admission\Views\Circular\Details.cshtml" />
     <Content Include="Areas\Admission\Views\Circular\Create.cshtml" />
-    <Content Include="Areas\Admission\Views\Circular\Edit.cshtml" />
     <Content Include="Areas\Admission\Views\Circular\Delete.cshtml" />
     <Content Include="Areas\Admission\Views\Circular\_Accordin.cshtml" />
     <Content Include="Areas\Admission\Views\Circular\_Details.cshtml" />
