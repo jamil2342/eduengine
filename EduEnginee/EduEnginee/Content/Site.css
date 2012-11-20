@@ -362,10 +362,10 @@ fieldset {
         width: 300px;
     }
 
-        fieldset input[type="text"]:focus,
-        fieldset input[type="password"]:focus {
-            border: 1px solid #7ac0da;
-        }
+        fieldset input[type="text"]:focus, fieldset input[type="password"]:focus
+{
+    border: 1px solid #FFFF00;
+}
 
     fieldset input[type="submit"] {
         background-color: #d3dce0;
@@ -646,7 +646,7 @@ ul#social li {
 }
 .editor-field
 {
-    width:90%;
+   
 }
 
 .display-label
@@ -745,11 +745,20 @@ tr:nth-child(even)
 {
 
 }
-
+/*
 
 text-box single-line
 {
     background-position: left;
     clip: rect(auto, auto, auto, 0px);
     width: 50%;
+}
+
+*/
+
+select
+{
+
+
+        width: 300px;
 }
