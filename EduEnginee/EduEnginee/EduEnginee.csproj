@@ -389,7 +389,6 @@
     <Content Include="Areas\Admission\Views\In\Index.cshtml" />
     <Content Include="Areas\Admission\Views\In\Details.cshtml" />
     <Content Include="Areas\Admission\Views\In\Create.cshtml" />
-    <Content Include="Areas\Admission\Views\In\Edit.cshtml" />
     <Content Include="Areas\Admission\Views\In\Delete.cshtml" />
     <Content Include="Areas\Admission\Views\AjaxIn\Index.cshtml" />
     <Content Include="Areas\Admission\Views\AjaxIn\GridData.cshtml" />
@@ -440,6 +439,7 @@
     <Content Include="Areas\Admission\Views\In\InstituteList.cshtml" />
     <Content Include="Areas\Admission\Views\News\_Details.cshtml" />
     <Content Include="Areas\Admission\Views\Notice\_Details.cshtml" />
+    <Content Include="Areas\Admission\Views\Circular\Edit.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>
