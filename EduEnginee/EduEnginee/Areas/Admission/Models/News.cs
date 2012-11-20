@@ -156,8 +156,7 @@ namespace EduEnginee.Areas.Admission.Models
         }
         private string _description;
         
-        [DataMember]  
-        [DataType(DataType.Date)]
+        [DataMember]          
         public Nullable<System.DateTime> Date
         {
             get { return _date; }
