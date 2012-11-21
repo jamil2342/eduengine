@@ -18,7 +18,7 @@
     <p>
         @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
         @Html.ActionLink("Delete", "Delete", new { id = Model.Id })|
-        @Html.ActionLink("List","ViewerCirIndex")
+        @Html.ActionLink("Back to List","ViewerCirIndex")
     </p>
     
     
@@ -26,5 +26,5 @@
 else
 {
     <p>
-        @Html.ActionLink("List","ViewerCirIndex")</p>
+        @Html.ActionLink("Back to List","ViewerCirIndex")</p>
 }
