@@ -753,6 +753,11 @@ tr:nth-child(even)
 {
 
 }
+
+.tdActionLink
+{
+    width: 500px;
+}
 /*
 
 text-box single-line

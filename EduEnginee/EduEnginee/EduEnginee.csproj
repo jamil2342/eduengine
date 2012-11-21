@@ -261,6 +261,9 @@
       <DependentUpon>QuizDb.mdf</DependentUpon>
     </Content>
     <Content Include="Areas\Temp\Models\Admission.edmx.sql" />
+    <Content Include="Content\button-edit.png" />
+    <Content Include="Content\Delete.png" />
+    <Content Include="Content\Edit.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -441,6 +444,8 @@
     <Content Include="Areas\Admission\Views\Notice\_Details.cshtml" />
     <Content Include="Areas\Admission\Views\Circular\Edit.cshtml" />
     <Content Include="Areas\Admission\Views\In\Edit.cshtml" />
+    <Content Include="Areas\Admission\Views\Circular\ResultAndSeatPlan.cshtml" />
+    <Content Include="Areas\Admission\Views\Circular\ResultSeatPlanLink.cshtml" />
     <None Include="Areas\Quiz\Models\QuizDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QuizDb.Context.cs</LastGenOutput>

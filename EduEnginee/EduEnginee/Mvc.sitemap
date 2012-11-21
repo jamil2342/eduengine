@@ -9,9 +9,12 @@
     <mvcSiteMapNode title="Contact" controller="Home"  action="Contact"/>
     <mvcSiteMapNode title="University/College" area="Admission" controller="In" action="Index">
     </mvcSiteMapNode>
+
     <!--<mvcSiteMapNode title="University/College" roles="Admin" area="Admission" controller="AjaxIn" action="Index">
     </mvcSiteMapNode>-->
     <mvcSiteMapNode title="Circular" area="Admission" controller="Circular" action="ViewerCirIndex">
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Result/Seat Plan" area="Admission" controller="Circular" action="ResultAndSeatPlan">
     </mvcSiteMapNode>
     <mvcSiteMapNode title="Notice" area="Admission" controller="Notice" action="ViewerCirIndex">
     </mvcSiteMapNode>

@@ -1,65 +1,56 @@
 ﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.Institute>
-
 <table>
     <tr>
-        <th width="40%">
+        <th width="30%">
             @Html.DisplayNameFor(model => model.Title)
         </th>
-               
-        <th width="15%">
+        <th width="10%">
             @Html.DisplayNameFor(model => model.Phone)
         </th>
-        <th width="25%">
+        <th width="15%">
             @Html.DisplayNameFor(model => model.EmailAddress)
         </th>
-
-@*        <th>
-            Circular
-        </th>
-        <th>
-            Notice
-        </th>
-        <th>
-            News
-        </th>*@
-        
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>            
-            @Html.ActionLink(item.Title,"Details","In",new {id=item.Id},null)
-        </td>
-        
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-        @if (!String.IsNullOrEmpty(item.EmailAddress))
+        @if (User.IsInRole("admin"))
         {
-            <a title="@item.EmailAddress" class="email" target="_blank" href="mailto:@item.EmailAddress">@item.EmailAddress</a>
-        }
-        else
-        {
-            @Html.Raw("N/A")
-        }
+            <th>            
+            </th>
             
-
-        </td>
-
-      @*  <td>
-            @item.Circulars.Count
-        </td>
-        <td>
-            @item.Notices.Count
-        </td>
-        <td>
-            @item.News.Count
-        </td>        *@
-
+            <th>
+            </th>
+        }
 
     </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="tdActionLink">
+                @Html.ActionLink(item.Title, "Details", "In", new { id = item.Id }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @if (!String.IsNullOrEmpty(item.EmailAddress))
+                {
+                    <a title="@item.EmailAddress" class="email" target="_blank" href="mailto:@item.EmailAddress">@item.EmailAddress</a>
+                }
+                else
+                {
+                    @Html.Raw("N/A")
+                }
+            </td>
+            @if (User.IsInRole("admin"))
+            {
+                <td>
+                    <a href= '@Url.Action("Edit", new { id = item.Id }) '>
+                        <img src="../../Content/Edit.png" alt="Edit" /></a>
+                </td>
+                <td>
+                    <a href='@Url.Action("Delete", new { id = item.Id }) '>
+                        <img src="../../Content/Delete.png" alt="Edit" /></a>
+                </td>
+                
+            }
+        </tr>
+    }
 </table>

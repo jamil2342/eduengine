@@ -55,6 +55,25 @@ namespace EduEnginee.Areas.Admission.Controllers
             return PartialView(qry.ToList());
         }
 
+        public ActionResult ResultAndSeatPlan()
+        {
+            var qry = from q in db.Institutes
+                      where q.Circulars.Any(p=>p.ResultLink.Length>0)&&
+                            q.Circulars.Any(p => p.SeatPlanLink.Length > 0)
+                      select q;
+
+                     
+
+            return View(qry.ToList());
+        }
+
+        public ActionResult ResultSeatPlanLink(int instituteId)
+        {
+            var qry = from q in db.Circulars
+                      where q.InstituteId == instituteId
+                      select q;
+            return View(qry.ToList());
+        }
         //
         // GET: /Admission/Circular/Details/5
 
