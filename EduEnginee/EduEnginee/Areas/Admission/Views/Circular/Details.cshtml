@@ -1,110 +1,115 @@
 ﻿@model EduEnginee.Areas.Admission.Models.Circular
-
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
-
-<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="border:1px solid #D0CCC9;">
-		<tbody><tr>
-			<td colspan="2">
-				<table width="100%" border="0" bgcolor="#eeeeee" align="center">
-					<tbody><tr>
-                        <td>@Html.Action("_ShortDetails","In",new {id=Model.InstituteId})</td>
-					</tr>
-				</tbody></table>
-			</td>
-		</tr>
-	<tr>
-          
-			<td align="center">
-				<br>
-				<table width="100%" align="center">
-					<tbody><tr>
-						<td width="100%" valign="top" align="center" style=" padding-left:300px">
-						<div align="center">
-                        <h3>Admission Circular</h3>
-							
-							<font style="font-size: 14px;">@Model.Title  , Session: @Model.Session</font>
-						</div>
-						</td>
-					</tr>
-				</tbody></table>
-
-			</td>
-		</tr>
-		<tr>
-			<td>
-            <h3 class="title">Admission Requirements</h3>				
-				<p class="description">@Model.AdmissionReq</p>
-			</td>
-		</tr>
-		
-		<tr>
-			<td>
-				<h3 class="title">Apply Procedure</h3>
-				<p class="description">@Model.ApplyProc</p>
-			</td>
-		</tr>
-		
-		<tr>
-        
-			<td>
-            <h3 class="title">Important Dates</h3>				
-				<p class="description">
-                	<table width="100%" style=" padding-left: 0px" border="0" align="left" class="description">
-					<tbody>
-											<tr >
-							<td>Application Start:</td>
-							
-							<td>@Model.AppStart</td>
-						</tr>
-												<tr  >
-							<td>Application End:</td>
-							
-							<td>@Model.AppEnd</td>
-						</tr>
-												<tr >
-							<td>Submission Start:</td>
-							
-							<td>@Model.SubStart</td>
-						</tr>
-												<tr >
-							<td>Submission End:</td>
-							
-							<td>@Model.SubEnd</td>
-						</tr>
-												<tr >
-							<td>Admission Test:</td>
-							
-							<td>@Model.AddDate</td>
-						</tr>
-										</tbody></table>
-                
+<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="border: 1px solid #D0CCC9;">
+    <tbody>
+        <tr>
+            <td colspan="2">
+                <table width="100%" border="0" bgcolor="#eeeeee" align="center">
+                    <tbody>
+                        <tr>
+                            <td>@Html.Action("_ShortDetails", "In", new { id = Model.InstituteId })
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <br>
+                <table width="100%" align="center">
+                    <tbody>
+                        <tr>
+                            <td width="100%" valign="top" align="center" style="padding-left: 300px">
+                                <div align="center">
+                                    <h3>
+                                        Admission Circular</h3>
+                                    <font style="font-size: 14px;">@Model.Title , Session: @Model.Session</font>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3 class="title">
+                    Admission Requirements</h3>
+                <p class="description">@Model.AdmissionReq</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3 class="title">
+                    Apply Procedure</h3>
+                <p class="description">@Model.ApplyProc</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3 class="title">
+                    Important Dates</h3>
+                <p class="description">
+                    <table width="100%" style="padding-left: 0px" border="0" align="left" class="description">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Application Start:
+                                </td>
+                                <td>@Model.AppStart
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Application End:
+                                </td>
+                                <td>@Model.AppEnd
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Submission Start:
+                                </td>
+                                <td>@Model.SubStart
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Submission End:
+                                </td>
+                                <td>@Model.SubEnd
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Admission Test:
+                                </td>
+                                <td>@Model.AddDate
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </p>
-			</td>
-
-		
-		</tr>
-
-	</tbody>
-    </table>
-
+            </td>
+        </tr>
+    </tbody>
+</table>
 @if (User.IsInRole("admin"))
 {
-        <p>
-        @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })| 
-@Html.ActionLink("List","ViewerCirIndex")
-        </p>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })|
+        @Html.ActionLink("List", "ViewerCirIndex")
+    </p>
     
     
 }
 else
 {
     <p>
-        @Html.ActionLink("List","ViewerCirIndex")</p>
+        @Html.ActionLink("List", "ViewerCirIndex")</p>
 }
