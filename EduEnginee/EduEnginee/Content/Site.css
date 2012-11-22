@@ -687,10 +687,20 @@ th
     text-align: left;
 }
 
-
+/*
 tr:nth-child(even)
 {
-    
+    background-color: #FFFFCC;
+}
+*/
+
+tr
+{
+    border-style: solid;
+}
+.bigTr
+{
+    background-color: #FFFFFF;
 }
 
 
@@ -710,10 +720,12 @@ tr:nth-child(even)
     display: table-cell;
     min-width: 260px;
 }
-#right {
+#right
+{
     display: table-cell;
     width: 100%;
     vertical-align: top;
+    background-color: #FFFFFF;
 }
 
 
@@ -756,7 +768,7 @@ tr:nth-child(even)
 
 .tdActionLink
 {
-    width: 500px;
+    width: 200px;
 }
 /*
 
