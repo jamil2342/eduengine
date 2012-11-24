@@ -4,12 +4,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@foreach (var item in Model)
-{
-    <h2>@Html.ActionLink(item.Title,"Details","In",new {id=item.Id},null)</h2>
-    <div>
-        @Html.Action("ResultSeatPlanLink", new { instituteId =item.Id})
-
-    </div>
-
-}
+<div id="accordion" class="accordin">
+    @foreach (var item in Model)
+    {
+                
+        <h3>
+            <a href="#">@item.Title</a></h3>
+        <div>
+            
+                @Html.Action("ResultSeatPlanLink", new { instituteId = item.Id })
+            
+        </div>
+    
+    }
+</div>
