@@ -119,7 +119,8 @@ namespace EduEnginee.Areas.Admission.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", news.InstituteId);
+            PopulateInstituteDropDownList();
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", news.InstituteId);
             return View(news);
         }
 
@@ -136,7 +137,8 @@ namespace EduEnginee.Areas.Admission.Controllers
                 db.SaveChanges();
                 //return RedirectToAction("Index");
             }
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", news.InstituteId);
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", news.InstituteId);
+            PopulateInstituteDropDownList();
             return Details(news.Id);
         }
 
