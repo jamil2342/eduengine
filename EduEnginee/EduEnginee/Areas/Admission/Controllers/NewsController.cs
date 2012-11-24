@@ -58,13 +58,13 @@ namespace EduEnginee.Areas.Admission.Controllers
             return PartialView(qry.ToList());
         }
 
-        private  void PopulateInstituteDropDownList(object selectedDepartment = null)
+        private  void PopulateInstituteDropDownList(object selectedInstitute = null)
         {
             var instituteQry = from d in db.Institutes
                                    orderby d.Title
                                    where !String.IsNullOrEmpty(d.Title)
                                    select d;
-            ViewBag.InstituteId = new SelectList(instituteQry, "Id", "Title");
+            ViewBag.InstituteId = new SelectList(instituteQry, "Id", "Title",selectedInstitute);
         }
 
 
@@ -120,7 +120,7 @@ namespace EduEnginee.Areas.Admission.Controllers
             {
                 return HttpNotFound();
             }
-            PopulateInstituteDropDownList();
+            PopulateInstituteDropDownList(news.InstituteId);
             //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", news.InstituteId);
             return View(news);
         }
