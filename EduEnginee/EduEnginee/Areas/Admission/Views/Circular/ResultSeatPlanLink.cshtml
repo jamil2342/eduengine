@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.Circular>
-<table >
+<table>
     <tr>
-        <th  width="50%">
+        <th width="50%">
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
@@ -17,12 +17,28 @@
             <td width="50%">@Html.ActionLink(item.Title, "Details", new { id = item.Id })
             </td>
             <td>
-                <a target="_blank" href="@item.ResultLink"><span style="color: #0000EE; padding-left: 0px;">
-                    View Result</span></a>
+                @if (!String.IsNullOrEmpty(item.ResultLink))
+                {
+                    <a target="_blank" href="@item.ResultLink"><span style="color: #0000EE; padding-left: 0px;">
+                        View Result</span></a>
+                
+                }
+                else
+                {
+                    @Html.Raw("N/A")
+                }
             </td>
             <td>
-                <a target="_blank" href="@item.SeatPlanLink"><span style="color: #0000EE; padding-left: 0px;">
-                    View Seat Plan</span></a>
+                @if (!String.IsNullOrEmpty(item.SeatPlanLink))
+                {
+                    <a target="_blank" href="@item.SeatPlanLink"><span style="color: #0000EE; padding-left: 0px;">
+                        View Seat Plan</span></a>
+                
+                }
+                else
+                {
+                    @Html.Raw("N/A")
+                }
             </td>
         </tr>
     }
