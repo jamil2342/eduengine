@@ -17,13 +17,13 @@ namespace EduEnginee.Areas.Admission.Controllers
         // GET: /Admission/Circular/
 
 
-        private void PopulateInstituteDropDownList()
+        private void PopulateInstituteDropDownList(object selectedInstitute = null)
         {
             var instituteQry = from d in db.Institutes
                                orderby d.Title
                                where !String.IsNullOrEmpty(d.Title)
                                select d;
-            ViewBag.InstituteId = new SelectList(instituteQry, "Id", "Title");
+            ViewBag.InstituteId = new SelectList(instituteQry, "Id", "Title", selectedInstitute);
         }
 
         public ActionResult Index()
@@ -103,7 +103,8 @@ namespace EduEnginee.Areas.Admission.Controllers
         public ActionResult Create()
         {
             ViewBag.AdmissionTypeId = new SelectList(db.AdmissionTypes, "Id", "Title");
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title");
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title");
+            PopulateInstituteDropDownList();
             return View();
         }
 
@@ -136,7 +137,8 @@ namespace EduEnginee.Areas.Admission.Controllers
                 return HttpNotFound();
             }
             ViewBag.AdmissionTypeId = new SelectList(db.AdmissionTypes, "Id", "Title", circular.AdmissionTypeId);
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", circular.InstituteId);
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", circular.InstituteId);
+            PopulateInstituteDropDownList(circular.InstituteId);
             return View(circular);
         }
 
