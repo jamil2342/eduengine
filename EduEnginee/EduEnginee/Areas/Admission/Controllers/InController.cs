@@ -16,6 +16,16 @@ namespace EduEnginee.Areas.Admission.Controllers
         //
         // GET: /Admission/In/
 
+
+        public void PopulateInstituteDropDownList()
+        {
+            var instituteQry = from d in db.Institutes
+                               orderby d.Title
+                               where !String.IsNullOrEmpty(d.Title)
+                               select d;
+            ViewBag.InstituteId = new SelectList(instituteQry, "Id", "Title");
+        }
+
         public ActionResult Index()
         {
             return View(db.InstituteTypes.ToList());

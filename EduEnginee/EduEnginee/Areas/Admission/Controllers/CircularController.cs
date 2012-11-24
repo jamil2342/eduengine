@@ -16,6 +16,16 @@ namespace EduEnginee.Areas.Admission.Controllers
         //
         // GET: /Admission/Circular/
 
+
+        private void PopulateInstituteDropDownList()
+        {
+            var instituteQry = from d in db.Institutes
+                               orderby d.Title
+                               where !String.IsNullOrEmpty(d.Title)
+                               select d;
+            ViewBag.InstituteId = new SelectList(instituteQry, "Id", "Title");
+        }
+
         public ActionResult Index()
         {
             var circulars = db.Circulars.Include("AdmissionType").Include("Institute");
@@ -111,7 +121,7 @@ namespace EduEnginee.Areas.Admission.Controllers
             }
 
             ViewBag.AdmissionTypeId = new SelectList(db.AdmissionTypes, "Id", "Title", circular.AdmissionTypeId);
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", circular.InstituteId);
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", circular.InstituteId);
             return Details(circular.Id);
         }
 

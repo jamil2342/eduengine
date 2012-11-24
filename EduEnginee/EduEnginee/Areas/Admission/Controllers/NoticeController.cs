@@ -22,8 +22,14 @@ namespace EduEnginee.Areas.Admission.Controllers
             return View(notices.ToList());
         }
 
-
-
+        private void PopulateInstituteDropDownList(object selectedInstitute = null)
+        {
+            var instituteQry = from d in db.Institutes
+                               orderby d.Title
+                               where !String.IsNullOrEmpty(d.Title)
+                               select d;
+            ViewBag.InstituteId = new SelectList(instituteQry, "Id", "Title", selectedInstitute);
+        }
 
         ///////////////////////viewer//////////////////////////////////////////
         public ActionResult ViewerCirIndex(int? insCat)
@@ -78,7 +84,8 @@ namespace EduEnginee.Areas.Admission.Controllers
         [Authorize(Roles="admin")]
         public ActionResult Create()
         {
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title");
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title");
+            PopulateInstituteDropDownList();
             return View();
         }
 
@@ -95,7 +102,8 @@ namespace EduEnginee.Areas.Admission.Controllers
                 //return RedirectToAction("Index");
             }
 
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", notice.InstituteId);
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", notice.InstituteId);
+            PopulateInstituteDropDownList();
             return Details(notice.Id);
         }
 
@@ -109,7 +117,8 @@ namespace EduEnginee.Areas.Admission.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", notice.InstituteId);
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", notice.InstituteId);
+            PopulateInstituteDropDownList(notice.InstituteId);
             return View(notice);
         }
 
@@ -126,7 +135,8 @@ namespace EduEnginee.Areas.Admission.Controllers
                 db.SaveChanges();
                 //return RedirectToAction("Index");
             }
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", notice.InstituteId);
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", notice.InstituteId);
+            PopulateInstituteDropDownList();
             return Details(notice.Id);
         }
 
