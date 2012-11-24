@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/css")" rel="stylesheet" type="text/css" />
-        <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/themes/base/css")" rel="stylesheet" type="text/css" />
-        <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
-        <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Scripts/js")"></script>
-        <script src="../../Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
-        <script src="../../Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
-                <script src="../../Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
-        <script src="../../Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
-
-        <script>
-              $(document).ready(function () {
-                  $("#accordion").accordion();
-              });
-        </script>
-
-        <script>
-            function goBack() {
-                window.history.back()
-            }
-        </script>
-     
-
-  
-          <script>
-              $(document).ready(function () {
-                  $("#tabs").tabs();
-              });
-          </script>
-        <meta name="viewport" content="width=device-width" />
-    </head>
-    <body>
-        <header>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/css")" rel="stylesheet" type="text/css" />
+    <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/themes/base/css")" rel="stylesheet" type="text/css" />
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Scripts/js")"></script>
+    <script src="../../Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $("#accordion").accordion();
+        });
+    </script>
+    <script>
+        function goBack() {
+            window.history.back()
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <header>
             <div class="content-wrapper">
                 <div class="float-left">
                     <p class="site-title">@Html.ActionLink("Education Engine", "Index", "Home")</p>
@@ -45,28 +40,17 @@
                         @Html.Partial("_LoginPartial")
                     </section>
                      @Html.MvcSiteMap().Menu()
-@*                    <nav>
 
-                        <ul id="menu">
-                           
-                            
-                        </ul>
-                    </nav>*@
                 </div>
             </div>
         </header>
-        <div id="body">
-            
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-            
-                @*<input type="button" value="Back" onclick="goBack()">*@
-                <li></li>
-                
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
             </section>
-        </div>
-        <footer>
+    </div>
+    <footer>
             <div class="content-wrapper">
                 <div class="float-left">
                     <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
@@ -79,5 +63,5 @@
                 </div>
             </div>
         </footer>
-    </body>
+</body>
 </html>
