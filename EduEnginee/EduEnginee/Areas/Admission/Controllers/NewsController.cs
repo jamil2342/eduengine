@@ -15,6 +15,7 @@ namespace EduEnginee.Areas.Admission.Controllers
 
         //
         // GET: /Admission/News/
+        private InController institute = new InController();
 
         public ActionResult Index()
         {
@@ -57,7 +58,7 @@ namespace EduEnginee.Areas.Admission.Controllers
             return PartialView(qry.ToList());
         }
 
-        private void PopulateInstituteDropDownList(object selectedDepartment = null)
+        private  void PopulateInstituteDropDownList(object selectedDepartment = null)
         {
             var instituteQry = from d in db.Institutes
                                    orderby d.Title
