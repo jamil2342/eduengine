@@ -57,7 +57,14 @@ namespace EduEnginee.Areas.Admission.Controllers
             return PartialView(qry.ToList());
         }
 
-
+        private void PopulateInstituteDropDownList(object selectedDepartment = null)
+        {
+            var instituteQry = from d in db.Institutes
+                                   orderby d.Title
+                                   where !String.IsNullOrEmpty(d.Title)
+                                   select d;
+            ViewBag.InstituteId = new SelectList(instituteQry, "Id", "Title");
+        }
 
 
 
@@ -79,7 +86,8 @@ namespace EduEnginee.Areas.Admission.Controllers
         [Authorize(Roles="admin")]
         public ActionResult Create()
         {
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title");
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title");
+            PopulateInstituteDropDownList();
             return View();
         }
 
@@ -96,7 +104,8 @@ namespace EduEnginee.Areas.Admission.Controllers
                 //return RedirectToAction("Index");
             }
 
-            ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", news.InstituteId);
+            //ViewBag.InstituteId = new SelectList(db.Institutes, "Id", "Title", news.InstituteId);
+            PopulateInstituteDropDownList();
             return Details(news.Id);
         }
 
