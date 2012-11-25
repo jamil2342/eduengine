@@ -1,102 +1,127 @@
 ﻿@model EduEnginee.Areas.Admission.Models.Institute
-
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
 <fieldset>
     <legend>Institute</legend>
-    @Html.Action("_ShortDetails","In",new {id=Model.Id})
-
-
+    @Html.Action("_ShortDetails", "In", new { id = Model.Id })
     <table width="100%" class="mainTable" align="center">
-<tr>
-			<td valign=top width="50%" >
-            @if (!String.IsNullOrEmpty(Model.HeadName))
-            {
-                            <h3><u>Vice Chancellor</u></h3>
+        <tr>
+            <td valign="top" width="50%">
+                @if (!String.IsNullOrEmpty(Model.HeadName))
+                {
+                    <h3>
+                        <u>Vice Chancellor</u></h3>
                     @Model.HeadName
                 
-            }
-
-
-			</td>
-			
-			<td align=right >
-				<table>
-						<tbody><tr>
-							<th >
-								<h3>General Information</h3>
-							</th>
-						</tr>
-						<tr>
-							<td width="38%">Male Student</td>
-							<td width="5%">:</td>
-							<td width="7%" align="right">@Model.NoOfMaleStd</td>
-						</tr>
-						<tr>
-							<td>Female Student</td>
-							<td>:</td>
-							<td align="right">@Model.NoOfFemaleStd</td>
-						</tr>	
-						<tr>
-							<td>Total Teacher</td>
-							<td>:</td>
-							<td align="right">@Model.NoOfTeacher</td>
-						</tr>
-						<tr>
-							<td>Male Hostel Seat</td>
-							<td>:</td>
-							<td align="right">@Model.NoOfMaleHostelSit</td>
-						</tr>
-						<tr>
-							<td>Female Hostel Seat</td>
-							<td>:</td>
-							<td align="right">@Model.NoOfFemaleHostelSit</td>
-						</tr>				
-					</tbody></table>
-			</td>
-		</tr>
+                }
+            </td>
+            <td align="right">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <h3>
+                                    General Information</h3>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td width="38%">
+                                Male Student
+                            </td>
+                            <td width="5%">
+                                :
+                            </td>
+                            <td width="7%" align="right">
+                                @EduEnginee.UtilityController.NoOfRecord(Model.NoOfMaleStd)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Female Student
+                            </td>
+                            <td>
+                                :
+                            </td>
+                            <td align="right">@EduEnginee.UtilityController.NoOfRecord(Model.NoOfFemaleStd)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Total Teacher
+                            </td>
+                            <td>
+                                :
+                            </td>
+                            <td align="right">@EduEnginee.UtilityController.NoOfRecord(Model.NoOfTeacher)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Male Hostel Seat
+                            </td>
+                            <td>
+                                :
+                            </td>
+                            <td align="right">@EduEnginee.UtilityController.NoOfRecord(Model.NoOfMaleHostelSit)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Female Hostel Seat
+                            </td>
+                            <td>
+                                :
+                            </td>
+                            <td align="right">@EduEnginee.UtilityController.NoOfRecord(Model.NoOfFemaleHostelSit)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
     </table>
     <br />
     <br />
     <br />
     <br />
-
-
-    <div id="tabs" width="220px"  aligh="center">
-   <ul>
- 
- 
-        <li><a href="#1">News</a></li>    
-        <li><a href="#2">Notices</a></li>    
-        <li><a href="#3">Circular</a></li> 
-        <div id="1">
-        <p><br /><br /><br />  @Html.Action("_NewsList", "News", new { instituteId = Model.Id })   </p>
-        </div>
-        <div id="2">
-        <p><br /><br /><br /> @Html.Action("_NoticeList", "Notice", new { instituteId = Model.Id })</p>
-        </div>
-        <div id="3">
-        <p><br /><br /><br /> @Html.Action("_CirList", "Circular", new { instituteId = Model.Id })</p>
-        </div>
-              
+    <div id="tabs" width="220px" aligh="center">
+        <ul>
+            <li><a href="#1">News</a></li>
+            <li><a href="#2">Notices</a></li>
+            <li><a href="#3">Circular</a></li>
+            <div id="1">
+                <p>
+                    <br />
+                    <br />
+                    <br />
+                    @Html.Action("_NewsList", "News", new { instituteId = Model.Id })
+                </p>
+            </div>
+            <div id="2">
+                <p>
+                    <br />
+                    <br />
+                    <br />
+                    @Html.Action("_NoticeList", "Notice", new { instituteId = Model.Id })</p>
+            </div>
+            <div id="3">
+                <p>
+                    <br />
+                    <br />
+                    <br />
+                    @Html.Action("_CirList", "Circular", new { instituteId = Model.Id })</p>
+            </div>
     </div>
-   
-    
-        
-    
 </fieldset>
 @if (User.IsInRole("admin"))
 {
-        <p>
-        @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })| 
-        @Html.ActionLink("List","Index","In")
-        </p>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })|
+        @Html.ActionLink("List", "Index", "In")
+    </p>
     
     
 }

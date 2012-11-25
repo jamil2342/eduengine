@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EduEnginee.Areas.Admission.Models;
+using EduEnginee.Areas.Admission.Controllers;
 
 namespace EduEnginee.Areas.Admission.Controllers
 {
