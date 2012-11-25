@@ -1,38 +1,42 @@
 ﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.Institute>
-
 @{
     ViewBag.Title = "ViewerCirIndex";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Circular</h2>
+<h2>
+    Circular</h2>
 @if (User.IsInRole("admin"))
 {
     <p>@Html.ActionLink("Create New", "Create")</p>    
 }
-
 <div id="left">
-  @Html.Action("_InsCatList")
+    @Html.Action("_InsCatList")
 </div>
 <div id="right">
-    <table>
+    <table class="sample">
         <tr>
             <th>
                 Institute
             </th>
-            <th></th>
+            <th>
+            </th>
         </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
+        @{
+            int i = 0;
+            foreach (var item in Model)
+            {
+
+                i++;
+            <tr class=@EduEnginee.UtilityController.rowCssClass(i)>
                 <td>
                     @Html.ActionLink(item.Title, "Details", "In", new { id = item.Id }, null)
-            
                 </td>
                 <td>
                     @Html.Action("_CirList", new { instituteId = item.Id })
                 </td>
             </tr>
+            }
+            
         }
     </table>
 </div>
