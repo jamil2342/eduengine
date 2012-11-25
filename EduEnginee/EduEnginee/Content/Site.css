@@ -733,6 +733,7 @@ tr
     width: 100%;
     vertical-align: top;
     background-color: #FFFFFF;
+
 }
 
 
@@ -790,10 +791,12 @@ text-box single-line
 
 .even
 {
-    background-color: #FFFFFF;
+    background-color: #FFFFCC;
 }
     
 .odd
 {
     background-color: #C0C0C0;
+   
 }
+

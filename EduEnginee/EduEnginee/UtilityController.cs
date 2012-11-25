@@ -28,5 +28,20 @@ namespace EduEnginee
             }
         }
 
+        public static string rowCssClass(int x)
+        {
+            if (x %2== 0)
+            {
+                return "even";
+            }
+            else
+            {
+                return "odd";
+            }
+
+        }
+
+        
+
     }
 }
