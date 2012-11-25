@@ -1,17 +1,16 @@
 ﻿@model IEnumerable<EduEnginee.Areas.Admission.Models.Institute>
-
 @{
     ViewBag.Title = "ViewerCirIndex";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Notice</h2>
+<h2>
+    Notice</h2>
 @if (User.IsInRole("admin"))
 {
     <p>@Html.ActionLink("Create New", "Create")</p>    
 }
 <div id="left">
-  @Html.Action("_InsCatList")
+    @Html.Action("_InsCatList")
 </div>
 <div id="right">
     <table>
@@ -19,17 +18,23 @@
             <th>
                 Institute
             </th>
-            <th></th>
+            <th>
+            </th>
         </tr>
+        @{
+            int i = 0;
+        }
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.ActionLink(item.Title,"Details","In",new {id=item.Id},null)
+          
             
+
+            <tr class="@i++%2==0?"even":"odd"">
+                <td>
+                    @Html.ActionLink(item.Title, "Details", "In", new { id = item.Id }, null)
                 </td>
                 <td>
-                    @Html.Action("_NoticeList",new {instituteId=item.Id})
+                    @Html.Action("_NoticeList", new { instituteId = item.Id })
                 </td>
             </tr>
         }

@@ -781,3 +781,12 @@ text-box single-line
 
 */
 
+.even
+{
+    background-color: #99CCFF;
+}
+    
+    .odd
+{
+    background-color: #FFCCFF;
+}

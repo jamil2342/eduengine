@@ -4,17 +4,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="accordion" class="accordin">
+@*<div id="accordion" class="accordin">
     @foreach (var item in Model)
     {
                 
         <h3>
             <a href="#">@item.Title</a></h3>
-        <div>
-            
-                @Html.Action("ResultSeatPlanLink", new { instituteId = item.Id })
+        <div style="height: 100px">
+            <p>@Html.Action("ResultSeatPlanLink", new { instituteId = item.Id })</p>              
             
         </div>
     
     }
 </div>
+*@
+
+
+    @foreach (var item in Model)
+    {
+                
+        <h3>@Html.ActionLink(item.Title,"Details","In",new {id=item.Id},null)</h3>
+        <div  style="background-color: #FFFFCC">
+            <p>@Html.Action("ResultSeatPlanLink", new { instituteId = item.Id })</p>              
+            
+        </div>
+    
+    }
