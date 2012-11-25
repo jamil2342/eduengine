@@ -688,11 +688,18 @@ th
 }
 
 /*
-tr:nth-child(even)
+table.sample tr:nth-child(even)
 {
     background-color: #FFFFCC;
 }
+
+table.sample tr:nth-child(odd)
+{
+    background-color: #00FF00;
+}
+
 */
+
 
 tr
 {
@@ -783,10 +790,10 @@ text-box single-line
 
 .even
 {
-    background-color: #99CCFF;
+    background-color: #FFFFFF;
 }
     
-    .odd
+.odd
 {
-    background-color: #FFCCFF;
+    background-color: #C0C0C0;
 }
