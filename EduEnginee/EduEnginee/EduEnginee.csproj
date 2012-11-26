@@ -237,6 +237,7 @@
     <Compile Include="Areas\Quiz\QuizAreaRegistration.cs" />
     <Compile Include="Areas\Temp\TempAreaRegistration.cs" />
     <Compile Include="Areas\Visa\Controllers\ContinentController.cs" />
+    <Compile Include="Areas\Visa\Controllers\CouncellingFirmController.cs" />
     <Compile Include="Areas\Visa\Controllers\CountryController.cs" />
     <Compile Include="Areas\Visa\Controllers\VisaProcedureController.cs" />
     <Compile Include="Areas\Visa\Controllers\VisaTypeController.cs" />
@@ -550,10 +551,16 @@
     <Content Include="Areas\Visa\Views\VisaType\Index.cshtml" />
     <Content Include="Areas\Visa\Views\VisaType\GridData.cshtml" />
     <Content Include="Areas\Visa\Views\VisaType\Edit.cshtml" />
+    <Content Include="Areas\Visa\Views\CouncellingFirm\Create.cshtml" />
+    <Content Include="Areas\Visa\Views\CouncellingFirm\Delete.cshtml" />
+    <Content Include="Areas\Visa\Views\CouncellingFirm\Details.cshtml" />
+    <Content Include="Areas\Visa\Views\CouncellingFirm\Edit.cshtml" />
+    <Content Include="Areas\Visa\Views\CouncellingFirm\Index.cshtml" />
+    <Content Include="Areas\Visa\Views\Shared\View1.cshtml" />
+    <Content Include="Areas\Visa\Views\Shared\_Layout.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -563,7 +570,7 @@
     <Folder Include="Areas\Quiz\Views\Shared\" />
     <Folder Include="Areas\Temp\Controllers\" />
     <Folder Include="Areas\Temp\Views\Shared\" />
-    <Folder Include="Areas\Visa\Views\Shared\" />
+    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
