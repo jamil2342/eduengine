@@ -237,7 +237,9 @@
     <Compile Include="Areas\Quiz\QuizAreaRegistration.cs" />
     <Compile Include="Areas\Temp\TempAreaRegistration.cs" />
     <Compile Include="Areas\Visa\Controllers\ContinentController.cs" />
+    <Compile Include="Areas\Visa\Controllers\CountryController.cs" />
     <Compile Include="Areas\Visa\Controllers\VisaProcedureController.cs" />
+    <Compile Include="Areas\Visa\Controllers\VisaTypeController.cs" />
     <Compile Include="Areas\Visa\Models\ContinentSet.cs">
       <DependentUpon>VisaModel.tt</DependentUpon>
     </Compile>
@@ -518,7 +520,9 @@
     <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
-    <Content Include="Mvc.sitemap" />
+    <Content Include="Mvc.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Visa\Views\Web.config" />
     <EntityDeploy Include="Areas\Visa\Models\VisaModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -540,6 +544,12 @@
     <Content Include="Areas\Visa\Views\Continent\Index.cshtml" />
     <Content Include="Areas\Visa\Views\Continent\GridData.cshtml" />
     <Content Include="Areas\Visa\Views\Continent\Edit.cshtml" />
+    <Content Include="Areas\Visa\Views\Country\Index.cshtml" />
+    <Content Include="Areas\Visa\Views\Country\GridData.cshtml" />
+    <Content Include="Areas\Visa\Views\Country\Edit.cshtml" />
+    <Content Include="Areas\Visa\Views\VisaType\Index.cshtml" />
+    <Content Include="Areas\Visa\Views\VisaType\GridData.cshtml" />
+    <Content Include="Areas\Visa\Views\VisaType\Edit.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
