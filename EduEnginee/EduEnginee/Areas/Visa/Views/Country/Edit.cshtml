@@ -1,0 +1,21 @@
+﻿@model EduEnginee.Areas.Visa.Models.CountrySet
+
+<tr @if (Model != null) {
+    @:data-pkey="@Model.Id"
+}>
+    <td>
+        @Html.DropDownList("ContinentId", String.Empty)
+        @Html.ValidationMessageFor(model => model.ContinentId)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Title)
+        @Html.ValidationMessageFor(model => model.Title)
+    </td>
+    <td>
+@if (ViewContext.RouteData.Values["Action"].ToString() == "Edit") {
+        <button class="editRow">Save</button><button class="cancelEditRow">Cancel</button>
+} else {
+        <button class="createRow">Create</button><button class="cancelCreateRow">Cancel</button>
+}
+    </td>
+</tr>
