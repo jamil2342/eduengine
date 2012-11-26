@@ -235,32 +235,32 @@
     <edmx:ConceptualModels>
       <Schema Namespace="StudyAbroadModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="StudyAbroadEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ContinentSets" EntityType="StudyAbroadModel.ContinentSet" />
-          <EntitySet Name="CouncellingFirmSets" EntityType="StudyAbroadModel.CouncellingFirmSet" />
-          <EntitySet Name="CountrySets" EntityType="StudyAbroadModel.CountrySet" />
-          <EntitySet Name="ForeignStudySets" EntityType="StudyAbroadModel.ForeignStudySet" />
-          <EntitySet Name="sysdiagrams" EntityType="StudyAbroadModel.sysdiagram" />
-          <EntitySet Name="VisaProcedureSets" EntityType="StudyAbroadModel.VisaProcedureSet" />
-          <EntitySet Name="VisaTypeSets" EntityType="StudyAbroadModel.VisaTypeSet" />
+          <EntitySet Name="ContinentSet" EntityType="StudyAbroadModel.ContinentSet" />
+          <EntitySet Name="CouncellingFirmSet" EntityType="StudyAbroadModel.CouncellingFirmSet" />
+          <EntitySet Name="CountrySet" EntityType="StudyAbroadModel.CountrySet" />
+          <EntitySet Name="ForeignStudySet" EntityType="StudyAbroadModel.ForeignStudySet" />
+          <EntitySet Name="sysdiagrams" EntityType="StudyAbroadModel.sysdiagrams" />
+          <EntitySet Name="VisaProcedureSet" EntityType="StudyAbroadModel.VisaProcedureSet" />
+          <EntitySet Name="VisaTypeSet" EntityType="StudyAbroadModel.VisaTypeSet" />
           <AssociationSet Name="FK_ContinentCountry" Association="StudyAbroadModel.FK_ContinentCountry">
-            <End Role="ContinentSet" EntitySet="ContinentSets" />
-            <End Role="CountrySet" EntitySet="CountrySets" />
+            <End Role="ContinentSet" EntitySet="ContinentSet" />
+            <End Role="CountrySet" EntitySet="CountrySet" />
           </AssociationSet>
           <AssociationSet Name="FK_CountryForeignStudy" Association="StudyAbroadModel.FK_CountryForeignStudy">
-            <End Role="CountrySet" EntitySet="CountrySets" />
-            <End Role="ForeignStudySet" EntitySet="ForeignStudySets" />
+            <End Role="CountrySet" EntitySet="CountrySet" />
+            <End Role="ForeignStudySet" EntitySet="ForeignStudySet" />
           </AssociationSet>
           <AssociationSet Name="FK_CountryVisaProcedure" Association="StudyAbroadModel.FK_CountryVisaProcedure">
-            <End Role="CountrySet" EntitySet="CountrySets" />
-            <End Role="VisaProcedureSet" EntitySet="VisaProcedureSets" />
+            <End Role="CountrySet" EntitySet="CountrySet" />
+            <End Role="VisaProcedureSet" EntitySet="VisaProcedureSet" />
           </AssociationSet>
           <AssociationSet Name="FK_VisaTypeVisaProcedure" Association="StudyAbroadModel.FK_VisaTypeVisaProcedure">
-            <End Role="VisaTypeSet" EntitySet="VisaTypeSets" />
-            <End Role="VisaProcedureSet" EntitySet="VisaProcedureSets" />
+            <End Role="VisaTypeSet" EntitySet="VisaTypeSet" />
+            <End Role="VisaProcedureSet" EntitySet="VisaProcedureSet" />
           </AssociationSet>
           <AssociationSet Name="CountryCouncellingFirm" Association="StudyAbroadModel.CountryCouncellingFirm">
-            <End Role="CouncellingFirmSet" EntitySet="CouncellingFirmSets" />
-            <End Role="CountrySet" EntitySet="CountrySets" />
+            <End Role="CouncellingFirmSet" EntitySet="CouncellingFirmSet" />
+            <End Role="CountrySet" EntitySet="CountrySet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="ContinentSet">
@@ -269,7 +269,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="CountrySets" Relationship="StudyAbroadModel.FK_ContinentCountry" FromRole="ContinentSet" ToRole="CountrySet" />
+          <NavigationProperty Name="CountrySet" Relationship="StudyAbroadModel.FK_ContinentCountry" FromRole="ContinentSet" ToRole="CountrySet" />
         </EntityType>
         <EntityType Name="CouncellingFirmSet">
           <Key>
@@ -284,7 +284,7 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="DirectorName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="CountrySets" Relationship="StudyAbroadModel.CountryCouncellingFirm" FromRole="CouncellingFirmSet" ToRole="CountrySet" />
+          <NavigationProperty Name="CountrySet" Relationship="StudyAbroadModel.CountryCouncellingFirm" FromRole="CouncellingFirmSet" ToRole="CountrySet" />
         </EntityType>
         <EntityType Name="CountrySet">
           <Key>
@@ -294,9 +294,9 @@
           <Property Name="ContinentId" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="ContinentSet" Relationship="StudyAbroadModel.FK_ContinentCountry" FromRole="CountrySet" ToRole="ContinentSet" />
-          <NavigationProperty Name="ForeignStudySets" Relationship="StudyAbroadModel.FK_CountryForeignStudy" FromRole="CountrySet" ToRole="ForeignStudySet" />
-          <NavigationProperty Name="VisaProcedureSets" Relationship="StudyAbroadModel.FK_CountryVisaProcedure" FromRole="CountrySet" ToRole="VisaProcedureSet" />
-          <NavigationProperty Name="CouncellingFirmSets" Relationship="StudyAbroadModel.CountryCouncellingFirm" FromRole="CountrySet" ToRole="CouncellingFirmSet" />
+          <NavigationProperty Name="ForeignStudySet" Relationship="StudyAbroadModel.FK_CountryForeignStudy" FromRole="CountrySet" ToRole="ForeignStudySet" />
+          <NavigationProperty Name="VisaProcedureSet" Relationship="StudyAbroadModel.FK_CountryVisaProcedure" FromRole="CountrySet" ToRole="VisaProcedureSet" />
+          <NavigationProperty Name="CouncellingFirmSet" Relationship="StudyAbroadModel.CountryCouncellingFirm" FromRole="CountrySet" ToRole="CouncellingFirmSet" />
         </EntityType>
         <EntityType Name="ForeignStudySet">
           <Key>
@@ -318,7 +318,7 @@
           <Property Name="Country_Id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CountrySet" Relationship="StudyAbroadModel.FK_CountryForeignStudy" FromRole="ForeignStudySet" ToRole="CountrySet" />
         </EntityType>
-        <EntityType Name="sysdiagram">
+        <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -350,7 +350,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="VisaProcedureSets" Relationship="StudyAbroadModel.FK_VisaTypeVisaProcedure" FromRole="VisaTypeSet" ToRole="VisaProcedureSet" />
+          <NavigationProperty Name="VisaProcedureSet" Relationship="StudyAbroadModel.FK_VisaTypeVisaProcedure" FromRole="VisaTypeSet" ToRole="VisaProcedureSet" />
         </EntityType>
         <Association Name="FK_ContinentCountry">
           <End Role="ContinentSet" Type="StudyAbroadModel.ContinentSet" Multiplicity="1" />
@@ -410,92 +410,64 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="StudyAbroadModelStoreContainer" CdmEntityContainer="StudyAbroadEntities">
-          <EntitySetMapping Name="ContinentSets">
-            <EntityTypeMapping TypeName="StudyAbroadModel.ContinentSet">
-              <MappingFragment StoreEntitySet="ContinentSet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CouncellingFirmSets">
-            <EntityTypeMapping TypeName="StudyAbroadModel.CouncellingFirmSet">
-              <MappingFragment StoreEntitySet="CouncellingFirmSet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Web" ColumnName="Web" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="DirectorName" ColumnName="DirectorName" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CountrySets">
-            <EntityTypeMapping TypeName="StudyAbroadModel.CountrySet">
-              <MappingFragment StoreEntitySet="CountrySet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ContinentId" ColumnName="ContinentId" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ForeignStudySets">
-            <EntityTypeMapping TypeName="StudyAbroadModel.ForeignStudySet">
-              <MappingFragment StoreEntitySet="ForeignStudySet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="VisaTypeId" ColumnName="VisaTypeId" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="Degrees" ColumnName="Degrees" />
-                <ScalarProperty Name="SemesterOffer" ColumnName="SemesterOffer" />
-                <ScalarProperty Name="RequirementsForBachelorsProgram" ColumnName="RequirementsForBachelorsProgram" />
-                <ScalarProperty Name="RequirementsForMastersProgram" ColumnName="RequirementsForMastersProgram" />
-                <ScalarProperty Name="Subjects" ColumnName="Subjects" />
-                <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-                <ScalarProperty Name="ApplyProcedure" ColumnName="ApplyProcedure" />
-                <ScalarProperty Name="SupportingDocuments" ColumnName="SupportingDocuments" />
-                <ScalarProperty Name="CreditTransfer" ColumnName="CreditTransfer" />
-                <ScalarProperty Name="OtherInformation" ColumnName="OtherInformation" />
-                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="StudyAbroadModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VisaProcedureSets">
-            <EntityTypeMapping TypeName="StudyAbroadModel.VisaProcedureSet">
-              <MappingFragment StoreEntitySet="VisaProcedureSet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Visafee" ColumnName="Visafee" />
-                <ScalarProperty Name="RequiredDocument" ColumnName="RequiredDocument" />
-                <ScalarProperty Name="Where_toApply" ColumnName="Where_toApply" />
-                <ScalarProperty Name="SpecialNote" ColumnName="SpecialNote" />
-                <ScalarProperty Name="PhotographyInformation" ColumnName="PhotographyInformation" />
-                <ScalarProperty Name="BasicRequirement" ColumnName="BasicRequirement" />
-                <ScalarProperty Name="VisaTypeId" ColumnName="VisaTypeId" />
-                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VisaTypeSets">
-            <EntityTypeMapping TypeName="StudyAbroadModel.VisaTypeSet">
-              <MappingFragment StoreEntitySet="VisaTypeSet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <EntitySetMapping Name="ContinentSet"><EntityTypeMapping TypeName="StudyAbroadModel.ContinentSet"><MappingFragment StoreEntitySet="ContinentSet">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CouncellingFirmSet"><EntityTypeMapping TypeName="StudyAbroadModel.CouncellingFirmSet"><MappingFragment StoreEntitySet="CouncellingFirmSet">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Fax" ColumnName="Fax" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Web" ColumnName="Web" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="DirectorName" ColumnName="DirectorName" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CountrySet"><EntityTypeMapping TypeName="StudyAbroadModel.CountrySet"><MappingFragment StoreEntitySet="CountrySet">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="ContinentId" ColumnName="ContinentId" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ForeignStudySet"><EntityTypeMapping TypeName="StudyAbroadModel.ForeignStudySet"><MappingFragment StoreEntitySet="ForeignStudySet">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="VisaTypeId" ColumnName="VisaTypeId" />
+            <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+            <ScalarProperty Name="Degrees" ColumnName="Degrees" />
+            <ScalarProperty Name="SemesterOffer" ColumnName="SemesterOffer" />
+            <ScalarProperty Name="RequirementsForBachelorsProgram" ColumnName="RequirementsForBachelorsProgram" />
+            <ScalarProperty Name="RequirementsForMastersProgram" ColumnName="RequirementsForMastersProgram" />
+            <ScalarProperty Name="Subjects" ColumnName="Subjects" />
+            <ScalarProperty Name="Expenses" ColumnName="Expenses" />
+            <ScalarProperty Name="ApplyProcedure" ColumnName="ApplyProcedure" />
+            <ScalarProperty Name="SupportingDocuments" ColumnName="SupportingDocuments" />
+            <ScalarProperty Name="CreditTransfer" ColumnName="CreditTransfer" />
+            <ScalarProperty Name="OtherInformation" ColumnName="OtherInformation" />
+            <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="StudyAbroadModel.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="VisaProcedureSet"><EntityTypeMapping TypeName="StudyAbroadModel.VisaProcedureSet"><MappingFragment StoreEntitySet="VisaProcedureSet">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Visafee" ColumnName="Visafee" />
+            <ScalarProperty Name="RequiredDocument" ColumnName="RequiredDocument" />
+            <ScalarProperty Name="Where_toApply" ColumnName="Where_toApply" />
+            <ScalarProperty Name="SpecialNote" ColumnName="SpecialNote" />
+            <ScalarProperty Name="PhotographyInformation" ColumnName="PhotographyInformation" />
+            <ScalarProperty Name="BasicRequirement" ColumnName="BasicRequirement" />
+            <ScalarProperty Name="VisaTypeId" ColumnName="VisaTypeId" />
+            <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="VisaTypeSet"><EntityTypeMapping TypeName="StudyAbroadModel.VisaTypeSet"><MappingFragment StoreEntitySet="VisaTypeSet">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <AssociationSetMapping Name="CountryCouncellingFirm" TypeName="StudyAbroadModel.CountryCouncellingFirm" StoreEntitySet="CountryCouncellingFirm">
             <EndProperty Name="CouncellingFirmSet">
               <ScalarProperty Name="Id" ColumnName="CouncellingFirm_Id" />
@@ -518,7 +490,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
@@ -529,7 +501,7 @@
         <EntityTypeShape EntityType="StudyAbroadModel.CouncellingFirmSet" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="StudyAbroadModel.CountrySet" Width="1.5" PointX="3" PointY="5" Height="2.3648893229166656" IsExpanded="true" />
         <EntityTypeShape EntityType="StudyAbroadModel.ForeignStudySet" Width="1.5" PointX="5.25" PointY="4.25" Height="3.9033007812499987" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudyAbroadModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.875" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyAbroadModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.875" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="StudyAbroadModel.VisaProcedureSet" Width="1.5" PointX="8.25" PointY="4.625" Height="3.1340950520833335" IsExpanded="true" />
         <EntityTypeShape EntityType="StudyAbroadModel.VisaTypeSet" Width="1.5" PointX="6" PointY="1.375" Height="1.5956835937499996" IsExpanded="true" />
         <AssociationConnector Association="StudyAbroadModel.FK_ContinentCountry" ManuallyRouted="false">

@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -78,181 +77,180 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ContinentSet> ContinentSets
+        public ObjectSet<ContinentSet> ContinentSet
         {
             get
             {
-                if ((_ContinentSets == null))
+                if ((_ContinentSet == null))
                 {
-                    _ContinentSets = base.CreateObjectSet<ContinentSet>("ContinentSets");
+                    _ContinentSet = base.CreateObjectSet<ContinentSet>("ContinentSet");
                 }
-                return _ContinentSets;
+                return _ContinentSet;
             }
         }
-        private ObjectSet<ContinentSet> _ContinentSets;
+        private ObjectSet<ContinentSet> _ContinentSet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CouncellingFirmSet> CouncellingFirmSets
+        public ObjectSet<CouncellingFirmSet> CouncellingFirmSet
         {
             get
             {
-                if ((_CouncellingFirmSets == null))
+                if ((_CouncellingFirmSet == null))
                 {
-                    _CouncellingFirmSets = base.CreateObjectSet<CouncellingFirmSet>("CouncellingFirmSets");
+                    _CouncellingFirmSet = base.CreateObjectSet<CouncellingFirmSet>("CouncellingFirmSet");
                 }
-                return _CouncellingFirmSets;
+                return _CouncellingFirmSet;
             }
         }
-        private ObjectSet<CouncellingFirmSet> _CouncellingFirmSets;
+        private ObjectSet<CouncellingFirmSet> _CouncellingFirmSet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CountrySet> CountrySets
+        public ObjectSet<CountrySet> CountrySet
         {
             get
             {
-                if ((_CountrySets == null))
+                if ((_CountrySet == null))
                 {
-                    _CountrySets = base.CreateObjectSet<CountrySet>("CountrySets");
+                    _CountrySet = base.CreateObjectSet<CountrySet>("CountrySet");
                 }
-                return _CountrySets;
+                return _CountrySet;
             }
         }
-        private ObjectSet<CountrySet> _CountrySets;
+        private ObjectSet<CountrySet> _CountrySet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ForeignStudySet> ForeignStudySets
+        public ObjectSet<ForeignStudySet> ForeignStudySet
         {
             get
             {
-                if ((_ForeignStudySets == null))
+                if ((_ForeignStudySet == null))
                 {
-                    _ForeignStudySets = base.CreateObjectSet<ForeignStudySet>("ForeignStudySets");
+                    _ForeignStudySet = base.CreateObjectSet<ForeignStudySet>("ForeignStudySet");
                 }
-                return _ForeignStudySets;
+                return _ForeignStudySet;
             }
         }
-        private ObjectSet<ForeignStudySet> _ForeignStudySets;
+        private ObjectSet<ForeignStudySet> _ForeignStudySet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<sysdiagram> sysdiagrams
+        public ObjectSet<sysdiagrams> sysdiagrams
         {
             get
             {
                 if ((_sysdiagrams == null))
                 {
-                    _sysdiagrams = base.CreateObjectSet<sysdiagram>("sysdiagrams");
+                    _sysdiagrams = base.CreateObjectSet<sysdiagrams>("sysdiagrams");
                 }
                 return _sysdiagrams;
             }
         }
-        private ObjectSet<sysdiagram> _sysdiagrams;
+        private ObjectSet<sysdiagrams> _sysdiagrams;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<VisaProcedureSet> VisaProcedureSets
+        public ObjectSet<VisaProcedureSet> VisaProcedureSet
         {
             get
             {
-                if ((_VisaProcedureSets == null))
+                if ((_VisaProcedureSet == null))
                 {
-                    _VisaProcedureSets = base.CreateObjectSet<VisaProcedureSet>("VisaProcedureSets");
+                    _VisaProcedureSet = base.CreateObjectSet<VisaProcedureSet>("VisaProcedureSet");
                 }
-                return _VisaProcedureSets;
+                return _VisaProcedureSet;
             }
         }
-        private ObjectSet<VisaProcedureSet> _VisaProcedureSets;
+        private ObjectSet<VisaProcedureSet> _VisaProcedureSet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<VisaTypeSet> VisaTypeSets
+        public ObjectSet<VisaTypeSet> VisaTypeSet
         {
             get
             {
-                if ((_VisaTypeSets == null))
+                if ((_VisaTypeSet == null))
                 {
-                    _VisaTypeSets = base.CreateObjectSet<VisaTypeSet>("VisaTypeSets");
+                    _VisaTypeSet = base.CreateObjectSet<VisaTypeSet>("VisaTypeSet");
                 }
-                return _VisaTypeSets;
+                return _VisaTypeSet;
             }
         }
-        private ObjectSet<VisaTypeSet> _VisaTypeSets;
+        private ObjectSet<VisaTypeSet> _VisaTypeSet;
 
         #endregion
-
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ContinentSets EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ContinentSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToContinentSets(ContinentSet continentSet)
+        public void AddToContinentSet(ContinentSet continentSet)
         {
-            base.AddObject("ContinentSets", continentSet);
+            base.AddObject("ContinentSet", continentSet);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CouncellingFirmSets EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the CouncellingFirmSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCouncellingFirmSets(CouncellingFirmSet councellingFirmSet)
+        public void AddToCouncellingFirmSet(CouncellingFirmSet councellingFirmSet)
         {
-            base.AddObject("CouncellingFirmSets", councellingFirmSet);
+            base.AddObject("CouncellingFirmSet", councellingFirmSet);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CountrySets EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the CountrySet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCountrySets(CountrySet countrySet)
+        public void AddToCountrySet(CountrySet countrySet)
         {
-            base.AddObject("CountrySets", countrySet);
+            base.AddObject("CountrySet", countrySet);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ForeignStudySets EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ForeignStudySet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToForeignStudySets(ForeignStudySet foreignStudySet)
+        public void AddToForeignStudySet(ForeignStudySet foreignStudySet)
         {
-            base.AddObject("ForeignStudySets", foreignStudySet);
+            base.AddObject("ForeignStudySet", foreignStudySet);
         }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTosysdiagrams(sysdiagram sysdiagram)
+        public void AddTosysdiagrams(sysdiagrams sysdiagrams)
         {
-            base.AddObject("sysdiagrams", sysdiagram);
+            base.AddObject("sysdiagrams", sysdiagrams);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the VisaProcedureSets EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the VisaProcedureSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToVisaProcedureSets(VisaProcedureSet visaProcedureSet)
+        public void AddToVisaProcedureSet(VisaProcedureSet visaProcedureSet)
         {
-            base.AddObject("VisaProcedureSets", visaProcedureSet);
+            base.AddObject("VisaProcedureSet", visaProcedureSet);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the VisaTypeSets EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the VisaTypeSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToVisaTypeSets(VisaTypeSet visaTypeSet)
+        public void AddToVisaTypeSet(VisaTypeSet visaTypeSet)
         {
-            base.AddObject("VisaTypeSets", visaTypeSet);
+            base.AddObject("VisaTypeSet", visaTypeSet);
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entities
     
     /// <summary>
@@ -279,7 +277,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -334,7 +331,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         partial void OnTitleChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -345,7 +341,7 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("StudyAbroadModel", "FK_ContinentCountry", "CountrySet")]
-        public EntityCollection<CountrySet> CountrySets
+        public EntityCollection<CountrySet> CountrySet
         {
             get
             {
@@ -361,7 +357,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -402,7 +397,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -625,7 +619,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         partial void OnAddressChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -636,7 +629,7 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("StudyAbroadModel", "CountryCouncellingFirm", "CountrySet")]
-        public EntityCollection<CountrySet> CountrySets
+        public EntityCollection<CountrySet> CountrySet
         {
             get
             {
@@ -652,7 +645,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -681,7 +673,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -760,7 +751,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         partial void OnTitleChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -809,7 +799,7 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("StudyAbroadModel", "FK_CountryForeignStudy", "ForeignStudySet")]
-        public EntityCollection<ForeignStudySet> ForeignStudySets
+        public EntityCollection<ForeignStudySet> ForeignStudySet
         {
             get
             {
@@ -831,7 +821,7 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("StudyAbroadModel", "FK_CountryVisaProcedure", "VisaProcedureSet")]
-        public EntityCollection<VisaProcedureSet> VisaProcedureSets
+        public EntityCollection<VisaProcedureSet> VisaProcedureSet
         {
             get
             {
@@ -853,7 +843,7 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("StudyAbroadModel", "CountryCouncellingFirm", "CouncellingFirmSet")]
-        public EntityCollection<CouncellingFirmSet> CouncellingFirmSets
+        public EntityCollection<CouncellingFirmSet> CouncellingFirmSet
         {
             get
             {
@@ -869,7 +859,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -920,7 +909,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1263,7 +1251,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         partial void OnCountry_IdChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1306,36 +1293,34 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
     }
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="StudyAbroadModel", Name="sysdiagram")]
+    [EdmEntityTypeAttribute(NamespaceName="StudyAbroadModel", Name="sysdiagrams")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class sysdiagram : EntityObject
+    public partial class sysdiagrams : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new sysdiagram object.
+        /// Create a new sysdiagrams object.
         /// </summary>
         /// <param name="name">Initial value of the name property.</param>
         /// <param name="principal_id">Initial value of the principal_id property.</param>
         /// <param name="diagram_id">Initial value of the diagram_id property.</param>
-        public static sysdiagram Createsysdiagram(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
+        public static sysdiagrams Createsysdiagrams(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
         {
-            sysdiagram sysdiagram = new sysdiagram();
-            sysdiagram.name = name;
-            sysdiagram.principal_id = principal_id;
-            sysdiagram.diagram_id = diagram_id;
-            return sysdiagram;
+            sysdiagrams sysdiagrams = new sysdiagrams();
+            sysdiagrams.name = name;
+            sysdiagrams.principal_id = principal_id;
+            sysdiagrams.diagram_id = diagram_id;
+            return sysdiagrams;
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1462,7 +1447,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         partial void OndefinitionChanged();
 
         #endregion
-
     
     }
     
@@ -1504,7 +1488,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1727,7 +1710,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         partial void OnCountry_IdChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1808,7 +1790,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1835,7 +1816,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1890,7 +1870,6 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         partial void OnTitleChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1901,7 +1880,7 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("StudyAbroadModel", "FK_VisaTypeVisaProcedure", "VisaProcedureSet")]
-        public EntityCollection<VisaProcedureSet> VisaProcedureSets
+        public EntityCollection<VisaProcedureSet> VisaProcedureSet
         {
             get
             {
@@ -1917,10 +1896,8 @@ namespace EduEnginee.Areas.StudyAbroad.Models
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }
