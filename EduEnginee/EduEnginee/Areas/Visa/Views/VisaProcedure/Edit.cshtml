@@ -1,0 +1,93 @@
+﻿@model EduEnginee.Areas.Visa.Models.VisaProcedureSet
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>VisaProcedureSet</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Visafee)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Visafee)
+            @Html.ValidationMessageFor(model => model.Visafee)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequiredDocument)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequiredDocument)
+            @Html.ValidationMessageFor(model => model.RequiredDocument)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Where_toApply)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Where_toApply)
+            @Html.ValidationMessageFor(model => model.Where_toApply)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SpecialNote)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SpecialNote)
+            @Html.ValidationMessageFor(model => model.SpecialNote)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhotographyInformation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhotographyInformation)
+            @Html.ValidationMessageFor(model => model.PhotographyInformation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BasicRequirement)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BasicRequirement)
+            @Html.ValidationMessageFor(model => model.BasicRequirement)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VisaTypeId, "VisaTypeSet")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("VisaTypeId", String.Empty)
+            @Html.ValidationMessageFor(model => model.VisaTypeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Country_Id, "CountrySet")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Country_Id", String.Empty)
+            @Html.ValidationMessageFor(model => model.Country_Id)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

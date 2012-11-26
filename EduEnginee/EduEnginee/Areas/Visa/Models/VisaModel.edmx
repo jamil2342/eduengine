@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VisaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="VisaModelStoreContainer">
+          <EntitySet Name="ContinentSet" EntityType="VisaModel.Store.ContinentSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CouncellingFirmSet" EntityType="VisaModel.Store.CouncellingFirmSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CountryCouncellingFirm" EntityType="VisaModel.Store.CountryCouncellingFirm" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CountrySet" EntityType="VisaModel.Store.CountrySet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ForeignStudySet" EntityType="VisaModel.Store.ForeignStudySet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VisaProcedureSet" EntityType="VisaModel.Store.VisaProcedureSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VisaTypeSet" EntityType="VisaModel.Store.VisaTypeSet" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ContinentCountry" Association="VisaModel.Store.FK_ContinentCountry">
+            <End Role="ContinentSet" EntitySet="ContinentSet" />
+            <End Role="CountrySet" EntitySet="CountrySet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryCouncellingFirm_CouncellingFirm" Association="VisaModel.Store.FK_CountryCouncellingFirm_CouncellingFirm">
+            <End Role="CouncellingFirmSet" EntitySet="CouncellingFirmSet" />
+            <End Role="CountryCouncellingFirm" EntitySet="CountryCouncellingFirm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryCouncellingFirm_Country" Association="VisaModel.Store.FK_CountryCouncellingFirm_Country">
+            <End Role="CountrySet" EntitySet="CountrySet" />
+            <End Role="CountryCouncellingFirm" EntitySet="CountryCouncellingFirm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryForeignStudy" Association="VisaModel.Store.FK_CountryForeignStudy">
+            <End Role="CountrySet" EntitySet="CountrySet" />
+            <End Role="ForeignStudySet" EntitySet="ForeignStudySet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryVisaProcedure" Association="VisaModel.Store.FK_CountryVisaProcedure">
+            <End Role="CountrySet" EntitySet="CountrySet" />
+            <End Role="VisaProcedureSet" EntitySet="VisaProcedureSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VisaTypeVisaProcedure" Association="VisaModel.Store.FK_VisaTypeVisaProcedure">
+            <End Role="VisaTypeSet" EntitySet="VisaTypeSet" />
+            <End Role="VisaProcedureSet" EntitySet="VisaProcedureSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ContinentSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CouncellingFirmSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Mobile" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Fax" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Web" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DirectorName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CountryCouncellingFirm">
+          <Key>
+            <PropertyRef Name="Country_Id" />
+            <PropertyRef Name="CouncellingFirm_Id" />
+          </Key>
+          <Property Name="Country_Id" Type="int" Nullable="false" />
+          <Property Name="CouncellingFirm_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CountrySet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContinentId" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ForeignStudySet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="VisaTypeId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="Degrees" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SemesterOffer" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RequirementsForBachelorsProgram" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RequirementsForMastersProgram" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Subjects" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Expenses" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ApplyProcedure" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SupportingDocuments" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreditTransfer" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OtherInformation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Country_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VisaProcedureSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Visafee" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RequiredDocument" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Where_toApply" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SpecialNote" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PhotographyInformation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BasicRequirement" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="VisaTypeId" Type="int" Nullable="false" />
+          <Property Name="Country_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VisaTypeSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ContinentCountry">
+          <End Role="ContinentSet" Type="VisaModel.Store.ContinentSet" Multiplicity="1" />
+          <End Role="CountrySet" Type="VisaModel.Store.CountrySet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContinentSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CountrySet">
+              <PropertyRef Name="ContinentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryCouncellingFirm_CouncellingFirm">
+          <End Role="CouncellingFirmSet" Type="VisaModel.Store.CouncellingFirmSet" Multiplicity="1" />
+          <End Role="CountryCouncellingFirm" Type="VisaModel.Store.CountryCouncellingFirm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CouncellingFirmSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CountryCouncellingFirm">
+              <PropertyRef Name="CouncellingFirm_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryCouncellingFirm_Country">
+          <End Role="CountrySet" Type="VisaModel.Store.CountrySet" Multiplicity="1" />
+          <End Role="CountryCouncellingFirm" Type="VisaModel.Store.CountryCouncellingFirm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountrySet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CountryCouncellingFirm">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryForeignStudy">
+          <End Role="CountrySet" Type="VisaModel.Store.CountrySet" Multiplicity="1" />
+          <End Role="ForeignStudySet" Type="VisaModel.Store.ForeignStudySet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountrySet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ForeignStudySet">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryVisaProcedure">
+          <End Role="CountrySet" Type="VisaModel.Store.CountrySet" Multiplicity="1" />
+          <End Role="VisaProcedureSet" Type="VisaModel.Store.VisaProcedureSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountrySet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VisaProcedureSet">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VisaTypeVisaProcedure">
+          <End Role="VisaTypeSet" Type="VisaModel.Store.VisaTypeSet" Multiplicity="1" />
+          <End Role="VisaProcedureSet" Type="VisaModel.Store.VisaProcedureSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VisaTypeSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VisaProcedureSet">
+              <PropertyRef Name="VisaTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VisaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="VisaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContinentSet" EntityType="VisaModel.ContinentSet" />
+          <EntitySet Name="CouncellingFirmSet" EntityType="VisaModel.CouncellingFirmSet" />
+          <EntitySet Name="CountrySet" EntityType="VisaModel.CountrySet" />
+          <EntitySet Name="ForeignStudySet" EntityType="VisaModel.ForeignStudySet" />
+          <EntitySet Name="VisaProcedureSet" EntityType="VisaModel.VisaProcedureSet" />
+          <EntitySet Name="VisaTypeSet" EntityType="VisaModel.VisaTypeSet" />
+          <AssociationSet Name="FK_ContinentCountry" Association="VisaModel.FK_ContinentCountry">
+            <End Role="ContinentSet" EntitySet="ContinentSet" />
+            <End Role="CountrySet" EntitySet="CountrySet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryForeignStudy" Association="VisaModel.FK_CountryForeignStudy">
+            <End Role="CountrySet" EntitySet="CountrySet" />
+            <End Role="ForeignStudySet" EntitySet="ForeignStudySet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryVisaProcedure" Association="VisaModel.FK_CountryVisaProcedure">
+            <End Role="CountrySet" EntitySet="CountrySet" />
+            <End Role="VisaProcedureSet" EntitySet="VisaProcedureSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VisaTypeVisaProcedure" Association="VisaModel.FK_VisaTypeVisaProcedure">
+            <End Role="VisaTypeSet" EntitySet="VisaTypeSet" />
+            <End Role="VisaProcedureSet" EntitySet="VisaProcedureSet" />
+          </AssociationSet>
+          <AssociationSet Name="CountryCouncellingFirm" Association="VisaModel.CountryCouncellingFirm">
+            <End Role="CouncellingFirmSet" EntitySet="CouncellingFirmSet" />
+            <End Role="CountrySet" EntitySet="CountrySet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ContinentSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CountrySet" Relationship="VisaModel.FK_ContinentCountry" FromRole="ContinentSet" ToRole="CountrySet" />
+        </EntityType>
+        <EntityType Name="CouncellingFirmSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Fax" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Web" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DirectorName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CountrySet" Relationship="VisaModel.CountryCouncellingFirm" FromRole="CouncellingFirmSet" ToRole="CountrySet" />
+        </EntityType>
+        <EntityType Name="CountrySet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContinentId" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ContinentSet" Relationship="VisaModel.FK_ContinentCountry" FromRole="CountrySet" ToRole="ContinentSet" />
+          <NavigationProperty Name="ForeignStudySet" Relationship="VisaModel.FK_CountryForeignStudy" FromRole="CountrySet" ToRole="ForeignStudySet" />
+          <NavigationProperty Name="VisaProcedureSet" Relationship="VisaModel.FK_CountryVisaProcedure" FromRole="CountrySet" ToRole="VisaProcedureSet" />
+          <NavigationProperty Name="CouncellingFirmSet" Relationship="VisaModel.CountryCouncellingFirm" FromRole="CountrySet" ToRole="CouncellingFirmSet" />
+        </EntityType>
+        <EntityType Name="ForeignStudySet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VisaTypeId" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="Degrees" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SemesterOffer" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RequirementsForBachelorsProgram" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RequirementsForMastersProgram" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Subjects" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Expenses" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ApplyProcedure" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SupportingDocuments" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreditTransfer" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="OtherInformation" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Country_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CountrySet" Relationship="VisaModel.FK_CountryForeignStudy" FromRole="ForeignStudySet" ToRole="CountrySet" />
+        </EntityType>
+        <EntityType Name="VisaProcedureSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Visafee" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RequiredDocument" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Where_toApply" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SpecialNote" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PhotographyInformation" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BasicRequirement" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="VisaTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Country_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CountrySet" Relationship="VisaModel.FK_CountryVisaProcedure" FromRole="VisaProcedureSet" ToRole="CountrySet" />
+          <NavigationProperty Name="VisaTypeSet" Relationship="VisaModel.FK_VisaTypeVisaProcedure" FromRole="VisaProcedureSet" ToRole="VisaTypeSet" />
+        </EntityType>
+        <EntityType Name="VisaTypeSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="VisaProcedureSet" Relationship="VisaModel.FK_VisaTypeVisaProcedure" FromRole="VisaTypeSet" ToRole="VisaProcedureSet" />
+        </EntityType>
+        <Association Name="FK_ContinentCountry">
+          <End Role="ContinentSet" Type="VisaModel.ContinentSet" Multiplicity="1" />
+          <End Role="CountrySet" Type="VisaModel.CountrySet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContinentSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CountrySet">
+              <PropertyRef Name="ContinentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryForeignStudy">
+          <End Role="CountrySet" Type="VisaModel.CountrySet" Multiplicity="1" />
+          <End Role="ForeignStudySet" Type="VisaModel.ForeignStudySet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountrySet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ForeignStudySet">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryVisaProcedure">
+          <End Role="CountrySet" Type="VisaModel.CountrySet" Multiplicity="1" />
+          <End Role="VisaProcedureSet" Type="VisaModel.VisaProcedureSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountrySet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VisaProcedureSet">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VisaTypeVisaProcedure">
+          <End Role="VisaTypeSet" Type="VisaModel.VisaTypeSet" Multiplicity="1" />
+          <End Role="VisaProcedureSet" Type="VisaModel.VisaProcedureSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VisaTypeSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VisaProcedureSet">
+              <PropertyRef Name="VisaTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CountryCouncellingFirm">
+          <End Role="CouncellingFirmSet" Type="VisaModel.CouncellingFirmSet" Multiplicity="*" />
+          <End Role="CountrySet" Type="VisaModel.CountrySet" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VisaModelStoreContainer" CdmEntityContainer="VisaEntities">
+          <EntitySetMapping Name="ContinentSet">
+            <EntityTypeMapping TypeName="VisaModel.ContinentSet">
+              <MappingFragment StoreEntitySet="ContinentSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CouncellingFirmSet">
+            <EntityTypeMapping TypeName="VisaModel.CouncellingFirmSet">
+              <MappingFragment StoreEntitySet="CouncellingFirmSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Web" ColumnName="Web" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DirectorName" ColumnName="DirectorName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountrySet">
+            <EntityTypeMapping TypeName="VisaModel.CountrySet">
+              <MappingFragment StoreEntitySet="CountrySet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContinentId" ColumnName="ContinentId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForeignStudySet">
+            <EntityTypeMapping TypeName="VisaModel.ForeignStudySet">
+              <MappingFragment StoreEntitySet="ForeignStudySet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VisaTypeId" ColumnName="VisaTypeId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Degrees" ColumnName="Degrees" />
+                <ScalarProperty Name="SemesterOffer" ColumnName="SemesterOffer" />
+                <ScalarProperty Name="RequirementsForBachelorsProgram" ColumnName="RequirementsForBachelorsProgram" />
+                <ScalarProperty Name="RequirementsForMastersProgram" ColumnName="RequirementsForMastersProgram" />
+                <ScalarProperty Name="Subjects" ColumnName="Subjects" />
+                <ScalarProperty Name="Expenses" ColumnName="Expenses" />
+                <ScalarProperty Name="ApplyProcedure" ColumnName="ApplyProcedure" />
+                <ScalarProperty Name="SupportingDocuments" ColumnName="SupportingDocuments" />
+                <ScalarProperty Name="CreditTransfer" ColumnName="CreditTransfer" />
+                <ScalarProperty Name="OtherInformation" ColumnName="OtherInformation" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisaProcedureSet">
+            <EntityTypeMapping TypeName="VisaModel.VisaProcedureSet">
+              <MappingFragment StoreEntitySet="VisaProcedureSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Visafee" ColumnName="Visafee" />
+                <ScalarProperty Name="RequiredDocument" ColumnName="RequiredDocument" />
+                <ScalarProperty Name="Where_toApply" ColumnName="Where_toApply" />
+                <ScalarProperty Name="SpecialNote" ColumnName="SpecialNote" />
+                <ScalarProperty Name="PhotographyInformation" ColumnName="PhotographyInformation" />
+                <ScalarProperty Name="BasicRequirement" ColumnName="BasicRequirement" />
+                <ScalarProperty Name="VisaTypeId" ColumnName="VisaTypeId" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisaTypeSet">
+            <EntityTypeMapping TypeName="VisaModel.VisaTypeSet">
+              <MappingFragment StoreEntitySet="VisaTypeSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CountryCouncellingFirm" TypeName="VisaModel.CountryCouncellingFirm" StoreEntitySet="CountryCouncellingFirm">
+            <EndProperty Name="CouncellingFirmSet">
+              <ScalarProperty Name="Id" ColumnName="CouncellingFirm_Id" />
+            </EndProperty>
+            <EndProperty Name="CountrySet">
+              <ScalarProperty Name="Id" ColumnName="Country_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="VisaModel">
+        <EntityTypeShape EntityType="VisaModel.ContinentSet" Width="1.5" PointX="0.75" PointY="5.375" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="VisaModel.CouncellingFirmSet" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="VisaModel.CountrySet" Width="1.5" PointX="3" PointY="5" Height="2.3648893229166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="VisaModel.ForeignStudySet" Width="1.5" PointX="5.25" PointY="4.25" Height="3.9033007812499987" IsExpanded="true" />
+        <EntityTypeShape EntityType="VisaModel.VisaProcedureSet" Width="1.5" PointX="8.25" PointY="4.625" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="VisaModel.VisaTypeSet" Width="1.5" PointX="6" PointY="1.375" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="VisaModel.FK_ContinentCountry" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.172841796875" />
+          <ConnectorPoint PointX="3" PointY="6.172841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="VisaModel.FK_CountryForeignStudy" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.1824446614583328" />
+          <ConnectorPoint PointX="5.25" PointY="6.1824446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="VisaModel.FK_CountryVisaProcedure" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.5599703307291657" />
+          <ConnectorPoint PointX="5" PointY="5.5599703307291657" />
+          <ConnectorPoint PointX="5" PointY="4" />
+          <ConnectorPoint PointX="8.5104141666666653" PointY="3.9999999999999996" />
+          <ConnectorPoint PointX="8.6770808333333331" PointY="4" />
+          <ConnectorPoint PointX="9" PointY="4" />
+          <ConnectorPoint PointX="9" PointY="4.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="VisaModel.FK_VisaTypeVisaProcedure" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="2.172841796875" />
+          <ConnectorPoint PointX="8.5937475" PointY="2.172841796875" />
+          <ConnectorPoint PointX="8.5937475" PointY="4.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="VisaModel.CountryCouncellingFirm" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.2208968098958328" />
+          <ConnectorPoint PointX="3.75" PointY="2.2208968098958328" />
+          <ConnectorPoint PointX="3.75" PointY="5" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

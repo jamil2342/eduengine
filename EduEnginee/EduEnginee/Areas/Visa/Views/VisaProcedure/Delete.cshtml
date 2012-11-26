@@ -1,0 +1,74 @@
+﻿@model EduEnginee.Areas.Visa.Models.VisaProcedureSet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>VisaProcedureSet</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Visafee)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Visafee)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequiredDocument)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequiredDocument)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Where_toApply)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Where_toApply)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SpecialNote)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SpecialNote)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhotographyInformation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhotographyInformation)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BasicRequirement)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BasicRequirement)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VisaTypeSet.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VisaTypeSet.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CountrySet.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CountrySet.Title)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
