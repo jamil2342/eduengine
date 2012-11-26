@@ -1,0 +1,13 @@
+﻿@model IEnumerable<EduEnginee.Areas.Visa.Models.ContinentSet>
+
+@foreach (var item in Model) {
+    <tr data-pkey="@item.Id">
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td class="rowControl hidden">
+            <a href="#makeRowEditable" class="makeRowEditable">Edit</a> |
+            <a href="#deleteRow" class="deleteRow">Delete</a>
+        </td>
+    </tr>
+}
