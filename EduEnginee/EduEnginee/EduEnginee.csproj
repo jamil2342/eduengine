@@ -236,6 +236,42 @@
     </Compile>
     <Compile Include="Areas\Quiz\QuizAreaRegistration.cs" />
     <Compile Include="Areas\Temp\TempAreaRegistration.cs" />
+    <Compile Include="Areas\Visa\Controllers\ContinentController.cs" />
+    <Compile Include="Areas\Visa\Controllers\VisaProcedureController.cs" />
+    <Compile Include="Areas\Visa\Models\ContinentSet.cs">
+      <DependentUpon>VisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Visa\Models\CouncellingFirmSet.cs">
+      <DependentUpon>VisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Visa\Models\CountrySet.cs">
+      <DependentUpon>VisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Visa\Models\ForeignStudySet.cs">
+      <DependentUpon>VisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Visa\Models\VisaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Visa\Models\VisaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Visa\Models\VisaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Visa\Models\VisaProcedureSet.cs">
+      <DependentUpon>VisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Visa\Models\VisaTypeSet.cs">
+      <DependentUpon>VisaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Visa\VisaAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdmissionDbController.cs" />
     <Compile Include="Controllers\AdmissionDbController.News.cs" />
@@ -259,6 +295,10 @@
     <Content Include="App_Data\QuizDb.mdf" />
     <Content Include="App_Data\QuizDb_log.ldf">
       <DependentUpon>QuizDb.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Visa.mdf" />
+    <Content Include="App_Data\Visa_log.ldf">
+      <DependentUpon>Visa.mdf</DependentUpon>
     </Content>
     <Content Include="Areas\Temp\Models\Admission.edmx.sql" />
     <Content Include="Content\button-edit.png" />
@@ -479,6 +519,27 @@
     <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Mvc.sitemap" />
+    <Content Include="Areas\Visa\Views\Web.config" />
+    <EntityDeploy Include="Areas\Visa\Models\VisaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VisaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Areas\Visa\Models\VisaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VisaModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Visa\Models\VisaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VisaModel.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Visa\Views\VisaProcedure\Index.cshtml" />
+    <Content Include="Areas\Visa\Views\VisaProcedure\Details.cshtml" />
+    <Content Include="Areas\Visa\Views\VisaProcedure\Create.cshtml" />
+    <Content Include="Areas\Visa\Views\VisaProcedure\Edit.cshtml" />
+    <Content Include="Areas\Visa\Views\VisaProcedure\Delete.cshtml" />
+    <Content Include="Areas\Visa\Views\Continent\Index.cshtml" />
+    <Content Include="Areas\Visa\Views\Continent\GridData.cshtml" />
+    <Content Include="Areas\Visa\Views\Continent\Edit.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -492,6 +553,7 @@
     <Folder Include="Areas\Quiz\Views\Shared\" />
     <Folder Include="Areas\Temp\Controllers\" />
     <Folder Include="Areas\Temp\Views\Shared\" />
+    <Folder Include="Areas\Visa\Views\Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

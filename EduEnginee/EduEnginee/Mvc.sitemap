@@ -30,5 +30,8 @@
     </mvcSiteMapNode>
     <mvcSiteMapNode title="News" area="Admission" controller="News" action="ViewerCirIndex">
     </mvcSiteMapNode>
+    <mvcSiteMapNode title="Continent" area="Visa" controller="Continenet" action="Index">
+    </mvcSiteMapNode>
+      
   </mvcSiteMapNode>
 </mvcSiteMap>
