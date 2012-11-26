@@ -460,7 +460,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="VisaModel">
+      <Diagram Name="VisaModel" ZoomLevel="91">
         <EntityTypeShape EntityType="VisaModel.ContinentSet" Width="1.5" PointX="0.75" PointY="5.375" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="VisaModel.CouncellingFirmSet" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="VisaModel.CountrySet" Width="1.5" PointX="3" PointY="5" Height="2.3648893229166656" IsExpanded="true" />
