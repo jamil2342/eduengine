@@ -31,5 +31,6 @@ namespace EduEnginee.Areas.Visa.Models
         public DbSet<ForeignStudySet> ForeignStudySet { get; set; }
         public DbSet<VisaProcedureSet> VisaProcedureSet { get; set; }
         public DbSet<VisaTypeSet> VisaTypeSet { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

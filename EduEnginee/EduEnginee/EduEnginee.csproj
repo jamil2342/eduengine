@@ -253,6 +253,9 @@
     <Compile Include="Areas\Visa\Models\ForeignStudySet.cs">
       <DependentUpon>VisaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Visa\Models\sysdiagrams.cs">
+      <DependentUpon>VisaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Visa\Models\VisaModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
