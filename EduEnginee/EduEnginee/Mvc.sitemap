@@ -4,13 +4,13 @@
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd"
             enableLocalization="true">
 
-  <mvcSiteMapNode title="Home" controller="Home" action="Index">
-    <mvcSiteMapNode title="About" controller="Home"  action="About"/>
-    <mvcSiteMapNode title="Contact" controller="Home"  action="Contact"/>
-    <mvcSiteMapNode title="University/College" area="Admission" controller="In" action="Index">
-    </mvcSiteMapNode>
-    <!--<mvcSiteMapNode title="Admin" roles="admin">-->
-      <!--<mvcSiteMapNode title="Country" area="Admission" controller="Country" action="Index">
+    <mvcSiteMapNode title="Home" controller="Home" action="Index">
+        <mvcSiteMapNode title="About" controller="Home"  action="About"/>
+        <mvcSiteMapNode title="Contact" controller="Home"  action="Contact"/>
+        <mvcSiteMapNode title="University/College" area="Admission" controller="In" action="Index">
+        </mvcSiteMapNode>
+        <!--<mvcSiteMapNode title="Admin" roles="admin">-->
+        <!--<mvcSiteMapNode title="Country" area="Admission" controller="Country" action="Index">
       </mvcSiteMapNode>
       <mvcSiteMapNode title="Admission Type" area="Admission" controller="AdType" action="Index">
       </mvcSiteMapNode>
@@ -20,19 +20,21 @@
       </mvcSiteMapNode>
       <mvcSiteMapNode title="Institute Sub Catagory" area="Admission" controller="InSubCat" action="Index">
       </mvcSiteMapNode>-->
-    <!--</mvcSiteMapNode>-->
+        <!--</mvcSiteMapNode>-->
 
-    <mvcSiteMapNode title="Circular" area="Admission" controller="Circular" action="ViewerCirIndex">
+        <mvcSiteMapNode title="Circular" area="Admission" controller="Circular" action="ViewerCirIndex">
+        </mvcSiteMapNode>
+        <mvcSiteMapNode title="Result/Seat Plan" area="Admission" controller="Circular" action="ResultAndSeatPlan">
+        </mvcSiteMapNode>
+        <mvcSiteMapNode title="Notice" area="Admission" controller="Notice" action="ViewerCirIndex">
+        </mvcSiteMapNode>
+        <mvcSiteMapNode title="News" area="Admission" controller="News" action="ViewerCirIndex">
+        </mvcSiteMapNode>
+        <mvcSiteMapNode title="Continent" area="Visa" controller="Continent" action="Index"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Country" area="Visa" controller="Country" action="Index"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Visa Type" area="Visa" controller="VisaType" action="Index"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Visa Procedure" area="Visa" controller="VisaProcedure" action="Index"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Councelling Firm" area="Visa" controller="CouncellingFirm" action="Index"></mvcSiteMapNode>
+
     </mvcSiteMapNode>
-    <mvcSiteMapNode title="Result/Seat Plan" area="Admission" controller="Circular" action="ResultAndSeatPlan">
-    </mvcSiteMapNode>
-    <mvcSiteMapNode title="Notice" area="Admission" controller="Notice" action="ViewerCirIndex">
-    </mvcSiteMapNode>
-    <mvcSiteMapNode title="News" area="Admission" controller="News" action="ViewerCirIndex">
-    </mvcSiteMapNode>
-      <mvcSiteMapNode title="Continent" area="Visa" controller="Continent" action="Index"></mvcSiteMapNode>
-      <mvcSiteMapNode title="Country" area="Visa" controller="Country" action="Index"></mvcSiteMapNode>
-      <mvcSiteMapNode title="Visa Type" area="Visa" controller="VisaType" action="Index"></mvcSiteMapNode>
-      
-  </mvcSiteMapNode>
 </mvcSiteMap>

@@ -39,7 +39,8 @@
                     <section id="login">
                         @Html.Partial("_LoginPartial")
                     </section>
-                     @Html.MvcSiteMap().Menu()
+                     @Html.MvcSiteMap().Menu(false, true, true)
+                     
                 
 
                 </div>
@@ -48,7 +49,7 @@
     <div id="body">
         @RenderSection("featured", required: false)
         <section class="content-wrapper main-content clear-fix">
-
+                @Html.MvcSiteMap().SiteMapPath()               
                 @RenderBody()
             </section>
     </div>
