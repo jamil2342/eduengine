@@ -35,6 +35,7 @@
         <mvcSiteMapNode title="Visa Type" area="Visa" controller="VisaType" action="Index"></mvcSiteMapNode>
         <mvcSiteMapNode title="Visa Procedure" area="Visa" controller="VisaProcedure" action="Index"></mvcSiteMapNode>
         <mvcSiteMapNode title="Councelling Firm" area="Visa" controller="CouncellingFirm" action="Index"></mvcSiteMapNode>
+        <mvcSiteMapNode title="ForeignStudy" area="Visa" controller="ForeignStudy" action="Index"></mvcSiteMapNode>
 
     </mvcSiteMapNode>
 </mvcSiteMap>
