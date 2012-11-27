@@ -351,7 +351,8 @@ fieldset {
     fieldset label.checkbox {
         display: inline;
     }
-
+    fieldset input[type="datetime"],
+    fieldset input[type="number"],
     fieldset input[type="text"],
     fieldset input[type="password"] {
         border: 1px solid #e2e2e2;
@@ -362,7 +363,7 @@ fieldset {
         width: 300px;
     }
 
-        fieldset input[type="text"]:focus, fieldset input[type="password"]:focus
+ fieldset input[type="datetime"]:focus,fieldset input[type="number"]:focus,        fieldset input[type="text"]:focus, fieldset input[type="password"]:focus
 {
     border: 1px solid #FFFF00;
 }
