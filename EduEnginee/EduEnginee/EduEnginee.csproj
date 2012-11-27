@@ -239,6 +239,7 @@
     <Compile Include="Areas\Visa\Controllers\ContinentController.cs" />
     <Compile Include="Areas\Visa\Controllers\CouncellingFirmController.cs" />
     <Compile Include="Areas\Visa\Controllers\CountryController.cs" />
+    <Compile Include="Areas\Visa\Controllers\ForeignStudyController.cs" />
     <Compile Include="Areas\Visa\Controllers\VisaProcedureController.cs" />
     <Compile Include="Areas\Visa\Controllers\VisaTypeController.cs" />
     <Compile Include="Areas\Visa\Models\ContinentSet.cs">
@@ -561,6 +562,11 @@
     <Content Include="Areas\Visa\Views\CouncellingFirm\Index.cshtml" />
     <Content Include="Areas\Visa\Views\Shared\View1.cshtml" />
     <Content Include="Areas\Visa\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Visa\Views\ForeignStudy\Index.cshtml" />
+    <Content Include="Areas\Visa\Views\ForeignStudy\Details.cshtml" />
+    <Content Include="Areas\Visa\Views\ForeignStudy\Create.cshtml" />
+    <Content Include="Areas\Visa\Views\ForeignStudy\Edit.cshtml" />
+    <Content Include="Areas\Visa\Views\ForeignStudy\Delete.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

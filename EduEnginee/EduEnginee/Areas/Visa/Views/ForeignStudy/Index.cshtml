@@ -1,0 +1,105 @@
+﻿@model IEnumerable<EduEnginee.Areas.Visa.Models.ForeignStudySet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VisaTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Degrees)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SemesterOffer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequirementsForBachelorsProgram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequirementsForMastersProgram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subjects)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expenses)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplyProcedure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupportingDocuments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditTransfer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherInformation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountrySet.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisaTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Degrees)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SemesterOffer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequirementsForBachelorsProgram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequirementsForMastersProgram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subjects)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expenses)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplyProcedure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupportingDocuments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditTransfer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherInformation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountrySet.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

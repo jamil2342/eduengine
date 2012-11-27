@@ -1,0 +1,133 @@
+﻿@model EduEnginee.Areas.Visa.Models.ForeignStudySet
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ForeignStudySet</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VisaTypeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VisaTypeId)
+            @Html.ValidationMessageFor(model => model.VisaTypeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CountryId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CountryId)
+            @Html.ValidationMessageFor(model => model.CountryId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Degrees)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Degrees)
+            @Html.ValidationMessageFor(model => model.Degrees)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SemesterOffer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SemesterOffer)
+            @Html.ValidationMessageFor(model => model.SemesterOffer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequirementsForBachelorsProgram)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequirementsForBachelorsProgram)
+            @Html.ValidationMessageFor(model => model.RequirementsForBachelorsProgram)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequirementsForMastersProgram)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequirementsForMastersProgram)
+            @Html.ValidationMessageFor(model => model.RequirementsForMastersProgram)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Subjects)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Subjects)
+            @Html.ValidationMessageFor(model => model.Subjects)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Expenses)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Expenses)
+            @Html.ValidationMessageFor(model => model.Expenses)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ApplyProcedure)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplyProcedure)
+            @Html.ValidationMessageFor(model => model.ApplyProcedure)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SupportingDocuments)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SupportingDocuments)
+            @Html.ValidationMessageFor(model => model.SupportingDocuments)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreditTransfer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreditTransfer)
+            @Html.ValidationMessageFor(model => model.CreditTransfer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OtherInformation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OtherInformation)
+            @Html.ValidationMessageFor(model => model.OtherInformation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Country_Id, "CountrySet")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Country_Id", String.Empty)
+            @Html.ValidationMessageFor(model => model.Country_Id)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
