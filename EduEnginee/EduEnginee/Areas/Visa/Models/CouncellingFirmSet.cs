@@ -31,6 +31,7 @@ namespace EduEnginee.Areas.Visa.Models
         public string DirectorName { get; set; }
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
+        public string Title { get; set; }
     
         public virtual ICollection<CountrySet> CountrySet { get; set; }
     }
