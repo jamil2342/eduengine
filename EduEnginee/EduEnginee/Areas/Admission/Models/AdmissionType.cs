@@ -58,6 +58,7 @@ namespace EduEnginee.Areas.Admission.Models
         private string _title;
 
         #endregion
+
         #region Navigation Properties
     
         [DataMember]
@@ -96,6 +97,7 @@ namespace EduEnginee.Areas.Admission.Models
         private TrackableCollection<Circular> _circulars;
 
         #endregion
+
         #region ChangeTracking
     
         protected virtual void OnPropertyChanged(String propertyName)
@@ -177,6 +179,7 @@ namespace EduEnginee.Areas.Admission.Models
         }
 
         #endregion
+
         #region Association Fixup
     
         private void FixupCirculars(object sender, NotifyCollectionChangedEventArgs e)
@@ -219,5 +222,6 @@ namespace EduEnginee.Areas.Admission.Models
         }
 
         #endregion
+
     }
 }
