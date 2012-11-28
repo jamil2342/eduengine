@@ -102,6 +102,7 @@ namespace EduEnginee.Areas.Admission.Models
         private byte[] _definition;
 
         #endregion
+
         #region ChangeTracking
     
         protected virtual void OnPropertyChanged(String propertyName)
@@ -182,5 +183,6 @@ namespace EduEnginee.Areas.Admission.Models
         }
 
         #endregion
+
     }
 }

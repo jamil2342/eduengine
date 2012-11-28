@@ -97,6 +97,7 @@ namespace EduEnginee.Areas.Admission.Models
         private Nullable<bool> _isEnable;
 
         #endregion
+
         #region Navigation Properties
     
         [DataMember]
@@ -152,6 +153,7 @@ namespace EduEnginee.Areas.Admission.Models
         private InstituteType _instituteType;
 
         #endregion
+
         #region ChangeTracking
     
         protected virtual void OnPropertyChanged(String propertyName)
@@ -234,6 +236,7 @@ namespace EduEnginee.Areas.Admission.Models
         }
 
         #endregion
+
         #region Association Fixup
     
         private void FixupInstituteType(InstituteType previousValue)
@@ -315,5 +318,6 @@ namespace EduEnginee.Areas.Admission.Models
         }
 
         #endregion
+
     }
 }

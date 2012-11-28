@@ -180,6 +180,7 @@ namespace EduEnginee.Areas.Admission.Models
         private Nullable<System.DateTime> _updatedDate;
 
         #endregion
+
         #region Navigation Properties
     
         [DataMember]
@@ -217,6 +218,7 @@ namespace EduEnginee.Areas.Admission.Models
         private Institute _institute;
 
         #endregion
+
         #region ChangeTracking
     
         protected virtual void OnPropertyChanged(String propertyName)
@@ -299,6 +301,7 @@ namespace EduEnginee.Areas.Admission.Models
         }
 
         #endregion
+
         #region Association Fixup
     
         private void FixupCircular(Circular previousValue)
@@ -385,5 +388,6 @@ namespace EduEnginee.Areas.Admission.Models
         }
 
         #endregion
+
     }
 }

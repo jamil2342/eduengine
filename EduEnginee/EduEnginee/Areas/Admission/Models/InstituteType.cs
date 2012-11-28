@@ -73,6 +73,7 @@ namespace EduEnginee.Areas.Admission.Models
         private Nullable<bool> _isEnable;
 
         #endregion
+
         #region Navigation Properties
     
         [DataMember]
@@ -111,6 +112,7 @@ namespace EduEnginee.Areas.Admission.Models
         private TrackableCollection<InstituteCatary> _instituteCataries;
 
         #endregion
+
         #region ChangeTracking
     
         protected virtual void OnPropertyChanged(String propertyName)
@@ -192,6 +194,7 @@ namespace EduEnginee.Areas.Admission.Models
         }
 
         #endregion
+
         #region Association Fixup
     
         private void FixupInstituteCataries(object sender, NotifyCollectionChangedEventArgs e)
@@ -234,5 +237,6 @@ namespace EduEnginee.Areas.Admission.Models
         }
 
         #endregion
+
     }
 }
