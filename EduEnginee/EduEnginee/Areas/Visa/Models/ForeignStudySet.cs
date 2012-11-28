@@ -16,8 +16,6 @@ namespace EduEnginee.Areas.Visa.Models
     public partial class ForeignStudySet
     {
         public int Id { get; set; }
-        public int VisaTypeId { get; set; }
-        public int CountryId { get; set; }
         [DataType(DataType.MultilineText)]
         public string Degrees { get; set; }
         [DataType(DataType.MultilineText)]

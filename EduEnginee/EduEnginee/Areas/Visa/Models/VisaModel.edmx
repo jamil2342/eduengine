@@ -51,14 +51,14 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Mobile" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Fax" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Web" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="DirectorName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Fax" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Web" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DirectorName" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="CountryCouncellingFirm">
           <Key>
@@ -81,18 +81,16 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="VisaTypeId" Type="int" Nullable="false" />
-          <Property Name="CountryId" Type="int" Nullable="false" />
-          <Property Name="Degrees" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SemesterOffer" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="RequirementsForBachelorsProgram" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="RequirementsForMastersProgram" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Subjects" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Expenses" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ApplyProcedure" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SupportingDocuments" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CreditTransfer" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="OtherInformation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Degrees" Type="nvarchar(max)" />
+          <Property Name="SemesterOffer" Type="nvarchar(max)" />
+          <Property Name="RequirementsForBachelorsProgram" Type="nvarchar(max)" />
+          <Property Name="RequirementsForMastersProgram" Type="nvarchar(max)" />
+          <Property Name="Subjects" Type="nvarchar(max)" />
+          <Property Name="Expenses" Type="nvarchar(max)" />
+          <Property Name="ApplyProcedure" Type="nvarchar(max)" />
+          <Property Name="SupportingDocuments" Type="nvarchar(max)" />
+          <Property Name="CreditTransfer" Type="nvarchar(max)" />
+          <Property Name="OtherInformation" Type="nvarchar(max)" />
           <Property Name="Country_Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -110,12 +108,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Visafee" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="RequiredDocument" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Where_toApply" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SpecialNote" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="PhotographyInformation" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="BasicRequirement" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Visafee" Type="nvarchar" MaxLength="50" />
+          <Property Name="RequiredDocument" Type="nvarchar(max)" />
+          <Property Name="Where_toApply" Type="nvarchar(max)" />
+          <Property Name="SpecialNote" Type="nvarchar(max)" />
+          <Property Name="PhotographyInformation" Type="nvarchar(max)" />
+          <Property Name="BasicRequirement" Type="nvarchar(max)" />
           <Property Name="VisaTypeId" Type="int" Nullable="false" />
           <Property Name="Country_Id" Type="int" Nullable="false" />
         </EntityType>
@@ -302,8 +300,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VisaTypeId" Type="Int32" Nullable="false" />
-          <Property Name="CountryId" Type="Int32" Nullable="false" />
           <Property Name="Degrees" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="SemesterOffer" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="RequirementsForBachelorsProgram" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -445,8 +441,6 @@
             <EntityTypeMapping TypeName="VisaModel.ForeignStudySet">
               <MappingFragment StoreEntitySet="ForeignStudySet">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="VisaTypeId" ColumnName="VisaTypeId" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="Degrees" ColumnName="Degrees" />
                 <ScalarProperty Name="SemesterOffer" ColumnName="SemesterOffer" />
                 <ScalarProperty Name="RequirementsForBachelorsProgram" ColumnName="RequirementsForBachelorsProgram" />
@@ -528,7 +522,7 @@
         <EntityTypeShape EntityType="VisaModel.ContinentSet" Width="1.5" PointX="0.75" PointY="5.375" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="VisaModel.CouncellingFirmSet" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="VisaModel.CountrySet" Width="1.5" PointX="3" PointY="5" Height="2.3648893229166656" IsExpanded="true" />
-        <EntityTypeShape EntityType="VisaModel.ForeignStudySet" Width="1.5" PointX="5.25" PointY="4.25" Height="3.9033007812499987" IsExpanded="true" />
+        <EntityTypeShape EntityType="VisaModel.ForeignStudySet" Width="1.5" PointX="5.25" PointY="4.25" Height="3.5186979166666656" IsExpanded="true" />
         <EntityTypeShape EntityType="VisaModel.VisaProcedureSet" Width="1.5" PointX="8.25" PointY="4.625" Height="3.1340950520833335" IsExpanded="true" />
         <EntityTypeShape EntityType="VisaModel.VisaTypeSet" Width="1.5" PointX="6" PointY="1.375" Height="1.5956835937499996" IsExpanded="true" />
         <AssociationConnector Association="VisaModel.FK_ContinentCountry" ManuallyRouted="false">
@@ -540,13 +534,11 @@
           <ConnectorPoint PointX="5.25" PointY="6.1824446614583328" />
         </AssociationConnector>
         <AssociationConnector Association="VisaModel.FK_CountryVisaProcedure" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.5599703307291657" />
-          <ConnectorPoint PointX="5" PointY="5.5599703307291657" />
-          <ConnectorPoint PointX="5" PointY="4" />
-          <ConnectorPoint PointX="8.1979166666666661" PointY="3.9999999999999996" />
-          <ConnectorPoint PointX="8.3645833333333339" PointY="4" />
-          <ConnectorPoint PointX="9" PointY="4" />
-          <ConnectorPoint PointX="9" PointY="4.625" />
+          <ConnectorPoint PointX="4.5" PointY="7.3648893229166656" />
+          <ConnectorPoint PointX="4.875" PointY="7.7398893229166656" />
+          <ConnectorPoint PointX="4.875" PointY="8.1340950520833335" />
+          <ConnectorPoint PointX="7.8749999999999982" PointY="8.1340950520833335" />
+          <ConnectorPoint PointX="8.25" PointY="7.7590950520833335" />
         </AssociationConnector>
         <AssociationConnector Association="VisaModel.FK_VisaTypeVisaProcedure" ManuallyRouted="false">
           <ConnectorPoint PointX="7.5" PointY="2.8817350260416656" />
