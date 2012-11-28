@@ -351,6 +351,12 @@ fieldset {
     fieldset label.checkbox {
         display: inline;
     }
+    
+    fieldset textarea
+{
+    width: 100%;
+}
+    
     fieldset input[type="datetime"],
     fieldset input[type="number"],
     fieldset input[type="text"],
@@ -363,7 +369,7 @@ fieldset {
         width: 300px;
     }
 
- fieldset input[type="datetime"]:focus,fieldset input[type="number"]:focus,        fieldset input[type="text"]:focus, fieldset input[type="password"]:focus
+ fieldset textarea:focus, input[type="datetime"]:focus,fieldset input[type="number"]:focus,        fieldset input[type="text"]:focus, fieldset input[type="password"]:focus
 {
     border: 1px solid #FFFF00;
 }
@@ -758,7 +764,7 @@ tr
 }
 
 .editor-multiline-field textarea {
-    width: 300px;
+    width: 500px;
     height: 200px;
 }
 
@@ -801,3 +807,7 @@ text-box single-line
    
 }
 
+.text-box multi-line
+{
+    width: 500px;
+}
