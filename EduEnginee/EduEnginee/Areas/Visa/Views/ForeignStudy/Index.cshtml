@@ -12,12 +12,7 @@
 </p>
 <table>
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.VisaTypeId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CountryId)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Degrees)
         </th>
@@ -56,12 +51,7 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.VisaTypeId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountryId)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Degrees)
         </td>
