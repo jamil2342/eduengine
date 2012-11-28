@@ -150,5 +150,6 @@ namespace EduEnginee.Areas.Admission.Models
         private ObjectSet<sysdiagram> _sysdiagrams;
 
         #endregion
+
     }
 }
