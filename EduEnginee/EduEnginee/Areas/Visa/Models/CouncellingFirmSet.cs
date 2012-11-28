@@ -21,6 +21,7 @@ namespace EduEnginee.Areas.Visa.Models
         }
     
         public int Id { get; set; }
+        public string Title { get; set; }
         public string Mobile { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
@@ -31,7 +32,7 @@ namespace EduEnginee.Areas.Visa.Models
         public string DirectorName { get; set; }
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
-        public string Title { get; set; }
+   
     
         public virtual ICollection<CountrySet> CountrySet { get; set; }
     }
