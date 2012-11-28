@@ -109,7 +109,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Visafee" Type="nvarchar" MaxLength="50" />
+          <Property Name="VFS charge" Type="nvarchar(max)" />
+          <Property Name="Visafee" Type="nvarchar(max)" />
           <Property Name="RequiredDocument" Type="nvarchar(max)" />
           <Property Name="Where_toApply" Type="nvarchar(max)" />
           <Property Name="SpecialNote" Type="nvarchar(max)" />
@@ -330,6 +331,7 @@
           <Property Name="Country_Id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CountrySet" Relationship="VisaModel.FK_CountryVisaProcedure" FromRole="VisaProcedureSet" ToRole="CountrySet" />
           <NavigationProperty Name="VisaTypeSet" Relationship="VisaModel.FK_VisaTypeVisaProcedure" FromRole="VisaProcedureSet" ToRole="VisaTypeSet" />
+          <Property Type="String" Name="VFS_charge" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="VisaTypeSet">
           <Key>
@@ -461,6 +463,7 @@
           <EntitySetMapping Name="VisaProcedureSet">
             <EntityTypeMapping TypeName="VisaModel.VisaProcedureSet">
               <MappingFragment StoreEntitySet="VisaProcedureSet">
+                <ScalarProperty Name="VFS_charge" ColumnName="VFS charge" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Visafee" ColumnName="Visafee" />
                 <ScalarProperty Name="RequiredDocument" ColumnName="RequiredDocument" />

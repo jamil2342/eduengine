@@ -17,6 +17,7 @@ namespace EduEnginee.Areas.Visa.Models
     {
         public int Id { get; set; }
         public string Visafee { get; set; }
+        public string VFS_charge { get; set; }
         [DataType(DataType.MultilineText)]
         public string RequiredDocument { get; set; }
         [DataType(DataType.MultilineText)]
