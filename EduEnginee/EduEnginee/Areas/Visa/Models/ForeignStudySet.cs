@@ -11,21 +11,31 @@ namespace EduEnginee.Areas.Visa.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class ForeignStudySet
     {
         public int Id { get; set; }
         public int VisaTypeId { get; set; }
         public int CountryId { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Degrees { get; set; }
+        [DataType(DataType.MultilineText)]
         public string SemesterOffer { get; set; }
+        [DataType(DataType.MultilineText)]
         public string RequirementsForBachelorsProgram { get; set; }
+        [DataType(DataType.MultilineText)]
         public string RequirementsForMastersProgram { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Subjects { get; set; }
         public string Expenses { get; set; }
+        [DataType(DataType.MultilineText)]
         public string ApplyProcedure { get; set; }
+        [DataType(DataType.MultilineText)]
         public string SupportingDocuments { get; set; }
+        [DataType(DataType.MultilineText)]
         public string CreditTransfer { get; set; }
+        [DataType(DataType.MultilineText)]
         public string OtherInformation { get; set; }
         public int Country_Id { get; set; }
     

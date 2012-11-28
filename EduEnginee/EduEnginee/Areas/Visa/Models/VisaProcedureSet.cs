@@ -11,15 +11,21 @@ namespace EduEnginee.Areas.Visa.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class VisaProcedureSet
     {
         public int Id { get; set; }
         public string Visafee { get; set; }
+        [DataType(DataType.MultilineText)]
         public string RequiredDocument { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Where_toApply { get; set; }
+        [DataType(DataType.MultilineText)]
         public string SpecialNote { get; set; }
+        [DataType(DataType.MultilineText)]
         public string PhotographyInformation { get; set; }
+        [DataType(DataType.MultilineText)]
         public string BasicRequirement { get; set; }
         public int VisaTypeId { get; set; }
         public int Country_Id { get; set; }
