@@ -51,6 +51,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Mobile" Type="nvarchar(max)" />
           <Property Name="Phone" Type="nvarchar(max)" />
           <Property Name="Fax" Type="nvarchar(max)" />
@@ -282,6 +283,7 @@
           <Property Name="DirectorName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="CountrySet" Relationship="VisaModel.CountryCouncellingFirm" FromRole="CouncellingFirmSet" ToRole="CountrySet" />
+          <Property Type="String" Name="Title" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CountrySet">
           <Key>
@@ -416,6 +418,7 @@
           <EntitySetMapping Name="CouncellingFirmSet">
             <EntityTypeMapping TypeName="VisaModel.CouncellingFirmSet">
               <MappingFragment StoreEntitySet="CouncellingFirmSet">
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
