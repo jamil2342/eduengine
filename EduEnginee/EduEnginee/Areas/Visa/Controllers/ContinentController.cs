@@ -50,6 +50,12 @@ namespace EduEnginee.Areas.Visa.Controllers
             return PartialView("GridData", new ContinentSet[] { continentset });
         }
 
+
+        public ActionResult _TabGroup()
+        {
+            return PartialView(db.ContinentSet.ToList());
+        }
+
         //
         // GET: /Visa/Continent/Create
 
