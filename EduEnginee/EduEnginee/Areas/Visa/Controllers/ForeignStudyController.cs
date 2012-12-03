@@ -22,6 +22,30 @@ namespace EduEnginee.Areas.Visa.Controllers
             return View(foreignstudyset.ToList());
         }
 
+        public ActionResult _ContinentTab()
+        {
+
+            return PartialView(db.ContinentSet.ToList());
+        }
+
+        public ActionResult _CountryList(int? continentId)
+        {
+
+            var qry = from q in db.CountrySet
+                      where q.ContinentId == continentId
+                      orderby q.Title
+                      select q;
+            return PartialView(qry.ToList());
+        }
+
+        public ActionResult _List(int? countryId)
+        {
+            var foreignStudy = from q in db.ForeignStudySet
+                                   where q.Country_Id == countryId
+                                   select q;
+            return View(foreignStudy.ToList());
+        }
+
         //
         // GET: /Visa/ForeignStudy/Details/5
 

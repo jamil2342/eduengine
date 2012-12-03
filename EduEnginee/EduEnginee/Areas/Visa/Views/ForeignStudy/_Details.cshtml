@@ -1,0 +1,86 @@
+﻿@model EduEnginee.Areas.Visa.Models.ForeignStudySet
+
+<fieldset>
+    <legend>ForeignStudySet</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Degrees)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Degrees)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemesterOffer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemesterOffer)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequirementsForBachelorsProgram)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequirementsForBachelorsProgram)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequirementsForMastersProgram)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequirementsForMastersProgram)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Subjects)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Subjects)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Expenses)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Expenses)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ApplyProcedure)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplyProcedure)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SupportingDocuments)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SupportingDocuments)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreditTransfer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreditTransfer)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OtherInformation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OtherInformation)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Country_Id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Country_Id)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
