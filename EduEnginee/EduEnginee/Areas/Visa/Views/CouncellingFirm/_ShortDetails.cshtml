@@ -1,0 +1,20 @@
+﻿@model EduEnginee.Areas.Visa.Models.CouncellingFirmSet
+<table>
+    <tr>
+
+        <td width="50%" >
+            <h2 align="left" style="padding-top: 0px;">@Model.Title</h2>
+            
+            <br>
+        </td>
+        <td width="50%" align="left">
+            <b>Mobile: </b>@Model.Mobile<br>
+            <b>Phone: </b>+ @Model.Phone<br>
+            <b>Fax: </b>@Model.Fax<br>
+            <b>Email: </b>@Model.Email<br>
+            <b>Web: </b><a target="_blank" href="@Model.Web">@Model.Web</a><br />
+            <b>Director: </b>@Model.DirectorName<br>
+            <b>Location: </b>@Model.Address<br>
+        </td>
+    </tr>
+</table>
