@@ -11,25 +11,28 @@ namespace EduEnginee.Areas.Visa.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CouncellingFirmSet
     {
         public CouncellingFirmSet()
         {
             this.CountrySet = new HashSet<CountrySet>();
         }
-    
+
         public int Id { get; set; }
         public string Mobile { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string Email { get; set; }
         public string Web { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         public string DirectorName { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Address { get; set; }
         public string Title { get; set; }
-    
+
         public virtual ICollection<CountrySet> CountrySet { get; set; }
     }
 }
