@@ -1,0 +1,17 @@
+﻿@model IEnumerable<EduEnginee.Areas.Visa.Models.CountrySet>
+
+
+<table>
+
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.ActionLink(item.Title,"_List",new {countryId=item.Id})
+        </td>
+
+    </tr>
+}
+
+</table>
