@@ -1,0 +1,20 @@
+﻿@model IEnumerable<EduEnginee.Areas.Visa.Models.ContinentSet>
+
+
+<div id="tabs" >
+   <ul>
+   @foreach (var item in Model)
+   {
+        <li><a href="#@item.Id">@item.Title</a></li>    
+   }   
+   
+   </ul>
+
+    @foreach (var item in Model)
+    {
+        
+        <div id="@item.Id">
+        <p> @Html.Action("_CountryList", new { continentId = @item.Id })    </p>
+        </div>
+    }           
+</div>

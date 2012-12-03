@@ -11,7 +11,6 @@ namespace EduEnginee.Areas.Visa.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class CouncellingFirmSet
     {
@@ -26,10 +25,8 @@ namespace EduEnginee.Areas.Visa.Models
         public string Fax { get; set; }
         public string Email { get; set; }
         public string Web { get; set; }
-        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         public string DirectorName { get; set; }
-        [DataType(DataType.MultilineText)]
         public string Address { get; set; }
         public string Title { get; set; }
     

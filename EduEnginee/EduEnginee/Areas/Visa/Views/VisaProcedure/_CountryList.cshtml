@@ -1,0 +1,17 @@
+﻿@model IEnumerable<EduEnginee.Areas.Visa.Models.CountrySet>
+
+
+<table>
+
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+
+    </tr>
+}
+
+</table>
