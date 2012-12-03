@@ -887,6 +887,8 @@
     <Content Include="Areas\Visa\Views\CouncellingFirm\_List.cshtml" />
     <Content Include="Areas\Visa\Views\VisaProcedure\_ContinentTab.cshtml" />
     <Content Include="Areas\Visa\Views\VisaProcedure\_CountryList.cshtml" />
+    <Content Include="Areas\Visa\Views\VisaProcedure\_List.cshtml" />
+    <Content Include="Areas\Visa\Views\VisaProcedure\_Details.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

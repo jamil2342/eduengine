@@ -38,6 +38,14 @@ namespace EduEnginee.Areas.Visa.Controllers
                       select q;
             return PartialView(qry.ToList());
         }
+
+        public ActionResult _List(int? countryId)
+        {
+            var visaprocedureset = from q in db.VisaProcedureSet
+                                   where q.Country_Id == countryId
+                                   select q;
+            return View(visaprocedureset.ToList());
+        }
         //
         // GET: /Visa/VisaProcedure/Details/5
 

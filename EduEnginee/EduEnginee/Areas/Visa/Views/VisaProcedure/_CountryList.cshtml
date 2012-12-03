@@ -8,7 +8,7 @@
     <tr>
 
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.ActionLink(item.Title,"_List",new {countryId=item.Id})
         </td>
 
     </tr>
