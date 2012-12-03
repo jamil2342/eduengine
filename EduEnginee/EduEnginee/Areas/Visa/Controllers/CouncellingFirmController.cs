@@ -21,6 +21,22 @@ namespace EduEnginee.Areas.Visa.Controllers
             return View(db.CouncellingFirmSet.ToList());
         }
 
+        public ActionResult _ContinentTab()
+        {
+
+            return PartialView(db.ContinentSet.ToList());
+        }
+
+        public ActionResult _List(int? continentId)
+        {
+
+            var qry= from q in db.CouncellingFirmSet
+                     where q.CountrySet.Any(c=>c.ContinentId==continentId)
+                         select q;
+            return PartialView(qry.ToList());
+        }
+
+
         //
         // GET: /Visa/CouncellingFirm/Details/5
 

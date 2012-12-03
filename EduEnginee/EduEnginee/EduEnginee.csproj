@@ -883,6 +883,8 @@
     <Content Include="Areas\Visa\Views\ForeignStudy\Edit.cshtml" />
     <Content Include="Areas\Visa\Views\ForeignStudy\Delete.cshtml" />
     <Content Include="Areas\Visa\Views\Continent\_TabGroup.cshtml" />
+    <Content Include="Areas\Visa\Views\CouncellingFirm\_ContinentTab.cshtml" />
+    <Content Include="Areas\Visa\Views\CouncellingFirm\_List.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
