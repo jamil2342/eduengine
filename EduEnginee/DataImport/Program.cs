@@ -15,7 +15,7 @@ namespace DataImport
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InstituteDbImport());
+            Application.Run(new CouncellingFirm());
         }
     }
 }
