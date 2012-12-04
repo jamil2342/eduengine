@@ -8,7 +8,7 @@
     <legend>CouncellingFirmSet</legend>
     @Html.Partial("_ShortDetails",Model)
     
-    @Html.Encode(Model.Description)
+    @Html.Raw(Model.Description)
     
     
 </fieldset>
