@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Blink", "Blink\Blink.cppproj", "{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}.Debug|AVR.ActiveCfg = Debug|AVR
+		{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}.Debug|AVR.Build.0 = Debug|AVR
+		{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}.Release|AVR.ActiveCfg = Release|AVR
+		{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
