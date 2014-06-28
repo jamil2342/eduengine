@@ -7,12 +7,17 @@
 
 #include "MyClass.h"
 
+const int ledPin=13;
+
 void setup()
 {
-	myClass.setup();
+	pinMode(ledPin,OUTPUT);
 }
 
 void loop()
 {
-	myClass.loop();
+	digitalWrite(ledPin,HIGH);
+	delay(2000);
+	digitalWrite(ledPin,LOW);
+	delay(2000);
 }
