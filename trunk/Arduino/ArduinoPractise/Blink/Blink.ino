@@ -8,6 +8,7 @@
 #include "MyClass.h"
 
 const int ledPin=13;
+const int delay_time = 1000;
 
 void setup()
 {
@@ -17,7 +18,7 @@ void setup()
 void loop()
 {
 	digitalWrite(ledPin,HIGH);
-	delay(2000);
+	delay(delay_time);
 	digitalWrite(ledPin,LOW);
-	delay(2000);
+	delay(delay_time);
 }
