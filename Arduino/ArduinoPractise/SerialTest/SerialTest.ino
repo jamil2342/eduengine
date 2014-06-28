@@ -11,6 +11,8 @@ void loop() {
 	{
 		String str =Serial.readString();
 		len=str.length();
+		
+		
 		Serial.println(len);
 
 		
