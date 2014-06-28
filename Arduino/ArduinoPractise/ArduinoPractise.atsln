@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Atmel Studio Solution File, Format Version 11.00
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "1_Blink", "Blink\1_Blink.cppproj", "{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}"
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Blink", "Blink\Blink.cppproj", "{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
