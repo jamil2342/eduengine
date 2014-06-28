@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Atmel Studio Solution File, Format Version 11.00
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Blink", "Blink\Blink.cppproj", "{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "BlinkWithOutDelay", "BlinkWithOutDelay\BlinkWithOutDelay.cppproj", "{BA3C0AB5-D557-46E2-917A-3293147371C1}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -17,6 +19,10 @@ Global
 		{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}.Debug|AVR.Build.0 = Debug|AVR
 		{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}.Release|AVR.ActiveCfg = Release|AVR
 		{4B69B2C4-1652-41EB-9C0E-AEE1416DB995}.Release|AVR.Build.0 = Release|AVR
+		{BA3C0AB5-D557-46E2-917A-3293147371C1}.Debug|AVR.ActiveCfg = Debug|AVR
+		{BA3C0AB5-D557-46E2-917A-3293147371C1}.Debug|AVR.Build.0 = Debug|AVR
+		{BA3C0AB5-D557-46E2-917A-3293147371C1}.Release|AVR.ActiveCfg = Release|AVR
+		{BA3C0AB5-D557-46E2-917A-3293147371C1}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
