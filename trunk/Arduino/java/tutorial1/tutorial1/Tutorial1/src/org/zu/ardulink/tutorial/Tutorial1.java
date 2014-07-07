@@ -30,14 +30,16 @@ public class Tutorial1 extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+            
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					// 1. Change Look and Feel
 					UIManager.setLookAndFeel(NimbusLookAndFeel.class.getCanonicalName());
-					
-					Tutorial1 frame = new Tutorial1();
-					frame.setVisible(true);
+					ArdulinkTest f= new ArdulinkTest();
+                                        f.setVisible(true);
+////					Tutorial1 frame = new Tutorial1();
+////					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
