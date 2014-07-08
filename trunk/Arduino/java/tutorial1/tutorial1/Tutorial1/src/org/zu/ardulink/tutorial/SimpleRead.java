@@ -31,7 +31,7 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
 
     public static void main(String[] args) {
         portList = CommPortIdentifier.getPortIdentifiers();
-
+           
         while (portList.hasMoreElements()) {
             portId = (CommPortIdentifier) portList.nextElement();
             if (portId.getPortType() == CommPortIdentifier.PORT_SERIAL) {
@@ -41,6 +41,9 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
                 }
             }
         }
+        
+      
+        
     }
 
     public SimpleRead() {

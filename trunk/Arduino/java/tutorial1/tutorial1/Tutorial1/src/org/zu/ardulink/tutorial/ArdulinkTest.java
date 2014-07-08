@@ -1,7 +1,7 @@
-
 package org.zu.ardulink.tutorial;
 
 import org.zu.ardulink.Link;
+import org.zu.ardulink.*;
 //import org.zu.ardulink.gui.SwitchController;
 
 /*
@@ -9,12 +9,12 @@ import org.zu.ardulink.Link;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author MIR
  */
 public class ArdulinkTest extends javax.swing.JFrame {
+
     private Link link;
 
     /**
@@ -97,26 +97,25 @@ public class ArdulinkTest extends javax.swing.JFrame {
 
     private void connectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectBtnActionPerformed
         // TODO add your handling code here:
-//       link = Link.getDefaultInstance();
-//        boolean connected = link.connect("COM3", 9600);
-        Link.getDefaultInstance().connect("COM3", 9600);
-        
-       
+        link = Link.getDefaultInstance();
+        boolean connected = link.connect("COM3", 9600);
+        //Link.getDefaultInstance().connect("COM3", 9600);
+
+
     }//GEN-LAST:event_connectBtnActionPerformed
 
     private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBtnActionPerformed
         // TODO add your handling code here:
-       // link.sendCustomMessage("goAhead");
-        String str=msgTB.getText();
-       Link.getDefaultInstance().writeSerial(str);
-      
-       
-        
+        // link.sendCustomMessage("goAhead");
+        String str = msgTB.getText();
+        link.writeSerial(str);
+
+
     }//GEN-LAST:event_sendBtnActionPerformed
 
     private void disconnectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disconnectBtnActionPerformed
         // TODO add your handling code here:
-        Link.getDefaultInstance().disconnect();
+        link.disconnect();
     }//GEN-LAST:event_disconnectBtnActionPerformed
 
     /**
