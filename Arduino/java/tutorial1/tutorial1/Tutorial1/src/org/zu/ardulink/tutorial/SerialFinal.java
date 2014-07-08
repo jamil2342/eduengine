@@ -3,22 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.zu.ardulink.tutorial;
 
-
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jssc.SerialPort;
 import jssc.SerialPortEvent;
 import jssc.SerialPortEventListener;
 import jssc.SerialPortException;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author MIR
  */
 public class SerialFinal extends javax.swing.JFrame {
-    SerialPort serialPort= new SerialPort("COM3");
+
+    static SerialPort serialPort = new SerialPort("COM3");
+
     /**
      * Creates new form SerialFinal
      */
@@ -37,9 +39,9 @@ public class SerialFinal extends javax.swing.JFrame {
 
         connectBtn = new javax.swing.JButton();
         disconnectBtn = new javax.swing.JButton();
-        logTb = new javax.swing.JTextField();
+        inputTb = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        inputTb = new javax.swing.JTextArea();
+        logTb = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,38 +53,48 @@ public class SerialFinal extends javax.swing.JFrame {
         });
 
         disconnectBtn.setText("Disconnect");
+        disconnectBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disconnectBtnActionPerformed(evt);
+            }
+        });
 
-        inputTb.setColumns(20);
-        inputTb.setRows(5);
-        jScrollPane1.setViewportView(inputTb);
+        inputTb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputTbActionPerformed(evt);
+            }
+        });
+
+        logTb.setColumns(20);
+        logTb.setRows(5);
+        jScrollPane1.setViewportView(logTb);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logTb)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(disconnectBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(connectBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(8, 8, 8))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(inputTb)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(connectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(disconnectBtn))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(connectBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(disconnectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(logTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(connectBtn)
+                    .addComponent(disconnectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(inputTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -91,21 +103,48 @@ public class SerialFinal extends javax.swing.JFrame {
 
     private void connectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectBtnActionPerformed
         try {
-            boolean connected=serialPort.openPort();//Open serial port
-            serialPort.setParams(SerialPort.BAUDRATE_9600, 
-                                 SerialPort.DATABITS_8,
-                                 SerialPort.STOPBITS_1,
-                                 SerialPort.PARITY_NONE);//Set params. Also you can set params by this string: serialPort.setParams(9600, 8, 1, 0);
+            boolean connected = serialPort.openPort();//Open serial port
+            serialPort.setParams(9600, 8, 1, 0);//Set params
+            int mask = SerialPort.MASK_RXCHAR + SerialPort.MASK_CTS + SerialPort.MASK_DSR;//Prepare mask
+            serialPort.setEventsMask(mask);//Set mask
+            serialPort.addEventListener(new SerialPortReader());//Add SerialPortEventListener
+
             if (connected) {
-                JOptionPane.showMessageDialog(this, "Connection Succeesful"
-                ,"", JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Connection Succeesful", "", JOptionPane.PLAIN_MESSAGE);
             }
 
-        }
-        catch (SerialPortException ex) {
+        } catch (SerialPortException ex) {
             System.out.println(ex);
         }
     }//GEN-LAST:event_connectBtnActionPerformed
+
+    private void disconnectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disconnectBtnActionPerformed
+        // TODO add your handling code here:
+        boolean close = false;
+        try {
+            close = serialPort.closePort();
+        } catch (SerialPortException ex) {
+
+        }
+        if (close) {
+            JOptionPane.showMessageDialog(this, "Connection Close", "", JOptionPane.PLAIN_MESSAGE);
+        }
+
+    }//GEN-LAST:event_disconnectBtnActionPerformed
+
+    private void inputTbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTbActionPerformed
+        // TODO add your handling code here:
+        boolean done = false;
+        try {
+            done = serialPort.writeString(inputTb.getText());
+        } catch (Exception ex) {
+
+        }
+        if (done) {
+            logTb.append(inputTb.getText()+"\n");
+        }
+        inputTb.setText("");
+    }//GEN-LAST:event_inputTbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,19 +174,52 @@ public class SerialFinal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SerialFinal().setVisible(true);
             }
         });
     }
+    
+    static class SerialPortReader implements SerialPortEventListener {
+
+        public void serialEvent(SerialPortEvent event) {
+            if (event.isRXCHAR()) {//If data is available
+
+                try {
+//                    byte buffer[] = serialPort.readBytes(10);
+                    //System.out.println(serialPort.readString());
+                    logTb.append(serialPort.readString());
+
+                } catch (SerialPortException ex) {
+                    System.out.println(ex);
+                }
+            } else if (event.isCTS()) {//If CTS line has changed state
+                if (event.getEventValue() == 1) {//If line is ON
+                    System.out.println("CTS - ON");
+                } else {
+                    System.out.println("CTS - OFF");
+                }
+            } else if (event.isDSR()) {///If DSR line has changed state
+                if (event.getEventValue() == 1) {//If line is ON
+                    System.out.println("DSR - ON");
+                } else {
+                    System.out.println("DSR - OFF");
+                }
+            }
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton connectBtn;
     private javax.swing.JButton disconnectBtn;
-    private javax.swing.JTextArea inputTb;
+    private javax.swing.JTextField inputTb;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField logTb;
+    public static javax.swing.JTextArea logTb;
     // End of variables declaration//GEN-END:variables
 }
+
+
+
+
