@@ -9,6 +9,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SerialTest", "SerialTest\Se
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SerialRev", "SerialRev\SerialRev.cppproj", "{7E5ADAB4-C7EB-4C77-AC38-E6CE8968EF6C}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Button_3", "Button_3\Button_3.cppproj", "{87C36328-7325-4FC2-8329-7698C7E34B51}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -35,6 +37,10 @@ Global
 		{7E5ADAB4-C7EB-4C77-AC38-E6CE8968EF6C}.Debug|AVR.Build.0 = Debug|AVR
 		{7E5ADAB4-C7EB-4C77-AC38-E6CE8968EF6C}.Release|AVR.ActiveCfg = Release|AVR
 		{7E5ADAB4-C7EB-4C77-AC38-E6CE8968EF6C}.Release|AVR.Build.0 = Release|AVR
+		{87C36328-7325-4FC2-8329-7698C7E34B51}.Debug|AVR.ActiveCfg = Debug|AVR
+		{87C36328-7325-4FC2-8329-7698C7E34B51}.Debug|AVR.Build.0 = Debug|AVR
+		{87C36328-7325-4FC2-8329-7698C7E34B51}.Release|AVR.ActiveCfg = Release|AVR
+		{87C36328-7325-4FC2-8329-7698C7E34B51}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
