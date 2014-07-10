@@ -24,20 +24,15 @@ void setup() {
 
 void loop() {
 	
-	Serial.write("hello");
+	
 
 	// send data only when you receive data:
-	//if (Serial.available()>0)
-	//{
-		//String str =Serial.readString();
-		////Serial.println(strRev(str));
-		//if (str=="hello")
-		//{
-			//digitalWrite(ledPin,HIGH);
-			//delay(5000);
-			//digitalWrite(ledPin,LOW);
-			//delay(5000);
-		//}
-	//}
+	if (Serial.available())
+	{
+		String str =Serial.readString();
+		Serial.println(strrev(str));
+		//Serial.println("I am a ghost");
+
+	}
 
 }
