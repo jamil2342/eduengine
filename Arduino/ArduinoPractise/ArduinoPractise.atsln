@@ -7,6 +7,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "BlinkWithOutDelay", "BlinkW
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SerialTest", "SerialTest\SerialTest.cppproj", "{20EDA222-966C-49D5-A0B3-1C4716C25A4E}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SerialRev", "SerialRev\SerialRev.cppproj", "{7E5ADAB4-C7EB-4C77-AC38-E6CE8968EF6C}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -29,6 +31,10 @@ Global
 		{20EDA222-966C-49D5-A0B3-1C4716C25A4E}.Debug|AVR.Build.0 = Debug|AVR
 		{20EDA222-966C-49D5-A0B3-1C4716C25A4E}.Release|AVR.ActiveCfg = Release|AVR
 		{20EDA222-966C-49D5-A0B3-1C4716C25A4E}.Release|AVR.Build.0 = Release|AVR
+		{7E5ADAB4-C7EB-4C77-AC38-E6CE8968EF6C}.Debug|AVR.ActiveCfg = Debug|AVR
+		{7E5ADAB4-C7EB-4C77-AC38-E6CE8968EF6C}.Debug|AVR.Build.0 = Debug|AVR
+		{7E5ADAB4-C7EB-4C77-AC38-E6CE8968EF6C}.Release|AVR.ActiveCfg = Release|AVR
+		{7E5ADAB4-C7EB-4C77-AC38-E6CE8968EF6C}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
