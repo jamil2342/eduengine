@@ -13,6 +13,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Button_3", "Button_3\Button
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ButtonStateChangeDetection", "ButtonStateChangeDetection\ButtonStateChangeDetection.cppproj", "{896785D5-4234-483D-AC05-DDDC4A9F6612}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "InputPullUp", "InputPullUp\InputPullUp.cppproj", "{D06DE52C-6C0E-4795-A4D7-E8E710A915D3}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -47,6 +49,10 @@ Global
 		{896785D5-4234-483D-AC05-DDDC4A9F6612}.Debug|AVR.Build.0 = Debug|AVR
 		{896785D5-4234-483D-AC05-DDDC4A9F6612}.Release|AVR.ActiveCfg = Release|AVR
 		{896785D5-4234-483D-AC05-DDDC4A9F6612}.Release|AVR.Build.0 = Release|AVR
+		{D06DE52C-6C0E-4795-A4D7-E8E710A915D3}.Debug|AVR.ActiveCfg = Debug|AVR
+		{D06DE52C-6C0E-4795-A4D7-E8E710A915D3}.Debug|AVR.Build.0 = Debug|AVR
+		{D06DE52C-6C0E-4795-A4D7-E8E710A915D3}.Release|AVR.ActiveCfg = Release|AVR
+		{D06DE52C-6C0E-4795-A4D7-E8E710A915D3}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
