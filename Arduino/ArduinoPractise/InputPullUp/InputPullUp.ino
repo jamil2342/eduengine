@@ -9,8 +9,9 @@ void setup()
 {
 
 	/* add setup code here, setup code runs once when the processor starts */
-	pinMode(inputPin,INPUT);
-	digitalWrite(inputPin,HIGH);
+	//pinMode(inputPin,INPUT);
+	//digitalWrite(inputPin,HIGH);
+	pinMode(inputPin,INPUT_PULLUP);
 	pinMode(outputPin,OUTPUT);
 
 }
