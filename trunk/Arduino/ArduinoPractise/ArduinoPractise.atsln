@@ -17,6 +17,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "InputPullUp", "InputPullUp\
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Interrupt", "Interrupt\Interrupt.cppproj", "{25E5F80E-F34C-4882-9B24-547302507A16}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Interrupt_pullup", "Interrupt_pullup\Interrupt_pullup.cppproj", "{78E90DE8-904A-4A4A-A4BB-B7BAC96479BC}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -59,6 +61,10 @@ Global
 		{25E5F80E-F34C-4882-9B24-547302507A16}.Debug|AVR.Build.0 = Debug|AVR
 		{25E5F80E-F34C-4882-9B24-547302507A16}.Release|AVR.ActiveCfg = Release|AVR
 		{25E5F80E-F34C-4882-9B24-547302507A16}.Release|AVR.Build.0 = Release|AVR
+		{78E90DE8-904A-4A4A-A4BB-B7BAC96479BC}.Debug|AVR.ActiveCfg = Debug|AVR
+		{78E90DE8-904A-4A4A-A4BB-B7BAC96479BC}.Debug|AVR.Build.0 = Debug|AVR
+		{78E90DE8-904A-4A4A-A4BB-B7BAC96479BC}.Release|AVR.ActiveCfg = Release|AVR
+		{78E90DE8-904A-4A4A-A4BB-B7BAC96479BC}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
