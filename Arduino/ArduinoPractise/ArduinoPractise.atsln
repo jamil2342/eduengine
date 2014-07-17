@@ -25,6 +25,14 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ProteusSerialTest", "Proteu
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "LedBarGraph", "LedBarGraph\LedBarGraph.cppproj", "{43568BE8-44AF-40E6-A9AB-0A2556411B3E}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Lcd", "Lcd\Lcd.cppproj", "{47362D0C-C98E-4324-9E97-455319F7C8E7}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "LcdBlink", "LcdBlink\LcdBlink.cppproj", "{DEAE0A2E-D084-480E-B116-72542C73975A}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "AnalogReadVoltageLcd", "AnalogReadVoltageLcd\AnalogReadVoltageLcd.cppproj", "{3D4C07A2-9391-4DC4-AE36-7A27BB3D239A}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Fading", "Fading\Fading.cppproj", "{380FBF1D-6A05-4DD4-8AF2-8FCF6D9B6294}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -83,6 +91,22 @@ Global
 		{43568BE8-44AF-40E6-A9AB-0A2556411B3E}.Debug|AVR.Build.0 = Debug|AVR
 		{43568BE8-44AF-40E6-A9AB-0A2556411B3E}.Release|AVR.ActiveCfg = Release|AVR
 		{43568BE8-44AF-40E6-A9AB-0A2556411B3E}.Release|AVR.Build.0 = Release|AVR
+		{47362D0C-C98E-4324-9E97-455319F7C8E7}.Debug|AVR.ActiveCfg = Debug|AVR
+		{47362D0C-C98E-4324-9E97-455319F7C8E7}.Debug|AVR.Build.0 = Debug|AVR
+		{47362D0C-C98E-4324-9E97-455319F7C8E7}.Release|AVR.ActiveCfg = Release|AVR
+		{47362D0C-C98E-4324-9E97-455319F7C8E7}.Release|AVR.Build.0 = Release|AVR
+		{DEAE0A2E-D084-480E-B116-72542C73975A}.Debug|AVR.ActiveCfg = Debug|AVR
+		{DEAE0A2E-D084-480E-B116-72542C73975A}.Debug|AVR.Build.0 = Debug|AVR
+		{DEAE0A2E-D084-480E-B116-72542C73975A}.Release|AVR.ActiveCfg = Release|AVR
+		{DEAE0A2E-D084-480E-B116-72542C73975A}.Release|AVR.Build.0 = Release|AVR
+		{3D4C07A2-9391-4DC4-AE36-7A27BB3D239A}.Debug|AVR.ActiveCfg = Debug|AVR
+		{3D4C07A2-9391-4DC4-AE36-7A27BB3D239A}.Debug|AVR.Build.0 = Debug|AVR
+		{3D4C07A2-9391-4DC4-AE36-7A27BB3D239A}.Release|AVR.ActiveCfg = Release|AVR
+		{3D4C07A2-9391-4DC4-AE36-7A27BB3D239A}.Release|AVR.Build.0 = Release|AVR
+		{380FBF1D-6A05-4DD4-8AF2-8FCF6D9B6294}.Debug|AVR.ActiveCfg = Debug|AVR
+		{380FBF1D-6A05-4DD4-8AF2-8FCF6D9B6294}.Debug|AVR.Build.0 = Debug|AVR
+		{380FBF1D-6A05-4DD4-8AF2-8FCF6D9B6294}.Release|AVR.ActiveCfg = Release|AVR
+		{380FBF1D-6A05-4DD4-8AF2-8FCF6D9B6294}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
