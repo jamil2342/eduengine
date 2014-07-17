@@ -9,20 +9,21 @@
 
 LiquidCrystal lcd(12,11,3,2,1,0);
 
+int sensorValue, outputVoltage;
 void setup()
 {
 	lcd.begin(16,1);
-	//lcd.printFloat(1.6);
-	char * str;
-	sprintf(str,"%f",1.6);
-	int a=10;
-	lcd.print(a);
+
 
 }
 
 void loop()
 {
-
+	sensorValue=analogRead(A0);
+	outputVoltage=(int)((5/1023)*sensorValue);
+	lcd.clear();
+	lcd.print(sensorValue);
+	delay(2000);
 	  
 
 }
