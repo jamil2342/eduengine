@@ -26,6 +26,8 @@ public class SerialFinal extends javax.swing.JFrame {
      */
     public SerialFinal() {
         initComponents();
+        
+        //setJMenuBar(menuBar1);
     }
 
     /**
@@ -37,11 +39,20 @@ public class SerialFinal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menuBar1 = new java.awt.MenuBar();
+        menu1 = new java.awt.Menu();
+        menu2 = new java.awt.Menu();
         connectBtn = new javax.swing.JButton();
         disconnectBtn = new javax.swing.JButton();
         inputTb = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         logTb = new javax.swing.JTextArea();
+
+        menu1.setLabel("File");
+        menuBar1.add(menu1);
+
+        menu2.setLabel("Edit");
+        menuBar1.add(menu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,8 +92,10 @@ public class SerialFinal extends javax.swing.JFrame {
                         .addComponent(connectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(disconnectBtn))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                        .addGap(106, 106, 106)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,6 +157,7 @@ public class SerialFinal extends javax.swing.JFrame {
             logTb.append(inputTb.getText()+"\n");
         }
         inputTb.setText("");
+
     }//GEN-LAST:event_inputTbActionPerformed
 
     /**
@@ -217,6 +231,9 @@ public class SerialFinal extends javax.swing.JFrame {
     private javax.swing.JTextField inputTb;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTextArea logTb;
+    private java.awt.Menu menu1;
+    private java.awt.Menu menu2;
+    private java.awt.MenuBar menuBar1;
     // End of variables declaration//GEN-END:variables
 }
 
