@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.zu.ardulink.tutorial;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-
 
 /**
  *
@@ -21,30 +20,18 @@ public class parentJFrame extends javax.swing.JFrame {
      * Creates new form parentJFrame
      */
     public parentJFrame() {
-    
-//        initComponents();
-//       SerialFinal s = new SerialFinal();
-//       jTabbedPane1.add(s,"first Pane");\
-//        super.add(jTabbedPane1);
+
+        initComponents();
         
-                setSize(800,600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-
-        JTabbedPane tabbedPane = new JTabbedPane();
-
-//        JPanel panelOne = new JPanel();
-//        JPanel panelTwo = new JPanel();
-//        tabbedPane.add(panelOne,"First panel");
-//        tabbedPane.add(panelTwo,"Second panel");
         
         
         SerialFinal1 s = new SerialFinal1();
-//        s.setVisible(true);
-        tabbedPane.add(s,"first");
-        
+        jTabbedPane1.add(s, "first Pane");
+        jTabbedPane1.setMnemonicAt(0, KeyEvent.VK_1);
+        SerialFinal1 s1 = new SerialFinal1();
+        jTabbedPane1.add(s1, "second");
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        add(tabbedPane);
     }
 
     /**
@@ -59,7 +46,7 @@ public class parentJFrame extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.SE_RESIZE_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
