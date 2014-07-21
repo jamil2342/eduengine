@@ -3,32 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package org.zu.ardulink.tutorial;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import jssc.SerialPort;
 import jssc.SerialPortEvent;
 import jssc.SerialPortEventListener;
 import jssc.SerialPortException;
-import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author MIR
  */
-public class SerialFinal extends javax.swing.JPanel  {
+public class SerialFinal1 extends javax.swing.JPanel {
 
     static SerialPort serialPort = new SerialPort("COM3");
-
     /**
-     * Creates new form SerialFinal
+     * Creates new form SerialFinal1
      */
-    public SerialFinal() {
+    public SerialFinal1() {
         initComponents();
-        
-        
-        //setJMenuBar(menuBar1);
     }
 
     /**
@@ -40,23 +36,11 @@ public class SerialFinal extends javax.swing.JPanel  {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        menuBar1 = new java.awt.MenuBar();
-        menu1 = new java.awt.Menu();
-        menu2 = new java.awt.Menu();
         connectBtn = new javax.swing.JButton();
         disconnectBtn = new javax.swing.JButton();
         inputTb = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         logTb = new javax.swing.JTextArea();
-
-        menu1.setLabel("File");
-        menuBar1.add(menu1);
-
-        menu2.setLabel("Edit");
-        menuBar1.add(menu2);
-
-        
-		
 
         connectBtn.setText("Connect");
         connectBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -82,8 +66,36 @@ public class SerialFinal extends javax.swing.JPanel  {
         logTb.setRows(5);
         jScrollPane1.setViewportView(logTb);
 
-   
-
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(inputTb)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(connectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(disconnectBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                        .addGap(106, 106, 106)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(connectBtn)
+                    .addComponent(disconnectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(inputTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void connectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectBtnActionPerformed
@@ -114,7 +126,6 @@ public class SerialFinal extends javax.swing.JPanel  {
         if (close) {
             JOptionPane.showMessageDialog(this, "Connection Close", "", JOptionPane.PLAIN_MESSAGE);
         }
-
     }//GEN-LAST:event_disconnectBtnActionPerformed
 
     private void inputTbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTbActionPerformed
@@ -129,13 +140,9 @@ public class SerialFinal extends javax.swing.JPanel  {
             logTb.append(inputTb.getText()+"\n");
         }
         inputTb.setText("");
-
     }//GEN-LAST:event_inputTbActionPerformed
 
-
-
-    
-    static class SerialPortReader implements SerialPortEventListener {
+     static class SerialPortReader implements SerialPortEventListener {
 
         public void serialEvent(SerialPortEvent event) {
             if (event.isRXCHAR()) {//If data is available
@@ -164,19 +171,11 @@ public class SerialFinal extends javax.swing.JPanel  {
         }
     }
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton connectBtn;
     private javax.swing.JButton disconnectBtn;
     private javax.swing.JTextField inputTb;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTextArea logTb;
-    private java.awt.Menu menu1;
-    private java.awt.Menu menu2;
-    private java.awt.MenuBar menuBar1;
     // End of variables declaration//GEN-END:variables
 }
-
-
-
-
