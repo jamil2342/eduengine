@@ -28,9 +28,8 @@ public class parentJFrame extends javax.swing.JFrame {
         SerialFinal1 s = new SerialFinal1();
         jTabbedPane1.add(s, "first Pane");
         jTabbedPane1.setMnemonicAt(0, KeyEvent.VK_1);
-        SerialFinal1 s1 = new SerialFinal1();
-        jTabbedPane1.add(s1, "second");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
     }
 
@@ -56,10 +55,10 @@ public class parentJFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(127, 127, 127))
         );
 
         pack();

@@ -18,7 +18,7 @@ import jssc.SerialPortException;
 public class SerialFinal1 extends javax.swing.JPanel {
 
     static SerialPort serialPort = new SerialPort("COM3");
-
+    static  long lastUpdateTime=0;
     /**
      * Creates new form SerialFinal1
      */
@@ -40,6 +40,8 @@ public class SerialFinal1 extends javax.swing.JPanel {
         inputTb = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         logTb = new javax.swing.JTextArea();
+
+        setPreferredSize(new java.awt.Dimension(564, 472));
 
         connectBtn.setText("Connect");
         connectBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -71,16 +73,15 @@ public class SerialFinal1 extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(inputTb)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(connectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(disconnectBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                        .addGap(106, 106, 106)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(disconnectBtn)
+                        .addGap(0, 347, Short.MAX_VALUE))
+                    .addComponent(inputTb, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +90,7 @@ public class SerialFinal1 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(connectBtn)
                     .addComponent(disconnectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(inputTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,12 +152,15 @@ public class SerialFinal1 extends javax.swing.JPanel {
     static class SerialPortReader implements SerialPortEventListener {
 
         public void serialEvent(SerialPortEvent event) {
+            
             if (event.isRXCHAR()) {//If data is available
 
                 try {
-//                    byte buffer[] = serialPort.readBytes(10);
+                    //long timeDiff=System.currentTimeMillis()-lastUpdateTime;
                     //System.out.println(serialPort.readString());
                     logTb.append(serialPort.readString());
+                    //lastUpdateTime=System.currentTimeMillis();
+
 
                 } catch (SerialPortException ex) {
                     System.out.println(ex);
