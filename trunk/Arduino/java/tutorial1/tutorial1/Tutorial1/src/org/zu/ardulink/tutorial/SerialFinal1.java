@@ -5,6 +5,9 @@
  */
 package org.zu.ardulink.tutorial;
 
+
+import java.util.Calendar;
+import java.util.TimeZone;
 import javax.swing.JOptionPane;
 import jssc.SerialPort;
 import jssc.SerialPortEvent;
@@ -19,6 +22,8 @@ public class SerialFinal1 extends javax.swing.JPanel {
 
     static SerialPort serialPort = new SerialPort("COM3");
     static  long lastUpdateTime=0;
+    static Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC")); 
+ 
     /**
      * Creates new form SerialFinal1
      */
@@ -156,12 +161,12 @@ public class SerialFinal1 extends javax.swing.JPanel {
             if (event.isRXCHAR()) {//If data is available
 
                 try {
-                    //long timeDiff=System.currentTimeMillis()-lastUpdateTime;
-                    //System.out.println(serialPort.readString());
-                    logTb.append(serialPort.readString());
-                    //lastUpdateTime=System.currentTimeMillis();
 
+                    System.out.println(serialPort.readString());
+                    logTb.append("\n"+(int)System.currentTimeMillis()/1000);
+                    return;
 
+                        
                 } catch (SerialPortException ex) {
                     System.out.println(ex);
                 }
