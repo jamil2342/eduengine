@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.zu.ardulink.tutorial;
 
 import javax.swing.JOptionPane;
@@ -12,7 +11,6 @@ import jssc.SerialPortEvent;
 import jssc.SerialPortEventListener;
 import jssc.SerialPortException;
 
-
 /**
  *
  * @author MIR
@@ -20,6 +18,7 @@ import jssc.SerialPortException;
 public class SerialFinal1 extends javax.swing.JPanel {
 
     static SerialPort serialPort = new SerialPort("COM3");
+
     /**
      * Creates new form SerialFinal1
      */
@@ -128,6 +127,13 @@ public class SerialFinal1 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_disconnectBtnActionPerformed
 
+//    public static void main(String args[]) {
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new SerialFinal1().setVisible(true);
+//            }
+//        });
+//    }
     private void inputTbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTbActionPerformed
         // TODO add your handling code here:
         boolean done = false;
@@ -137,12 +143,12 @@ public class SerialFinal1 extends javax.swing.JPanel {
 
         }
         if (done) {
-            logTb.append(inputTb.getText()+"\n");
+            logTb.append(inputTb.getText() + "\n");
         }
         inputTb.setText("");
     }//GEN-LAST:event_inputTbActionPerformed
 
-     static class SerialPortReader implements SerialPortEventListener {
+    static class SerialPortReader implements SerialPortEventListener {
 
         public void serialEvent(SerialPortEvent event) {
             if (event.isRXCHAR()) {//If data is available
