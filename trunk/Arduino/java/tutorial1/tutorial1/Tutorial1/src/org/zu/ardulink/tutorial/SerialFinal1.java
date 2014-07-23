@@ -5,7 +5,6 @@
  */
 package org.zu.ardulink.tutorial;
 
-
 import java.util.Calendar;
 import java.util.TimeZone;
 import javax.swing.JOptionPane;
@@ -18,16 +17,18 @@ import jssc.SerialPortException;
  *
  * @author MIR
  */
-public class SerialFinal1 extends javax.swing.JPanel {
+public class SerialFinal1 extends javax.swing.JPanel
+{
 
     static SerialPort serialPort = new SerialPort("COM3");
-    static  long lastUpdateTime=0;
-    static Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC")); 
- 
+    static long lastUpdateTime = 0;
+    static Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+
     /**
      * Creates new form SerialFinal1
      */
-    public SerialFinal1() {
+    public SerialFinal1()
+    {
         initComponents();
     }
 
@@ -104,18 +105,22 @@ public class SerialFinal1 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void connectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectBtnActionPerformed
-        try {
+        try
+        {
             boolean connected = serialPort.openPort();//Open serial port
             serialPort.setParams(9600, 8, 1, 0);//Set params
             int mask = SerialPort.MASK_RXCHAR + SerialPort.MASK_CTS + SerialPort.MASK_DSR;//Prepare mask
             serialPort.setEventsMask(mask);//Set mask
             serialPort.addEventListener(new SerialPortReader());//Add SerialPortEventListener
 
-            if (connected) {
+            if (connected)
+            {
                 JOptionPane.showMessageDialog(this, "Connection Succeesful", "", JOptionPane.PLAIN_MESSAGE);
             }
 
-        } catch (SerialPortException ex) {
+        }
+        catch (SerialPortException ex)
+        {
             System.out.println(ex);
         }
     }//GEN-LAST:event_connectBtnActionPerformed
@@ -123,12 +128,16 @@ public class SerialFinal1 extends javax.swing.JPanel {
     private void disconnectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disconnectBtnActionPerformed
         // TODO add your handling code here:
         boolean close = false;
-        try {
+        try
+        {
             close = serialPort.closePort();
-        } catch (SerialPortException ex) {
+        }
+        catch (SerialPortException ex)
+        {
 
         }
-        if (close) {
+        if (close)
+        {
             JOptionPane.showMessageDialog(this, "Connection Close", "", JOptionPane.PLAIN_MESSAGE);
         }
     }//GEN-LAST:event_disconnectBtnActionPerformed
@@ -143,44 +152,69 @@ public class SerialFinal1 extends javax.swing.JPanel {
     private void inputTbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTbActionPerformed
         // TODO add your handling code here:
         boolean done = false;
-        try {
+        try
+        {
             done = serialPort.writeString(inputTb.getText());
-        } catch (Exception ex) {
+        }
+        catch (SerialPortException ex)
+        {
 
         }
-        if (done) {
+        if (done)
+        {
             logTb.append(inputTb.getText() + "\n");
         }
         inputTb.setText("");
     }//GEN-LAST:event_inputTbActionPerformed
 
-    static class SerialPortReader implements SerialPortEventListener {
+    static class SerialPortReader implements SerialPortEventListener
+    {
 
-        public void serialEvent(SerialPortEvent event) {
-            
-            if (event.isRXCHAR()) {//If data is available
+        public void serialEvent(SerialPortEvent event)
+        {
 
-                try {
+            if (event.isRXCHAR())
+            {//If data is available
+
+                try
+                {
 
                     System.out.println(serialPort.readString());
-                    logTb.append("\n"+(int)System.currentTimeMillis()/1000);
+                    logTb.append("\n" + (int) System.currentTimeMillis() / 1000);
                     return;
 
-                        
-                } catch (SerialPortException ex) {
+                }
+                catch (SerialPortException ex)
+                {
                     System.out.println(ex);
                 }
-            } else if (event.isCTS()) {//If CTS line has changed state
-                if (event.getEventValue() == 1) {//If line is ON
-                    System.out.println("CTS - ON");
-                } else {
-                    System.out.println("CTS - OFF");
+            }
+            else
+            {
+                if (event.isCTS())
+                {//If CTS line has changed state
+                    if (event.getEventValue() == 1)
+                    {//If line is ON
+                        System.out.println("CTS - ON");
+                    }
+                    else
+                    {
+                        System.out.println("CTS - OFF");
+                    }
                 }
-            } else if (event.isDSR()) {///If DSR line has changed state
-                if (event.getEventValue() == 1) {//If line is ON
-                    System.out.println("DSR - ON");
-                } else {
-                    System.out.println("DSR - OFF");
+                else
+                {
+                    if (event.isDSR())
+                    {///If DSR line has changed state
+                        if (event.getEventValue() == 1)
+                        {//If line is ON
+                            System.out.println("DSR - ON");
+                        }
+                        else
+                        {
+                            System.out.println("DSR - OFF");
+                        }
+                    }
                 }
             }
         }
