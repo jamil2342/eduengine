@@ -10,6 +10,7 @@ import javax.swing.JToggleButton;
 import net.java.games.input.Component;
 import net.java.games.input.Controller;
 
+
 /**
  
  * Joystick Test with JInput
@@ -29,8 +30,8 @@ public class JoystickTest {
     
     public static void main(String args[]) {
         final JFrameWindow window = new JFrameWindow();
-        
-        /*
+      
+       /*
         JInputJoystickTest jinputJoystickTest = new JInputJoystickTest();
         // Writes (into console) informations of all controllers that are found.
         jinputJoystickTest.getAllControllersInfo();
