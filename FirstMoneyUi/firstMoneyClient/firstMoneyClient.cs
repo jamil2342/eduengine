@@ -37,8 +37,13 @@ namespace firstMoneyClient
     {
         private bool connected;
 
-        public void Connect()
+        public ClassYouWantToUse()
         {
+
+        }
+        public void   Connect()
+        {
+            //return 15;
             //add code here
         }
 
