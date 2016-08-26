@@ -3,6 +3,8 @@
 #import "../firstMoneyClient/bin/Debug/firstMoneyClient.tlb"  
 
 
+
+
 using namespace firstMoneyClient;
 class firstMoneycollectorForUse
 {
@@ -43,9 +45,11 @@ public:
 
 		//CComPtr<firstMoneyClient::IInterface> yourClass;
 		//firstMoneyClient::IInterfacePtr yourClass(__uuidof(NamespaceOfYourProject::ClassYouWantToUse));
-		firstMoneyClient::ClassYouWantToUse  yourclass= new ;
-
-		yourClass.Connect();
+		//firstMoneyClient::ClassYouWantToUse  yourclass = new ClassYouWantToUse();
+		//firstMoneyClient::ClassYouWantToUse ^ obj = gcnew firstMoneyClient::ClassYouWantToUse;// ClassYouWantToUse;
+		firstMoneyClient::ClassYouWantToUse ^ obj =  gcnew  ClassYouWantToUse;
+		obj->Disconnect();
+		////yourClass.Connect();
 		int i = 10;
 		int b = i;
 		b += i;
