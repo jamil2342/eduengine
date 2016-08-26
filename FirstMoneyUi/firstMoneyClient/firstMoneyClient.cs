@@ -33,7 +33,7 @@ namespace firstMoneyClient
     }
 
     [Guid("5193e42b-cbd7-42ab-83d1-e1598c3eacff")]
-    public class ClassYouWantToUse : IInterface
+    public class ClassYouWantToUse:IInterface
     {
         private bool connected;
 
@@ -41,7 +41,7 @@ namespace firstMoneyClient
         {
 
         }
-        public void   Connect()
+        public void Connect()
         {
             //return 15;
             //add code here
