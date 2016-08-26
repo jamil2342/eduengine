@@ -11,19 +11,19 @@ namespace ManagedDLL
 }
 namespace firstMoneyClient
 {
-    public interface ICalculator
-    {
-        int Add(int Number1, int Number2);
-    };
+    //public interface ICalculator
+    //{
+    //    int Add(int Number1, int Number2);
+    //};
 
-    // Interface implementation.
-    public class ManagedClass : ICalculator
-    {
-        public int Add(int Number1, int Number2)
-        {
-            return Number1 + Number2;
-        }
-    }
+    //// Interface implementation.
+    //public class ManagedClass : ICalculator
+    //{
+    //    public int Add(int Number1, int Number2)
+    //    {
+    //        return Number1 + Number2;
+    //    }
+    //}
     [Guid("5193e42b-cbd7-42ab-83d1-e1598c3eacff")]
     public interface IInterface
     {
@@ -47,12 +47,12 @@ namespace firstMoneyClient
             //add code here
         }
     }
-    public class Class1
-    {
+    //public class Class1
+    //{
 
-        public void callWebservice()
-        {
+    //    public void callWebservice()
+    //    {
 
-        }
-    }
+    //    }
+    //}
 }
