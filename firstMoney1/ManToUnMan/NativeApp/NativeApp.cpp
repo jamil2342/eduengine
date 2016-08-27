@@ -3,10 +3,22 @@
 
 #include "stdafx.h"
 #include "NativeInterface.h"
+#include "FirstMoneyUI.h"
+#include "resource.h"
 void ReceivedText(char* text);
 void ReceivedFloatArray(float values[], int length);
 int _tmain(int argc, _TCHAR* argv[])
 {
+	//FirstMoneyUi *  first = new FirstMoneyUi();
+	//first->DoModal();
+	//return;
+	//CDialog mySettings(IDD_DIALOG1);
+	//INT_PTR returnCode = -1;
+	//returnCode = mySettings.DoModal();
+
+	//return 0;
+
+
 	int SumValue = 0;
 	char retValue = ' ';
 	SumValue = SumFromCSharp(4,5);
