@@ -11,7 +11,7 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	//FirstMoneyUi *  first = new FirstMoneyUi();
 	//first->DoModal();
-	//return;
+	//return 0;
 	//CDialog mySettings(IDD_DIALOG1);
 	//INT_PTR returnCode = -1;
 	//returnCode = mySettings.DoModal();
