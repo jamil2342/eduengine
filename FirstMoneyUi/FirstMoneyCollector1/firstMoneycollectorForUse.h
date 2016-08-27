@@ -1,6 +1,9 @@
 #pragma once
 #include <atlcomcli.h>
 #include "stdafx.h"
+
+#include "YahooAPIWrapper.h"
+#include <iostream>
 #import "../firstMoneyClient/bin/Debug/firstMoneyClient.tlb"  
 
 
@@ -21,9 +24,25 @@ public:
 	}
 	void callWebService()
 	{
-		connect();
-		//firstMoneyClient::ClassYouWantToUse::Connect();
-		//YahooAPI ^ yahoo;
+		const char* stock = "GOOG";
+		YahooAPIWrapper yahoo;
+
+		double bid = yahoo.GetBid(stock);
+		double ask = yahoo.GetAsk(stock);
+		const char* capi = yahoo.GetCapitalization(stock);
+
+		const char** bidAskCapi = yahoo.GetValues(stock, "b3b2j1");
+
+		std::cout << "Bid: " << bid << std::endl;
+		std::cout << "Ask: " << ask << std::endl;
+		std::cout << "Capi: " << capi << std::endl;
+
+		std::cout << "BidAskCapi[0]: " << bidAskCapi[0] << std::endl;
+		std::cout << "BidAskCapi[1]: " << bidAskCapi[1] << std::endl;
+		std::cout << "BidAskCapi[2]: " << bidAskCapi[2] << std::endl;
+		//connect();
+		//firstMoneyClient::ClassYouWantToUse::Connect();s
+	
 		//firstMoneyClient::ClassYouWantToUse  * obj;// ^ obj = gcnew  ClassYouWantToUse;
 		//obj = new  firstMoneyClient::ClassYouWantToUse();
 		//obj->Disconnect();
@@ -59,7 +78,7 @@ public:
 
 		//firstMoneyClient::ClassYouWantToUse ^ obj =  gcnew  ClassYouWantToUse;
 		//obj->Disconnect();
-		////yourClass.Connect();
+		//yourClass.Connect();
 		int i = 10;
 		int b = i;
 		b += i;

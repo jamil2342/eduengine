@@ -21,7 +21,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Collector.cpp">
+    <ClCompile Include="YahooAPIWrapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,7 +38,10 @@
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Collector.h">
+    <ClInclude Include="firstMoneycollectorForUse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YahooAPIWrapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
