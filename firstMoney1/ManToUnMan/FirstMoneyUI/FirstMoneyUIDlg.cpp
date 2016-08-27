@@ -6,6 +6,7 @@
 #include "FirstMoneyUI.h"
 #include "FirstMoneyUIDlg.h"
 #include "afxdialogex.h"
+#include "NativeInterface.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -159,9 +160,32 @@ HCURSOR CFirstMoneyUIDlg::OnQueryDragIcon()
 //	// TODO: Add your control notification handler code here
 //}
 
+inline void ReceivedFloatArray(float values[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		printf("Received float value %f \n", values[i]);
+	}
+}
+static inline void doSomething()
+{
+	int SumValue = 0;
+	char retValue = ' ';
+	SumValue = SumFromCSharp(4, 5);
+	//printf("Sum calculated in C#: %d \n", SumValue);
 
+	UnManagedStudent student = GetStudent();
+	//printf("Name of the student received from C# %s \n", student.name);
+
+	GetFloatArrayFromCSharp(&ReceivedFloatArray);
+
+	//printf("Enter any key to Terminate");
+	//scanf("%c", &retValue);
+	return;
+}
 void CFirstMoneyUIDlg::OnBnClickedButton1()
 {
+	doSomething();
 
 	// TODO: Add your control notification handler code here
 }
