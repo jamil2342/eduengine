@@ -5,18 +5,24 @@
 #include "NativeInterface.h"
 #include "FirstMoneyUI.h"
 #include "resource.h"
+#include <Windows.h>
 void ReceivedText(char* text);
 void ReceivedFloatArray(float values[], int length);
-int _tmain(int argc, _TCHAR* argv[])
+int WinMan(
+	HINSTANCE   hInstance,
+	HINSTANCE   hPrevInstance,
+	LPSTR       lpCmdLine,
+	int         nCmdShow
+	)
 {
-	//FirstMoneyUi *  first = new FirstMoneyUi();
-	//first->DoModal();
-	//return 0;
-	//CDialog mySettings(IDD_DIALOG1);
-	//INT_PTR returnCode = -1;
-	//returnCode = mySettings.DoModal();
+	FirstMoneyUi *  first = new FirstMoneyUi();
+	first->DoModal();
+	return 0;
+	CDialog mySettings(IDD_DIALOG1);
+	INT_PTR returnCode = -1;
+	returnCode = mySettings.DoModal();
 
-	//return 0;
+	return 0;
 
 
 	int SumValue = 0;
