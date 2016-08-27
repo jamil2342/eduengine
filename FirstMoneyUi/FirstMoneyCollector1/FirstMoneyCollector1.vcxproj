@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <ProjectGuid>{61ECF3D9-FACF-439E-9640-4C0A9FA2DCE8}</ProjectGuid>
     <RootNamespace>FirstMoneyCollector1</RootNamespace>
     <Keyword>MFCDLLProj</Keyword>

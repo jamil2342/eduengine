@@ -6,6 +6,7 @@
 
 
 using namespace firstMoneyClient;
+
 class firstMoneycollectorForUse
 {
 public:
@@ -19,20 +20,22 @@ public:
 	}
 	void callWebService()
 	{
+		//YahooAPI ^ yahoo;
+		firstMoneyClient::ClassYouWantToUse  * obj;// ^ obj = gcnew  ClassYouWantToUse;
+		//obj->Disconnect();
 
+		//// Initialize COM.
+		HRESULT hr = CoInitialize(NULL);
 
-		// Initialize COM.
-		//HRESULT hr = CoInitialize(NULL);
+		////// Create the interface pointer.
+		////ClassYouWantToUse pICalc(__uuidof(ClassYouWantToUse));
 
-		//// Create the interface pointer.
-		//ICalculatorPtr pICalc(__uuidof(ManagedClass));
+		////long lResult = 0;
 
-		//long lResult = 0;
+		////// Call the Add method.
+		////pICalc->Add(5, 10, &lResult);
 
-		//// Call the Add method.
-		//pICalc->Add(5, 10, &lResult);
-
-		//wprintf(L"The result is %d", lResult);
+		////wprintf(L"The result is %d", lResult);
 
 		//// Uninitialize COM.
 		//CoUninitialize();
@@ -47,8 +50,11 @@ public:
 		//firstMoneyClient::IInterfacePtr yourClass(__uuidof(NamespaceOfYourProject::ClassYouWantToUse));
 		//firstMoneyClient::ClassYouWantToUse  yourclass = new ClassYouWantToUse();
 		//firstMoneyClient::ClassYouWantToUse ^ obj = gcnew firstMoneyClient::ClassYouWantToUse;// ClassYouWantToUse;
-		firstMoneyClient::ClassYouWantToUse ^ obj =  gcnew  ClassYouWantToUse;
-		obj->Disconnect();
+		//YahooAPI ^ yahoo;/// = gcnew YahooAPI;
+		//yahoo->GetBid("10");
+
+		//firstMoneyClient::ClassYouWantToUse ^ obj =  gcnew  ClassYouWantToUse;
+		//obj->Disconnect();
 		////yourClass.Connect();
 		int i = 10;
 		int b = i;
