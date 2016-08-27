@@ -24,7 +24,7 @@ namespace firstMoneyClient
     //        return Number1 + Number2;
     //    }
     //}
-    [Guid("5193e42b-cbd7-42ab-83d1-e1598c3eacff")]
+    //[Guid("5193e42b-cbd7-42ab-83d1-e1598c3eacff")]
     public interface IInterface
     {
         void Connect();
@@ -32,7 +32,7 @@ namespace firstMoneyClient
         void Disconnect();
     }
 
-    [Guid("5193e42b-cbd7-42ab-83d1-e1598c3eacff")]
+    //[Guid("5193e42b-cbd7-42ab-83d1-e1598c3eacff")]
     public class ClassYouWantToUse:IInterface
     {
         private bool connected;
