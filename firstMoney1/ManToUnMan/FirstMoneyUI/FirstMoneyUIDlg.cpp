@@ -62,7 +62,8 @@ BEGIN_MESSAGE_MAP(CFirstMoneyUIDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON1, &CFirstMoneyUIDlg::OnBnClickedButton1)
+//	ON_BN_CLICKED(IDC_BUTTON1, &CFirstMoneyUIDlg::OnBnClickedButton1)
+ON_BN_CLICKED(IDC_BUTTON1, &CFirstMoneyUIDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -153,7 +154,14 @@ HCURSOR CFirstMoneyUIDlg::OnQueryDragIcon()
 
 
 
+//void CFirstMoneyUIDlg::OnBnClickedButton1()
+//{
+//	// TODO: Add your control notification handler code here
+//}
+
+
 void CFirstMoneyUIDlg::OnBnClickedButton1()
 {
+
 	// TODO: Add your control notification handler code here
 }
