@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "Collector.h"
-#using <mscorlib.dll>
-
-#import "../firstMoneyClient/bin/Debug/firstMoneyClient.tlb"  
+//#using <mscorlib.dll>
+//#include <initguid.h>
+//#import "../firstMoneyClient/bin/Debug/firstMoneyClient.tlb"  
 
 
 void NativeWrapMethod()
@@ -19,8 +19,8 @@ void NativeWrapMethod()
 Collector::Collector()
 {
 	CoInitialize(NULL);
-
-	yourClass.CoCreateInstance(__uuidof(firstMoneyClient::IInterface));
+	
+	yourClass.CoCreateInstance(__uuidof(firstMoneyClient::ClassYouWantToUse));
 }
 void Collector::Connect()
 {

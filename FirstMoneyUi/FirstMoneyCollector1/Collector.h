@@ -1,6 +1,8 @@
 #pragma once
 #include <atlcomcli.h> 
+#include <initguid.h>
 #import "../firstMoneyClient/bin/Debug/firstMoneyClient.tlb"  
+using namespace firstMoneyClient;
 void NativeWrapMethod();
 class Collector
 {
@@ -11,5 +13,6 @@ public:
 
 private:
 	CComPtr<firstMoneyClient::IInterface> yourClass;
+	//ClassYouWantToUse * client;
 };
 
