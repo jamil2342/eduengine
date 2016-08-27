@@ -1,5 +1,6 @@
 #pragma once
 #include <atlcomcli.h>
+#include "stdafx.h"
 #import "../firstMoneyClient/bin/Debug/firstMoneyClient.tlb"  
 
 
@@ -20,26 +21,29 @@ public:
 	}
 	void callWebService()
 	{
+		connect();
+		//firstMoneyClient::ClassYouWantToUse::Connect();
 		//YahooAPI ^ yahoo;
-		firstMoneyClient::ClassYouWantToUse  * obj;// ^ obj = gcnew  ClassYouWantToUse;
+		//firstMoneyClient::ClassYouWantToUse  * obj;// ^ obj = gcnew  ClassYouWantToUse;
+		//obj = new  firstMoneyClient::ClassYouWantToUse();
 		//obj->Disconnect();
-
 		//// Initialize COM.
-		HRESULT hr = CoInitialize(NULL);
+		//HRESULT hr = CoInitialize(NULL);
 
 		////// Create the interface pointer.
-		////ClassYouWantToUse pICalc(__uuidof(ClassYouWantToUse));
+		//_ClassYouWantToUsePtr pICalc(__uuidof(_ClassYouWantToUsePtr));
 
-		////long lResult = 0;
+		//long lResult = 0;
 
-		////// Call the Add method.
-		////pICalc->Add(5, 10, &lResult);
+		// Call the Add method.
+		
+		//pICalc->Add(5, 10, &lResult);
 
-		////wprintf(L"The result is %d", lResult);
+		//wprintf(L"The result is %d", lResult);
 
-		//// Uninitialize COM.
+		// Uninitialize COM.
 		//CoUninitialize();
-		//return;
+		return;
 		//CComPtr<firstMoneyClient::IInterface> yourClass;
 		//firstMoneyClient::IInterfacePtr yourClass(__uuidof(NamespaceOfYourProject::ClassYouWantToUse));
 
