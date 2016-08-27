@@ -3,5 +3,14 @@
 // stdafx.obj will contain the pre-compiled type information
 
 #include "stdafx.h"
+#using <firstMoneyClient.dll>
+
+
+using namespace firstMoneyClient;
+
+//void connect()
+//{
+//	firstMoneyClient::ClassYouWantToUse::Connect();
+//}
 
 
