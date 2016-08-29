@@ -4,20 +4,62 @@ using System.Linq;
 using System.Text;
 //using System.Net;
 using System.Net.Http;
-
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Sample
 {
-    public class item
-    {
-        public int id;
-        public int name;
-        public item()
-        {
-            id = 10;
-            name = 100;
-        }
-    }
+
+    [XmlRoot(ElementName="item")]
+	public class Item {
+		[XmlElement(ElementName="title")]
+		public string Title { get; set; }
+		[XmlElement(ElementName="pubDate")]
+		public string PubDate { get; set; }
+		[XmlElement(ElementName="author")]
+		public List<string> Author { get; set; }
+		[XmlElement(ElementName="link")]
+		public string Link { get; set; }
+		[XmlElement(ElementName="description")]
+		public string Description { get; set; }
+        //[XmlElement(ElementName="category", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
+        //public Category Category { get; set; }
+        //[XmlElement(ElementName="source")]
+        //public Source Source { get; set; }
+        //[XmlElement(ElementName="subtitle", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
+        //public string Subtitle { get; set; }
+        //[XmlElement(ElementName="duration", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
+        //public string Duration { get; set; }
+        //[XmlElement(ElementName="summary", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
+        //public string Summary { get; set; }
+        //[XmlElement(ElementName="explicit", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
+        //public string Explicit { get; set; }
+        //[XmlElement(ElementName="block", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
+        //public string Block { get; set; }
+        //[XmlElement(ElementName="keywords", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
+        //public string Keywords { get; set; }
+        //[XmlElement(ElementName="guid")]
+        //public string Guid { get; set; }
+        //[XmlElement(ElementName="enclosure")]
+        //public Enclosure Enclosure { get; set; }
+	}
+    //public class item
+    //{
+    //    public string title ;
+    //    public string  pubDate;
+    //    public string  ;
+    //    public string  ;
+    //    public string  ;
+        
+    //    //public int id;
+    //    //public int name;
+    //    //public item()
+    //    //{
+    //    //    id = 10;
+    //    //    name = 100;
+    //    //}
+    //}
     
     
     
@@ -45,9 +87,7 @@ namespace Sample
             //HttpClient client
             return i + j + 1;
         }
-
-
-        public item[] callWebService()
+        public Item[] callWebService1()
         {
 
             string page = "http://podcast.cnbc.com/mmpodcast/fastmoney.xml";
@@ -56,9 +96,63 @@ namespace Sample
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(page).Result;
             string str = response.Content.ReadAsStringAsync().Result;
-            item[] i = new item[2];
+            
+            Item[] i = new Item[2];
+            i[0] = new Item();
+            i[1] = new Item();
+            //i[0].id = 10;
+            //i[0].name = 100;
+            //i[0].id = 10;
+            //i[0].name = 100;
 
+            //String URLString = "http://podcast.cnbc.com/mmpodcast/fastmoney.xml";
+            //XmlTextReader reader = new XmlTextReader(URLString);
+
+            //while (reader.Read())
+            //{
+            //    switch (reader.NodeType)
+            //    {
+            //        case XmlNodeType.Element: // The node is an element.
+            //            Console.Write("<" + reader.Name);
+
+            //            while (reader.MoveToNextAttribute()) // Read the attributes.
+            //                Console.Write(" " + reader.Name + "='" + reader.Value + "'");
+            //            Console.Write(">");
+            //            Console.WriteLine(">");
+            //            break;
+            //        case XmlNodeType.Text: //Display the text in each element.
+            //            Console.WriteLine(reader.Value);
+            //            break;
+            //        case XmlNodeType.EndElement: //Display the end of the element.
+            //            Console.Write("</" + reader.Name);
+            //            Console.WriteLine(">");
+            //            break;
+            //    }
+            //}
+            int firstIndex = str.IndexOf("<language>en</language>")+23;
+            int lastIndex = str.IndexOf("</channel>");
+            int len = lastIndex - firstIndex;
+            str = str.Substring(firstIndex, len);
+            XmlSerializer serializer = new XmlSerializer(typeof(Item));
+            StringReader rdr = new StringReader(str);
+            Item resultingMessage = (Item)serializer.Deserialize(rdr);
             return i;
+
+        }
+
+        public string callWebService()
+        {
+
+            string page = "http://podcast.cnbc.com/mmpodcast/fastmoney.xml";
+
+
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(page).Result;
+            string str = response.Content.ReadAsStringAsync().Result;
+            return str;
+            //item[] i = new item[2];
+
+            //return i;
 
         }
 

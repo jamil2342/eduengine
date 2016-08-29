@@ -43,7 +43,9 @@ extern "C"
 	__declspec(dllexport) int callWebService()
 	{
 		Worker ^ worker = SampleWrapper::Instance->workerObj;
-		worker->callWebService();
+		//System::String^ str= worker->callWebService();
+		array< Item^ >^ local = worker->callWebService1();
+	
 		return 100;
 	}
 	
