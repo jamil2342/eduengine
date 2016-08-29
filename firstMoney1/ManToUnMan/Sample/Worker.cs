@@ -8,9 +8,19 @@ using System.Net.Http;
 
 namespace Sample
 {
-    /// <summary>
-    /// A sample worker class in C#
-    /// </summary>
+    public class item
+    {
+        public int id;
+        public int name;
+        public item()
+        {
+            id = 10;
+            name = 100;
+        }
+    }
+    
+    
+    
     public class Worker
     {
         /// <summary>
@@ -37,34 +47,18 @@ namespace Sample
         }
 
 
-        public int callWebService()
+        public item[] callWebService()
         {
 
             string page = "http://podcast.cnbc.com/mmpodcast/fastmoney.xml";
 
-            // ... Use HttpClient.
-            //using (HttpClient client = new HttpClient())
 
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(page).Result;
             string str = response.Content.ReadAsStringAsync().Result;
-            //ModelType[] data = JsonConvert.DeserializeObject<ModelType[]>(response.Content.ReadAsStringAsync().Result);
-            //return data;
-            //using (HttpResponseMessage response = client.GetAsync(new Uri(page))
-            //using (HttpContent content = response.Content)
-            //{
-            //    // ... Read the string.
-            //    string result = content.ReadAsStringAsync();
+            item[] i = new item[2];
 
-            //    // ... Display the result.
-            //    if (result != null &&
-            //    result.Length >= 50)
-            //    {
-            //        Console.WriteLine(result.Substring(0, 50) + "...");
-            //    }
-            //}
-
-            return 100;
+            return i;
 
         }
 

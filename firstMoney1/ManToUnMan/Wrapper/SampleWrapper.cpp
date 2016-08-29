@@ -43,8 +43,8 @@ extern "C"
 	__declspec(dllexport) int callWebService()
 	{
 		Worker ^ worker = SampleWrapper::Instance->workerObj;
-
-		return worker->callWebService();
+		worker->callWebService();
+		return 100;
 	}
 	
 	__declspec(dllexport) UnManagedStudent GetStudent()

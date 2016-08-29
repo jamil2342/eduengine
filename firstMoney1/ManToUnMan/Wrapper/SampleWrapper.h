@@ -11,6 +11,8 @@ namespace Wrapper
          workerObj->ReadFloatValues += gcnew Worker::FloatValuesReady(this, &Wrapper::SampleWrapper::FloatArrayReadyMethod);
 		}
 	public:
+
+		
 		Worker ^ workerObj;
       /* Static reference to single ton instace.
          In order to use applications built in C.*/
