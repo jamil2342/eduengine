@@ -36,7 +36,15 @@ extern "C"
 	__declspec(dllexport) int SumFromCSharp(int i, int j)
 	{
 		Worker ^ worker = SampleWrapper::Instance->workerObj;
+
 		return worker->Sum(i,j);
+	}
+
+	__declspec(dllexport) int callWebService()
+	{
+		Worker ^ worker = SampleWrapper::Instance->workerObj;
+
+		return worker->callWebService();
 	}
 	
 	__declspec(dllexport) UnManagedStudent GetStudent()

@@ -10,6 +10,7 @@ extern "C"
 
    /* A simple interface using the premitive types. Accepts 2 paramters and retun*/
    __declspec(dllexport) inline  int SumFromCSharp(int i, int j);
+   __declspec(dllexport) inline  int callWebService();
 
    /* An interface to get the Student Information in a Structure.
       This function calls the C# class method and gets the managed Student Object
