@@ -45,8 +45,9 @@ void FirstMoneyUi::OnBnClickedButton1()
 {
 
 	int SumValue = 0;
-	char retValue = ' ';
-	SumValue = SumFromCSharp(4, 5);
+	//char retValue = ' ';
+	//SumValue = SumFromCSharp(4, 5);
+	int x = callWebService();
 	//UnManagedStudent* student = new UnManagedStudent();
 	//char  str[100]="hello";
 
