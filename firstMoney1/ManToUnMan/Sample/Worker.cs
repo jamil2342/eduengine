@@ -11,55 +11,7 @@ using System.IO;
 namespace Sample
 {
 
-    //[XmlRoot(ElementName="item")]
-    //public class Item {
-    //    [XmlElement(ElementName="title")]
-    //    public string Title { get; set; }
-    //    [XmlElement(ElementName="pubDate")]
-    //    public string PubDate { get; set; }
-    //    [XmlElement(ElementName="author")]
-    //    public List<string> Author { get; set; }
-    //    [XmlElement(ElementName="link")]
-    //    public string Link { get; set; }
-    //    [XmlElement(ElementName="description")]
-    //    public string Description { get; set; }
-    //    //[XmlElement(ElementName="category", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
-    //    //public Category Category { get; set; }
-    //    //[XmlElement(ElementName="source")]
-    //    //public Source Source { get; set; }
-    //    //[XmlElement(ElementName="subtitle", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
-    //    //public string Subtitle { get; set; }
-    //    //[XmlElement(ElementName="duration", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
-    //    //public string Duration { get; set; }
-    //    //[XmlElement(ElementName="summary", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
-    //    //public string Summary { get; set; }
-    //    //[XmlElement(ElementName="explicit", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
-    //    //public string Explicit { get; set; }
-    //    //[XmlElement(ElementName="block", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
-    //    //public string Block { get; set; }
-    //    //[XmlElement(ElementName="keywords", Namespace="http://www.itunes.com/dtds/podcast-1.0.dtd")]
-    //    //public string Keywords { get; set; }
-    //    //[XmlElement(ElementName="guid")]
-    //    //public string Guid { get; set; }
-    //    //[XmlElement(ElementName="enclosure")]
-    //    //public Enclosure Enclosure { get; set; }
-    //}
-    //public class item
-    //{
-    //    public string title ;
-    //    public string  pubDate;
-    //    public string  ;
-    //    public string  ;
-    //    public string  ;
-        
-    //    //public int id;
-    //    //public int name;
-    //    //public item()
-    //    //{
-    //    //    id = 10;
-    //    //    name = 100;
-    //    //}
-    //}
+
     
     
     
