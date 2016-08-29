@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Net;
 
 namespace Sample
 {
@@ -29,7 +30,7 @@ namespace Sample
       /// <returns></returns>
       public int Sum(int i, int j)
       {
-         return i + j;
+         return i + j+1;
       }
 
       /// <summary>
@@ -76,6 +77,10 @@ namespace Sample
    /// </summary>
    public class ManagedStudent
    {
+       public int sum()
+       {
+           return 100;
+       }
       public string Name { get; set; }
    }
 }

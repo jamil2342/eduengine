@@ -47,7 +47,14 @@ void FirstMoneyUi::OnBnClickedButton1()
 	int SumValue = 0;
 	char retValue = ' ';
 	SumValue = SumFromCSharp(4, 5);
+	//UnManagedStudent* student = new UnManagedStudent();
+	//char  str[100]="hello";
+
+	//int x= student->
+	//strcpy(student->name, str);
 	//printf("Sum calculated in C#: %d \n", SumValue);
+	//UnManagedStudent^ student = gcnew UnManagedStudent;
+
 
 	//UnManagedStudent student = GetStudent();
 	//printf("Name of the student received from C# %s \n", student.name);

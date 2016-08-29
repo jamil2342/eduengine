@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wrapper", "Wrapper\Wrapper.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NativeApp", "NativeApp\NativeApp.vcxproj", "{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirstMoneyUI", "FirstMoneyUI\FirstMoneyUI.vcxproj", "{71EA9D4F-A28E-46E5-A675-312C07CC41F6}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -53,6 +55,16 @@ Global
 		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Release|Win32.ActiveCfg = Release|Win32
 		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Release|Win32.Build.0 = Release|Win32
+		{71EA9D4F-A28E-46E5-A675-312C07CC41F6}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{71EA9D4F-A28E-46E5-A675-312C07CC41F6}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{71EA9D4F-A28E-46E5-A675-312C07CC41F6}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{71EA9D4F-A28E-46E5-A675-312C07CC41F6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{71EA9D4F-A28E-46E5-A675-312C07CC41F6}.Debug|Win32.Build.0 = Debug|Win32
+		{71EA9D4F-A28E-46E5-A675-312C07CC41F6}.Release|Any CPU.ActiveCfg = Release|Win32
+		{71EA9D4F-A28E-46E5-A675-312C07CC41F6}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{71EA9D4F-A28E-46E5-A675-312C07CC41F6}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{71EA9D4F-A28E-46E5-A675-312C07CC41F6}.Release|Win32.ActiveCfg = Release|Win32
+		{71EA9D4F-A28E-46E5-A675-312C07CC41F6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

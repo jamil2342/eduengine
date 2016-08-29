@@ -9,12 +9,12 @@ extern "C"
    }UnManagedStudent;
 
    /* A simple interface using the premitive types. Accepts 2 paramters and retun*/
-   __declspec(dllexport) int SumFromCSharp(int i, int j);
+   __declspec(dllexport) inline  int SumFromCSharp(int i, int j);
 
    /* An interface to get the Student Information in a Structure.
       This function calls the C# class method and gets the managed Student Object
       and converts to unmanged student*/
-	__declspec(dllexport) UnManagedStudent GetStudent();
+	__declspec(dllexport)  UnManagedStudent GetStudent();
 
    /* Function pointer to a native function to achieve call back*/
    typedef void (*GetFloatArrayCallback) (float values[], int length);
