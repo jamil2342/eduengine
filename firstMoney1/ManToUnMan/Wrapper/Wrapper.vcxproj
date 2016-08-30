@@ -44,6 +44,8 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -65,9 +67,11 @@
   <ItemGroup>
     <ClInclude Include="NativeInterface.h" />
     <ClInclude Include="SampleWrapper.h" />
+    <ClInclude Include="SharePointData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SampleWrapper.cpp" />
+    <ClCompile Include="SharePointData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sample\Sample.csproj">

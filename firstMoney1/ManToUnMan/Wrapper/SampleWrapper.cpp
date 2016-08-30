@@ -1,5 +1,7 @@
 #include "SampleWrapper.h"
 #include "NativeInterface.h"
+//#include <SharePointData.h>
+
 using namespace Sample;
 
 namespace Wrapper
@@ -45,6 +47,7 @@ extern "C"
 		Worker ^ worker = SampleWrapper::Instance->workerObj;		
 		array< Item^ >^ local = worker->callWebService1();
 	
+
 		return 100;
 	}
 	

@@ -28,5 +28,5 @@
 
 #include <iostream>
 
-
+using namespace ATL;
 // TODO: reference additional headers your program requires here
