@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CE450B7F-9A44-4DF7-9876-3AA808A73FDC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FastMoneyCollector", "FastMoneyCollector\FastMoneyCollector.vcxproj", "{81B02545-677D-4FD7-A489-76757CE8B458}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FastMoneyUI", "FastMoneyUI\FastMoneyUI.vcxproj", "{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastMoneyClient", "FastMoneyClient\FastMoneyClient.csproj", "{C326BB19-7298-4AE2-85EA-38D5941F47FF}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81B02545-677D-4FD7-A489-76757CE8B458}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{81B02545-677D-4FD7-A489-76757CE8B458}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{81B02545-677D-4FD7-A489-76757CE8B458}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{81B02545-677D-4FD7-A489-76757CE8B458}.Debug|Win32.ActiveCfg = Debug|Win32
+		{81B02545-677D-4FD7-A489-76757CE8B458}.Debug|Win32.Build.0 = Debug|Win32
+		{81B02545-677D-4FD7-A489-76757CE8B458}.Release|Any CPU.ActiveCfg = Release|Win32
+		{81B02545-677D-4FD7-A489-76757CE8B458}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{81B02545-677D-4FD7-A489-76757CE8B458}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{81B02545-677D-4FD7-A489-76757CE8B458}.Release|Win32.ActiveCfg = Release|Win32
+		{81B02545-677D-4FD7-A489-76757CE8B458}.Release|Win32.Build.0 = Release|Win32
+		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Debug|Win32.Build.0 = Debug|Win32
+		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Release|Any CPU.ActiveCfg = Release|Win32
+		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Release|Win32.ActiveCfg = Release|Win32
+		{EC3F612A-9954-4E7E-B646-7BCEC6DAD453}.Release|Win32.Build.0 = Release|Win32
+		{C326BB19-7298-4AE2-85EA-38D5941F47FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C326BB19-7298-4AE2-85EA-38D5941F47FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C326BB19-7298-4AE2-85EA-38D5941F47FF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C326BB19-7298-4AE2-85EA-38D5941F47FF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C326BB19-7298-4AE2-85EA-38D5941F47FF}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{C326BB19-7298-4AE2-85EA-38D5941F47FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C326BB19-7298-4AE2-85EA-38D5941F47FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C326BB19-7298-4AE2-85EA-38D5941F47FF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C326BB19-7298-4AE2-85EA-38D5941F47FF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C326BB19-7298-4AE2-85EA-38D5941F47FF}.Release|Win32.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
