@@ -302,53 +302,60 @@ namespace FASTMONEY
             set;
         }
 
-        public DataTable GetFastMoney()
+        public DataTable GetFastMoneyDataTable(String Url)
         {
             string result = "";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync(Url).Result;
+            string str = response.Content.ReadAsStringAsync().Result;
+            
+            XmlDocument xmlResult1 = new XmlDocument();
+            xmlResult1.LoadXml(str);
 
-            this.Url = "http://podcast.cnbc.com/mmpodcast/fastmoney.xml";
-
-
-            // Create the web request
-            HttpWebRequest request = WebRequest.Create(new Uri(this.Url)) as HttpWebRequest;
-
-            // Set type to POST
-            request.Method = "POST";
-
-            // Create the data we want to send
-            StringBuilder data = new StringBuilder();
-            byte[] byteData = Encoding.UTF8.GetBytes(data.ToString());      // Create a byte array of the data we want to send
-            request.ContentLength = byteData.Length;                        // Set the content length in the request headers
-
-            // Write data to request
-            using (Stream postStream = request.GetRequestStream())
-            {
-                postStream.Write(byteData, 0, byteData.Length);
-            }
-
-            // Get response and return it
-            XmlDocument xmlResult = new XmlDocument();
-            try
-            {
-                using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
-                {
-                    StreamReader reader = new StreamReader(response.GetResponseStream());
-                    result = reader.ReadToEnd();
-                    reader.Close();
-                }
-                xmlResult.LoadXml(result);
-            }
-            catch (Exception e)
-            {
-                xmlResult = new XmlDocument();
-            }
-
-            XmlReader xmlReader = new XmlNodeReader(xmlResult);
-
-            var xmlTag = xmlResult.GetElementsByTagName("item");
+            var xmlTag = xmlResult1.GetElementsByTagName("item");
 
             DataTable dtFM = ConvertXmlNodeListToDataTable(xmlTag);
             return dtFM;
+            //// Create the web request
+            //HttpWebRequest request = WebRequest.Create(new Uri(this.Url)) as HttpWebRequest;
+
+            //// Set type to POST
+            //request.Method = "POST";
+
+            //// Create the data we want to send
+            //StringBuilder data = new StringBuilder();
+            //byte[] byteData = Encoding.UTF8.GetBytes(data.ToString());      // Create a byte array of the data we want to send
+            //request.ContentLength = byteData.Length;                        // Set the content length in the request headers
+
+            //// Write data to request
+            //using (Stream postStream = request.GetRequestStream())
+            //{
+            //    postStream.Write(byteData, 0, byteData.Length);
+            //}
+
+            //// Get response and return it
+            //XmlDocument xmlResult = new XmlDocument();
+            //try
+            //{
+            //    using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            //    {
+            //        StreamReader reader = new StreamReader(response.GetResponseStream());
+            //        result = reader.ReadToEnd();
+            //        reader.Close();
+            //    }
+            //    xmlResult.LoadXml(result);
+            //}
+            //catch (Exception e)
+            //{
+            //    xmlResult = new XmlDocument();
+            //}
+
+            //XmlReader xmlReader = new XmlNodeReader(xmlResult);
+
+            //var xmlTag = xmlResult.GetElementsByTagName("item");
+
+            //DataTable dtFM = ConvertXmlNodeListToDataTable(xmlTag);
+            //return dtFM;
         }
         public DataTable ConvertXmlNodeListToDataTable(XmlNodeList xmlTag)
         {

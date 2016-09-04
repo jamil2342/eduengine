@@ -13,7 +13,7 @@ IMPLEMENT_DYNAMIC(FastMoneyUI, CDialogEx)
 FastMoneyUI::FastMoneyUI(CWnd* pParent /*=NULL*/)
 : CDialogEx(FastMoneyUI::IDD, pParent)
 {
-
+	
 }
 
 FastMoneyUI::~FastMoneyUI()
@@ -33,13 +33,14 @@ END_MESSAGE_MAP()
 
 void FastMoneyUI::OnBnClickedButton1()
 {
+	SetDlgItemText(IDC_EDIT1, _T("http://podcast.cnbc.com/mmpodcast/fastmoney.xml"));
 	CString Url;
 	GetDlgItemText(IDC_EDIT1, Url);
 
 	_bstr_t	bsData[1];
 	bsData[0] = Url;
 
-	int Success = GetFastMoney(bsData[0]);
+	int Success = GetFastMoneyDataTable(bsData[0]);//GetFastMoney(bsData[0]);
 	if (Success == 1)
 	{
 		MessageBox(_T("Data Save Successfully."), _T("Success"),
