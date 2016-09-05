@@ -146,55 +146,55 @@ namespace FastMoneyCollector
 							tmpIdx++;
 							SafeArrayGetElement(V_ARRAY(&vtItems), &tmpIdx, &vtData);
 							//#####do correct
-							if (fieldname == _T("id"))
-							{
-								strNumber = vtData.bstrVal;
-								//#####do correct
-								pTblKeys = m_pOwner->m_keys.GetTable(tableid);
-								if (pTblKeys == NULL)
-								{
-									Implement_Options impl = IMPLEMENT_YES;
-									//#####do correct
-									m_pOwner->ShowMsgFmt(false, "DoQuery() Inserting key %s", (LPCTSTR)strNumber);
-									m_pOwner->m_keys.AddKey(tableid, strNumber, impl);
-									m_pOwner->m_pDatum->AppendRecVal(strNumber, _T(""), _T(""), true);
-									CTableKeys* m_tKeys2 = m_pOwner->m_keys.GetTable(tableid);//tableKeys;
-									ImpKeyMapIter iter2 = m_tKeys2->m_impKeys.find(strNumber);
-									if (iter2 != m_tKeys2->m_impKeys.end())
-									{
-										pKeyStuff = iter2->second;
-										pKeyStuff->bReceived = true;
-									}
-								}
-								else
-								{
-									mapIter = pTblKeys->m_impKeys.find(strNumber);
-									if (mapIter == pTblKeys->m_impKeys.end())
-									{
-										Implement_Options impl = IMPLEMENT_YES;
-										//#####do correct
-										m_pOwner->ShowMsgFmt(false, "DoQuery() Inserting key %s", (LPCTSTR)strNumber);
-										m_pOwner->m_keys.AddKey(tableid, strNumber, impl);
-										m_pOwner->m_pDatum->AppendRecVal(strNumber, _T(""), _T(""), true);
-										ImpKeyMapIter iter3 = pTblKeys->m_impKeys.find(strNumber);
-										if (iter3 != pTblKeys->m_impKeys.end())
-										{
-											pKeyStuff = iter3->second;
-											pKeyStuff->bReceived = true;
-										}
-										else
-										{
-											// bad
-										}
-									}
-									else
-									{
-										pKeyStuff = mapIter->second;
-										pKeyStuff->bReceived = true;
-									}
-								}
-								break;
-							}
+							//if (fieldname == _T("id"))
+							//{
+							//	strNumber = vtData.bstrVal;
+							//	//#####do correct
+							//	pTblKeys = m_pOwner->m_keys.GetTable(tableid);
+							//	if (pTblKeys == NULL)
+							//	{
+							//		Implement_Options impl = IMPLEMENT_YES;
+							//		//#####do correct
+							//		//m_pOwner->ShowMsgFmt(false, "DoQuery() Inserting key %s", (LPCTSTR)strNumber);
+							//		m_pOwner->m_keys.AddKey(tableid, strNumber, impl);
+							//		m_pOwner->m_pDatum->AppendRecVal(strNumber, _T(""), _T(""), true);
+							//		CTableKeys* m_tKeys2 = m_pOwner->m_keys.GetTable(tableid);//tableKeys;
+							//		ImpKeyMapIter iter2 = m_tKeys2->m_impKeys.find(strNumber);
+							//		if (iter2 != m_tKeys2->m_impKeys.end())
+							//		{
+							//			pKeyStuff = iter2->second;
+							//			pKeyStuff->bReceived = true;
+							//		}
+							//	}
+							//	else
+							//	{
+							//		mapIter = pTblKeys->m_impKeys.find(strNumber);
+							//		if (mapIter == pTblKeys->m_impKeys.end())
+							//		{
+							//			Implement_Options impl = IMPLEMENT_YES;
+							//			//#####do correct
+							//			//m_pOwner->ShowMsgFmt(false, "DoQuery() Inserting key %s", (LPCTSTR)strNumber);
+							//			m_pOwner->m_keys.AddKey(tableid, strNumber, impl);
+							//			m_pOwner->m_pDatum->AppendRecVal(strNumber, _T(""), _T(""), true);
+							//			ImpKeyMapIter iter3 = pTblKeys->m_impKeys.find(strNumber);
+							//			if (iter3 != pTblKeys->m_impKeys.end())
+							//			{
+							//				pKeyStuff = iter3->second;
+							//				pKeyStuff->bReceived = true;
+							//			}
+							//			else
+							//			{
+							//				// bad
+							//			}
+							//		}
+							//		else
+							//		{
+							//			pKeyStuff = mapIter->second;
+							//			pKeyStuff->bReceived = true;
+							//		}
+							//	}
+							//	break;
+							//}
 							tmpIdx++;
 						}
 						for (int i = 0; i < cnt; i++)

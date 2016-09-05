@@ -53,7 +53,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>C:\Partha\Dev\Symon Enterprise Server\Portal\Collectors\SharePoint\SharePointAdapter;C:\Partha\Dev\Symon Enterprise Server\Portal\Collectors\SharePoint\SharePointCollector;C:\Partha\Dev\Symon Enterprise Server\Portal\Collectors\SharePoint\SharePointCommon;..\RSSCommon;..\..\..\..\PublisherCommon;..\..\..\..\..\Common Classes\Symon;..\..\..\..\..\Common Classes\MarkupSTL;..\..\..\..\..\Include;..\..\..\..\..\..\..\3rdParty\Polyhedra\Poly Include;..\..\..\..\..\..\..\3rdParty\Microsoft;..\..\..\..\..\..\include\Interfaces;..\..\..\SymonInfoFeed\SymonInetClient;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Partha\Dev\Symon Enterprise Server\common classes\Symon;C:\Partha\Dev\Symon Enterprise Server\Portal\Collectors\SharePoint\SharePointAdapter;C:\Partha\Dev\Symon Enterprise Server\Portal\Collectors\SharePoint\SharePointCollector;C:\Partha\Dev\Symon Enterprise Server\Portal\Collectors\SharePoint\SharePointCommon;..\RSSCommon;..\..\..\..\PublisherCommon;..\..\..\..\..\Common Classes\Symon;..\..\..\..\..\Common Classes\MarkupSTL;..\..\..\..\..\Include;..\..\..\..\..\..\..\3rdParty\Polyhedra\Poly Include;..\..\..\..\..\..\..\3rdParty\Microsoft;..\..\..\..\..\..\include\Interfaces;..\..\..\SymonInfoFeed\SymonInetClient;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FastMoneyCollect.h" />
     <ClInclude Include="InboundCollector.h" />
     <ClInclude Include="MemFile.h" />
     <ClInclude Include="FastMoneyCollector.h" />
