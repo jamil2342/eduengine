@@ -1,10 +1,14 @@
 #pragma once
+
+
+#define SHAREPOINT
 #include "stdafx.h"
 #include <list>
 #include <vcclr.h>
 //#include <winnt.h>
 #include <OAIdl.h>
-
+//#include "SharePointCollector.h"
+#include "SharePointCollect.h"
 
 
 
@@ -23,6 +27,13 @@ namespace FastMoneyCollector
 {
 	public ref class FastMoneyCollector
 	{
+
+
+#ifdef SHAREPOINT
+
+
+
+#endif
       /* Private Constructor to achieve signle ton*/
 		FastMoneyCollector(void)
 		{
@@ -38,4 +49,7 @@ namespace FastMoneyCollector
 		static FastMoneyCollector ^ Instance = gcnew FastMoneyCollector();
 
 	};
+
+	int m_iDataCounter;
+	CSharePointCollect *m_pOwner;
 }
