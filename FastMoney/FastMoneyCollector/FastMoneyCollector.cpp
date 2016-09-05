@@ -146,279 +146,254 @@ namespace FastMoneyCollector
 							tmpIdx++;
 							SafeArrayGetElement(V_ARRAY(&vtItems), &tmpIdx, &vtData);
 							//#####do correct
-							//	if (fieldname == _T("id"))
-							//	{
-							//		strNumber = vtData.bstrVal;
-							//		//#####do correct
-							//		//pTblKeys = m_pOwner->m_keys.GetTable(tableid);
-							//		if (pTblKeys == NULL)
-							//		{
-							//			Implement_Options impl = IMPLEMENT_YES;
-							//			//#####do correct
-							//			//m_pOwner->ShowMsgFmt(false, "DoQuery() Inserting key %s", (LPCTSTR)strNumber);
-							//			//m_pOwner->m_keys.AddKey(tableid, strNumber, impl);
-							//			//m_pOwner->m_pDatum->AppendRecVal(strNumber, _T(""), _T(""), true);
-							//			//CTableKeys* m_tKeys2 = m_pOwner->m_keys.GetTable(tableid);//tableKeys;
-							//			//ImpKeyMapIter iter2 = m_tKeys2->m_impKeys.find(strNumber);
-							//			//if (iter2 != m_tKeys2->m_impKeys.end())
-							//			//{
-							//			//	pKeyStuff = iter2->second;
-							//			//	pKeyStuff->bReceived = true;
-							//			//}
-							//		}
-							//		else
-							//		{
-							//			mapIter = pTblKeys->m_impKeys.find(strNumber);
-							//			if (mapIter == pTblKeys->m_impKeys.end())
-							//			{
-							//				Implement_Options impl = IMPLEMENT_YES;
-							//				//#####do correct
-							//				//m_pOwner->ShowMsgFmt(false, "DoQuery() Inserting key %s", (LPCTSTR)strNumber);
-							//				m_pOwner->m_keys.AddKey(tableid, strNumber, impl);
-							//				m_pOwner->m_pDatum->AppendRecVal(strNumber, _T(""), _T(""), true);
-							//				ImpKeyMapIter iter3 = pTblKeys->m_impKeys.find(strNumber);
-							//				if (iter3 != pTblKeys->m_impKeys.end())
-							//				{
-							//					pKeyStuff = iter3->second;
-							//					pKeyStuff->bReceived = true;
-							//				}
-							//				else
-							//				{
-							//					// bad
-							//				}
-							//			}
-							//			else
-							//			{
-							//				pKeyStuff = mapIter->second;
-							//				pKeyStuff->bReceived = true;
-							//			}
-							//		}
-							//		break;
-							//	}
-							//	tmpIdx++;
-							//}
-							for (int i = 0; i < cnt; i++)
+							if (fieldname == _T("id"))
 							{
-								SafeArrayGetElement(V_ARRAY(&vtItems), &idx, &vtData);
-								fieldname = (LPCTSTR)_bstr_t(vtData.bstrVal);
-								fieldname = fieldname.MakeLower();
-								fieldname.Replace(_T("_"), _T(""));
-								fieldname.Replace(_T("x0020"), _T(""));
-								fieldname.Replace(_T("x002d"), _T(""));
-								VariantClear(&vtData);
-								string stype;
-								FIELD_MAP_ITER iter = m_pOwner->m_colFields.begin();
-								while (iter != m_pOwner->m_colFields.end())
+								strNumber = vtData.bstrVal;
+								//#####do correct
+								pTblKeys = m_pOwner->m_keys.GetTable(tableid);
+								if (pTblKeys == NULL)
 								{
-									if ((*iter).second->m_fieldName.compare(fieldname) == 0)
+									Implement_Options impl = IMPLEMENT_YES;
+									//#####do correct
+									m_pOwner->ShowMsgFmt(false, "DoQuery() Inserting key %s", (LPCTSTR)strNumber);
+									m_pOwner->m_keys.AddKey(tableid, strNumber, impl);
+									m_pOwner->m_pDatum->AppendRecVal(strNumber, _T(""), _T(""), true);
+									CTableKeys* m_tKeys2 = m_pOwner->m_keys.GetTable(tableid);//tableKeys;
+									ImpKeyMapIter iter2 = m_tKeys2->m_impKeys.find(strNumber);
+									if (iter2 != m_tKeys2->m_impKeys.end())
 									{
-										stype = (*iter).second->m_fieldType;
-										break;
+										pKeyStuff = iter2->second;
+										pKeyStuff->bReceived = true;
 									}
-									iter++;
-								}
-
-								idx++;
-								SafeArrayGetElement(V_ARRAY(&vtItems), &idx, &vtData);
-
-								_variant_t vtTemp(vtData, false);
-								if (vtData.vt != VT_NULL && vtData.vt != VT_EMPTY)
-								{
-									switch (m_pOwner->SPTYPETOPOLY[stype])
-									{
-									case POLY_STR:
-										vtTemp.ChangeType(VT_BSTR);
-										break;
-									case POLY_INT:
-										vtTemp.ChangeType(VT_I4);
-										break;
-									case POLY_FLOAT:
-										vtTemp.ChangeType(VT_R8);
-										break;
-									case POLY_UNKNOWN:
-										vtTemp.ChangeType(VT_BSTR);
-										break;
-									}
-								}
-								if (vtTemp.vt == VT_BSTR)
-								{
-									//tmpStr = (LPCSTR)_bstr_t(vtTemp.bstrVal);
-									//wstring tmpStr(vtTemp.bstrVal);
-									//m_pOwner->ShowMsgFmt(false, _T("%s:%s:BSTR:%s\n"), (LPCTSTR)strNumber, fieldname,tmpStr.c_str());
-									m_pOwner->m_pDatum->AppendRecVal((LPCWSTR)strNumber, fieldname, (LPCWSTR)_bstr_t(vtTemp.bstrVal), false);
-								}
-								else if (vtTemp.vt == VT_I4)
-								{
-									lVal = vtTemp.lVal;
-									//m_pOwner->ShowMsgFmt(false, _T("%s:%s:INT:%d\n"), (LPCTSTR)strNumber, fieldname, lVal);
-									m_pOwner->m_pDatum->AppendRecVal((LPCWSTR)strNumber, fieldname, lVal, false);
-								}
-								else if (vtTemp.vt == VT_R8)
-								{
-									dVal = vtTemp.dblVal;
-									//m_pOwner->ShowMsgFmt(false, _T("%s:%s:FLOAT:%f\n"), (LPCTSTR)strNumber, fieldname, dVal);
-									m_pOwner->m_pDatum->AppendRecVal((LPCWSTR)strNumber, fieldname, dVal, false);
-								}
-								else if (vtTemp.vt == VT_NULL)
-								{
-									//m_pOwner->ShowMsgFmt(false, _T("%s:%s:NULL:(null)\n"), (LPCTSTR)strNumber, fieldname);
-									m_pOwner->m_pDatum->AppendRecVal((LPCWSTR)strNumber, fieldname, _T(""), false);
 								}
 								else
 								{
-									sprintf_s(buf, _countof(buf), _T("%s:%s:VT_TYPE %d\n"), (LPCTSTR)strNumber, fieldname, vtData.vt);
-									//m_pOwner->ShowMsgString(false, buf);
-									m_pOwner->m_pDatum->AppendRecVal((LPCWSTR)strNumber, fieldname, _T(""), false);
+									mapIter = pTblKeys->m_impKeys.find(strNumber);
+									if (mapIter == pTblKeys->m_impKeys.end())
+									{
+										Implement_Options impl = IMPLEMENT_YES;
+										//#####do correct
+										m_pOwner->ShowMsgFmt(false, "DoQuery() Inserting key %s", (LPCTSTR)strNumber);
+										m_pOwner->m_keys.AddKey(tableid, strNumber, impl);
+										m_pOwner->m_pDatum->AppendRecVal(strNumber, _T(""), _T(""), true);
+										ImpKeyMapIter iter3 = pTblKeys->m_impKeys.find(strNumber);
+										if (iter3 != pTblKeys->m_impKeys.end())
+										{
+											pKeyStuff = iter3->second;
+											pKeyStuff->bReceived = true;
+										}
+										else
+										{
+											// bad
+										}
+									}
+									else
+									{
+										pKeyStuff = mapIter->second;
+										pKeyStuff->bReceived = true;
+									}
 								}
-								VariantClear(&vtData);
-								VariantClear(&vtTemp);
-								idx++;
+								break;
 							}
+							tmpIdx++;
 						}
-						//#####do correct
-						/*if (!bMoreData)
+						for (int i = 0; i < cnt; i++)
 						{
-						pTblKeys = m_pOwner->m_keys.GetTable(tableid);
-						if (pTblKeys)
-						{
-						mapIter = pTblKeys->m_impKeys.begin();
-						while (mapIter != pTblKeys->m_impKeys.end())
-						{
-						pKeyStuff = mapIter->second;
-						if (pKeyStuff->bReceived == false)
-						{
-						sprintf_s(buf, _countof(buf), _T("Removing expired key %s\n"), (LPCSTR)mapIter->second->keyval);
-						m_pOwner->ShowMsgString(false, buf);
-						m_pOwner->m_pDatum->RemoveRec(mapIter->second->keyval);
-						mapIter = pTblKeys->m_impKeys.erase(mapIter);
-						}
-						else
-						{
-						pKeyStuff->bReceived = false;
-						mapIter++;
-						}
-
-						}
-						}
-						}
-						*/
-						try
-						{
-							VARIANT impl2;		VariantInit(&impl2);
-							VARIANT info;		VariantInit(&info);
-							//#####do correct
-							//Acquire lock(this);
-
-							m_pOwner->m_pDatum->VariantOut(&impl2);
-							IPSDBHelper *helper = m_pOwner->GetPSDBHelper();
-							HRESULT hres;
-							int reqID = 0;
-
-							if (helper != NULL)
+							SafeArrayGetElement(V_ARRAY(&vtItems), &idx, &vtData);
+							fieldname = (LPCTSTR)_bstr_t(vtData.bstrVal);
+							fieldname = fieldname.MakeLower();
+							fieldname.Replace(_T("_"), _T(""));
+							fieldname.Replace(_T("x0020"), _T(""));
+							fieldname.Replace(_T("x002d"), _T(""));
+							VariantClear(&vtData);
+							string stype;
+							FIELD_MAP_ITER iter = m_pOwner->m_colFields.begin();
+							while (iter != m_pOwner->m_colFields.end())
 							{
-								try
+								if ((*iter).second->m_fieldName.compare(fieldname) == 0)
 								{
-									// new blob data
-									hres = helper->UpdateDataTblBlob(impl2);	//verify
-									m_pOwner->m_pDatum->ResetBlobs();
-
+									stype = (*iter).second->m_fieldType;
+									break;
 								}
-								catch (_com_error ex)
-								{
-									sprintf_s(buf, _countof(buf), _T("RetrieveListItems() failed to update blob. Error %s"), ex.ErrorMessage());
-									m_pOwner->ShowMsgString(true, buf);
-									//#####do correct
-									//m_ConnectionOpen = ERR_RECOVERY;
-								}
+								iter++;
 							}
 
-							VariantClear(&info);
-							VariantClear(&impl2);
-						}
-						catch (_com_error ex)
-						{
-							sprintf_s(buf, _countof(buf), _T("RetrieveListItems() exception %s"), ex.ErrorMessage());
-							//#####do correct
-							//m_pOwner->ShowMsgString(true, buf);
-							//m_ConnectionOpen = ERR_RECOVERY;
+							idx++;
+							SafeArrayGetElement(V_ARRAY(&vtItems), &idx, &vtData);
+
+							_variant_t vtTemp(vtData, false);
+							if (vtData.vt != VT_NULL && vtData.vt != VT_EMPTY)
+							{
+								switch (m_pOwner->SPTYPETOPOLY[stype])
+								{
+								case POLY_STR:
+									vtTemp.ChangeType(VT_BSTR);
+									break;
+								case POLY_INT:
+									vtTemp.ChangeType(VT_I4);
+									break;
+								case POLY_FLOAT:
+									vtTemp.ChangeType(VT_R8);
+									break;
+								case POLY_UNKNOWN:
+									vtTemp.ChangeType(VT_BSTR);
+									break;
+								}
+							}
+							if (vtTemp.vt == VT_BSTR)
+							{
+								//tmpStr = (LPCSTR)_bstr_t(vtTemp.bstrVal);
+								//wstring tmpStr(vtTemp.bstrVal);
+								//m_pOwner->ShowMsgFmt(false, _T("%s:%s:BSTR:%s\n"), (LPCTSTR)strNumber, fieldname,tmpStr.c_str());
+								m_pOwner->m_pDatum->AppendRecVal((LPCWSTR)strNumber, fieldname, (LPCWSTR)_bstr_t(vtTemp.bstrVal), false);
+							}
+							else if (vtTemp.vt == VT_I4)
+							{
+								lVal = vtTemp.lVal;
+								//m_pOwner->ShowMsgFmt(false, _T("%s:%s:INT:%d\n"), (LPCTSTR)strNumber, fieldname, lVal);
+								m_pOwner->m_pDatum->AppendRecVal((LPCWSTR)strNumber, fieldname, lVal, false);
+							}
+							else if (vtTemp.vt == VT_R8)
+							{
+								dVal = vtTemp.dblVal;
+								//m_pOwner->ShowMsgFmt(false, _T("%s:%s:FLOAT:%f\n"), (LPCTSTR)strNumber, fieldname, dVal);
+								m_pOwner->m_pDatum->AppendRecVal((LPCWSTR)strNumber, fieldname, dVal, false);
+							}
+							else if (vtTemp.vt == VT_NULL)
+							{
+								//m_pOwner->ShowMsgFmt(false, _T("%s:%s:NULL:(null)\n"), (LPCTSTR)strNumber, fieldname);
+								m_pOwner->m_pDatum->AppendRecVal((LPCWSTR)strNumber, fieldname, _T(""), false);
+							}
+							else
+							{
+								sprintf_s(buf, _countof(buf), _T("%s:%s:VT_TYPE %d\n"), (LPCTSTR)strNumber, fieldname, vtData.vt);
+								//m_pOwner->ShowMsgString(false, buf);
+								m_pOwner->m_pDatum->AppendRecVal((LPCWSTR)strNumber, fieldname, _T(""), false);
+							}
+							VariantClear(&vtData);
+							VariantClear(&vtTemp);
+							idx++;
 						}
 					}
 					//#####do correct
-					//else if (nres != 0)
-					//{
-					//	//m_pOwner->m_pSharePoint->GetLastError(&vtError);
-					//	sprintf_s(buf, _countof(buf), _T("DoQuery() - RetrieveListItems() timeout"));
-					//	m_pOwner->ShowMsgString(true, buf);
-					//	m_ConnectionOpen = ERR_RECOVERY;
-					//	//LogEvent(EVENTLOG_INFORMATION_TYPE,szBuf);
-					//}
-					VariantClear(&vtItems);
+					/*if (!bMoreData)
+					{
+					pTblKeys = m_pOwner->m_keys.GetTable(tableid);
+					if (pTblKeys)
+					{
+					mapIter = pTblKeys->m_impKeys.begin();
+					while (mapIter != pTblKeys->m_impKeys.end())
+					{
+					pKeyStuff = mapIter->second;
+					if (pKeyStuff->bReceived == false)
+					{
+					sprintf_s(buf, _countof(buf), _T("Removing expired key %s\n"), (LPCSTR)mapIter->second->keyval);
+					m_pOwner->ShowMsgString(false, buf);
+					m_pOwner->m_pDatum->RemoveRec(mapIter->second->keyval);
+					mapIter = pTblKeys->m_impKeys.erase(mapIter);
+					}
+					else
+					{
+					pKeyStuff->bReceived = false;
+					mapIter++;
+					}
 
+					}
+					}
+					}
+					*/
+					try
+					{
+						VARIANT impl2;		VariantInit(&impl2);
+						VARIANT info;		VariantInit(&info);
+						//#####do correct
+						//Acquire lock(this);
+
+						m_pOwner->m_pDatum->VariantOut(&impl2);
+						IPSDBHelper *helper = m_pOwner->GetPSDBHelper();
+						HRESULT hres;
+						int reqID = 0;
+
+						if (helper != NULL)
+						{
+							try
+							{
+								// new blob data
+								hres = helper->UpdateDataTblBlob(impl2);	//verify
+								m_pOwner->m_pDatum->ResetBlobs();
+
+							}
+							catch (_com_error ex)
+							{
+								sprintf_s(buf, _countof(buf), _T("RetrieveListItems() failed to update blob. Error %s"), ex.ErrorMessage());
+								m_pOwner->ShowMsgString(true, buf);
+								//#####do correct
+								//m_ConnectionOpen = ERR_RECOVERY;
+							}
+						}
+
+						VariantClear(&info);
+						VariantClear(&impl2);
+					}
+					catch (_com_error ex)
+					{
+						sprintf_s(buf, _countof(buf), _T("RetrieveListItems() exception %s"), ex.ErrorMessage());
+						//#####do correct
+						//m_pOwner->ShowMsgString(true, buf);
+						//m_ConnectionOpen = ERR_RECOVERY;
+					}
 				}
-				m_iDataCounter++;
+				//#####do correct
+				//else if (nres != 0)
+				//{
+				//	//m_pOwner->m_pSharePoint->GetLastError(&vtError);
+				//	sprintf_s(buf, _countof(buf), _T("DoQuery() - RetrieveListItems() timeout"));
+				//	m_pOwner->ShowMsgString(true, buf);
+				//	m_ConnectionOpen = ERR_RECOVERY;
+				//	//LogEvent(EVENTLOG_INFORMATION_TYPE,szBuf);
+				//}
+				VariantClear(&vtItems);
+
+			}
+			m_iDataCounter++;
 #ifdef _DEBUG
-				//OutputHeading(
-				//	"Dump all objects two memory checkpoints");
-				//_CrtMemDumpAllObjectsSince(NULL);
-				//OutputHeading("Perform a memory check for heap corruption.");
-				//_CrtCheckMemory();
+			//OutputHeading(
+			//	"Dump all objects two memory checkpoints");
+			//_CrtMemDumpAllObjectsSince(NULL);
+			//OutputHeading("Perform a memory check for heap corruption.");
+			//_CrtCheckMemory();
 #endif
-				return 0;
-				/*int nres = 0;
-				TCHAR buf[1000];
-				CTableKeys *pTblKeys = NULL;
-				CKeyStuff *pKeyStuff;
-				ImpKeyMapIter mapIter;
+			return 0;
 
-				VARIANT     vTimeStamp;	VariantInit(&vTimeStamp);
-				SYSTEMTIME  st;
-				GetSystemTime(&st);
-				vTimeStamp.vt = VT_DATE;
-				SystemTimeToVariantTime(&st, &vTimeStamp.date);
-
-
-				int tableid = 1;
-				VARIANT vtItems;
-				VARIANT vtData;
-				VARIANT vtError;
-				VariantInit(&vtItems);
-				VariantInit(&vtData);
-				VariantInit(&vtError);
-
-				_bstr_t strNumber(_T("1"));
-				RetrieveListItems(Url, &vtItems, nres);
-				return 0;*/
-
-			}
 		}
+	}
 
-		 __declspec(dllexport) int GetFastMoney(wchar_t* Url)
+	__declspec(dllexport) int GetFastMoney(wchar_t* Url)
+	{
+
+		FastMoneyClient ^ Service = FastMoneyCollector::Instance->Obj;
+		array< Item^ >^ local = Service->GetFastMoney(gcnew String(Url));
+
+		try
 		{
+			CDBConnector dbCon;
+			dbCon.InitConnect();
 
-			FastMoneyClient ^ Service = FastMoneyCollector::Instance->Obj;
-			array< Item^ >^ local = Service->GetFastMoney(gcnew String(Url));
-
-			try
+			for (size_t i = 0; i < local->Length; i++)
 			{
-				CDBConnector dbCon;
-				dbCon.InitConnect();
-
-				for (size_t i = 0; i < local->Length; i++)
-				{
-					dbCon.AddFastMoneyDataToDB(local[i]);
-				}
-
-
-				return 1;
-			}
-			catch (_com_error ex)
-			{
-				return 0;
+				dbCon.AddFastMoneyDataToDB(local[i]);
 			}
 
+
+			return 1;
 		}
+		catch (_com_error ex)
+		{
+			return 0;
+		}
+
+	}
 
 #ifdef __cplusplus
-	}
-#endif
 }
+#endif
