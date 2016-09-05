@@ -9,7 +9,7 @@
 #include <OAIdl.h>
 //#include "SharePointCollector.h"
 //#include "SharePointCollect.h"
-#include "FastMoneyCollect.h"
+//#include "FastMoneyCollect.h"
 
 
 
@@ -52,5 +52,5 @@ namespace FastMoneyCollector
 	};
 
 	int m_iDataCounter;
-	FastMoneyCollect *m_pOwner;
+	//FastMoneyCollect *m_pOwner;
 }
