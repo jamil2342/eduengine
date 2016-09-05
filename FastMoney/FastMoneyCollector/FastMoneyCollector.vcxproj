@@ -78,16 +78,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DBConnector.h" />
     <ClInclude Include="InboundCollector.h" />
     <ClInclude Include="MemFile.h" />
     <ClInclude Include="FastMoneyCollector.h" />
     <ClInclude Include="MsgBase.h" />
-    <ClInclude Include="Publisher2000Server.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DBConnector.cpp" />
     <ClCompile Include="FastMoneyCollector.cpp" />
   </ItemGroup>
   <ItemGroup>

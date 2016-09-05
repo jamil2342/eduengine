@@ -21,16 +21,10 @@
     <ClInclude Include="FastMoneyCollector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DBConnector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="InboundCollector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MsgBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Publisher2000Server.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
@@ -39,9 +33,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FastMoneyCollector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DBConnector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
