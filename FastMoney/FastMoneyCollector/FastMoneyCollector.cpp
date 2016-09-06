@@ -302,46 +302,46 @@ namespace FastMoneyCollector
 					}
 					}
 					*/
-					try
-					{
-						VARIANT impl2;		VariantInit(&impl2);
-						VARIANT info;		VariantInit(&info);
-						//#####do correct
-						//Acquire lock(this);
+					//try
+					//{
+					//	VARIANT impl2;		VariantInit(&impl2);
+					//	VARIANT info;		VariantInit(&info);
+					//	//#####do correct
+					//	//Acquire lock(this);
 
-						m_pOwner->m_pDatum->VariantOut(&impl2);
-						IPSDBHelper *helper = m_pOwner->GetPSDBHelper();
-						HRESULT hres;
-						int reqID = 0;
+					//	m_pOwner->m_pDatum->VariantOut(&impl2);
+					//	IPSDBHelper *helper = m_pOwner->GetPSDBHelper();
+					//	HRESULT hres;
+					//	int reqID = 0;
 
-						if (helper != NULL)
-						{
-							try
-							{
-								// new blob data
-								hres = helper->UpdateDataTblBlob(impl2);	//verify
-								m_pOwner->m_pDatum->ResetBlobs();
+					//	if (helper != NULL)
+					//	{
+					//		try
+					//		{
+					//			// new blob data
+					//			hres = helper->UpdateDataTblBlob(impl2);	//verify
+					//			m_pOwner->m_pDatum->ResetBlobs();
 
-							}
-							catch (_com_error ex)
-							{
-								sprintf_s(buf, _countof(buf), _T("RetrieveListItems() failed to update blob. Error %s"), ex.ErrorMessage());
-								m_pOwner->ShowMsgString(true, buf);
-								//#####do correct
-								//m_ConnectionOpen = ERR_RECOVERY;
-							}
-						}
+					//		}
+					//		catch (_com_error ex)
+					//		{
+					//			sprintf_s(buf, _countof(buf), _T("RetrieveListItems() failed to update blob. Error %s"), ex.ErrorMessage());
+					//			m_pOwner->ShowMsgString(true, buf);
+					//			//#####do correct
+					//			//m_ConnectionOpen = ERR_RECOVERY;
+					//		}
+					//	}
 
-						VariantClear(&info);
-						VariantClear(&impl2);
-					}
-					catch (_com_error ex)
-					{
-						sprintf_s(buf, _countof(buf), _T("RetrieveListItems() exception %s"), ex.ErrorMessage());
-						//#####do correct
-						//m_pOwner->ShowMsgString(true, buf);
-						//m_ConnectionOpen = ERR_RECOVERY;
-					}
+					//	VariantClear(&info);
+					//	VariantClear(&impl2);
+					//}
+					//catch (_com_error ex)
+					//{
+					//	sprintf_s(buf, _countof(buf), _T("RetrieveListItems() exception %s"), ex.ErrorMessage());
+					//	//#####do correct
+					//	//m_pOwner->ShowMsgString(true, buf);
+					//	//m_ConnectionOpen = ERR_RECOVERY;
+					//}
 				}
 				//#####do correct
 				//else if (nres != 0)
