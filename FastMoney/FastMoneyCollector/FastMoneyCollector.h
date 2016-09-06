@@ -48,7 +48,7 @@ namespace FastMoneyCollector
       /* Static reference to single ton instace.
          In order to use applications built in C.*/
 		static FastMoneyCollector ^ Instance = gcnew FastMoneyCollector();
-
+		 
 	};
 
 	int m_iDataCounter;

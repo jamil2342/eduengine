@@ -78,7 +78,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="FastMoneyCollect.h" />
     <ClInclude Include="InboundCollector.h" />
     <ClInclude Include="MemFile.h" />
     <ClInclude Include="FastMoneyCollector.h" />
