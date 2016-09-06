@@ -359,7 +359,7 @@ namespace FASTMONEY
         }
         public DataTable ConvertXmlNodeListToDataTable(XmlNodeList xmlTag)
         {
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable("FastMoney");
             int TempColumn = 0;
 
             foreach (XmlNode node in xmlTag.Item(0).ChildNodes)
