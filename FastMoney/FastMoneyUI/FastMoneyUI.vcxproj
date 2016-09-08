@@ -58,7 +58,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)FastMoneyCollector;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\SharePointCommon;..\..\..\PublisherCommon;..\..\..\..\Include;..\..\..\..\Include\Interfaces;..\..\..\..\Common Classes\Symon;..\SharePointCollector;%(AdditionalIncludeDirectories);$(SolutionDir)FastMoneyCollector;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -105,8 +105,8 @@
     <ResourceCompile Include="FastMoney.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FastMoneyCollector\FastMoneyCollector.vcxproj">
-      <Project>{81b02545-677d-4fd7-a489-76757ce8b458}</Project>
+    <ProjectReference Include="..\SharePointCollector\SharePointCollector.vcxproj">
+      <Project>{b3f717c3-171c-41a1-821f-bd38c1c2bd1f}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
