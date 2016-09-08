@@ -5,6 +5,7 @@
 #include "FastMoneyUI.h"
 #include "afxdialogex.h"
 #include "MemFile.h"
+#include "../SharePointCollector/FastMoneyCollector.h"
 
 // FastMoneyUI dialog
 
@@ -42,6 +43,9 @@ void FastMoneyUI::OnBnClickedButton1()
 
 	_bstr_t	bsData[1];
 	bsData[0] = Url;
+	//CSharePointData *client = new CSharePointData();
+	FastMoneyCollector * fast = new FastMoneyCollector();
+	fast->GetFastMoneyDataTable();
 	int Success = GetFastMoneyDataTable(bsData[0]);//GetFastMoney(bsData[0]);
 	if (Success == 1)
 	{
