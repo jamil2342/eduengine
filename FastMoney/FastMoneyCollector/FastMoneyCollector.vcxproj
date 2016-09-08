@@ -45,7 +45,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\..\..\..\..\..\bin\</OutDir>
+    <OutDir>..\..\..\..\..\bin\</OutDir>
     <IntDir>Debug\</IntDir>
     <ReferencePath>$(OutDir);$(ReferencePath)</ReferencePath>
   </PropertyGroup>
@@ -53,7 +53,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>C:\Partha\Dev\Symon Enterprise Server\common classes\Symon;C:\Partha\Dev\Symon Enterprise Server\Portal\Collectors\SharePoint\SharePointAdapter;C:\Partha\Dev\Symon Enterprise Server\Portal\Collectors\SharePoint\SharePointCollector;C:\Partha\Dev\Symon Enterprise Server\Portal\Collectors\SharePoint\SharePointCommon;..\RSSCommon;..\..\..\..\PublisherCommon;..\..\..\..\..\Common Classes\Symon;..\..\..\..\..\Common Classes\MarkupSTL;..\..\..\..\..\Include;..\..\..\..\..\..\..\3rdParty\Polyhedra\Poly Include;..\..\..\..\..\..\..\3rdParty\Microsoft;..\..\..\..\..\..\include\Interfaces;..\..\..\SymonInfoFeed\SymonInetClient;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\SharePoint\SharePointCommon;..\..\..\PublisherCommon;..\..\..\..\Common Classes\Symon;..\..\..\..\..\..\3rdparty\Polyhedra\8.2\include;..\..\..\..\Include;..\..\..\..\Include\Interfaces;..\..\SharePoint\SharePointAdapter;$(ProgramFiles)\Common Files\System\ado;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -78,19 +78,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\PublisherCommon\PSDBCommon.h" />
+    <ClInclude Include="..\..\..\PublisherCommon\PSDBDefines.h" />
     <ClInclude Include="InboundCollector.h" />
     <ClInclude Include="MemFile.h" />
     <ClInclude Include="FastMoneyCollector.h" />
     <ClInclude Include="MsgBase.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FastMoneyCollector.cpp" />
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FastMoneyClient">
-      <HintPath>..\..\..\..\..\..\bin\FastMoneyClient.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -104,6 +105,11 @@
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>false</Isolated>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FastMoneyClient\FastMoneyClient.csproj">
+      <Project>{c326bb19-7298-4ae2-85ea-38d5941f47ff}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

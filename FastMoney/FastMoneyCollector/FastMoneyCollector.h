@@ -53,4 +53,5 @@ namespace FastMoneyCollector
 
 	int m_iDataCounter;
 	//FastMoneyCollect *m_pOwner;
+
 }
