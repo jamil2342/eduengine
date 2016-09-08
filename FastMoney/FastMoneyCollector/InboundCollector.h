@@ -4,11 +4,11 @@
 
 
  /* File created by MIDL compiler version 8.00.0603 */
-/* at Tue Aug 09 07:50:19 2016
+/* at Thu Sep 08 04:10:00 2016
  */
-/* Compiler settings for ..\..\..\..\PublisherCommon\InboundCollector.idl:
+/* Compiler settings for ..\..\..\PublisherCommon\InboundCollector.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0603 
-    protocol : dce , ms_ext, c_ext, robust
+    protocol : dce , ms_ext, c_ext
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
          __declspec(uuid()), __declspec(selectany), __declspec(novtable)
@@ -21,7 +21,7 @@
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 475
+#define __REQUIRED_RPCNDR_H_VERSION__ 440
 #endif
 
 #include "rpc.h"
