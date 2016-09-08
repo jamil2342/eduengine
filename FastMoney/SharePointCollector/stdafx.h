@@ -64,6 +64,6 @@ using namespace std;
 #include "Sock.h"
 #pragma warning(disable:4786)
 
-#include "ISharePointAdapter.h"
+#include "../SharePointAdapter/ISharePointAdapter.h"
 
 extern void LogEvent(int logType,LPCSTR pFormat, ...);

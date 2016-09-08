@@ -30,6 +30,7 @@
     <UseOfAtl>false</UseOfAtl>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='VeraCode|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
