@@ -13,6 +13,7 @@
 //#include "SharePointUI_i.c"
 #include "SharePointInbound.h"
 #include "PubInboundUI_i.c"
+#include "FastMoneyUi.h"
 
 
 CComModule _Module;
@@ -51,6 +52,9 @@ CSharePointUIApp theApp;
 
 BOOL CSharePointUIApp::InitInstance()
 {
+	CFastMoneyUi dlg;
+	m_pMainWnd = &dlg;
+	INT_PTR nResponse = dlg.DoModal();
     _Module.Init(ObjectMap, m_hInstance, &LIBID_SharePointUILib);
     return CWinApp::InitInstance();
 }

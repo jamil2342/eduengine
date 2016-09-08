@@ -40,7 +40,7 @@
     <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
@@ -269,6 +269,7 @@
     <ClCompile Include="..\..\..\..\Common Classes\Symon\StringHelper.cpp" />
     <ClCompile Include="..\SharePointCollector\ErrorsAndDebug.cpp" />
     <ClCompile Include="DiagnosticDlg.cpp" />
+    <ClCompile Include="FastMoneyUi.cpp" />
     <ClCompile Include="Page1.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -353,6 +354,7 @@
     <ClInclude Include="..\..\..\..\Include\ObjectDefs.h" />
     <ClInclude Include="..\SharePointCommon\SharePointCommon.h" />
     <ClInclude Include="DiagnosticDlg.h" />
+    <ClInclude Include="FastMoneyUi.h" />
     <ClInclude Include="Page1.h" />
     <ClInclude Include="Page2.h" />
     <ClInclude Include="Page3.h" />

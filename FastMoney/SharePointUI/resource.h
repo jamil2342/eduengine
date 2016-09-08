@@ -25,6 +25,7 @@
 #define IDD_DIAGNOSTICS                 209
 #define IDC_TABLE_CNT                   210
 #define IDC_PASSWORD                    210
+#define IDD_DIALOG1                     210
 #define IDC_FIELD_CNT                   211
 #define IDC_FUAGAUTH                    211
 #define IDC_KEY_CNT                     212
@@ -53,14 +54,15 @@
 #define IDC_PROXYAUTHTYPE               236
 #define IDC_UTIMEOUT                    237
 #define IDC_EDIT3                       238
+#define IDC_BUTTON1                     239
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        206
+#define _APS_NEXT_RESOURCE_VALUE        211
 #define _APS_NEXT_COMMAND_VALUE         32768
-#define _APS_NEXT_CONTROL_VALUE         239
+#define _APS_NEXT_CONTROL_VALUE         240
 #define _APS_NEXT_SYMED_VALUE           103
 #endif
 #endif

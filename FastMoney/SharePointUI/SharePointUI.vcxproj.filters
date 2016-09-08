@@ -81,6 +81,9 @@
     <ClCompile Include="..\..\..\..\Common Classes\Symon\StringHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FastMoneyUi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Version.rc2">
@@ -160,6 +163,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Include\Interfaces\adohelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FastMoneyUi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
