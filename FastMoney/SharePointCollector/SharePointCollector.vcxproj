@@ -321,6 +321,7 @@
     <ClInclude Include="..\SharePointCommon\SharePointCommon.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="EventMgr.h" />
+    <ClInclude Include="FastMoneyCollector.h" />
     <ClInclude Include="PSDBListener.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SharePointCollect.h" />

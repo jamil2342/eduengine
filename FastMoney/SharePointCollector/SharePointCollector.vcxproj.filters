@@ -203,6 +203,9 @@
     <ClInclude Include="..\..\..\PublisherCommon\PublisherCommon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FastMoneyCollector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SharePointCollector.rc">
