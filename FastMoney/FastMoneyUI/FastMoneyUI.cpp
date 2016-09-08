@@ -33,13 +33,15 @@ END_MESSAGE_MAP()
 
 void FastMoneyUI::OnBnClickedButton1()
 {
+
+	//SetTimer(timer_id, 6000,nullptr);
+	//return;
 	SetDlgItemText(IDC_EDIT1, _T("http://podcast.cnbc.com/mmpodcast/fastmoney.xml"));
-	CString Url;
+	CString Url; 
 	GetDlgItemText(IDC_EDIT1, Url);
 
 	_bstr_t	bsData[1];
 	bsData[0] = Url;
-
 	int Success = GetFastMoneyDataTable(bsData[0]);//GetFastMoney(bsData[0]);
 	if (Success == 1)
 	{

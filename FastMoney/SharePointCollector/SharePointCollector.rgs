@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'SharePointCollector'
+		'SharePointCollector.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

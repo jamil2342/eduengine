@@ -1,0 +1,9 @@
+; SharePointCollector.def : Declares the module parameters.
+
+LIBRARY      "SharePointCollector.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

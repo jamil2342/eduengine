@@ -1,0 +1,27 @@
+HKCR
+{
+	SharePointCollector.SharePointCollect.1 = s 'SharePointCollect Class'
+	{
+		CLSID = s '{16B172C2-8025-4E85-A636-90EF654A115A}'
+	}
+	SharePointCollector.SharePointCollect = s 'SharePointCollect Class'
+	{
+		CLSID = s '{16B172C2-8025-4E85-A636-90EF654A115A}'
+		CurVer = s 'SharePointCollector.SharePointCollect.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {16B172C2-8025-4E85-A636-90EF654A115A} = s 'SharePointCollect Class'
+		{
+			ProgID = s 'SharePointCollector.SharePointCollect.1'
+			VersionIndependentProgID = s 'SharePointCollector.SharePointCollect'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{37F2B5D2-AD4B-41D9-B5F5-E72794D7DA0F}'
+		}
+	}
+}

@@ -1,0 +1,335 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""SharePointUI.tlb""\r\n"
+    "#include ""Version.rc2""\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_SharePointINBOUND   REGISTRY                "SharePointInbound.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_WIZARD1 DIALOGEX 0, 0, 261, 86
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add ShareView Collector"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Enter a descriptive name for your ShareView collector.  This will display on the collector for quick reference.",IDC_STATIC,39,26,109,34
+    EDITTEXT        IDC_NAME,152,36,107,12,ES_AUTOHSCROLL
+    ICON            IDI_SharePointICO,IDC_STATIC,8,15,21,20
+END
+
+IDD_WIZARD2 DIALOGEX 0, 0, 261, 86
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add ShareView Collector"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Enter a refresh rate in seconds.  This refresh rate is used in determining how often data is to be sent.",IDC_STATIC,40,14,133,27
+    ICON            IDI_SharePointICO,IDC_STATIC,8,15,20,20
+    EDITTEXT        IDC_FREQ,181,20,28,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    LTEXT           "seconds",IDC_STATIC,218,22,28,11
+    LTEXT           "Enter an update timeout. This is used to determine how long to wait before going into error recovery.",IDC_STATIC,40,51,133,27
+    EDITTEXT        IDC_UTIMEOUT,181,58,28,12,ES_AUTOHSCROLL,WS_EX_RIGHT
+    LTEXT           "seconds",IDC_STATIC,218,59,28,11
+END
+
+IDD_PAGE1 DIALOGEX 0, 0, 313, 285
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "ShareView Setup"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "&Collector Name:",IDC_STATIC,17,30,75,12
+    EDITTEXT        IDC_NAME,93,30,173,13,ES_AUTOHSCROLL
+    LTEXT           "&Refresh Rate (sec):",IDC_STATIC,17,53,75,12
+    EDITTEXT        IDC_FREQ,93,52,56,13,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Update &Timeout (sec):",IDC_STATIC,17,76,75,12
+    EDITTEXT        IDC_UTIMEOUT,93,74,56,13,ES_AUTOHSCROLL
+END
+
+IDD_PAGE2 DIALOGEX 0, 0, 313, 285
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Connection Information"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    LTEXT           "SharePoint &URL :",IDC_STATIC,20,16,90,9,0,WS_EX_RIGHT
+    EDITTEXT        IDC_URL,111,13,190,15,ES_AUTOHSCROLL
+    GROUPBOX        "Authentication",IDC_STATIC,16,38,282,80
+    CONTROL         "&Standard Authentication Modes",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,33,51,127,9
+    COMBOBOX        IDC_AUTHMODE,54,64,184,43,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "MS &Forefront Unified Access Gateway",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,33,84,240,9
+    COMBOBOX        IDC_FUAGAUTH,54,97,184,58,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "User &Name :",IDC_STATIC,20,129,90,9,0,WS_EX_RIGHT
+    EDITTEXT        IDC_USERNAME,111,126,190,15,ES_AUTOHSCROLL
+    LTEXT           "&Password :",IDC_STATIC,20,148,90,9,0,WS_EX_RIGHT
+    EDITTEXT        IDC_PASSWORD,111,145,190,15,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "Authorization &Type :",IDC_STATIC,20,166,90,9,0,WS_EX_RIGHT
+    COMBOBOX        IDC_AUTHTYPE,111,164,190,72,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Access the &internet using a Proxy &Server",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,31,195,168,10
+    LTEXT           "Pro&xy Url :",IDC_STATIC,7,216,81,10,0,WS_EX_RIGHT
+    EDITTEXT        IDC_PROXYURL,91,213,200,15,ES_AUTOHSCROLL
+    LTEXT           "Pr&oxy User :",IDC_STATIC,7,233,81,10,0,WS_EX_RIGHT
+    EDITTEXT        IDC_PROXYUSER,91,232,190,15,ES_AUTOHSCROLL
+    LTEXT           "Proxy Pass&word :",IDC_STATIC,7,251,81,10,0,WS_EX_RIGHT
+    EDITTEXT        IDC_PROXYPSWD,91,250,190,15,ES_PASSWORD | ES_AUTOHSCROLL
+    GROUPBOX        "Proxy Settings",IDC_STATIC,16,183,282,88
+END
+
+IDD_PAGE3 DIALOGEX 0, 0, 313, 285
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Select List"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    LISTBOX         IDC_LISTTITLES,15,62,277,205,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select the List to pull data from :",IDC_STATIC,15,51,119,8
+    PUSHBUTTON      "Retrieve List",IDC_GETLIST,210,26,84,16
+    LTEXT           "Currently Selected List Title :",IDC_STATIC,15,18,105,8
+    EDITTEXT        IDC_CURRENT,15,27,179,15,ES_AUTOHSCROLL | WS_DISABLED
+END
+
+IDD_PAGE4 DIALOGEX 0, 0, 313, 285
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Select View"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    LTEXT           "Select View :",IDC_STATIC,15,27,76,10
+    COMBOBOX        IDC_VIEWTITLE,96,25,199,129,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_FIELDS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,15,59,279,212
+    LTEXT           "Fields :",IDC_STATIC,15,49,76,10
+END
+
+IDD_DIAGNOSTICS DIALOGEX 0, 0, 313, 285
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Diagnostics"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Save",IDC_SAVEFILE,17,17,53,14
+    PUSHBUTTON      "Clear",IDC_CLEAR,97,17,53,14
+    LISTBOX         IDC_MESSAGELIST,18,42,276,139,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PROXY DIALOGEX 0, 0, 309, 285
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "Proxy Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Access the internet using a Proxy &Server",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,14,235,10
+    LTEXT           "Proxy &Url :",IDC_STATIC,20,29,45,9
+    EDITTEXT        IDC_PROXYURL,101,26,192,13,ES_AUTOHSCROLL
+    LTEXT           "User &Name :",IDC_STATIC,20,46,45,9
+    EDITTEXT        IDC_PROXYUSER,101,43,125,13,ES_AUTOHSCROLL
+    LTEXT           "&Password :",IDC_STATIC,20,63,45,9
+    EDITTEXT        IDC_PROXYPSWD,101,60,125,13,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "A&uthorization Type :",IDC_STATIC,20,80,66,9,NOT WS_VISIBLE
+    CONTROL         "&Bypass proxy server for local addresses",IDC_CHECK2,
+                    "Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,20,98,235,12
+    LTEXT           "&Do not use proxy server for addresses beginning with:",IDC_STATIC,20,114,254,9,NOT WS_VISIBLE
+    EDITTEXT        IDC_BYPASSLIST,20,123,271,33,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "Use semicolons (;) to seperate entries.",IDC_STATIC,20,158,169,9,NOT WS_VISIBLE
+    COMBOBOX        IDC_PROXYAUTHTYPE,101,77,125,44,CBS_DROPDOWN | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_SharePointICO       ICON                    "SharePoint.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_WIZARD1, DIALOG
+    BEGIN
+        RIGHTMARGIN, 259
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_WIZARD2, DIALOG
+    BEGIN
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_PAGE1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 278
+    END
+
+    IDD_PAGE2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 278
+    END
+
+    IDD_PAGE3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 278
+    END
+
+    IDD_PAGE4, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 278
+    END
+
+    IDD_DIAGNOSTICS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 278
+    END
+
+    IDD_PROXY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 278
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PAGE2 DLGINIT
+BEGIN
+    IDC_AUTHMODE, 0x403, 8, 0
+0x6544, 0x6166, 0x6c75, 0x0074, 
+    IDC_AUTHMODE, 0x403, 21, 0
+0x6f46, 0x6d72, 0x2073, 0x7541, 0x6874, 0x6e65, 0x6974, 0x6163, 0x6974, 
+0x6e6f, "\000" 
+    IDC_AUTHMODE, 0x403, 10, 0
+0x6e41, 0x6e6f, 0x6d79, 0x756f, 0x0073, 
+    IDC_FUAGAUTH, 0x403, 17, 0
+0x6341, 0x6974, 0x6576, 0x4420, 0x7269, 0x6365, 0x6f74, 0x7972, "\000" 
+    IDC_FUAGAUTH, 0x403, 18, 0
+0x7845, 0x7274, 0x6e61, 0x7465, 0x5020, 0x7261, 0x6e74, 0x7265, 0x0073, 
+
+    IDC_AUTHTYPE, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_AUTHTYPE, 0x403, 5, 0
+0x544e, 0x4d4c, "\000" 
+    IDC_AUTHTYPE, 0x403, 10, 0
+0x654e, 0x6f67, 0x6974, 0x7461, 0x0065, 
+    IDC_AUTHTYPE, 0x403, 7, 0
+0x6944, 0x6567, 0x7473, "\000" 
+    IDC_AUTHTYPE, 0x403, 9, 0
+0x654b, 0x6272, 0x7265, 0x736f, "\000" 
+    0
+END
+
+IDD_PROXY DLGINIT
+BEGIN
+    IDC_PROXYAUTHTYPE, 0x403, 6, 0
+0x6142, 0x6973, 0x0063, 
+    IDC_PROXYAUTHTYPE, 0x403, 5, 0
+0x544e, 0x4d4c, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_PROJNAME            "ShareViewUI"
+    IDS_IB_EXCEPTION        "Problems occurred accessing inbound server.  (%s)"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_EMPTY_DESC          "You must enter a description for this object before continuing."
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "SharePointUI.tlb"
+#include "Version.rc2"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

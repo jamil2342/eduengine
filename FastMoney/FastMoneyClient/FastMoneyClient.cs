@@ -361,9 +361,14 @@ namespace FASTMONEY
         {
             DataTable dt = new DataTable("FastMoney");
             int TempColumn = 0;
-
+            //int j = 0;
             foreach (XmlNode node in xmlTag.Item(0).ChildNodes)
             {
+                if (TempColumn==1)
+                {
+                    break;
+                }
+       
                 TempColumn++;
                 DataColumn dc = new DataColumn(node.Name, System.Type.GetType("System.String"));
                 if (dt.Columns.Contains(node.Name))

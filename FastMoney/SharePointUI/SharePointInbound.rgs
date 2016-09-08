@@ -1,0 +1,26 @@
+HKCR
+{
+	SharePointUI.SharePointInbound.1 = s 'SharePointInbound Class'
+	{
+		CLSID = s '{C365B72C-AC3B-454D-8FBA-9E0EB7C8605A}'
+	}
+	SharePointUI.SharePointInbound = s 'SharePointInbound Class'
+	{
+		CLSID = s '{C365B72C-AC3B-454D-8FBA-9E0EB7C8605A}'
+		CurVer = s 'SharePointUI.SharePointInbound.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C365B72C-AC3B-454D-8FBA-9E0EB7C8605A} = s 'SharePointInbound Class'
+		{
+			ProgID = s 'SharePointUI.SharePointInbound.1'
+			VersionIndependentProgID = s 'SharePointUI.SharePointInbound'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{1E93D86D-F46A-4B0A-9DB9-4FD18ED2AA04}'
+		}
+	}
+}
