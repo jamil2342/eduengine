@@ -46,7 +46,7 @@ void FastMoneyUI::OnBnClickedButton1()
 	//CSharePointData *client = new CSharePointData();
 	FastMoneyCollector * fast = new FastMoneyCollector();
 	fast->GetFastMoneyDataTable();
-	int Success = GetFastMoneyDataTable(bsData[0]);//GetFastMoney(bsData[0]);
+	//int Success = GetFastMoneyDataTable(bsData[0]);//GetFastMoney(bsData[0]);
 	if (Success == 1)
 	{
 		MessageBox(_T("Data Save Successfully."), _T("Success"),
