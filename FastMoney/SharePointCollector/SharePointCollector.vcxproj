@@ -30,7 +30,7 @@
     <UseOfAtl>false</UseOfAtl>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
-    <CLRSupport>true</CLRSupport>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='VeraCode|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -323,6 +323,7 @@
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="EventMgr.h" />
     <ClInclude Include="FastMoneyCollector.h" />
+    <ClInclude Include="MemFile.h" />
     <ClInclude Include="PSDBListener.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SharePointCollect.h" />
